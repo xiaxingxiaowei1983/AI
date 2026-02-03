@@ -1,0 +1,6 @@
+[skill]
+  skill_package = "htp-insight.skill"
+  name = "htp-insight"
+  description = "基于绘画心理学的智能分析系统，通过分析用户手绘作品（房-树-人），深度解读个体的心理状态、人格特质与成长潜力，生成双份报告（专业分析+客户洞察），并提供带智能配图的HTML输出及长图文分享格式"
+  project_name = "画一画，遇见自己"
+  project_description = "绘画心理分析与洞察报告生成"

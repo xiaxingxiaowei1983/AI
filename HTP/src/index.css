@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 温暖治愈的水彩风格色系 */
+    --background: 30 33% 97%;
+    --foreground: 340 20% 25%;
+    --card: 30 33% 97%;
+    --card-foreground: 340 20% 25%;
+    --popover: 30 33% 97%;
+    --popover-foreground: 340 20% 25%;
+    --primary: 340 60% 65%;
+    --primary-foreground: 30 33% 97%;
+    --secondary: 280 30% 90%;
+    --secondary-foreground: 340 20% 25%;
+    --muted: 30 20% 92%;
+    --muted-foreground: 340 10% 50%;
+    --accent: 45 80% 75%;
+    --accent-foreground: 340 20% 25%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 340 20% 85%;
+    --input: 340 20% 90%;
+    --ring: 340 60% 65%;
+    --radius: 1rem;
+    
+    /* 自定义温暖色系 */
+    --warm-pink: 340 80% 85%;
+    --warm-purple: 280 50% 85%;
+    --warm-gold: 45 90% 75%;
+    --warm-cream: 30 50% 96%;
+    --warm-rose: 350 60% 75%;
+    --soft-lavender: 260 50% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans SC', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif SC', serif;
+  }
+}
+
+@layer components {
+  /* 水彩背景效果 */
+  .watercolor-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(30 50% 96%) 0%,
+      hsl(340 40% 94%) 25%,
+      hsl(280 30% 92%) 50%,
+      hsl(30 50% 96%) 75%,
+      hsl(350 30% 93%) 100%
+    );
+    position: relative;
+  }
+  
+  .watercolor-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse at 10% 20%, hsl(340 60% 88% / 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, hsl(280 40% 88% / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsl(45 80% 90% / 0.2) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* 金色边框卡片 */
+  .gold-card {
+    @apply relative rounded-2xl;
+    background: linear-gradient(135deg, hsl(30 50% 98% / 0.95), hsl(30 50% 96% / 0.95));
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 
+      0 4px 20px hsl(340 30% 50% / 0.1),
+      inset 0 1px 0 hsl(0 0% 100% / 0.8);
+  }
+  
+  .gold-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(45 80% 70%), hsl(340 60% 75%), hsl(280 50% 70%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+  /* 渐变按钮 */
+  .gradient-btn {
+    @apply relative px-8 py-4 rounded-full font-medium text-white transition-all duration-300;
+    background: linear-gradient(135deg, hsl(340 70% 70%), hsl(280 50% 65%));
+    box-shadow: 
+      0 4px 15px hsl(340 50% 50% / 0.3),
+      inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  }
+  
+  .gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 6px 25px hsl(340 50% 50% / 0.4),
+      inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  }
+  
+  .gradient-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* 次要按钮 */
+  .secondary-btn {
+    @apply px-8 py-4 rounded-full font-medium transition-all duration-300;
+    background: linear-gradient(135deg, hsl(30 50% 96%), hsl(30 40% 92%));
+    border: 2px solid hsl(340 30% 80%);
+    color: hsl(340 30% 40%);
+  }
+  
+  .secondary-btn:hover {
+    background: linear-gradient(135deg, hsl(30 50% 98%), hsl(30 40% 94%));
+    border-color: hsl(340 50% 70%);
+    transform: translateY(-1px);
+  }
+  
+  /* 花朵装饰 */
+  .flower-decoration {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  
+  /* 打字机效果 */
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end);
+  }
+  
+  /* 淡入动画 */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .fade-in-delay-1 {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  
+  .fade-in-delay-2 {
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+  
+  .fade-in-delay-3 {
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+  
+  /* 浮动动画 */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* 脉冲光晕 */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  /* 加载旋转 */
+  .spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  
+  /* 画板工具按钮 */
+  .tool-btn {
+    @apply p-3 rounded-xl transition-all duration-200;
+    background: hsl(30 50% 96%);
+    border: 1px solid hsl(340 20% 85%);
+    color: hsl(340 20% 40%);
+  }
+  
+  .tool-btn:hover {
+    background: hsl(30 50% 98%);
+    border-color: hsl(340 40% 70%);
+    transform: scale(1.05);
+  }
+  
+  .tool-btn.active {
+    background: linear-gradient(135deg, hsl(340 70% 85%), hsl(280 50% 85%));
+    border-color: hsl(340 60% 65%);
+    color: hsl(340 40% 30%);
+  }
+  
+  /* 章节标题样式 */
+  .section-title {
+    @apply text-2xl font-semibold mb-4;
+    color: hsl(340 30% 35%);
+    font-family: 'Noto Serif SC', serif;
+  }
+  
+  /* 引导文字 */
+  .guide-text {
+    @apply text-base leading-relaxed;
+    color: hsl(340 15% 45%);
+    line-height: 1.8;
+  }
+  
+  /* 丝带装饰 */
+  .ribbon {
+    @apply inline-block px-6 py-2 rounded-full text-sm font-medium;
+    background: linear-gradient(135deg, hsl(340 50% 90%), hsl(280 40% 90%));
+    color: hsl(340 30% 40%);
+    border: 1px solid hsl(340 30% 80%);
+  }
+  
+  /* 水晶球效果 */
+  .crystal-ball {
+    @apply relative rounded-full;
+    background: radial-gradient(
+      circle at 30% 30%,
+      hsl(280 50% 92%) 0%,
+      hsl(340 40% 88%) 40%,
+      hsl(280 50% 82%) 100%
+    );
+    box-shadow: 
+      0 0 40px hsl(340 50% 70% / 0.3),
+      inset 0 0 30px hsl(0 0% 100% / 0.5),
+      inset -10px -10px 30px hsl(340 30% 60% / 0.2);
+  }
+  
+  /* 进度条 */
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden;
+    background: hsl(30 30% 90%);
+  }
+  
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, hsl(340 70% 70%), hsl(280 50% 65%));
+  }
+}
+
+@layer utilities {
+  /* 文字渐变 */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(340 50% 45%), hsl(280 40% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* 玻璃态效果 */
+  .glass {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(340 50% 70% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(340 50% 70% / 0.5);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(30 30% 94%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(340 30% 75%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(340 40% 65%);
+}
+
+/* 选择文字样式 */
+::selection {
+  background: hsl(340 50% 85%);
+  color: hsl(340 30% 30%);
+}

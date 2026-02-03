@@ -1,0 +1,44 @@
+:root { --neon-cyan: #00f3ff; --neon-purple: #bc13fe; --void-black: #050b14; --glass: rgba(30, 41, 59, 0.7); }
+body { font-family: 'Noto Sans SC', sans-serif; background-color: var(--void-black); color: white; overflow-x: hidden; }
+.orbitron { font-family: 'Orbitron', sans-serif; }
+.glass-panel { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+.fade-in { animation: fadeIn 0.5s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.code-rain { color: #00f3ff; font-family: monospace; text-shadow: 0 0 5px #00f3ff; }
+
+/* 扫描动画 */
+@keyframes scan-line {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+.animate-scan-line {
+    animation: scan-line 2s linear infinite;
+}
+
+/* 扫描框脉冲动画 */
+@keyframes scan-pulse {
+    0%, 100% { box-shadow: 0 0 20px 5px rgba(0, 243, 255, 0.2); }
+    50% { box-shadow: 0 0 30px 10px rgba(0, 243, 255, 0.5); }
+}
+.animate-scan {
+    animation: scan-pulse 2s ease-in-out infinite;
+}
+
+/* 电梯门打开动画 */
+@keyframes elevator-open {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+@keyframes elevator-open-right {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+/* 卡片飞入动画 */
+@keyframes card-fly-in {
+    0% { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-card-fly-in {
+    animation: card-fly-in 0.5s ease-out forwards;
+}

@@ -1,0 +1,75 @@
+大脑作弊器 v1.0 正式版备份清单
+备份时间: 2026-01-21 21:25:00
+备份目录: /tmp/brain-cheater-v1.0-backup
+
+=== 文件清单 ===
+
+1. 前端文件 (public/)
+   - admin.html (28,646 bytes)
+   - admin.js (32,424 bytes)
+   - app.js (46,726 bytes)
+   - auth.js (3,053 bytes)
+   - debug-upload.js (2,990 bytes)
+   - feature-brain-cheater.png (5,028,029 bytes)
+   - file.svg (391 bytes)
+   - globe.svg (1,035 bytes)
+   - index.html (85,100 bytes)
+   - logo.png (1,742,405 bytes)
+   - next.svg (1,375 bytes)
+   - scripts.js (18,986 bytes)
+   - vercel.svg (128 bytes)
+   - window.svg (385 bytes)
+
+2. 后端API (src/app/api/)
+   - admin/ - 管理员API
+   - auth/ - 认证API
+   - config/ - 配置API
+   - models/ - 模型API
+   - parse-wechat/ - 微信文章解析API
+   - process/ - 核心处理API
+   - proxy-wechat/ - 微信代理API
+   - scripts/ - 脚本管理API
+   - share/ - 分享API
+   - stats/ - 统计API
+   - test-llm/ - LLM测试API
+   - thinking-models/ - 思维模型API
+
+3. 配置文件
+   - .coze (274 bytes)
+   - package.json (3,063 bytes)
+   - tsconfig.json (670 bytes)
+
+4. 后端库 (src/)
+   - lib/ - 工具函数库
+
+=== 备份统计 ===
+总文件数: 15个核心文件 + API目录结构
+总大小: 约7.0MB（含图片资源）
+备份类型: 完整代码备份
+
+=== 关键版本信息 ===
+Next.js版本: 16
+TypeScript版本: 5
+Node.js版本: 24
+包管理器: pnpm
+
+=== 恢复命令 ===
+# 恢复前端
+cp -r public/* /workspace/projects/public/
+
+# 恢复后端API
+cp -r src/app/api/* /workspace/projects/src/app/api/
+cp -r src/lib/* /workspace/projects/src/lib/
+
+# 恢复配置
+cp package.json tsconfig.json .coze /workspace/projects/
+
+# 安装依赖
+cd /workspace/projects
+pnpm install
+
+=== 注意事项 ===
+1. 本备份不包含数据库数据，如需恢复数据库请单独备份PostgreSQL
+2. 环境变量需要单独配置
+3. S3对象存储配置需要重新设置
+4. 恢复前建议先创建当前版本的备份作为回退点

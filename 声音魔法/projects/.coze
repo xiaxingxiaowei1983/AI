@@ -1,0 +1,6 @@
+[skill]
+  skill_package = "voice-magician.skill"
+  name = "voice-magician"
+  description = "让文字会说话的神奇工具！支持16种语言的文本转语音，轻松生成高质量音频；适用于视频配音、有声读物、语音辅助等场景"
+  project_name = "声音魔法师"
+  project_description = "支持16种语言的文本转语音工具"

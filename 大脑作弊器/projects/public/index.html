@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>大脑作弊器 - 思维模型工具箱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-black': '#000000',
+                        'bg-dark': '#111111',
+                        'text-white': '#ffffff',
+                        'text-gray': '#999999',
+                        'text-light-gray': '#cccccc',
+                        'border-gray': '#333333',
+                        'error': '#ff4757',
+                        'success': '#2ed573'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.8s forwards;
+            }
+            .animate-slide-up {
+                animation: slideUp 0.8s forwards;
+            }
+            .animate-slide-in-right {
+                animation: slideInRight 0.8s forwards;
+            }
+            .animate-slide-in-left {
+                animation: slideInLeft 0.8s forwards;
+            }
+            .animate-zoom-in {
+                animation: zoomIn 0.8s forwards;
+            }
+            .animate-bounce-slow {
+                animation: bounceSlow 2s infinite;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .text-gradient {
+                background: linear-gradient(90deg, #ffffff 0%, #cccccc 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .backdrop-blur {
+                backdrop-filter: blur(8px);
+            }
+            .input-focus:focus {
+                border-color: #ffffff;
+                box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes bounceSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .mobile-text-lg {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            .mobile-text-xl {
+                font-size: 1.75rem;
+                line-height: 2.25rem;
+            }
+            .mobile-text-2xl {
+                font-size: 2rem;
+                line-height: 2.5rem;
+            }
+            .mobile-text-4xl {
+                font-size: 2.5rem;
+                line-height: 3rem;
+            }
+            .mobile-touch-btn {
+                min-height: 44px;
+                min-width: 44px;
+                touch-action: manipulation;
+            }
+            .mobile-section-padding {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* 触摸反馈 */
+        .touch-active {
+            transition: background-color 0.2s;
+        }
+        .touch-active:active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 防止双击缩放 */
+        * {
+            touch-action: manipulation;
+        }
+
+        /* iOS 安全区域适配 */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .safe-area-bottom {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</head>
+<body class="bg-bg-black text-text-white font-sans">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-black/80 backdrop-blur border-b border-border-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="大脑作弊器" class="h-12 w-auto">
+                    <span class="ml-2 text-xl font-light">大脑作弊器</span>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- 登录按钮 -->
+                    <button id="login-btn" class="hidden md:block px-6 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-sm">
+                        登录
+                    </button>
+
+                    <!-- 用户菜单 (登录后显示) -->
+                    <div id="user-menu" class="hidden relative">
+                        <button id="user-menu-btn" class="flex items-center space-x-2 px-4 py-2 border border-border-gray text-text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-sm">
+                            <i class="fa fa-user-circle text-xl"></i>
+                            <span id="user-name">用户</span>
+                            <i class="fa fa-chevron-down text-xs"></i>
+                        </button>
+
+                        <!-- 下拉菜单 -->
+                        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-bg-dark border border-border-gray rounded-lg shadow-xl z-50">
+                            <div class="p-4 border-b border-border-gray">
+                                <p class="text-sm text-text-gray">欢迎回来</p>
+                                <p id="dropdown-user-email" class="text-white font-medium"></p>
+                            </div>
+                            <div class="p-2">
+                                <a href="#scripts-section" class="flex items-center px-3 py-2 text-text-gray hover:text-white hover:bg-bg-black rounded-md transition-colors">
+                                    <i class="fa fa-history w-5"></i>
+                                    <span class="ml-2">历史脚本</span>
+                                </a>
+                                <a href="#favorites-section" class="flex items-center px-3 py-2 text-text-gray hover:text-white hover:bg-bg-black rounded-md transition-colors">
+                                    <i class="fa fa-star w-5"></i>
+                                    <span class="ml-2">收藏夹</span>
+                                </a>
+                                <a href="#stats-section" class="flex items-center px-3 py-2 text-text-gray hover:text-white hover:bg-bg-black rounded-md transition-colors">
+                                    <i class="fa fa-bar-chart w-5"></i>
+                                    <span class="ml-2">数据统计</span>
+                                </a>
+                                <a href="/admin" id="admin-link" class="hidden flex items-center px-3 py-2 text-text-gray hover:text-white hover:bg-bg-black rounded-md transition-colors">
+                                    <i class="fa fa-cog w-5"></i>
+                                    <span class="ml-2">管理后台</span>
+                                </a>
+                                <div class="border-t border-border-gray my-1"></div>
+                                <button id="logout-btn" class="flex items-center w-full px-3 py-2 text-text-gray hover:text-white hover:bg-bg-black rounded-md transition-colors">
+                                    <i class="fa fa-sign-out w-5"></i>
+                                    <span class="ml-2">退出登录</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="mobile-touch-btn text-text-gray hover:text-text-white p-2">
+                            <i class="fa fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-bg-dark border-t border-border-gray safe-area-bottom">
+            <div class="px-4 py-3 space-y-1">
+                <a href="#features" class="mobile-touch-btn touch-active block py-3 px-4 text-text-gray hover:text-text-white transition-colors duration-300 rounded-lg">
+                    <i class="fa fa-star w-5 inline-block"></i>
+                    <span class="ml-2">功能</span>
+                </a>
+                <a href="#models" class="mobile-touch-btn touch-active block py-3 px-4 text-text-gray hover:text-text-white transition-colors duration-300 rounded-lg">
+                    <i class="fa fa-lightbulb-o w-5 inline-block"></i>
+                    <span class="ml-2">思维模型</span>
+                </a>
+                <a href="#script-generator" class="mobile-touch-btn touch-active block py-3 px-4 text-text-gray hover:text-text-white transition-colors duration-300 rounded-lg">
+                    <i class="fa fa-cogs w-5 inline-block"></i>
+                    <span class="ml-2">大脑作弊器</span>
+                </a>
+                <a href="#about" class="mobile-touch-btn touch-active block py-3 px-4 text-text-gray hover:text-text-white transition-colors duration-300 rounded-lg">
+                    <i class="fa fa-info-circle w-5 inline-block"></i>
+                    <span class="ml-2">关于</span>
+                </a>
+                <div class="border-t border-border-gray my-3"></div>
+                <button id="mobile-login-btn" class="mobile-touch-btn touch-active w-full py-3 px-4 text-text-gray hover:text-text-white transition-colors duration-300 text-left rounded-lg border border-border-gray">
+                    <i class="fa fa-sign-in w-5 inline-block"></i>
+                    <span class="ml-2">登录</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏区域 -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 mobile-section-padding">
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="mobile-text-4xl md:text-5xl lg:text-7xl font-light mb-6">
+                    全球顶级智慧
+                    <span class="block mt-2">×</span>
+                    <span class="block mt-2">你的私人认知军火库</span>
+                </h1>
+                <p class="text-lg md:text-xl lg:text-2xl text-text-gray mb-8 max-w-3xl mx-auto px-4">
+                    用100个可拆解的思维模型，帮你打破死局
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                    <a href="#script-generator" class="mobile-touch-btn px-8 py-3 bg-white text-black hover:bg-gray-200 transition-colors duration-300 rounded-sm">
+                        立即开始
+                    </a>
+                    <a href="#features" class="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-sm">
+                        了解更多
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <a href="#features" class="text-text-gray hover:text-text-white">
+                <i class="fa fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 功能特点 -->
+    <section id="features" class="py-20 bg-bg-black">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-16 text-center">核心功能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- 认知脚本生成引擎 -->
+                <div class="flex flex-col" data-scroll-reveal>
+                    <h3 class="text-2xl font-light mb-4">大脑作弊器</h3>
+                    <p class="text-text-gray mb-6">
+                        帮你把厚书读薄，把世界看透。<br>
+                        不读废话，直取真经 · 将60分钟阅读压缩至5分钟，自动提取内容精华。
+                    </p>
+                    <ul class="space-y-2 text-text-gray">
+                        <li class="flex items-center">
+                            <i class="fa fa-check mr-2 text-white"></i>
+                            <span>全能输入：支持文件、链接、截图</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check mr-2 text-white"></i>
+                            <span>AI深度推演：名道法术器例模型</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check mr-2 text-white"></i>
+                            <span>一键导出：复制、下载脚本</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 思维模型库 -->
+                <div class="flex flex-col" data-scroll-reveal data-delay="200">
+                    <h3 class="text-2xl font-light mb-4">思维模型库</h3>
+                    <p class="text-text-gray mb-6">
+                        精选100个来自各领域的顶级思维模型，帮助你从不同角度理解和解决问题。
+                    </p>
+                    <ul class="space-y-2 text-text-gray">
+                        <li class="flex items-center">
+                            <i class="fa fa-check mr-2 text-white"></i>
+                            <span>跨学科思维模型集合</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check mr-2 text-white"></i>
+                            <span>详细解释与应用场景</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check mr-2 text-white"></i>
+                            <span>模型间的关联与组合使用</span>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 大脑作弊器模块-->
+    <section id="script-generator" class="py-20 bg-bg-dark mobile-section-padding">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="mobile-text-2xl md:text-3xl font-light mb-4 text-center">大脑作弊器</h2>
+            <p class="text-lg text-text-gray mb-16 text-center max-w-2xl mx-auto">
+                帮你把厚书读薄，把世界看透。<br>
+                不读废话，直取真经 · 将60分钟阅读压缩至5分钟
+            </p>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 输入类型选择 -->
+                <div class="flex gap-2 justify-center mb-8" id="input-type-selector">
+                    <button class="input-type-btn px-6 py-3 border border-white bg-white text-black hover:bg-gray-200 transition-colors duration-300 rounded-sm active" data-type="file">
+                        <i class="fa fa-file-text mr-2"></i>文件
+                    </button>
+                    <button class="input-type-btn px-6 py-3 border border-border-gray text-text-gray hover:border-white hover:text-text-white transition-colors duration-300 rounded-sm" data-type="url">
+                        <i class="fa fa-link mr-2"></i>链接
+                    </button>
+                    <button class="input-type-btn px-6 py-3 border border-border-gray text-text-gray hover:border-white hover:text-text-white transition-colors duration-300 rounded-sm" data-type="image">
+                        <i class="fa fa-image mr-2"></i>截图
+                    </button>
+                </div>
+                
+                <!-- 文件输入区 -->
+                <div id="file-input-area" class="mb-8">
+                    <!-- 扫描版OCR模式开关 -->
+                    <div class="mb-4 p-4 bg-bg-black border border-border-gray rounded">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" id="scanned-pdf-mode" class="w-4 h-4 mr-3 accent-white">
+                            <div class="flex-1">
+                                <p class="text-white text-sm font-semibold">扫描版书籍（自动OCR识别）</p>
+                                <p class="text-text-gray text-xs mt-1">适用于扫描型PDF，系统会自动分片并进行OCR识别，无需手动截图</p>
+                                <p class="text-yellow-500 text-xs mt-1">⚠️ 仅支持≤10MB的PDF，大文件请使用普通上传模式</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="border-2 border-dashed border-border-gray rounded-lg p-16 text-center hover:border-white transition-colors duration-300 cursor-pointer" id="drop-zone">
+                        <i class="fa fa-upload text-6xl text-text-gray mb-6"></i>
+                        <p class="text-xl text-text-gray mb-4">拖拽文件到这里</p>
+                        <p class="text-text-gray">或点击选择文件</p>
+                        <p class="text-sm text-text-gray mt-4">支持 PDF、EPUB、TXT、DOCX、XLSX、PPTX 格式，最多上传 5 个文件，单文件最大 150MB</p>
+                        <input type="file" id="file-input" class="hidden" accept=".pdf,.epub,.txt,.docx,.xlsx,.pptx" multiple>
+                    </div>
+                    <div id="selected-file-info" class="hidden mt-4 p-4 bg-bg-black border border-border-gray rounded">
+                        <div class="flex items-center justify-between mb-3">
+                            <p class="text-sm text-text-gray" id="file-count">已选择 0 个文件</p>
+                            <button id="clear-files" class="text-sm text-text-gray hover:text-white transition-colors duration-300">
+                                <i class="fa fa-times"></i> 清除全部
+                            </button>
+                        </div>
+                        <div id="file-list" class="space-y-2">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- URL输入区 -->
+                <div id="url-input-area" class="mb-8 hidden">
+                    <label class="block text-lg mb-4">粘贴网页链接</label>
+                    <input type="url" id="url-input" class="w-full bg-bg-black border border-border-gray p-4 text-text-white input-focus transition-all-300 rounded-sm" placeholder="https://example.com">
+                </div>
+                
+                <!-- 图片输入区 -->
+                <div id="image-input-area" class="mb-8 hidden">
+                    <div class="border-2 border-dashed border-border-gray rounded-lg p-16 text-center hover:border-white transition-colors duration-300 cursor-pointer" id="image-drop-zone">
+                        <i class="fa fa-image text-6xl text-text-gray mb-6"></i>
+                        <p class="text-xl text-text-gray mb-4">拖拽图片到这里</p>
+                        <p class="text-text-gray">或点击选择图片</p>
+                        <p class="text-sm text-text-gray mt-4">支持 JPG、PNG、WEBP 格式，最多上传 100 张图片（适用于扫描版书籍）</p>
+                        <div class="mt-4 p-4 bg-bg-dark border border-border-gray rounded-lg">
+                            <p class="text-xs text-text-gray mb-2">
+                                <i class="fa fa-info-circle mr-1"></i>
+                                扫描版书籍处理提示：
+                            </p>
+                            <p class="text-xs text-text-gray">
+                                • 将扫描版PDF分批截图（每批50-100张）<br>
+                                • 系统自动OCR识别文字并生成认知脚本<br>
+                                • <a href="SCANNED_BOOK_GUIDE.md" target="_blank" class="text-white hover:underline">查看详细指南</a>
+                            </p>
+                        </div>
+                        <input type="file" id="image-input" class="hidden" accept="image/*" multiple>
+                    </div>
+                    <div id="selected-image-preview" class="hidden mt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <p class="text-sm text-text-gray" id="image-count">已选择 0 张图片</p>
+                            <button id="clear-images" class="text-sm text-text-gray hover:text-white transition-colors duration-300">
+                                <i class="fa fa-times"></i> 清除全部
+                            </button>
+                        </div>
+                        <div id="image-preview-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 生成按钮 -->
+                <div class="text-center">
+                    <button id="generate-btn" class="px-12 py-4 bg-white text-black hover:bg-gray-200 transition-colors duration-300 rounded-sm text-lg">
+                        生成认知
+                    </button>
+                </div>
+
+                <!-- 页脚链接 -->
+                <div class="mt-8 pt-8 border-t border-border-gray text-center">
+                    <a href="SCANNED_BOOK_GUIDE.md" target="_blank" class="text-sm text-text-gray hover:text-white transition-colors duration-300 inline-flex items-center">
+                        <i class="fa fa-book mr-2"></i>
+                        扫描版书籍处理指南（支持100张图片批量OCR）
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 处理中提示 -->
+    <section id="processing-section" class="py-20 bg-bg-dark hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- 版本信息 -->
+                <div class="mb-4">
+                    <span class="inline-block px-3 py-1 bg-blue-900/30 text-blue-400 text-xs rounded-full border border-blue-800">
+                        v1.5 增强版
+                    </span>
+                    <span class="ml-2 text-xs text-text-gray">
+                        ✨ 批量上传 | 📄 Office支持 | 🔍 扫描PDF OCR | 📥 多格式导出 | 🚀 150MB
+                    </span>
+                </div>
+
+                <h2 class="text-2xl font-light mb-4">正在深度解析...</h2>
+                <p class="text-text-gray mb-8" id="progress-subtitle">底层逻辑推演中，预计需要 30-60 秒</p>
+
+                <!-- 圆环进度条 -->
+                <div class="relative w-48 h-48 mx-auto mb-8">
+                    <svg class="w-48 h-48 transform -rotate-90">
+                        <circle cx="96" cy="96" r="88" stroke="#333" stroke-width="8" fill="none" />
+                        <circle id="progress-circle" cx="96" cy="96" r="88" stroke="white" stroke-width="8" fill="none"
+                            stroke-dasharray="552.92" stroke-dashoffset="552.92" stroke-linecap="round"
+                            class="transition-all duration-300" />
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span id="progress-percent" class="text-4xl font-light">0%</span>
+                        <span id="progress-status" class="text-sm text-text-gray mt-2">准备中</span>
+                    </div>
+                </div>
+
+                <!-- 上传统计信息 -->
+                <div id="upload-stats" class="grid grid-cols-3 gap-4 mb-6 hidden">
+                    <div class="border border-border-gray p-4 rounded-sm">
+                        <p class="text-xs text-text-gray mb-1">上传速度</p>
+                        <p id="upload-speed" class="text-lg font-semibold">0 MB/s</p>
+                    </div>
+                    <div class="border border-border-gray p-4 rounded-sm">
+                        <p class="text-xs text-text-gray mb-1">剩余时间</p>
+                        <p id="remaining-time" class="text-lg font-semibold">--:--</p>
+                    </div>
+                    <div class="border border-border-gray p-4 rounded-sm">
+                        <p class="text-xs text-text-gray mb-1">已上传</p>
+                        <p id="uploaded-size" class="text-lg font-semibold">0 MB</p>
+                    </div>
+                </div>
+
+                <!-- 分片可视化 -->
+                <div id="chunks-visualization" class="mb-6 hidden">
+                    <p class="text-sm text-text-gray mb-2">分片上传进度</p>
+                    <div id="chunks-container" class="flex flex-wrap gap-1 justify-center max-h-24 overflow-y-auto">
+                        <!-- 动态生成分片格子 -->
+                    </div>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div id="upload-controls" class="flex justify-center gap-4 mb-4 hidden">
+                    <button id="pause-btn" class="px-6 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-sm">
+                        <i class="fa fa-pause mr-2"></i>暂停
+                    </button>
+                    <button id="resume-btn" class="px-6 py-2 bg-white text-black hover:bg-gray-200 transition-colors duration-300 rounded-sm hidden">
+                        <i class="fa fa-play mr-2"></i>继续
+                    </button>
+                    <button id="cancel-btn" class="px-6 py-2 border border-border-gray text-text-gray hover:border-white hover:text-text-white transition-colors duration-300 rounded-sm">
+                        <i class="fa fa-times mr-2"></i>取消
+                    </button>
+                </div>
+
+                <!-- 传统进度条（保留作为备用） -->
+                <div class="w-full bg-bg-black border border-border-gray rounded-full h-2 mb-4">
+                    <div id="progress-bar" class="bg-white h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-text-gray" id="progress-text">已完成 0%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 结果展示区 -->
+    <section id="result-section" class="py-20 bg-bg-black hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-16 text-center">你的认知脚本</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 名 -->
+                <div class="border border-border-gray p-8 mb-8" data-scroll-reveal>
+                    <h3 class="text-xl font-light mb-6 pb-2 border-b border-border-gray flex items-center">
+                        <i class="fa fa-book mr-3 text-purple-500"></i>
+                        <span>名 · 核心概念</span>
+                    </h3>
+                    <div id="result-name" class="text-text-gray">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+                
+                <!-- 道 -->
+                <div class="border border-border-gray p-8 mb-8" data-scroll-reveal data-delay="100">
+                    <h3 class="text-xl font-light mb-6 pb-2 border-b border-border-gray flex items-center">
+                        <i class="fa fa-lightbulb-o mr-3 text-amber-500"></i>
+                        <span>道 · 底层逻辑</span>
+                    </h3>
+                    <div id="result-dao" class="text-text-gray">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+                
+                <!-- 法 -->
+                <div class="border border-border-gray p-8 mb-8" data-scroll-reveal data-delay="200">
+                    <h3 class="text-xl font-light mb-6 pb-2 border-b border-border-gray flex items-center">
+                        <i class="fa fa-layer-group mr-3 text-blue-500"></i>
+                        <span>法 · 执行框架</span>
+                    </h3>
+                    <div id="result-fa" class="text-text-gray">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+                
+                <!-- 术 -->
+                <div class="border border-border-gray p-8 mb-8" data-scroll-reveal data-delay="300">
+                    <h3 class="text-xl font-light mb-6 pb-2 border-b border-border-gray flex items-center">
+                        <i class="fa fa-bullseye mr-3 text-green-500"></i>
+                        <span>术 · 具体方法</span>
+                    </h3>
+                    <div id="result-shu" class="text-text-gray">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+                
+                <!-- 器 -->
+                <div class="border border-border-gray p-8 mb-8" data-scroll-reveal data-delay="400">
+                    <h3 class="text-xl font-light mb-6 pb-2 border-b border-border-gray flex items-center">
+                        <i class="fa fa-wrench mr-3 text-gray-500"></i>
+                        <span>器 · 工具资源</span>
+                    </h3>
+                    <div id="result-qi" class="text-text-gray">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+                
+                <!-- 例 -->
+                <div class="border border-border-gray p-8 mb-8" data-scroll-reveal data-delay="500">
+                    <h3 class="text-xl font-light mb-6 pb-2 border-b border-border-gray flex items-center">
+                        <i class="fa fa-star mr-3 text-rose-500"></i>
+                        <span>例 · 实战案例</span>
+                    </h3>
+                    <div id="result-li" class="text-text-gray">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+                
+                <!-- 操作按钮 -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button id="copy-btn" class="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-sm">
+                        <i class="fa fa-copy mr-2"></i>复制
+                    </button>
+                    <div class="relative">
+                        <button id="download-btn" class="px-8 py-3 bg-white text-black hover:bg-gray-200 transition-colors duration-300 rounded-sm">
+                            <i class="fa fa-download mr-2"></i>下载
+                            <i class="fa fa-chevron-down ml-2"></i>
+                        </button>
+                        <!-- 导出下拉菜单 -->
+                        <div id="export-dropdown" class="hidden absolute top-full left-0 mt-2 w-full bg-bg-black border border-border-gray rounded-sm overflow-hidden z-10">
+                            <button class="export-option w-full px-4 py-3 text-left text-text-white hover:bg-bg-dark-gray transition-colors duration-200" data-format="pdf">
+                                <i class="fa fa-file-pdf-o mr-2"></i>导出为 PDF
+                            </button>
+                            <button class="export-option w-full px-4 py-3 text-left text-text-white hover:bg-bg-dark-gray transition-colors duration-200" data-format="word">
+                                <i class="fa fa-file-word-o mr-2"></i>导出为 Word
+                            </button>
+                            <button class="export-option w-full px-4 py-3 text-left text-text-white hover:bg-bg-dark-gray transition-colors duration-200" data-format="markdown">
+                                <i class="fa fa-file-code-o mr-2"></i>导出为 Markdown
+                            </button>
+                        </div>
+                    </div>
+                    <button id="regenerate-btn" class="px-8 py-3 border border-border-gray text-text-gray hover:border-white hover:text-text-white transition-colors duration-300 rounded-sm">
+                        <i class="fa fa-refresh mr-2"></i>重新投喂
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 脚本管理 -->
+    <section id="scripts-section" class="py-20 bg-bg-dark hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-4 text-center">历史脚本</h2>
+            <p class="text-lg text-text-gray mb-8 text-center max-w-2xl mx-auto">
+                查看您生成的所有认知脚本
+            </p>
+
+            <!-- 标签切换 -->
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-sm bg-bg-black border border-border-gray">
+                    <button id="scripts-history-tab" class="px-6 py-2 text-sm bg-white text-black">
+                        历史记录
+                    </button>
+                    <button id="scripts-favorites-tab" class="px-6 py-2 text-sm text-text-gray hover:text-text-white">
+                        我的收藏
+                    </button>
+                </div>
+            </div>
+
+            <!-- 脚本列表 -->
+            <div id="scripts-list" class="max-w-4xl mx-auto space-y-4">
+                <!-- 动态生成内容 -->
+            </div>
+
+            <!-- 空状态 -->
+            <div id="scripts-empty" class="hidden text-center py-16">
+                <i class="fa fa-file-text-o text-6xl text-text-gray mb-4"></i>
+                <p class="text-text-gray">暂无脚本记录</p>
+                <a href="#script-generator" class="inline-block mt-4 px-8 py-3 bg-white text-black hover:bg-gray-200 transition-colors duration-300 rounded-sm">
+                    开始生成
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 收藏夹 -->
+    <section id="favorites-section" class="py-20 bg-bg-black hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-4 text-center">收藏夹</h2>
+            <p class="text-lg text-text-gray mb-8 text-center max-w-2xl mx-auto">
+                您收藏的脚本
+            </p>
+
+            <!-- 收藏列表 -->
+            <div id="favorites-list" class="max-w-4xl mx-auto space-y-4">
+                <!-- 动态生成内容 -->
+            </div>
+
+            <!-- 空状态 -->
+            <div id="favorites-empty" class="hidden text-center py-16">
+                <i class="fa fa-star-o text-6xl text-text-gray mb-4"></i>
+                <p class="text-text-gray">暂无收藏脚本</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section id="stats-section" class="py-20 bg-bg-dark hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-16 text-center">数据统计</h2>
+
+            <div class="max-w-5xl mx-auto">
+                <!-- 总体统计 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-bg-black border border-border-gray p-6 rounded-lg text-center">
+                        <div class="text-4xl font-light text-white mb-2" id="stat-total-scripts">0</div>
+                        <div class="text-sm text-text-gray">总脚本数</div>
+                    </div>
+                    <div class="bg-bg-black border border-border-gray p-6 rounded-lg text-center">
+                        <div class="text-4xl font-light text-white mb-2" id="stat-favorites">0</div>
+                        <div class="text-sm text-text-gray">收藏数</div>
+                    </div>
+                    <div class="bg-bg-black border border-border-gray p-6 rounded-lg text-center">
+                        <div class="text-4xl font-light text-white mb-2" id="stat-shares">0</div>
+                        <div class="text-sm text-text-gray">分享数</div>
+                    </div>
+                    <div class="bg-bg-black border border-border-gray p-6 rounded-lg text-center">
+                        <div class="text-4xl font-light text-white mb-2" id="stat-views">0</div>
+                        <div class="text-sm text-text-gray">浏览数</div>
+                    </div>
+                </div>
+
+                <!-- 热门思维模型 -->
+                <div class="bg-bg-black border border-border-gray p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-light mb-6">热门思维模型</h3>
+                    <div id="top-models-list" class="space-y-3">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+
+                <!-- 最近活动 -->
+                <div class="bg-bg-black border border-border-gray p-6 rounded-lg">
+                    <h3 class="text-xl font-light mb-6">最近活动</h3>
+                    <div id="recent-activity-list" class="space-y-3">
+                        <!-- 动态生成内容 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 思维模型库 -->
+    <section id="models" class="py-20 bg-bg-black">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-16 text-center">思维模型库</h2>
+            
+            <!-- 模型分类标签 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="model-tag px-5 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 active text-sm" data-category="all">
+                    全部
+                </button>
+                <button class="model-tag px-5 py-2 border border-border-gray text-text-gray hover:bg-white hover:text-black transition-colors duration-300 text-sm" data-category="innovation">
+                    🌈 创新&战略
+                </button>
+                <button class="model-tag px-5 py-2 border border-border-gray text-text-gray hover:bg-white hover:text-black transition-colors duration-300 text-sm" data-category="product">
+                    🎨 产品&设计
+                </button>
+                <button class="model-tag px-5 py-2 border border-border-gray text-text-gray hover:bg-white hover:text-black transition-colors duration-300 text-sm" data-category="user">
+                    👤 用户&需求
+                </button>
+                <button class="model-tag px-5 py-2 border border-border-gray text-text-gray hover:bg-white hover:text-black transition-colors duration-300 text-sm" data-category="growth">
+                    📈 增长&运营
+                </button>
+                <button class="model-tag px-5 py-2 border border-border-gray text-text-gray hover:bg-white hover:text-black transition-colors duration-300 text-sm" data-category="thinking">
+                    💡 思维方式
+                </button>
+                <button class="model-tag px-5 py-2 border border-border-gray text-text-gray hover:bg-white hover:text-black transition-colors duration-300 text-sm" data-category="analysis">
+                    🔍 分析方法
+                </button>
+            </div>
+            
+            <!-- 模型卡片 -->
+            <div id="models-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 🌈 创新 & 战略类 -->
+                
+                <!-- 熊彼特 · 创造性破坏 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">熊彼特 · 创造性破坏</h3>
+                    <p class="text-text-gray text-xs mb-3">新的技术和模式一定会摧毁旧的产业，这是经济进步的力量。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">判断行业消亡与机会</span>
+                    </div>
+                </div>
+                
+                <!-- 德鲁克 · 系统性废弃 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">德鲁克 · 系统性废弃</h3>
+                    <p class="text-text-gray text-xs mb-3">主动清理掉没价值的旧业务，才有资源做更有未来的事。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">年度复盘/砍项目</span>
+                    </div>
+                </div>
+                
+                <!-- 波特 · 竞争战略 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">波特 · 竞争战略</h3>
+                    <p class="text-text-gray text-xs mb-3">成本领先 / 差异化 / 聚焦 - 选一个方向打穿。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">产品定位/商业路径</span>
+                    </div>
+                </div>
+                
+                <!-- 格鲁夫 · 偏执狂生存 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">格鲁夫 · 偏执狂生存</h3>
+                    <p class="text-text-gray text-xs mb-3">公司只有偏执一点、对风险敏感一点，才能活下去。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">发现行业变天信号</span>
+                    </div>
+                </div>
+                
+                <!-- 塔勒布 · 反脆弱 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">塔勒布 · 反脆弱</h3>
+                    <p class="text-text-gray text-xs mb-3">有些系统遇到压力不仅不会崩，反而变强。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">设计越打越强的组织</span>
+                    </div>
+                </div>
+                
+                <!-- 塔勒布 · 杠铃策略 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">塔勒布 · 杠铃策略</h3>
+                    <p class="text-text-gray text-xs mb-3">极稳＋极冒险各占一半，中间最危险。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">投资/职业/创业风控</span>
+                    </div>
+                </div>
+                
+                <!-- 摩尔 · 跨越鸿沟 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">摩尔 · 跨越鸿沟</h3>
+                    <p class="text-text-gray text-xs mb-3">从极客用户做到大众用户，中间有个大坑要跨过去。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">小众到大众化</span>
+                    </div>
+                </div>
+                
+                <!-- 蒂尔 · 从 0 到 1 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">蒂尔 · 从 0 到 1</h3>
+                    <p class="text-text-gray text-xs mb-3">不是更好一点，而是比别人好 10 倍，才能创造垄断价值。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">创业/核心功能</span>
+                    </div>
+                </div>
+                
+                <!-- 巴菲特 · 护城河 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">巴菲特 · 护城河</h3>
+                    <p class="text-text-gray text-xs mb-3">让别人学不来、打不败、抢不走，就是护城河。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">商业模式/竞争力</span>
+                    </div>
+                </div>
+                
+                <!-- 蓝海战略 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="innovation" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">蓝海战略</h3>
+                    <p class="text-text-gray text-xs mb-3">不要在红海里拼价格，要找到没竞争的新需求。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">创新&战略</span>
+                        <span class="text-xs text-text-gray">新业务/差异化</span>
+                    </div>
+                </div>
+                
+                <!-- 🌈 产品创新 & 设计类 -->
+                
+                <!-- 钱德勒 · 组织创新 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">钱德勒 · 组织创新</h3>
+                    <p class="text-text-gray text-xs mb-3">结构跟战略走。战略变了，组织必须跟着变。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">公司重组/流程优化</span>
+                    </div>
+                </div>
+                
+                <!-- 德鲁克 · 创新七来源 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">德鲁克 · 创新七来源</h3>
+                    <p class="text-text-gray text-xs mb-3">创新不是灵光一现，而是七种可系统挖掘的机会。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">找新产品点子</span>
+                    </div>
+                </div>
+                
+                <!-- 商业模式画布 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">商业模式画布</h3>
+                    <p class="text-text-gray text-xs mb-3">用一张图，把商业模式的 9 块拼图一次看清。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">商业计划/BP架构</span>
+                    </div>
+                </div>
+                
+                <!-- 安索夫增长矩阵 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">安索夫增长矩阵</h3>
+                    <p class="text-text-gray text-xs mb-3">增长只有四种：老客、新品、新市场、新品＋新市场。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">增长规划/扩张策略</span>
+                    </div>
+                </div>
+                
+                <!-- TRIZ 创新理论 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">TRIZ 创新理论</h3>
+                    <p class="text-text-gray text-xs mb-3">所有发明都有规律，用 40 条原理解决技术难题。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">技术创新/复杂问题</span>
+                    </div>
+                </div>
+                
+                <!-- Design Thinking -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">Design Thinking</h3>
+                    <p class="text-text-gray text-xs mb-3">先理解人，再做产品，而不是倒过来。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">复杂问题/用户体验</span>
+                    </div>
+                </div>
+                
+                <!-- 双钻模型 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">双钻模型</h3>
+                    <p class="text-text-gray text-xs mb-3">先发散再收敛，找到真问题，再找到真方案。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">用户痛点/产品定义</span>
+                    </div>
+                </div>
+                
+                <!-- 服务蓝图 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">服务蓝图</h3>
+                    <p class="text-text-gray text-xs mb-3">把用户前台体验＋企业后台流程，一次性画清楚。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">服务流程/客服体验</span>
+                    </div>
+                </div>
+                
+                <!-- 原型设计 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">原型设计</h3>
+                    <p class="text-text-gray text-xs mb-3">先做一个可试的半成品，快速验证方向对不对。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">MVP/功能验证</span>
+                    </div>
+                </div>
+                
+                <!-- MVP 理念 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">MVP 理念</h3>
+                    <p class="text-text-gray text-xs mb-3">用最小的成本验证最大的想法。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">创业/功能试水</span>
+                    </div>
+                </div>
+                
+                <!-- Design Sprint -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">Design Sprint</h3>
+                    <p class="text-text-gray text-xs mb-3">5 天跑完问题→方案→原型→用户测试的完整闭环。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">快速验证创意</span>
+                    </div>
+                </div>
+                
+                <!-- 用户旅程地图 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">用户旅程地图</h3>
+                    <p class="text-text-gray text-xs mb-3">用一条线看清用户从开始到结束的完整体验。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">优化体验/提升转化</span>
+                    </div>
+                </div>
+                
+                <!-- 头脑风暴 6 顶思考帽 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">6 顶思考帽</h3>
+                    <p class="text-text-gray text-xs mb-3">强制团队以 6 种视角看问题，减少吵架。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">团队共创/复杂讨论</span>
+                    </div>
+                </div>
+                
+                <!-- SCAMPER 创意拆解法 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">SCAMPER</h3>
+                    <p class="text-text-gray text-xs mb-3">把一个想法拆成 6 种改进方式，让创意变得可落地。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">内容/产品/广告创意</span>
+                    </div>
+                </div>
+                
+                <!-- 价值主张画布 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="product" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">价值主张画布</h3>
+                    <p class="text-text-gray text-xs mb-3">你的产品价值必须刚好击中用户的痛点和想要的结果。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">产品&设计</span>
+                        <span class="text-xs text-text-gray">产品定位/PMF</span>
+                    </div>
+                </div>
+                
+                <!-- 🌈 用户洞察 & 需求分析类 -->
+                
+                <!-- VOC -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="user" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">VOC（用户之声）</h3>
+                    <p class="text-text-gray text-xs mb-3">用户表达出来和没表达出来的都算需求。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">用户&需求</span>
+                        <span class="text-xs text-text-gray">用户访谈/功能规划</span>
+                    </div>
+                </div>
+                
+                <!-- PEST 分析 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="user" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">PEST 分析</h3>
+                    <p class="text-text-gray text-xs mb-3">用政治、经济、社会、技术 4 个维度看外部环境。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">用户&需求</span>
+                        <span class="text-xs text-text-gray">行业分析/趋势判断</span>
+                    </div>
+                </div>
+                
+                <!-- 波特五力模型 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="user" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">波特五力模型</h3>
+                    <p class="text-text-gray text-xs mb-3">看清行业里谁能赚钱，谁将被压榨。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">用户&需求</span>
+                        <span class="text-xs text-text-gray">竞争格局/融资</span>
+                    </div>
+                </div>
+                
+                <!-- JTBD -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="user" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">JTBD</h3>
+                    <p class="text-text-gray text-xs mb-3">用户不是想买你的产品，而是想"雇用"它来完成一件事。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">用户&需求</span>
+                        <span class="text-xs text-text-gray">产品定位/需求优先级</span>
+                    </div>
+                </div>
+                
+                <!-- KANO 模型 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="user" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">KANO 模型</h3>
+                    <p class="text-text-gray text-xs mb-3">不同功能有不同情绪价值，优先做最影响满意度的。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">用户&需求</span>
+                        <span class="text-xs text-text-gray">功能优先级/路线图</span>
+                    </div>
+                </div>
+                
+                <!-- 🌈 增长 & 运营类 -->
+                
+                <!-- AARRR 海盗模型 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">AARRR 海盗模型</h3>
+                    <p class="text-text-gray text-xs mb-3">拉新、激活、留存、推荐、变现 - 增长的五个环节。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">增长拆解/路径优化</span>
+                    </div>
+                </div>
+                
+                <!-- PLG -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">PLG（产品驱动增长）</h3>
+                    <p class="text-text-gray text-xs mb-3">产品自己抓用户，而不是靠广告和销售。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">SaaS/工具产品</span>
+                    </div>
+                </div>
+                
+                <!-- HOOK 模型 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">HOOK 模型</h3>
+                    <p class="text-text-gray text-xs mb-3">让用户越用越想用，最后形成习惯。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">用户留存/习惯培养</span>
+                    </div>
+                </div>
+                
+                <!-- NPS -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">NPS（净推荐值）</h3>
+                    <p class="text-text-gray text-xs mb-3">用户愿不愿意主动推荐你，比满意更重要。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">口碑/复购/健康度</span>
+                    </div>
+                </div>
+                
+                <!-- A/B 测试 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">A/B 测试</h3>
+                    <p class="text-text-gray text-xs mb-3">做两个版本给用户试，用数据决定谁更好。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">文案/价格/转化</span>
+                    </div>
+                </div>
+                
+                <!-- 40% 测试法 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">40% 测试法</h3>
+                    <p class="text-text-gray text-xs mb-3">先用 40% 用户测试，好就放大，不好立刻撤。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">灰度验证/风险控制</span>
+                    </div>
+                </div>
+                
+                <!-- BML 循环 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">BML 循环</h3>
+                    <p class="text-text-gray text-xs mb-3">Build–Measure–Learn：快做、快测、快学，快速排除错误方向。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">创业迭代/MVP验证</span>
+                    </div>
+                </div>
+                
+                <!-- BPR -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">BPR（业务流程再造）</h3>
+                    <p class="text-text-gray text-xs mb-3">别在破流程上修修补补，要敢于"推倒重来"。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">流程重构/数字化转型</span>
+                    </div>
+                </div>
+                
+                <!-- 定位 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="growth" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">特劳特 · 定位</h3>
+                    <p class="text-text-gray text-xs mb-3">在用户的大脑里占据一个"清晰又简单的标签"。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">增长&运营</span>
+                        <span class="text-xs text-text-gray">品牌/Slogan/卖点</span>
+                    </div>
+                </div>
+                
+                <!-- 💡 思维方式类 -->
+                
+                <!-- 第一性原理 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="thinking" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">第一性原理</h3>
+                    <p class="text-text-gray text-xs mb-3">从最基本的事实出发，层层推导，不被现有经验和假设限制。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">思维方式</span>
+                        <span class="text-xs text-text-gray">底层思考</span>
+                    </div>
+                </div>
+                
+                <!-- 贝叶斯思维 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="thinking" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">贝叶斯思维</h3>
+                    <p class="text-text-gray text-xs mb-3">根据新信息不断更新对事物的看法，保持开放的心态。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">思维方式</span>
+                        <span class="text-xs text-text-gray">概率思维</span>
+                    </div>
+                </div>
+                
+                <!-- 🔍 分析方法类 -->
+                
+                <!-- SWOT分析 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="analysis" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">SWOT分析</h3>
+                    <p class="text-text-gray text-xs mb-3">从优势、劣势、机会和威胁四个方面全面分析问题。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">分析方法</span>
+                        <span class="text-xs text-text-gray">全面分析</span>
+                    </div>
+                </div>
+                
+                <!-- 5W2H分析法 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="analysis" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">5W2H分析法</h3>
+                    <p class="text-text-gray text-xs mb-3">通过What、Why、Who、When、Where、How、How much七个维度分析问题。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">分析方法</span>
+                        <span class="text-xs text-text-gray">结构化分析</span>
+                    </div>
+                </div>
+                
+                <!-- 决策树 -->
+                <div class="model-card border border-border-gray p-6 hover-scale transition-transform" data-category="analysis" data-scroll-reveal>
+                    <h3 class="text-lg font-light mb-2">决策树</h3>
+                    <p class="text-text-gray text-xs mb-3">将决策过程分解为树形结构，帮助系统分析各种可能的结果。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-text-gray">分析方法</span>
+                        <span class="text-xs text-text-gray">系统决策</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 查看更多按钮 -->
+            <div class="text-center mt-12">
+                <button id="load-more-models" class="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-sm">
+                    查看更多
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-bg-black">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-light mb-16 text-center">关于我们</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div data-scroll-reveal>
+                    <h3 class="text-2xl font-light mb-6">我们的使命</h3>
+                    <p class="text-text-gray mb-6">
+                        用100个可拆解的思维模型，帮助你打破思维局限，解决人生中的各种难题。
+                    </p>
+                    <p class="text-text-gray mb-6">
+                        我们相信，每个人都可以通过学习和应用正确的思维模型，获得更好的决策能力和生活质量。
+                    </p>
+                    <div class="mt-8">
+                        <h4 class="text-xl font-light mb-4">我们的原则</h4>
+                        <ul class="space-y-3 text-text-gray">
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span>拒绝焦虑：所有内容必须可验证、可操作、有温度</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span>价值共生：品牌语句必须作为内容价值的延伸</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center" data-scroll-reveal data-delay="300">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e5e87fc12ea24ad19c973298b3487ffc.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202601161722258B60C9D7537BA40AAEF9&rrcfp=8a172a1a&x-expires=1769160145&x-signature=%2FevNAROFtkScSGNMIVuo6VoKW8w%3D" alt="大脑作弊器" class="w-2/3 h-auto max-h-64">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-16 bg-bg-dark border-t border-border-gray">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/d5868808803a4ccbb5b388f9d0399bd3.png~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260116170017081E1D74A2D8850675F3&rrcfp=8a172a1a&x-expires=1769158817&x-signature=YF0spvBDyws6aoDXWLYjiZW2MaM%3D" alt="大脑作弊器" class="h-8 w-auto">
+                        <span class="ml-2 text-xl font-light">大脑作弊器</span>
+                    </div>
+                    <p class="text-text-gray mb-6 max-w-md">
+                        全球顶级智慧 × 你的私人认知军火库。用100个可拆解的思维模型，帮你打破死局。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-text-gray hover:text-text-white transition-colors duration-300">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-text-gray hover:text-text-white transition-colors duration-300">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-text-gray hover:text-text-white transition-colors duration-300">
+                            <i class="fa fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-text-gray hover:text-text-white transition-colors duration-300">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-light mb-4">产品</h4>
+                    <ul class="space-y-2 text-text-gray">
+                        <li><a href="#features" class="hover:text-text-white transition-colors duration-300">功能</a></li>
+                        <li><a href="#models" class="hover:text-text-white transition-colors duration-300">思维模型</a></li>
+                        <li><a href="#script-generator" class="hover:text-text-white transition-colors duration-300">大脑作弊器</a></li>
+                        <li><a href="SCANNED_BOOK_GUIDE.md" target="_blank" class="hover:text-text-white transition-colors duration-300">📚 扫描版书籍处理指南</a></li>
+                        <li><a href="#" class="hover:text-text-white transition-colors duration-300">定价</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-border-gray text-center text-text-gray text-sm">
+                <p>© 2026 大脑作弊器. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 登录模态框 -->
+    <div id="login-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative bg-bg-dark border border-border-gray rounded-lg p-8 w-full max-w-md animate-slide-up">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-light">登录</h2>
+                <button id="close-login-modal-btn" class="text-text-gray hover:text-text-white transition-all-300">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="login-form" class="space-y-6">
+                <!-- 用户名/邮箱输入 -->
+                <div>
+                    <label for="username" class="block text-sm font-medium mb-2">用户名或邮箱</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-gray">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            class="w-full bg-bg-black border border-border-gray rounded px-10 py-3 text-text-white input-focus transition-all-300"
+                            placeholder="请输入用户名或邮箱"
+                            required
+                        >
+                    </div>
+                    <p id="username-error" class="text-error text-xs mt-1 hidden">请输入有效的用户名或邮箱</p>
+                </div>
+
+                <!-- 密码输入 -->
+                <div>
+                    <label for="password" class="block text-sm font-medium mb-2">密码</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-gray">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="w-full bg-bg-black border border-border-gray rounded px-10 py-3 text-text-white input-focus transition-all-300"
+                            placeholder="请输入密码"
+                            required
+                            minlength="6"
+                        >
+                        <button 
+                            type="button" 
+                            id="toggle-password" 
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 text-text-gray hover:text-text-white transition-all-300"
+                        >
+                            <i class="fa fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <p id="password-error" class="text-error text-xs mt-1 hidden">密码长度至少为6位</p>
+                </div>
+
+                <!-- 记住我和忘记密码 -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input 
+                            type="checkbox" 
+                            id="remember-me" 
+                            class="w-4 h-4 bg-bg-black border border-border-gray rounded text-white focus:ring-white"
+                        >
+                        <label for="remember-me" class="ml-2 block text-sm text-text-gray">
+                            记住我
+                        </label>
+                    </div>
+                    <a href="#" class="text-sm text-text-white hover:text-text-light-gray transition-all-300">
+                        忘记密码？
+                    </a>
+                </div>
+
+                <!-- 登录按钮 -->
+                <div>
+                    <button 
+                        type="submit" 
+                        id="modal-login-btn" 
+                        class="w-full bg-white text-black py-3 rounded font-medium hover:bg-gray-200 transition-all-300 flex items-center justify-center"
+                    >
+                        <span id="login-text">登录</span>
+                        <span id="login-loading" class="hidden">
+                            <i class="fa fa-spinner fa-spin ml-2"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- 错误提示 -->
+                <div id="login-error" class="bg-bg-black border border-error rounded p-3 text-error text-sm hidden">
+                    <i class="fa fa-exclamation-circle mr-2"></i>
+                    <span id="error-message"></span>
+                </div>
+            </form>
+
+            <!-- 分隔线 -->
+            <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-border-gray"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-bg-dark text-text-gray">
+                        或者
+                    </span>
+                </div>
+            </div>
+
+            <!-- 其他登录方式 -->
+            <div class="grid grid-cols-3 gap-3">
+                <button class="flex justify-center items-center py-2 px-4 border border-border-gray rounded-md hover:bg-bg-black transition-all-300">
+                    <i class="fa fa-weixin text-xl"></i>
+                </button>
+                <button class="flex justify-center items-center py-2 px-4 border border-border-gray rounded-md hover:bg-bg-black transition-all-300">
+                    <i class="fa fa-qq text-xl"></i>
+                </button>
+                <button class="flex justify-center items-center py-2 px-4 border border-border-gray rounded-md hover:bg-bg-black transition-all-300">
+                    <i class="fa fa-github text-xl"></i>
+                </button>
+            </div>
+
+            <!-- 注册链接 -->
+            <div class="text-center mt-6">
+                <p class="text-text-gray">
+                    还没有账户？
+                    <a href="#" id="register-link" class="text-white hover:underline transition-all-300">
+                        立即注册
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div id="register-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative bg-bg-dark border border-border-gray rounded-lg p-8 w-full max-w-md animate-slide-up">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-light">创建账户</h2>
+                <button id="close-register-modal-btn" class="text-text-gray hover:text-text-white transition-all-300">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="register-form" class="space-y-6">
+                <!-- 用户名 -->
+                <div>
+                    <label for="reg-username" class="block text-sm font-medium mb-2">用户名</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-gray">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input 
+                            type="text" 
+                            id="reg-username" 
+                            class="w-full bg-bg-black border border-border-gray rounded px-10 py-3 text-text-white input-focus transition-all-300"
+                            placeholder="请输入用户名"
+                            required
+                            minlength="3"
+                        >
+                    </div>
+                    <p id="reg-username-error" class="text-error text-xs mt-1 hidden">用户名长度至少为3位</p>
+                </div>
+
+                <!-- 邮箱 -->
+                <div>
+                    <label for="reg-email" class="block text-sm font-medium mb-2">邮箱</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-gray">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <input 
+                            type="email" 
+                            id="reg-email" 
+                            class="w-full bg-bg-black border border-border-gray rounded px-10 py-3 text-text-white input-focus transition-all-300"
+                            placeholder="请输入邮箱"
+                            required
+                        >
+                    </div>
+                    <p id="reg-email-error" class="text-error text-xs mt-1 hidden">请输入有效的邮箱地址</p>
+                </div>
+
+                <!-- 密码 -->
+                <div>
+                    <label for="reg-password" class="block text-sm font-medium mb-2">密码</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-gray">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input 
+                            type="password" 
+                            id="reg-password" 
+                            class="w-full bg-bg-black border border-border-gray rounded px-10 py-3 text-text-white input-focus transition-all-300"
+                            placeholder="请输入密码"
+                            required
+                            minlength="6"
+                        >
+                        <button 
+                            type="button" 
+                            id="toggle-reg-password" 
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 text-text-gray hover:text-text-white transition-all-300"
+                        >
+                            <i class="fa fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <p id="reg-password-error" class="text-error text-xs mt-1 hidden">密码长度至少为6位</p>
+                </div>
+
+                <!-- 确认密码 -->
+                <div>
+                    <label for="reg-confirm-password" class="block text-sm font-medium mb-2">确认密码</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-gray">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input 
+                            type="password" 
+                            id="reg-confirm-password" 
+                            class="w-full bg-bg-black border border-border-gray rounded px-10 py-3 text-text-white input-focus transition-all-300"
+                            placeholder="请再次输入密码"
+                            required
+                        >
+                    </div>
+                    <p id="reg-confirm-password-error" class="text-error text-xs mt-1 hidden">两次输入的密码不一致</p>
+                </div>
+
+                <!-- 注册按钮 -->
+                <div>
+                    <button 
+                        type="submit" 
+                        id="register-btn" 
+                        class="w-full bg-white text-black py-3 rounded font-medium hover:bg-gray-200 transition-all-300 flex items-center justify-center"
+                    >
+                        <span id="register-text">注册</span>
+                        <span id="register-loading" class="hidden">
+                            <i class="fa fa-spinner fa-spin ml-2"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- 注册错误提示 -->
+                <div id="register-error" class="bg-bg-black border border-error rounded p-3 text-error text-sm hidden">
+                    <i class="fa fa-exclamation-circle mr-2"></i>
+                    <span id="register-error-message"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 成功提示 -->
+    <div id="success-toast" class="fixed top-4 right-4 bg-success text-white px-6 py-3 rounded-lg shadow-lg z-50 hidden animate-slide-up">
+        <div class="flex items-center">
+            <i class="fa fa-check-circle mr-3 text-xl"></i>
+            <span id="success-message"></span>
+        </div>
+    </div>
+
+    <!-- 思维模型详情弹窗 -->
+    <div id="model-detail-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg-dark border border-border-gray p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-light"></h3>
+                <button id="close-modal-btn" class="text-text-gray hover:text-text-white">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="modal-content" class="text-text-gray space-y-4">
+                <!-- 动态生成内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 投诉举报弹窗 -->
+    <div id="report-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeReportModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg-dark border border-border-gray p-8 max-w-md w-full max-h-[90vh] overflow-y-auto rounded-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-light">投诉举报</h3>
+                <button onclick="closeReportModal()" class="text-text-gray hover:text-text-white">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="report-form" onsubmit="submitReport(event)">
+                <!-- 举报类型 -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">举报类型 <span class="text-error">*</span></label>
+                    <select id="report-type" required class="w-full bg-bg-black border border-border-gray rounded px-4 py-3 text-text-white input-focus">
+                        <option value="">请选择举报类型</option>
+                        <option value="harmful">违法有害信息</option>
+                        <option value="infringement">侵权内容</option>
+                        <option value="spam">垃圾信息</option>
+                        <option value="vulgar">色情低俗</option>
+                        <option value="gambling">赌博诈骗</option>
+                        <option value="other">其他问题</option>
+                    </select>
+                </div>
+
+                <!-- 联系邮箱 -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">联系邮箱 <span class="text-error">*</span></label>
+                    <input
+                        type="email"
+                        id="report-email"
+                        required
+                        class="w-full bg-bg-black border border-border-gray rounded px-4 py-3 text-text-white input-focus"
+                        placeholder="请输入您的邮箱，方便我们联系您"
+                    >
+                </div>
+
+                <!-- 举报内容 -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">举报内容 <span class="text-error">*</span></label>
+                    <textarea
+                        id="report-content"
+                        required
+                        rows="5"
+                        maxlength="500"
+                        class="w-full bg-bg-black border border-border-gray rounded px-4 py-3 text-text-white input-focus resize-none"
+                        placeholder="请详细描述举报内容，包括具体位置、截图等信息（最多500字）"
+                    ></textarea>
+                    <p class="text-text-gray text-xs mt-1">已输入 <span id="report-count">0</span>/500 字</p>
+                </div>
+
+                <!-- 提交按钮 -->
+                <button
+                    type="submit"
+                    id="report-submit-btn"
+                    class="w-full bg-white text-black py-3 rounded font-medium hover:bg-gray-200 transition-all-300 flex items-center justify-center"
+                >
+                    <span id="report-text">提交举报</span>
+                    <span id="report-loading" class="hidden">
+                        <i class="fa fa-spinner fa-spin ml-2"></i>
+                    </span>
+                </button>
+
+                <!-- 错误提示 -->
+                <div id="report-error" class="bg-bg-black border border-error rounded p-3 text-error text-sm mt-3 hidden">
+                    <i class="fa fa-exclamation-circle mr-2"></i>
+                    <span id="report-error-message"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="debug-upload.js"></script>
+    <script src="app.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.min.js"></script>
+    <script src="report.js"></script>
+  <footer class="fixed bottom-0 w-full bg-black/50 text-center py-2 text-gray-400 text-xs safe-area-bottom">
+  <div class="space-x-3">
+    <a href="mailto:support@awkn.cn" class="hover:text-white transition-colors">
+      <i class="fa fa-envelope mr-1"></i>投诉举报
+    </a>
+    <span class="text-border-gray">|</span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="hover:text-white">
+      闽ICP备2026002655号
+    </a>
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" rel="noopener noreferrer" class="hover:text-white">
+      <img src="https://beian.mps.gov.cn/img/logo01.dd7ff50e.png" class="inline w-3 h-3 mr-1" alt="公安备案" />
+      京公网安备 备案中
+    </a>
+  </div>
+</footer>
+</body>
+</html>

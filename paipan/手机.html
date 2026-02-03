@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人生决策八字 - 终极修复版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.6.12/lunar.js"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#b2955d' } } } }
+    </script>
+    <style>
+        body { background-color: #1a1a1a; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
+        #app { background-color: #F5F6F7; width: 100%; max-width: 430px; min-height: 100vh; position: relative; box-shadow: 0 0 50px rgba(0,0,0,0.8); margin: 0 auto; overflow-x: hidden; }
+        .fixed-bottom-btn { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; padding: 0 16px; z-index: 30; pointer-events: none; }
+        .fixed-bottom-btn button { pointer-events: auto; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .picker-column { scroll-snap-type: y mandatory; padding-top: 102px; padding-bottom: 102px; overflow-y: scroll; -ms-overflow-style: none; scrollbar-width: none; }
+        .picker-item { scroll-snap-align: center; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #999; width: 100%; }
+        .picker-item.selected { font-size: 18px; font-weight: bold; color: #b2955d; }
+        .sizhu-circle { width: 56px; height: 56px; border-radius: 50%; background: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; margin-bottom: 8px; cursor: pointer; border: 1px solid #eee; }
+        .sizhu-circle.active { border-color: #b2955d; background: #fff; color: #b2955d; box-shadow: 0 4px 15px rgba(178, 149, 93, 0.2); }
+        .popover-bubble { position: absolute; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 15px; z-index: 200; width: 280px; left: 50%; transform: translateX(-50%); display: none; border: 1px solid #eee; }
+        .color-mu { color: #22C55E; } .color-huo { color: #EF4444; } .color-tu { color: #92400E; } .color-jin { color: #EAB308; } .color-shui { color: #3B82F6; }
+        #analysisPanel { position: fixed; inset: 0; background: white; z-index: 1000; overflow-y: auto; display: none; }
+        .res-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .table-cell { border: 1px solid #f0f0f0; padding: 12px 2px; font-size: 12px; }
+        .ss-tag { display: inline-block; padding: 2px 5px; margin: 1px; border-radius: 3px; font-size: 10px; border: 0.5px solid #eee; }
+        .ss-vip { background: #fff7e6; color: #d46b08; border-color: #ffd591; font-weight: bold; }
+        .tag-xy { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 14px; margin-right: 8px; font-weight: bold; border: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+    <div id="app" class="font-sans text-gray-800 pb-32">
+        <div class="h-4"></div>
+        <div class="p-4">
+            <div class="bg-white rounded-[32px] p-6 shadow-sm mb-4 border border-white/50 relative z-10">
+                <div class="flex items-center border-b border-gray-50 py-4">
+                    <span class="text-gray-400 w-20 text-sm">命主姓名</span>
+                    <input type="text" id="mainName" value="陈婷" class="flex-1 text-base outline-none text-right font-medium bg-transparent">
+                </div>
+
+                <div class="flex items-center justify-between py-5 border-b border-gray-50">
+                    <div class="flex gap-6">
+                        <div class="flex items-center gap-2 cursor-pointer" onclick="window.ui.setGender('male')">
+                            <div id="maleRadio" class="w-5 h-5 rounded-full border border-primary flex items-center justify-center"><div class="w-2.5 h-2.5 rounded-full bg-primary"></div></div>
+                            <span id="maleText" class="font-bold text-gray-900 text-sm">男</span>
+                        </div>
+                        <div class="flex items-center gap-2 cursor-pointer" onclick="window.ui.setGender('female')">
+                            <div id="femaleRadio" class="w-5 h-5 rounded-full border border-gray-200 flex items-center justify-center"></div>
+                            <span id="femaleText" class="text-gray-400 text-sm">女</span>
+                        </div>
+                    </div>
+                    <div class="flex bg-[#F5F6F7] rounded-full p-1 text-[11px]">
+                        <div id="btn-gregorian" onclick="window.ui.setMainType('gregorian')" class="px-4 py-1.5 rounded-full bg-primary text-white shadow-sm cursor-pointer transition-all">公历</div>
+                        <div id="btn-lunar" onclick="window.ui.setMainType('lunar')" class="px-4 py-1.5 rounded-full text-gray-400 cursor-pointer transition-all">农历</div>
+                        <div id="btn-sizhu" onclick="window.ui.setMainType('sizhu')" class="px-4 py-1.5 rounded-full text-gray-400 cursor-pointer transition-all">四柱</div>
+                    </div>
+                </div>
+
+                <div class="py-5 flex items-center border-b border-gray-50 cursor-pointer active:bg-gray-50 rounded-lg relative z-20" onclick="window.picker.open('date')">
+                    <span class="text-gray-400 w-20 text-sm">出生时间</span>
+                    <div class="flex-1 text-right">
+                        <div id="birthDisplay" class="text-base text-gray-900 font-bold">1983-05-20 00:30</div>
+                        <div id="birthSubDisplay" class="text-[10px] text-primary/60">点击修改</div>
+                    </div>
+                </div>
+
+                <div class="py-5 flex items-center border-b border-gray-50 cursor-pointer active:bg-gray-50 rounded-lg relative z-20" onclick="window.picker.open('location')">
+                    <span class="text-gray-400 w-20 text-sm">出生地址</span>
+                    <div id="locationDisplay" class="flex-1 text-right text-base text-gray-900 font-bold">广东 广州</div>
+                </div>
+
+                <div class="mt-4 flex gap-4 text-[11px] text-gray-500">
+                    <label class="flex items-center gap-1"><input type="checkbox"> 夏令时</label>
+                    <label class="flex items-center gap-1 font-bold text-gray-800"><input type="checkbox" checked id="useSolarCheck"> 真太阳时</label>
+                    <label class="flex items-center gap-1"><input type="checkbox"> 早晚子时</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed-bottom-btn"><button class="w-full bg-[#1a1a1a] text-primary py-4 rounded-full text-lg font-bold shadow-2xl active:scale-95 transition-transform" onclick="window.ui.submit()">开启宗师排盘</button></div>
+
+        <div id="pickerOverlay" class="fixed inset-0 bg-black/60 z-40 hidden" onclick="window.picker.close()"></div>
+        <div id="pickerModal" class="fixed bottom-0 left-0 right-0 bg-white z-50 rounded-t-[32px] transform translate-y-full transition-transform duration-300 max-w-[430px] mx-auto pb-safe">
+            <div class="flex items-center justify-between px-6 py-5 border-b border-gray-50">
+                <div class="text-gray-300 text-xl font-light w-10" onclick="window.picker.close()">×</div>
+                <div id="pickerTabs" class="flex bg-gray-100 rounded-full p-1 text-xs">
+                    <div id="tab-gregorian" onclick="window.picker.switchMode('gregorian')" class="px-5 py-1.5 rounded-full transition-all">公历</div>
+                    <div id="tab-lunar" onclick="window.picker.switchMode('lunar')" class="px-5 py-1.5 rounded-full transition-all">农历</div>
+                    <div id="tab-sizhu" onclick="window.picker.switchMode('sizhu')" class="px-5 py-1.5 rounded-full transition-all">四柱</div>
+                </div>
+                <div id="pickerTitle" class="font-bold text-lg hidden">选择城市</div>
+                <div class="text-primary font-bold cursor-pointer w-10 text-right" onclick="window.picker.confirm()">确定</div>
+            </div>
+            <div id="datePickerView" class="h-[250px] bg-white flex relative overflow-hidden">
+                <div class="absolute top-1/2 left-0 right-0 h-12 -mt-6 bg-primary/5 border-y border-gray-50 pointer-events-none z-10"></div>
+                <div id="columnsContainer" class="flex w-full h-full relative"></div>
+            </div>
+            <div id="sizhuPickerView" class="hidden p-8 text-center relative min-h-[250px]">
+                <div class="grid grid-cols-4 gap-4">
+                    <div><div class="text-[10px] text-gray-400 mb-2">年柱</div><div id="sz-ygan" class="sizhu-circle active" onclick="window.picker.showSizhuPop('ygan', this)">甲</div><div id="sz-yzhi" class="sizhu-circle active" onclick="window.picker.showSizhuPop('yzhi', this)">子</div></div>
+                    <div><div class="text-[10px] text-gray-400 mb-2">月柱</div><div id="sz-mgan" class="sizhu-circle active" onclick="window.picker.showSizhuPop('mgan', this)">乙</div><div id="sz-mzhi" class="sizhu-circle active" onclick="window.picker.showSizhuPop('mzhi', this)">丑</div></div>
+                    <div><div class="text-[10px] text-gray-400 mb-2">日柱</div><div id="sz-dgan" class="sizhu-circle active" onclick="window.picker.showSizhuPop('dgan', this)">丙</div><div id="sz-dzhi" class="sizhu-circle active" onclick="window.picker.showSizhuPop('dzhi', this)">寅</div></div>
+                    <div><div class="text-[10px] text-gray-400 mb-2">时柱</div><div id="sz-tgan" class="sizhu-circle active" onclick="window.picker.showSizhuPop('tgan', this)">丁</div><div id="sz-tzhi" class="sizhu-circle active" onclick="window.picker.showSizhuPop('tzhi', this)">卯</div></div>
+                </div>
+                <div id="popover" class="popover-bubble"><div id="popoverContent" class="popover-grid"></div></div>
+            </div>
+        </div>
+
+        <div id="analysisPanel" class="no-scrollbar">
+            <div class="sticky top-0 bg-white border-b px-5 py-4 flex items-center justify-between z-50">
+                <div class="text-gray-400 text-lg cursor-pointer" onclick="document.getElementById('analysisPanel').style.display='none'">← 返回</div>
+                <div class="font-bold text-gray-800 text-center">命理分析报告</div>
+                <div class="w-10"></div>
+            </div>
+            
+            <div class="p-4 space-y-4 pb-12">
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <table class="res-table">
+                        <tr class="header"><th class="table-cell">项目</th><th class="table-cell">年柱</th><th class="table-cell">月柱</th><th class="table-cell">日柱</th><th class="table-cell">时柱</th></tr>
+                        <tr><td class="table-cell text-gray-400">主星</td><td id="ana-zx-0" class="table-cell font-bold">--</td><td id="ana-zx-1" class="table-cell font-bold">--</td><td id="ana-zx-2" class="table-cell text-primary font-bold">元男</td><td id="ana-zx-3" class="table-cell font-bold">--</td></tr>
+                        <tr class="bg-gray-50/50"><td class="table-cell text-gray-400">天干</td><td id="ana-gan-0" class="table-cell text-3xl font-bold font-serif">--</td><td id="ana-gan-1" class="table-cell text-3xl font-bold font-serif">--</td><td id="ana-gan-2" class="table-cell text-3xl font-bold font-serif">--</td><td id="ana-gan-3" class="table-cell text-3xl font-bold font-serif">--</td></tr>
+                        <tr class="bg-gray-50/50"><td class="table-cell text-gray-400">地支</td><td id="ana-zhi-0" class="table-cell text-3xl font-bold font-serif">--</td><td id="ana-zhi-1" class="table-cell text-3xl font-bold font-serif">--</td><td id="ana-zhi-2" class="table-cell text-3xl font-bold font-serif">--</td><td id="ana-zhi-3" class="table-cell text-3xl font-bold font-serif">--</td></tr>
+                        <tr><td class="table-cell text-gray-400">藏干</td><td id="ana-cg-0" class="table-cell text-[10px] text-gray-400 whitespace-pre">--</td><td id="ana-cg-1" class="table-cell text-[10px] text-gray-400 whitespace-pre">--</td><td id="ana-cg-2" class="table-cell text-[10px] text-gray-400 whitespace-pre">--</td><td id="ana-cg-3" class="table-cell text-[10px] text-gray-400 whitespace-pre">--</td></tr>
+                        <tr><td class="table-cell text-gray-400">纳音</td><td id="ana-ny-0" class="table-cell text-[9px] text-gray-500">--</td><td id="ana-ny-1" class="table-cell text-[9px] text-gray-500">--</td><td id="ana-ny-2" class="table-cell text-[9px] text-gray-500">--</td><td id="ana-ny-3" class="table-cell text-[9px] text-gray-500">--</td></tr>
+                        <tr><td class="table-cell text-gray-400">神煞</td><td id="ana-ss-0" class="table-cell">--</td><td id="ana-ss-1" class="table-cell">--</td><td id="ana-ss-2" class="table-cell">--</td><td id="ana-ss-3" class="table-cell">--</td></tr>
+                    </table>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2"><div class="w-1 h-5 bg-primary rounded-full"></div> 宗师级能量审计</h3>
+                    <div id="ana-energy-text" class="text-xs text-gray-500 mb-4 font-bold">--</div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span id="ana-yong" class="tag-xy bg-primary text-white border-primary">用神：--</span>
+                        <span id="ana-xi" class="tag-xy bg-green-50 text-green-700 border-green-100">喜神：--</span>
+                        <span id="ana-ji" class="tag-xy bg-red-50 text-red-700 border-red-100">忌神：--</span>
+                    </div>
+                    <div id="energy-bars" class="space-y-3"></div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-4 text-[11px] text-gray-500 space-y-2">
+                    <div class="flex justify-between"><span>公历基准：</span><span id="info-mean">--</span></div>
+                    <div class="flex justify-between font-bold text-gray-700"><span>真太阳修正：</span><span id="info-true">--</span></div>
+                    <div class="flex justify-between"><span>地点经度：</span><span id="info-lng">--</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const CITY_DB = {"北京":{"北京":116.4},"天津":{"天津":117.2},"上海":{"上海":121.47},"重庆":{"重庆":106.55},"河北":{"石家庄":114.48},"山西":{"太原":112.5},"内蒙古":{"呼和浩特":111.7},"辽宁":{"沈阳":123.4},"吉林":{"长春":125.3},"黑龙江":{"哈尔滨":126.6},"江苏":{"南京":118.8},"浙江":{"杭州":120.1},"安徽":{"合肥":117.3},"福建":{"福州":119.3},"江西":{"南昌":115.89,"九江":115.9,"赣州":114.9,"吉安":115.0},"山东":{"济南":117.0},"河南":{"郑州":113.6},"湖北":{"武汉":114.3},"湖南":{"长沙":112.9},"广东":{"广州":113.28,"深圳":114.0},"广西":{"南宁":108.3},"海南":{"海口":110.3},"四川":{"成都":104.0},"贵州":{"贵阳":106.7},"云南":{"昆明":102.7},"西藏":{"拉萨":91.1},"陕西":{"西安":108.9},"甘肃":{"兰州":103.8},"青海":{"西宁":101.8},"宁夏":{"银川":106.2},"新疆":{"乌鲁木齐":87.6},"香港":{"香港":114.1},"澳门":{"澳门":113.5},"台湾":{"台北":121.5}};
+        const GAN = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+        const ZHI = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+        const WX_MAP = {"甲":"木","乙":"木","丙":"火","丁":"火","戊":"土","己":"土","庚":"金","辛":"金","壬":"水","癸":"水","寅":"木","卯":"木","巳":"火","午":"火","辰":"土","戌":"土","丑":"土","未":"土","申":"金","酉":"金","亥":"水","子":"水"};
+        const WN = {"木":"mu","火":"huo","土":"tu","金":"jin","水":"shui"};
+        const HD_MAP = {"子":["癸"],"丑":["己","癸","辛"],"寅":["甲","丙","戊"],"卯":["乙"],"辰":["戊","乙","癸"],"巳":["丙","庚","戊"],"午":["丁","己"],"未":["己","丁","乙"],"申":["庚","壬","戊"],"酉":["辛"],"戌":["戊","辛","丁"],"亥":["壬","甲"]};
+        const NY_DB = {"甲子":"海中金","乙丑":"海中金","丙寅":"炉中火","丁卯":"炉中火","戊辰":"大林木","己巳":"大林木","庚午":"路旁土","辛未":"路旁土","壬申":"剑锋金","癸酉":"剑锋金","甲戌":"山头火","乙亥":"山头火","丙子":"涧下水","丁丑":"涧下水","戊寅":"城头土","己卯":"城头土","庚辰":"白蜡金","辛巳":"白蜡金","壬午":"杨柳木","癸未":"杨柳木","甲申":"泉中水","乙酉":"泉中水","丙戌":"屋上土","丁亥":"屋上土","戊子":"霹雳火","己丑":"霹雳火","庚寅":"松柏木","辛卯":"松柏木","壬辰":"长流水","癸巳":"长流水","甲午":"沙中金","乙未":"沙中金","丙申":"山下火","丁酉":"山下火","戊戌":"平地木","己亥":"平地木","庚子":"壁上土","辛丑":"壁上土","壬寅":"金箔金","癸卯":"金箔金","甲辰":"佛灯火","乙巳":"佛灯火","丙午":"天上水","丁未":"天上水","戊申":"大驿土","己酉":"大驿土","庚戌":"钗钏金","辛亥":"钗钏金","壬子":"桑柘木","癸丑":"桑柘木","甲寅":"大溪水","乙卯":"大溪水","丙辰":"沙中土","丁巳":"沙中土","戊午":"天上火","己未":"天上火","庚申":"石榴木","辛酉":"石榴木","壬戌":"大海水","癸亥":"大海水"};
+        const SS_NAME = ["比肩","劫财","食神","伤官","偏财","正财","七杀","正官","偏印","正印"];
+
+        const state = {
+            sex: 1, mode: 'gregorian', pickerType: 'date',
+            dateIdx: [53, 4, 19, 0, 30], // 1983-05-20
+            locIdx: [14, 0], // 江西 南昌
+            savedDate: {y:1983, m:5, d:20, h:0, min:30},
+            savedLoc: {city:'南昌', lng:115.89},
+            sizhu: {ygan:'癸', yzhi:'亥', mgan:'丁', mzhi:'巳', dgan:'戊', dzhi:'申', tgan:'壬', tzhi:'子'}
+        };
+
+        window.picker = {
+            open: function(type = 'date') {
+                state.pickerType = type;
+                document.getElementById('pickerOverlay').classList.remove('hidden');
+                document.getElementById('pickerModal').style.transform = "translateX(-50%) translateY(0)";
+                if (type === 'date') {
+                    document.getElementById('pickerTabs').classList.remove('hidden');
+                    document.getElementById('pickerTitle').classList.add('hidden');
+                    this.switchMode(state.mode);
+                } else {
+                    document.getElementById('pickerTabs').classList.add('hidden');
+                    document.getElementById('pickerTitle').classList.remove('hidden');
+                    document.getElementById('datePickerView').classList.remove('hidden');
+                    document.getElementById('sizhuPickerView').classList.add('hidden');
+                    this.renderLoc();
+                }
+            },
+            close: function() {
+                document.getElementById('pickerModal').style.transform = "translateX(-50%) translateY(100%)";
+                setTimeout(() => document.getElementById('pickerOverlay').classList.add('hidden'), 300);
+            },
+            switchMode: function(m) {
+                state.mode = m;
+                ['gregorian','lunar','sizhu'].forEach(t => document.getElementById('tab-'+t).className = (t===m) ? "px-5 py-1.5 rounded-full bg-white text-primary shadow-sm font-bold cursor-pointer" : "px-5 py-1.5 rounded-full text-gray-400 cursor-pointer");
+                if (m === 'sizhu') {
+                    document.getElementById('datePickerView').classList.add('hidden');
+                    document.getElementById('sizhuPickerView').classList.remove('hidden');
+                } else {
+                    document.getElementById('datePickerView').classList.remove('hidden');
+                    document.getElementById('sizhuPickerView').classList.add('hidden');
+                    this.renderDate();
+                }
+            },
+            renderDate: function() {
+                const container = document.getElementById('columnsContainer'); container.innerHTML = '';
+                const years = Array.from({length:101}, (_,i)=>1930+i);
+                let ms = state.mode==='gregorian' ? Array.from({length:12}, (_,i)=>(i+1)+'月') : "正月,二月,三月,四月,五月,六月,七月,八月,九月,十月,冬月,腊月".split(',');
+                let ds = state.mode==='gregorian' ? Array.from({length:31}, (_,i)=>(i+1)+'日') : "初一,初二,初三,初四,初五,初六,初七,初八,初九,初十,十一,十二,十三,十四,十五,十六,十七,十八,十九,廿十,廿一,廿二,廿三,廿四,廿五,廿六,廿七,廿八,廿九,三十".split(',');
+                this.buildCols([years, ms, ds, Array.from({length:24},(_,i)=>i+'时'), Array.from({length:60},(_,i)=>i+'分')], state.dateIdx);
+            },
+            renderLoc: function() {
+                const provs = Object.keys(CITY_DB);
+                this.buildCols([provs, Object.keys(CITY_DB[provs[state.locIdx[0]]])], state.locIdx);
+            },
+            buildCols: function(dataSets, idxArr) {
+                const container = document.getElementById('columnsContainer'); container.innerHTML = '';
+                dataSets.forEach((set, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'flex-1 h-full picker-column no-scrollbar';
+                    div.innerHTML = set.map((t,idx)=>`<div class="picker-item ${idx===idxArr[i]?'selected':''}">${t}</div>`).join('');
+                    div.onscroll = () => {
+                        const newIdx = Math.round(div.scrollTop/48);
+                        if(newIdx >=0 && newIdx < set.length && newIdx !== idxArr[i]) {
+                            idxArr[i] = newIdx;
+                            if(state.pickerType === 'location' && i === 0) {
+                                state.locIdx[1] = 0;
+                                // 核心修复：只刷新第二列，不触碰第一列
+                                const nextProv = Object.keys(CITY_DB)[newIdx];
+                                const nextCities = Object.keys(CITY_DB[nextProv]);
+                                container.children[1].innerHTML = nextCities.map((t,idx)=>`<div class="picker-item ${idx===0?'selected':''}">${t}</div>`).join('');
+                                container.children[1].scrollTop = 0;
+                            } else {
+                                Array.from(div.children).forEach((c,ci) => c.className = `picker-item ${ci===newIdx?'selected':''}`);
+                            }
+                        }
+                    };
+                    container.appendChild(div);
+                    setTimeout(()=> div.scrollTop = idxArr[i]*48, 10);
+                });
+            },
+            confirm: function() {
+                if(state.pickerType === 'location') {
+                    const p = Object.keys(CITY_DB)[state.locIdx[0]], c = Object.keys(CITY_DB[p])[state.locIdx[1]];
+                    state.savedLoc = { city: c, lng: CITY_DB[p][c] };
+                    document.getElementById('locationDisplay').innerText = `${p} ${c}`;
+                } else {
+                    if (state.mode === 'sizhu') {
+                        document.getElementById('birthDisplay').innerText = `${state.sizhu.ygan}${state.sizhu.yzhi} ${state.sizhu.mgan}${state.sizhu.mzhi} ${state.sizhu.dgan}${state.sizhu.dzhi} ${state.sizhu.tgan}${state.sizhu.tzhi}`;
+                    } else {
+                        const y = 1930+state.dateIdx[0], m = state.dateIdx[1]+1, d = state.dateIdx[2]+1;
+                        state.savedDate = {y, m, d, h:state.dateIdx[3], min:state.dateIdx[4]};
+                        document.getElementById('birthDisplay').innerText = `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')} ${String(state.dateIdx[3]).padStart(2,'0')}:${String(state.dateIdx[4]).padStart(2,'0')}`;
+                        const solar = state.mode==='lunar'?Lunar.fromYmd(y,m,d).getSolar():Solar.fromYmd(y,m,d);
+                        const b = solar.getLunar().getBaZi();
+                        state.sizhu = {ygan:b[0][0], yzhi:b[0][1], mgan:b[1][0], mzhi:b[1][1], dgan:b[2][0], dzhi:b[2][1], tgan:b[3][0], tzhi:b[3][1]};
+                    }
+                }
+                this.close();
+            },
+            showSizhuPop: function(k, t) {
+                state.activeSizhuKey = k;
+                const pop = document.getElementById('popover');
+                const list = k.includes('gan') ? GAN : ZHI;
+                document.getElementById('popoverContent').innerHTML = list.map(v => `<div class="popover-item color-${WN[WX_MAP[v]]}" onclick="window.picker.selectSizhu('${v}')">${v}</div>`).join('');
+                pop.style.display = 'block'; pop.style.top = (t.offsetTop + 65) + 'px';
+            },
+            selectSizhu: function(v) {
+                document.getElementById('sz-'+state.activeSizhuKey).innerText = v;
+                state.sizhu[state.activeSizhuKey] = v;
+                document.getElementById('popover').style.display = 'none';
+            }
+        };
+
+        window.ui = {
+            setGender: (g) => { state.sex=g==='male'?1:0; document.getElementById('maleRadio').innerHTML = state.sex===1?'<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>':''; document.getElementById('femaleRadio').innerHTML = state.sex===0?'<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>':''; },
+            setMainType: (t) => { state.mode = t; window.picker.switchMode(t); ['gregorian','lunar','sizhu'].forEach(v => document.getElementById('btn-'+v).className = (v===t)?"px-4 py-1.5 rounded-full bg-primary text-white shadow-sm cursor-pointer":"px-4 py-1.5 rounded-full text-gray-400 cursor-pointer"); },
+            submit: function() { document.getElementById('analysisPanel').style.display = 'block'; this.render(); },
+            render: function() {
+                try {
+                    const {y,m,d,h,min} = state.savedDate;
+                    const lng = state.savedLoc.lng || 120;
+                    const useSolar = document.getElementById('useSolarCheck').checked;
+                    let ty=y, tm=m, td=d, th=h, tmin=min;
+                    if(useSolar) {
+                        let dt = new Date(y, m-1, d, h, min); dt = new Date(dt.getTime() + (lng-120)*4*60000);
+                        ty=dt.getFullYear(); tm=dt.getMonth()+1; td=dt.getDate(); th=dt.getHours(); tmin=dt.getMinutes();
+                    }
+                    const solar = Solar.fromYmdHms(ty, tm, td, th, tmin, 0);
+                    const lunar = solar.getLunar();
+                    const ec = lunar.getEightChar();
+                    const b = lunar.getBaZi();
+                    const DM = b[2][0]; // 日干
+
+                    const p = [{g:b[0][0], z:b[0][1]},{g:b[1][0], z:b[1][1]},{g:b[2][0], z:b[2][1]},{g:b[3][0], z:b[3][1]}];
+                    for(let i=0; i<4; i++) {
+                        const g=p[i].g, z=p[i].z;
+                        const gEl = document.getElementById(`ana-gan-${i}`), zEl = document.getElementById(`ana-zhi-${i}`);
+                        gEl.innerText = g; gEl.className = `table-cell text-3xl font-bold color-${WN[WX_MAP[g]]}`;
+                        zEl.innerText = z; zEl.className = `table-cell text-3xl font-bold color-${WN[WX_MAP[z]]}`;
+                        document.getElementById(`ana-cg-${i}`).innerText = HD_MAP[z].join('\n');
+                        document.getElementById(`ana-ny-${i}`).innerText = NY_DB[g+z];
+                        document.getElementById(`ana-zx-${i}`).innerText = i===2?(state.sex===1?'元男':'元女'):this.calcTenGod(g, DM);
+                        document.getElementById(`ana-ss-${i}`).innerHTML = this.getShenSha(p[i], p, i, DM);
+                    }
+
+                    // 能量与喜用
+                    const scores = {"木":0, "火":0, "土":0, "金":0, "水":0};
+                    p.forEach((x, i) => { scores[WX_MAP[x.g]] += (i===1)?20:10; scores[WX_MAP[x.z]] += (i===1)?40:10; });
+                    const rel = {"木":{g:["木","水"], b:["金","火","土"]}, "火":{g:["火","木"], b:["水","土","金"]}, "土":{g:["土","火"], b:["木","金","水"]}, "金":{g:["金","土"], b:["火","木","水"]}, "水":{g:["水","金"], b:["土","火","木"]}};
+                    let power = 0; rel[WX_MAP[DM]].g.forEach(w => power += scores[w]);
+                    const isStrong = power > 55;
+                    const yong = isStrong ? rel[WX_MAP[DM]].b[2] : rel[WX_MAP[DM]].g[0];
+                    const xi = isStrong ? rel[WX_MAP[DM]].b[0] : rel[WX_MAP[DM]].g[1];
+                    const ji = isStrong ? rel[WX_MAP[DM]].g[0] : rel[WX_MAP[DM]].b[0];
+
+                    document.getElementById('ana-energy-text').innerText = `能量审计：日元${WX_MAP[DM]}${isStrong?'偏旺':'偏弱'} (得分:${power})`;
+                    document.getElementById('ana-yong').innerText = "用神：" + yong;
+                    document.getElementById('ana-xi').innerText = "喜神：" + xi;
+                    document.getElementById('ana-ji').innerText = "忌神：" + ji;
+
+                    document.getElementById('energy-bars').innerHTML = Object.entries(scores).map(([k, v]) => `
+                        <div class="flex items-center gap-3 text-xs"><span class="w-4 font-bold text-gray-600">${k}</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-current color-${WN[k]}" style="width:${v}%"></div></div>
+                        <span class="w-8 text-gray-400 text-right">${v}</span></div>`).join('');
+
+                    document.getElementById('info-mean').innerText = solar.toYmdHms().slice(0,16);
+                    document.getElementById('info-true').innerText = `${ty}-${String(tm).padStart(2,'0')}-${String(td).padStart(2,'0')} ${th}:${String(tmin).padStart(2,'0')}`;
+                    document.getElementById('info-lng').innerText = lng + "°";
+                } catch(e) { console.error(e); alert("排盘数据解析失败，请检查输入时间"); }
+            },
+            calcTenGod: (t, d) => SS_NAME[(GAN.indexOf(t) - GAN.indexOf(d) + 10) % 10],
+            getShenSha: (item, all, idx, dm) => {
+                let res = []; const z=item.z, yz=all[0].z, dz=all[2].z;
+                const m = {'天乙贵人':{'甲':['未','丑'],'戊':['未','丑'],'庚':['未','丑'],'乙':['申','子'],'己':['申','子'],'丙':['酉','亥'],'丁':['酉','亥'],'壬':['卯','巳'],'癸':['卯','巳'],'辛':['午','寅']},'禄神':{'甲':'寅','乙':'卯','丙':'巳','丁':'午','戊':'巳','己':'午','庚':'申','辛':'酉','壬':'亥','癸':'子'}};
+                for(let k in m) { let h=m[k][dm]; if(Array.isArray(h)?h.includes(z):h===z) res.push({n:k, t:'vip'}); }
+                const b = {'驿马':{'申':'寅','子':'寅','辰':'寅','寅':'申','午':'申','戌':'申','巳':'亥','酉':'亥','丑':'亥','亥':'巳','卯':'巳','未':'巳'},'桃花':{'申':'酉','子':'酉','辰':'酉','寅':'卯','午':'卯','戌':'卯','巳':'午','酉':'午','丑':'午','亥':'子','卯':'子','未':'子'}};
+                for(let k in b) { if(b[k][yz]===z) res.push({n:k+'(年)', t:''}); if(b[k][dz]===z) res.push({n:k+'(日)', t:''}); }
+                return res.map(x => `<span class="ss-tag ${x.t==='vip'?'ss-vip':''}">${x.n}</span>`).join('');
+            }
+        };
+    })();
+    </script>
+</body>
+</html>

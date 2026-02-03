@@ -1,0 +1,6 @@
+[skill]
+  skill_package = "awkn-viral-article.skill"
+  name = "awkn-viral-article"
+  description = "公众号爆款文章一键生成 - 基于认知工程学和AWKN爆文逻辑，将书籍/文章拆解内容转化为公众号爆款文章。包含7大标题公式、6模块正文结构、转发文案和摘要生成。"
+  project_name = "AWKN 创意技能集"
+  project_description = "公众号爆款文章一键生成"

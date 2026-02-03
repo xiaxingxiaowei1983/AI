@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泉州中档酒店投资分析PPT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .slide {
+            background: white;
+            margin-bottom: 50px;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            page-break-after: always;
+        }
+        
+        .slide:last-child {
+            margin-bottom: 0;
+            page-break-after: auto;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #667eea;
+            font-weight: bold;
+        }
+        
+        .slide-content {
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.9;
+            text-align: justify;
+        }
+        
+        .key-data {
+            font-size: 18px;
+            color: #667eea;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .table-container {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        tr:hover {
+            background: #f0f4ff;
+        }
+        
+        .insight-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .insight-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .insight-content {
+            color: #856404;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+        
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .positive {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .model-box {
+            background: #e7f3ff;
+            border: 2px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .model-title {
+            color: #1976d2;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .recommendation {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #999;
+            font-size: 14px;
+            border-top: 2px solid #eee;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- P1: 城市宏观经济概况 -->
+        <div class="slide">
+            <h1 class="slide-title">经济稳健增长，奠定酒店市场坚实基础</h1>
+            
+            <div class="key-data">核心数据</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>指标</th>
+                            <th>2024年</th>
+                            <th>增速</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GDP</td>
+                            <td>13094.87亿元</td>
+                            <td><span class="positive">+6.5%</span></td>
+                        </tr>
+                        <tr>
+                            <td>人均GDP</td>
+                            <td>147158元</td>
+                            <td>+5.8%</td>
+                        </tr>
+                        <tr>
+                            <td>第三产业占比</td>
+                            <td>46.2%</td>
+                            <td><span class="positive">创历史新高</span></td>
+                        </tr>
+                        <tr>
+                            <td>常住人口</td>
+                            <td>891.4万人</td>
+                            <td>城镇化率71.19%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>产业结构优化</strong>
+                <ul>
+                    <li>第二产业占比51.8%，制造业集群优势明显</li>
+                    <li>第三产业首次突破6000亿元，服务业持续扩张</li>
+                    <li>规模以上民营工业企业增加值增长10.6%</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    经济增速领跑全国万亿城市，民营经济与文旅产业双轮驱动酒店需求，市场基本面良好。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】泉州市统计局2024年统计公报</p>
+        </div>
+        
+        <!-- P2: 旅游市场分析 -->
+        <div class="slide">
+            <h1 class="slide-title">文旅消费复苏强劲，客流引领增长</h1>
+            
+            <div class="key-data">核心数据</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>指标</th>
+                            <th>2024年</th>
+                            <th>增速</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>游客接待量</td>
+                            <td>10109.75万人次</td>
+                            <td><span class="positive">+16.8%</span></td>
+                        </tr>
+                        <tr>
+                            <td>旅游收入</td>
+                            <td>1211.40亿元</td>
+                            <td><span class="positive">+20.8%</span></td>
+                        </tr>
+                        <tr>
+                            <td>人均消费</td>
+                            <td>1198元</td>
+                            <td>+3.5%</td>
+                        </tr>
+                        <tr>
+                            <td>过夜游客占比</td>
+                            <td>67%</td>
+                            <td>同比提升</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>流量热点TOP3</strong>
+                <ul>
+                    <li>蟳埔簪花：网络传播量超300亿，日均客流5万+</li>
+                    <li>古城西街：日均客流20万+，节假日高峰超30万</li>
+                    <li>开元寺：年接待游客超500万人次</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    世遗效应持续释放，游客量创历史新高，旅游市场增长潜力显著，中档酒店需求旺盛。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】泉州市文化和旅游局2024年旅游数据</p>
+        </div>
+        
+        <!-- P3: 酒店市场供给分析 -->
+        <div class="slide">
+            <h1 class="slide-title">供给结构优化，中端市场存在结构性机会</h1>
+            
+            <div class="key-data">酒店档次分布</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>档次</th>
+                            <th>占比</th>
+                            <th>市场判断</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>经济型</td>
+                            <td>65%</td>
+                            <td><span class="highlight">过剩</span>，RevPAR下降</td>
+                        </tr>
+                        <tr>
+                            <td>中档连锁</td>
+                            <td>15%</td>
+                            <td><span class="positive">供给不足</span>，缺口150-200家</td>
+                        </tr>
+                        <tr>
+                            <td>高档连锁</td>
+                            <td>12%</td>
+                            <td><span class="positive">供给不足</span></td>
+                        </tr>
+                        <tr>
+                            <td>其他</td>
+                            <td>8%</td>
+                            <td>民宿/特色酒店</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>市场特征</strong>
+                <ul>
+                    <li>携程挂牌酒店约1200家，经济型占主导</li>
+                    <li>星级酒店48家，四星级以上数量居全省首位</li>
+                    <li>2024年下半年新增连锁酒店20余家，以中档品牌为主</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    中端酒店市场供给不足，入住率和房价均有提升空间，结构性机会明显。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】泉州市第五次全国经济普查公报；携程酒店榜单2024年数据</p>
+        </div>
+        
+        <!-- P4: 商圈与客流分析 -->
+        <div class="slide">
+            <h1 class="slide-title">核心商圈集中度高，文旅流量优势显著</h1>
+            
+            <div class="key-data">商圈客流排名</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>商圈名称</th>
+                            <th>日均客流</th>
+                            <th>消费能力</th>
+                            <th>酒店数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>古城核心商圈</td>
+                            <td>20万+</td>
+                            <td>高</td>
+                            <td>300+家</td>
+                        </tr>
+                        <tr>
+                            <td>蟳埔-东海商圈</td>
+                            <td>5万+</td>
+                            <td>中高</td>
+                            <td>100+家</td>
+                        </tr>
+                        <tr>
+                            <td>万达-丰泽广场商圈</td>
+                            <td>15万+</td>
+                            <td>高</td>
+                            <td>200+家</td>
+                        </tr>
+                        <tr>
+                            <td>洛江万安-桥南商圈</td>
+                            <td>3万+</td>
+                            <td>中</td>
+                            <td>50+家</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>交通枢纽客流</strong>
+                <ul>
+                    <li>泉州晋江机场：2024年旅客吞吐量884万人次，增长31.5%</li>
+                    <li>铁路旅客运输量：增长20.0%</li>
+                    <li>高速公路网络密集，交通优势明显</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    古城核心商圈流量集中，文旅IP价值显著；新兴商圈成长空间大，值得提前布局。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】高德地图2024年客流数据；泉州市文化和旅游局数据</p>
+        </div>
+        
+        <!-- P5: 投资机会排序 -->
+        <div class="slide">
+            <h1 class="slide-title">投资机会排序：供需错配创造机会</h1>
+            
+            <div class="key-data">商圈投资机会排序</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>商圈名称</th>
+                            <th>需求排名</th>
+                            <th>供给排名</th>
+                            <th>投资机会</th>
+                            <th>推荐度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>蟳埔-东海商圈</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td><span class="positive">极高</span></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>洛江万安-桥南商圈</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td><span class="positive">高</span></td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>晋江中心城区商圈</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td><span class="positive">中</span></td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>古城核心商圈</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><span class="highlight">中低</span></td>
+                            <td>⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>核心判断</strong>
+                <ul>
+                    <li>需求排名高+供给排名低=高机会商圈</li>
+                    <li>蟳埔-东海商圈流量充沛供给不足，投资首选</li>
+                    <li>洛江万安-桥南商圈成长性可期，值得提前布局</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    供需错配明显，蟳埔-东海商圈、洛江万安-桥南商圈投资价值突出。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】高德地图、携程酒店榜单、商圈客流数据</p>
+        </div>
+        
+        <!-- P6-1: 蟳埔-东海商圈投资模型 -->
+        <div class="slide">
+            <h1 class="slide-title">蟳埔-东海商圈：中档改造性价比突出</h1>
+            
+            <div class="model-box">
+                <p class="model-title">模型1：中档商务/文旅酒店（120-160间）</p>
+                <ul>
+                    <li>租金：1.8-2.2元/㎡/天</li>
+                    <li>单房造价：≤9万元</li>
+                    <li>总投资：1080~1440万</li>
+                    <li>单房卖价：400-500元</li>
+                    <li>回本期：4.5-5.5年</li>
+                </ul>
+            </div>
+            
+            <div class="model-box">
+                <p class="model-title">模型2：中档改造酒店（100-150间）<span class="recommendation">推荐</span></p>
+                <ul>
+                    <li>租金：1.8-2.0元/㎡/天</li>
+                    <li>单房造价：5~7万元</li>
+                    <li>总投资：500~1050万</li>
+                    <li>单房卖价：350-450元</li>
+                    <li>回本期：3.5-4.5年</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    中档改造酒店投资回报率最高，回本期最短，性价比突出。
+                </p>
+            </div>
+        </div>
+        
+        <!-- P6-2: 蟳埔-东海商圈收益测算 -->
+        <div class="slide">
+            <h1 class="slide-title">蟳埔-东海商圈：收益测算与回报</h1>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模型</th>
+                            <th>入住率</th>
+                            <th>房价</th>
+                            <th>RevPAR</th>
+                            <th>回本期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>中档商务/文旅</td>
+                            <td>75%</td>
+                            <td>450元</td>
+                            <td>337.5元</td>
+                            <td>4.5-5.5年</td>
+                        </tr>
+                        <tr>
+                            <td><span class="positive">中档改造</span></td>
+                            <td>75%</td>
+                            <td>400元</td>
+                            <td><span class="positive">300元</span></td>
+                            <td><span class="positive">3.5-4.5年</span></td>
+                        </tr>
+                        <tr>
+                            <td>经济升级</td>
+                            <td>75%</td>
+                            <td>300元</td>
+                            <td>225元</td>
+                            <td>3-4年</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>成功案例</strong>
+                <ul>
+                    <li>泉州宝洲路宏昌亚朵酒店：平均收益450元/间夜，入住率85%</li>
+                    <li>泉州丰泽浦西万达广场宜尚PLUS酒店：平均收益420元/间夜，入住率80%</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    中档改造酒店运营成本适中，RevPAR高，投资回报最优。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】携程酒店榜单2024年数据</p>
+        </div>
+        
+        <!-- P7-1: 洛江万安-桥南商圈投资模型 -->
+        <div class="slide">
+            <h1 class="slide-title">洛江万安-桥南商圈：成长性可期</h1>
+            
+            <div class="model-box">
+                <p class="model-title">模型1：中档文旅酒店（100-150间）</p>
+                <ul>
+                    <li>租金：1.5-1.8元/㎡/天</li>
+                    <li>单房造价：≤8万元</li>
+                    <li>总投资：800~1200万</li>
+                    <li>单房卖价：350-450元</li>
+                    <li>回本期：4-5年</li>
+                </ul>
+            </div>
+            
+            <div class="model-box">
+                <p class="model-title">模型2：中档改造酒店（80-120间）<span class="recommendation">推荐</span></p>
+                <ul>
+                    <li>租金：1.4-1.6元/㎡/天</li>
+                    <li>单房造价：4~6万元</li>
+                    <li>总投资：320~720万</li>
+                    <li>单房卖价：300-400元</li>
+                    <li>回本期：3-4.5年</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    中档改造酒店投资回报率高，回本期短，性价比突出。
+                </p>
+            </div>
+        </div>
+        
+        <!-- P7-2: 洛江万安-桥南商圈收益测算 -->
+        <div class="slide">
+            <h1 class="slide-title">洛江万安-桥南商圈：收益测算与回报</h1>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模型</th>
+                            <th>入住率</th>
+                            <th>房价</th>
+                            <th>RevPAR</th>
+                            <th>回本期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>中档文旅</td>
+                            <td>70%</td>
+                            <td>400元</td>
+                            <td>280元</td>
+                            <td>4-5年</td>
+                        </tr>
+                        <tr>
+                            <td><span class="positive">中档改造</span></td>
+                            <td>70%</td>
+                            <td>350元</td>
+                            <td><span class="positive">245元</span></td>
+                            <td><span class="positive">3-4.5年</span></td>
+                        </tr>
+                        <tr>
+                            <td>经济升级</td>
+                            <td>70%</td>
+                            <td>270元</td>
+                            <td>189元</td>
+                            <td>2.5-3.5年</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>商圈优势</strong>
+                <ul>
+                    <li>洛阳桥世界遗产点、桥南古街文旅资源丰富</li>
+                    <li>日均客流3万+人次，成长性可期</li>
+                    <li>租金水平合理，投资成本优势明显</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    中档改造酒店运营成本低，RevPAR适中，投资回报最优。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】携程酒店榜单2024年数据</p>
+        </div>
+        
+        <!-- P8-1: 古城核心商圈投资模型 -->
+        <div class="slide">
+            <h1 class="slide-title">古城核心商圈：高端精品价值高</h1>
+            
+            <div class="model-box">
+                <p class="model-title">模型1：高端精品酒店（80-120间）<span class="recommendation">推荐</span></p>
+                <ul>
+                    <li>租金：2.2-2.8元/㎡/天</li>
+                    <li>单房造价：≤12万元</li>
+                    <li>总投资：960~1440万</li>
+                    <li>单房卖价：600-800元</li>
+                    <li>回本期：5.5-6.5年</li>
+                </ul>
+            </div>
+            
+            <div class="model-box">
+                <p class="model-title">模型2：精品民宿（30-50间）</p>
+                <ul>
+                    <li>租金：1.8-2.2元/㎡/天</li>
+                    <li>单房造价：8~12万元</li>
+                    <li>总投资：240~600万</li>
+                    <li>单房卖价：500-700元</li>
+                    <li>回本期：4.5-5.5年</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    高端精品酒店收益高，精品民宿特色明显，适合打造差异化产品。
+                </p>
+            </div>
+        </div>
+        
+        <!-- P8-2: 古城核心商圈收益测算 -->
+        <div class="slide">
+            <h1 class="slide-title">古城核心商圈：收益测算与回报</h1>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模型</th>
+                            <th>入住率</th>
+                            <th>房价</th>
+                            <th>RevPAR</th>
+                            <th>回本期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="positive">高端精品</span></td>
+                            <td>65%</td>
+                            <td>700元</td>
+                            <td><span class="positive">455元</span></td>
+                            <td>5.5-6.5年</td>
+                        </tr>
+                        <tr>
+                            <td>中档精品</td>
+                            <td>65%</td>
+                            <td>525元</td>
+                            <td>341.25元</td>
+                            <td>4-5.5年</td>
+                        </tr>
+                        <tr>
+                            <td>精品民宿</td>
+                            <td>65%</td>
+                            <td>600元</td>
+                            <td>390元</td>
+                            <td>4.5-5.5年</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="slide-content">
+                <strong>成功案例</strong>
+                <ul>
+                    <li>泉州七栩钟楼酒店：平均收益1340元/间夜，入住率70%</li>
+                    <li>泉州厦航酒店（古城店）：平均收益550元/间夜，入住率75%</li>
+                </ul>
+            </div>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    高端精品酒店RevPAR最高，精品民宿特色鲜明，适合打造历史文化主题产品。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】携程酒店榜单2024年数据</p>
+        </div>
+        
+        <!-- P9: 综合投资建议 -->
+        <div class="slide">
+            <h1 class="slide-title">泉州中档酒店投资：三句话落地策略</h1>
+            
+            <div class="slide-content">
+                <strong>三大投资机遇</strong>
+            </div>
+            
+            <ol>
+                <li><strong>卡位流量入口</strong>
+                    <ul>
+                        <li>优先布局<strong>蟳埔-东海商圈</strong>、<strong>洛江万安-桥南商圈</strong></li>
+                        <li>重点在文旅流量、交通枢纽</li>
+                        <li>把握世遗IP持续发酵机遇</li>
+                    </ul>
+                </li>
+                
+                <li><strong>中档升级窗口</strong>
+                    <ul>
+                        <li><strong>存量改造</strong>中档，把握城市商圈升级投资风口</li>
+                        <li>中档酒店供给缺口约150-200家</li>
+                        <li>选择80-150间规模的商务型产品</li>
+                    </ul>
+                </li>
+                
+                <li><strong>老店翻红档口</strong>
+                    <ul>
+                        <li>2-4万/间改造，可以大幅提升卖价</li>
+                        <li>商业模型最优，回本期3-4.5年</li>
+                        <li>经济型酒店改造升级潜力巨大</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="insight-box">
+                <p class="insight-title">洞察总结</p>
+                <p class="insight-content">
+                    流量入口+中档升级+老店翻红，三管齐下把握投资红利。
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #999; margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd;">【来源】泉州市统计局、泉州市文化和旅游局、携程酒店榜单等</p>
+        </div>
+        
+        <footer>
+            <p>泉州中档酒店投资分析PPT | 报告日期：2026年1月</p>
+            <p>本报告仅供参考，投资决策需结合实际情况</p>
+        </footer>
+    </div>
+</body>
+</html>

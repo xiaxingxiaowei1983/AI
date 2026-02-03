@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人生决策八字 - 宗师修复版</title>
+    <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.6.12/lunar.js"></script>
+    <style>
+        /* --- 1. 样式系统 --- */
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
+        body { margin: 0; padding: 0; font-family: -apple-system, "PingFang SC", sans-serif; background-color: #F5F6F7; color: #333; padding-bottom: 50px; }
+        .page-container { padding: 16px; max-width: 600px; margin: 0 auto; }
+        .card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 16px; }
+        .form-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f9fafb; }
+        .label { width: 80px; color: #666; font-size: 14px; flex-shrink: 0; }
+        input, select { border: 1px solid #eee; border-radius: 6px; padding: 6px; font-size: 14px; background: #f9f9f9; }
+        input[type="datetime-local"] { width: 180px; }
+        .btn-submit { width: 100%; margin-top: 15px; height: 50px; border-radius: 25px; border: none; background: linear-gradient(180deg, #333 0%, #000 100%); color: #b2955d; font-size: 16px; font-weight: bold; cursor: pointer; }
+        
+        /* 表格样式 */
+        #result-area { display: none; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed; border: 1px solid #eee; }
+        th { background: #fafafa; color: #999; font-size: 11px; padding: 8px 0; }
+        td { padding: 10px 1px; border-bottom: 1px solid #f6f6f6; vertical-align: top; font-size: 13px; border-right: 1px solid #f9f9f9; }
+        td:first-child { color: #aaa; font-size: 10px; background: #fdfdfd; width: 40px; vertical-align: middle; }
+        .txt-big { font-size: 20px; font-weight: bold; font-family: "楷体", serif; display: block; }
+        .wx-金 { color: #E6A23C; } .wx-木 { color: #67C23A; } .wx-水 { color: #409EFF; } .wx-火 { color: #F56C6C; } .wx-土 { color: #A47E3C; }
+        
+        /* 能量图谱 */
+        .energy-box { margin-top: 15px; padding: 15px; border-top: 2px solid #b2955d; }
+        .tag-xy { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; margin: 2px; font-weight: bold; }
+        .tag-good { background: #f6ffed; color: #389e0d; border: 1px solid #b7eb8f; }
+        .tag-bad { background: #fff1f0; color: #cf1322; border: 1px solid #ffa39e; }
+        .ss-tag { display: inline-block; padding: 2px 5px; margin: 1px; border-radius: 3px; font-size: 10px; }
+        .ss-vip { background: #fff7e6; color: #d46b08; border: 1px solid #ffd591; font-weight: bold; }
+        .ss-danger { background: #fff1f0; color: #cf1322; border: 1px solid #ffa39e; }
+        .ss-normal { background: #f6ffed; color: #389e0d; border: 1px solid #b7eb8f; }
+        
+        .active-tab { background: #b2955d; color: white; border-radius: 4px; padding: 2px 8px; font-size: 12px; cursor: pointer; }
+        .inactive-tab { font-size: 12px; cursor: pointer; padding: 2px 8px; color: #999; }
+        .checkbox-fake { width: 15px; height: 15px; border: 1px solid #ccc; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; }
+        .checkbox-fake.checked { background: #b2955d; color: white; border-color: #b2955d; }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="card">
+        <div class="form-row"><div class="label">命主姓名</div><input type="text" id="p_name" value="陈婷" style="border:none; text-align:right; flex:1;"></div>
+        <div class="form-row">
+            <div class="radio-group">
+                <span id="sex-1" onclick="setSex(1)" class="active-tab">男</span>
+                <span id="sex-0" onclick="setSex(0)" class="inactive-tab">女</span>
+            </div>
+            <div>
+                <span id="tab-gl" class="active-tab" onclick="setCal('gl')">公历</span>
+                <span id="tab-nl" class="inactive-tab" onclick="setCal('nl')">农历</span>
+            </div>
+        </div>
+        <div class="form-row"><div class="label">出生时间</div><input type="datetime-local" id="birthInput"></div>
+        <div class="form-row">
+            <div class="label">出生地址</div>
+            <div style="display:flex; gap:5px;">
+                <select id="prov-select" onchange="updateCitySelect()"></select>
+                <select id="city-select" onchange="updateLngDisplay()"></select>
+            </div>
+        </div>
+        <div class="form-row" style="border:none;">
+            <div onclick="toggleSolar()" style="cursor:pointer; font-size:13px;"><span class="checkbox-fake" id="check-solar"></span> <b>真太阳时</b></div>
+            <div id="lng-display" style="font-size:11px; color:#b2955d;"></div>
+        </div>
+    </div>
+    
+    <button class="btn-submit" onclick="doPaipan()">开启宗师排盘</button>
+    <div class="card" id="result-area">
+        <h3 style="text-align: center; color: #b2955d; font-size: 15px; margin:0 0 10px 0;">排盘结果</h3>
+        <table><tbody id="table-body"></tbody></table>
+        <div class="energy-box" id="energy-area"></div>
+    </div>
+</div>
+
+<script>
+    // --- 1. 核心数据库 ---
+
+const CITY_DB = {
+    "北京": {"北京": 116.4},
+    "天津": {"天津": 117.2},
+    "上海": {"上海": 121.47},
+    "重庆": {"重庆": 106.55},
+    "河北": {
+        "石家庄": 114.48, "唐山": 118.15, "秦皇岛": 119.57, "邯郸": 114.47, 
+        "保定": 115.48, "张家口": 114.87, "承德": 117.93, "沧州": 116.83, "廊坊": 116.70
+    },
+    "山西": {
+        "太原": 112.53, "大同": 113.29, "阳泉": 113.57, "长治": 113.08, 
+        "晋城": 112.83, "朔州": 112.43, "晋中": 112.73, "运城": 111.00, "忻州": 112.72, "临汾": 111.51
+    },
+    "辽宁": {
+        "沈阳": 123.42, "大连": 121.61, "鞍山": 122.99, "抚顺": 123.97, 
+        "本溪": 123.73, "丹东": 124.38, "锦州": 121.13, "营口": 122.18, "盘锦": 122.06, "朝阳": 120.44, "葫芦岛": 120.85
+    },
+    "吉林": {
+        "长春": 125.32, "吉林": 126.55, "四平": 124.37, "通化": 125.93, 
+        "白山": 126.40, "松原": 124.82, "白城": 122.84, "延边": 129.50
+    },
+    "黑龙江": {
+        "哈尔滨": 126.63, "齐齐哈尔": 123.95, "鸡西": 130.97, "鹤岗": 130.27, 
+        "双鸭山": 131.15, "大庆": 125.11, "伊春": 128.89, "佳木斯": 130.36, "牡丹江": 129.61
+    },
+    "江苏": {
+        "南京": 118.78, "无锡": 120.29, "徐州": 117.18, "常州": 119.95, 
+        "苏州": 120.62, "南通": 120.86, "连云港": 119.16, "淮安": 119.02, "盐城": 120.13, "扬州": 119.42, "镇江": 119.44, "泰州": 119.90
+    },
+    "浙江": {
+        "杭州": 120.15, "宁波": 121.55, "温州": 120.67, "嘉兴": 120.75, 
+        "湖州": 120.10, "绍兴": 120.58, "金华": 119.64, "衢州": 118.87, "舟山": 122.10, "台州": 121.43, "丽水": 119.92
+    },
+    "安徽": {
+        "合肥": 117.28, "芜湖": 118.37, "蚌埠": 117.36, "淮南": 116.98, 
+        "马鞍山": 118.50, "淮北": 116.79, "铜陵": 117.81, "安庆": 117.04, "黄山": 118.31, "滁州": 118.31, "阜阳": 115.81
+    },
+    "福建": {
+        "福州": 119.30, "厦门": 118.10, "莆田": 119.00, "三明": 117.63, 
+        "泉州": 118.58, "漳州": 117.66, "南平": 118.17, "龙岩": 117.03, "宁德": 119.52
+    },
+    "江西": {
+        "南昌": 115.89, "景德镇": 117.18, "萍乡": 113.85, "九江": 115.97, 
+        "新余": 114.92, "鹰潭": 117.03, "赣州": 114.94, "吉安": 114.98, "宜春": 114.39, "抚州": 116.36, "上饶": 117.97, "樟树": 115.55
+    },
+    "山东": {
+        "济南": 117.00, "青岛": 120.33, "淄博": 118.04, "枣庄": 117.55, 
+        "东营": 118.66, "烟台": 121.39, "潍坊": 119.10, "济宁": 116.59, "泰安": 117.12, "威海": 122.11, "日照": 119.46, "临沂": 118.34
+    },
+    "河南": {
+        "郑州": 113.66, "开封": 114.34, "洛阳": 112.43, "平顶山": 113.30, 
+        "安阳": 114.35, "新乡": 113.88, "焦作": 113.23, "许昌": 113.82, "南阳": 112.54, "商丘": 115.65, "信阳": 114.07, "周口": 114.64
+    },
+    "湖北": {
+        "武汉": 114.29, "黄石": 115.08, "十堰": 110.78, "宜昌": 111.29, 
+        "襄阳": 112.14, "鄂州": 114.89, "荆门": 112.20, "孝感": 113.92, "荆州": 112.23, "黄冈": 114.87, "咸宁": 114.32, "恩施": 109.48
+    },
+    "湖南": {
+        "长沙": 112.98, "株洲": 113.15, "湘潭": 112.92, "衡阳": 112.60, 
+        "邵阳": 111.46, "岳阳": 113.13, "常德": 111.69, "张家界": 110.47, "益阳": 112.35, "郴州": 113.03, "永州": 111.60, "怀化": 109.97
+    },
+    "广东": {
+        "广州": 113.28, "韶关": 113.59, "深圳": 114.08, "珠海": 113.55, "汕头": 116.70, 
+        "佛山": 113.11, "江门": 113.09, "湛江": 110.36, "茂名": 110.91, "肇庆": 112.47, "惠州": 114.41, "梅州": 116.10, "汕尾": 115.36, 
+        "河源": 114.69, "阳江": 111.98, "清远": 113.05, "东莞": 113.74, "中山": 113.38, "潮州": 116.63, "揭阳": 116.35, "云浮": 112.04
+    },
+    "广西": {
+        "南宁": 108.32, "柳州": 109.41, "桂林": 110.29, "梧州": 111.29, 
+        "北海": 109.11, "防城港": 108.34, "钦州": 108.62, "贵港": 109.60, "玉林": 110.16, "百色": 106.61, "贺州": 111.55, "河池": 107.70
+    },
+    "四川": {
+        "成都": 104.06, "自贡": 104.77, "攀枝花": 101.71, "泸州": 105.44, 
+        "德阳": 104.39, "绵阳": 104.74, "广元": 105.82, "遂宁": 105.57, "内江": 105.06, "乐山": 103.76, "南充": 106.08, "眉山": 103.83, 
+        "宜宾": 104.63, "广安": 106.63, "达州": 107.50, "雅安": 102.99, "巴中": 106.75, "资阳": 104.64
+    },
+    "贵州": {
+        "贵阳": 106.71, "六盘水": 104.84, "遵义": 106.93, "安顺": 105.93, 
+        "毕节": 105.28, "铜仁": 109.19, "黔西南": 104.89, "黔东南": 107.97, "黔南": 107.51
+    },
+    "云南": {
+        "昆明": 102.71, "曲靖": 103.79, "玉溪": 102.54, "保山": 99.16, 
+        "昭通": 103.71, "丽江": 100.23, "普洱": 100.97, "临沧": 100.08, "楚雄": 101.54, "红河": 103.38, "文山": 104.24, "西双版纳": 100.79, "大理": 100.22
+    },
+    "陕西": {
+        "西安": 108.94, "铜川": 109.11, "宝鸡": 107.14, "咸阳": 108.70, 
+        "渭南": 109.50, "延安": 109.49, "汉中": 107.02, "榆林": 109.74, "安康": 109.02, "商洛": 109.93
+    },
+    "甘肃": {
+        "兰州": 103.82, "嘉峪关": 98.27, "金昌": 102.18, "白银": 104.17, 
+        "天水": 105.72, "武威": 102.63, "张掖": 100.45, "酒泉": 98.51, "庆阳": 107.63, "定西": 104.62, "陇南": 104.92
+    },
+    "新疆": {
+        "乌鲁木齐": 87.61, "克拉玛依": 84.87, "吐鲁番": 89.18, "哈密": 93.51, 
+        "昌吉": 87.30, "巴音郭楞": 86.15, "阿克苏": 80.26, "喀什": 75.98, "和田": 79.92, "伊犁": 81.31
+    }
+};
+    const WX_MAP = {"甲":"木","乙":"木","丙":"火","丁":"火","戊":"土","己":"土","庚":"金","辛":"金","壬":"水","癸":"水","子":"水","丑":"土","寅":"木","卯":"木","辰":"土","巳":"火","午":"火","未":"土","申":"金","酉":"金","戌":"土","亥":"水"};
+    const HD_MAP = {"子":["癸"],"丑":["己","癸","辛"],"寅":["甲","丙","戊"],"卯":["乙"],"辰":["戊","乙","癸"],"巳":["丙","庚","戊"],"午":["丁","己"],"未":["己","丁","乙"],"申":["庚","壬","戊"],"酉":["辛"],"戌":["戊","辛","丁"],"亥":["壬","甲"]};
+    const GAN_L = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+    const SS_NAME = ["比肩","劫财","食神","伤官","偏财","正财","七杀","正官","偏印","正印"];
+    const NY_DB = {"甲子":"海中金","乙丑":"海中金","丙寅":"炉中火","丁卯":"炉中火","戊辰":"大林木","己巳":"大林木","庚午":"路旁土","辛未":"路旁土","壬申":"剑锋金","癸酉":"剑锋金","甲戌":"山头火","乙亥":"山头火","丙子":"涧下水","丁丑":"涧下水","戊寅":"城头土","己卯":"城头土","庚辰":"白蜡金","辛巳":"白蜡金","壬午":"杨柳木","癸未":"杨柳木","甲申":"泉中水","乙酉":"泉中水","丙戌":"屋上土","丁亥":"屋上土","戊子":"霹雳火","己丑":"霹雳火","庚寅":"松柏木","辛卯":"松柏木","壬辰":"长流水","癸巳":"长流水","甲午":"沙中金","乙未":"沙中金","丙申":"山下火","丁酉":"山下火","戊戌":"平地木","己亥":"平地木","庚子":"壁上土","辛丑":"壁上土","壬寅":"金箔金","癸卯":"金箔金","甲辰":"佛灯火","乙巳":"佛灯火","丙午":"天河水","丁未":"天河水","戊申":"大驿土","己酉":"大驿土","庚戌":"钗钏金","辛亥":"钗钏金","壬子":"桑柘木","癸丑":"桑柘木","甲寅":"大溪水","乙卯":"大溪水","丙辰":"沙中土","丁巳":"沙中土","戊午":"天上火","己未":"天上火","庚申":"石榴木","辛酉":"石榴木","壬戌":"大海水","癸亥":"大海水"};
+
+    let calType = 'gl', sex = 1, useSolar = false;
+
+    window.onload = function() {
+        document.getElementById('birthInput').value = "2000-01-01T12:00";
+        const ps = document.getElementById('prov-select');
+        Object.keys(CITY_DB).forEach(p => ps.add(new Option(p, p)));
+        ps.value = "北京"; updateCitySelect();
+    };
+
+    function updateCitySelect() {
+        const p = document.getElementById('prov-select').value;
+        const cs = document.getElementById('city-select'); cs.innerHTML = '';
+        Object.keys(CITY_DB[p]).forEach(c => cs.add(new Option(c, c)));
+        if(p==="江西") cs.value="南昌"; updateLngDisplay();
+    }
+
+    function updateLngDisplay() {
+        const p = document.getElementById('prov-select').value;
+        const c = document.getElementById('city-select').value;
+        document.getElementById('lng-display').innerText = "当前经度: " + CITY_DB[p][c];
+    }
+
+    function setSex(v) { sex=v; document.getElementById('sex-1').className=v===1?'active-tab':'inactive-tab'; document.getElementById('sex-0').className=v===0?'active-tab':'inactive-tab'; }
+    function setCal(v) { calType=v; document.getElementById('tab-gl').className=v==='gl'?'active-tab':'inactive-tab'; document.getElementById('tab-nl').className=v==='nl'?'active-tab':'inactive-tab'; }
+    function toggleSolar() { useSolar=!useSolar; document.getElementById('check-solar').className=useSolar?'checkbox-fake checked':'checkbox-fake'; document.getElementById('check-solar').innerText=useSolar?'✓':''; }
+
+    function getCleanStr(obj) { if(!obj) return ""; return (typeof obj === 'string') ? obj : (obj.getName ? obj.getName() : String(obj)); }
+    function calcTenGod(target, dayGan) { const ti = GAN_L.indexOf(target), di = GAN_L.indexOf(dayGan); if(ti === -1 || di === -1) return "--"; return SS_NAME[(ti - di + 10) % 10]; }
+
+    function doPaipan() {
+        try {
+            const input = document.getElementById('birthInput').value;
+            if(!input) return alert("请选择时间");
+            const [dStr, tStr] = input.split('T');
+            let [y, m, d] = dStr.split('-').map(Number);
+            let [hh, mm] = tStr.split(':').map(Number);
+
+            if(useSolar) {
+                const lng = CITY_DB[document.getElementById('prov-select').value][document.getElementById('city-select').value];
+                const offset = (lng - 120) * 4;
+                let dt = new Date(y, m-1, d, hh, mm);
+                dt = new Date(dt.getTime() + offset * 60000);
+                y = dt.getFullYear(); m = dt.getMonth()+1; d = dt.getDate(); hh = dt.getHours(); mm = dt.getMinutes();
+            }
+
+            let lunar = (calType==='nl') ? Lunar.fromYmdHms(y, m, d, hh, mm, 0) : Solar.fromYmdHms(y, m, d, hh, mm, 0).getLunar();
+            const bazi = lunar.getEightChar(); bazi.setSect(2);
+
+            // 修复点 1: 修正 getCleanStr 语法错误
+            const p = [
+                { g: getCleanStr(bazi.getYearGan()), z: getCleanStr(bazi.getYearZhi()) },
+                { g: getCleanStr(bazi.getMonthGan()), z: getCleanStr(bazi.getMonthZhi()) },
+                { g: getCleanStr(bazi.getDayGan()), z: getCleanStr(bazi.getDayZhi()) },
+                { g: getCleanStr(bazi.getTimeGan()), z: getCleanStr(bazi.getTimeZhi()) }
+            ];
+            const DM = p[2].g;
+
+            let h = `<tr><th>项目</th><th>年柱</th><th>月柱</th><th>日柱</th><th>时柱</th></tr>`;
+            h += `<tr><td>主星</td>` + p.map((x, i) => `<td><b>${i===2?(sex===1?'元男':'元女'):calcTenGod(x.g, DM)}</b></td>`).join('') + `</tr>`;
+            h += `<tr><td>天干</td>` + p.map(x => `<td><span class="txt-big wx-${WX_MAP[x.g]}">${x.g}</span></td>`).join('') + `</tr>`;
+            h += `<tr><td>地支</td>` + p.map(x => `<td><span class="txt-big wx-${WX_MAP[x.z]}">${x.z}</span></td>`).join('') + `</tr>`;
+            h += `<tr><td>藏干</td>` + p.map(x => {
+                let cell = `<td>`;
+                (HD_MAP[x.z] || []).forEach(cg => {
+                    cell += `<div class="canggan-row"><span class="wx-${WX_MAP[cg]}">${cg}</span><span class="shishen-small">${calcTenGod(cg, DM)}</span></div>`;
+                });
+                return cell + `</td>`;
+            }).join('') + `</tr>`;
+            h += `<tr><td>纳音</td>` + p.map(x => `<td>${NY_DB[x.g + x.z] || "--"}</td>`).join('') + `</tr>`;
+            h += `<tr><td>神煞</td>` + p.map((x, i) => `<td>${getShenShaAudit(x, p, i, DM)}</td>`).join('') + `</tr>`;
+
+            document.getElementById('table-body').innerHTML = h;
+            
+            // 修复点 2: 补全缺失的 runEnergyAudit 函数定义
+            runEnergyAudit(p);
+
+            document.getElementById('result-area').style.display = 'block';
+            document.querySelector('#result-area h3').innerText = "排盘结果 " + (useSolar ? `(真太阳时:${hh}:${mm})` : "");
+        } catch(e) { console.error(e); alert("排盘逻辑异常"); }
+    }
+
+    function runEnergyAudit(p) {
+        const scores = {"木":0, "火":0, "土":0, "金":0, "水":0};
+        const dmWx = WX_MAP[p[2].g];
+        p.forEach((x, i) => {
+            scores[WX_MAP[x.g]] += (i===1) ? 20 : 10;
+            scores[WX_MAP[x.z]] += (i===1) ? 40 : 10;
+        });
+        const rel = {
+            "木": {good:["木","水"], bad:["金","火","土"]}, "火": {good:["火","木"], bad:["水","土","金"]},
+            "土": {good:["土","火"], bad:["木","金","水"]}, "金": {good:["金","土"], bad:["火","木","水"]},
+            "水": {good:["水","金"], bad:["土","火","木"]}
+        };
+        let power = 0; rel[dmWx].good.forEach(w => power += scores[w]);
+        const isStrong = power > 55;
+        const xi = isStrong ? rel[dmWx].bad[0] : rel[dmWx].good[1];
+        const yong = isStrong ? rel[dmWx].bad[2] : rel[dmWx].good[0];
+
+        document.getElementById('energy-area').innerHTML = `
+            <div style="font-size:13px; margin-bottom:8px;"><b>能量审计：</b> 日元${dmWx}${isStrong?'偏旺':'偏弱'} (得分:${power})</div>
+            <div>
+                <span class="tag-xy tag-good">喜神：${xi}</span>
+                <span class="tag-xy tag-good">用神：${yong}</span>
+                <span class="tag-xy tag-bad">忌神：${isStrong ? rel[dmWx].good[0] : rel[dmWx].bad[0]}</span>
+            </div>
+        `;
+    }
+
+    function getShenShaAudit(item, allP, idx, dm) {
+        let res = []; const z = item.z, g = item.g, pillar = g + z;
+        const yz = allP[0].z, mz = allP[1].z, dz = allP[2].z;
+        const stemMap = {
+            '天乙贵人':{'甲':['未','丑'],'戊':['未','丑'],'庚':['未','丑'],'乙':['申','子'],'己':['申','子'],'丙':['酉','亥'],'丁':['酉','亥'],'壬':['卯','巳'],'癸':['卯','巳'],'辛':['午','寅']},
+            '禄神':{'甲':'寅','乙':'卯','丙':'巳','丁':'午','戊':'巳','己':'午','庚':'申','辛':'酉','壬':'亥','癸':'子'},
+            '文昌':{'甲':'巳','乙':'午','丙':'申','丁':'酉','戊':'申','己':'酉','庚':'亥','辛':'子','壬':'寅','癸':'卯'},
+            '羊刃':{'甲':'卯','乙':'辰','丙':'午','丁':'未','戊':'午','己':'未','庚':'酉','辛':'戌','壬':'子','癸':'丑'},
+            '红艳':{'甲':'午','乙':'午','丙':'寅','丁':'未','戊':'辰','己':'辰','庚':'戌','辛':'酉','壬':'子','癸':'申'},
+            '金舆':{'甲':'辰','乙':'巳','丙':'未','丁':'申','戊':'未','己':'申','庚':'戌','辛':'亥','壬':'丑','癸':'寅'}
+        };
+        for(let k in stemMap) { let match = stemMap[k][dm]; if(Array.isArray(match) ? match.includes(z) : match === z) res.push({n:k, t:'vip'}); }
+        const branchMap = {
+            '驿马':{'申':'寅','子':'寅','辰':'寅','寅':'申','午':'申','戌':'申','巳':'亥','酉':'亥','丑':'亥','亥':'巳','卯':'巳','未':'巳'},
+            '华盖':{'申':'辰','子':'辰','辰':'辰','寅':'戌','午':'戌','戌':'戌','巳':'丑','酉':'丑','丑':'丑','亥':'未','卯':'未','未':'未'},
+            '桃花':{'申':'酉','子':'酉','辰':'酉','寅':'卯','午':'卯','戌':'卯','巳':'午','酉':'午','丑':'午','亥':'子','卯':'子','未':'子'},
+            '劫煞':{'申':'巳','子':'巳','辰':'巳','寅':'亥','午':'亥','戌':'亥','巳':'寅','酉':'寅','丑':'寅','亥':'申','卯':'申','未':'申'},
+            '亡神':{'申':'亥','子':'亥','辰':'亥','寅':'巳','午':'巳','戌':'巳','巳':'申','酉':'申','丑':'申','亥':'寅','卯':'寅','未':'寅'},
+            '将星':{'申':'子','子':'子','辰':'子','寅':'午','午':'午','戌':'午','巳':'酉','酉':'酉','丑':'酉','亥':'卯','卯':'卯','未':'卯'}
+        };
+        for(let k in branchMap) { if(branchMap[k][yz] === z) res.push({n:k+'(年)', t:'normal'}); if(branchMap[k][dz] === z) res.push({n:k+'(日)', t:'normal'}); }
+        const td = {'寅':'丁','卯':'申','辰':'壬','巳':'辛','午':'亥','未':'甲','申':'癸','酉':'寅','戌':'丙','亥':'乙','子':'巳','丑':'庚'};
+        const yd = {'寅':'丙','午':'丙','戌':'丙','申':'壬','子':'壬','辰':'壬','亥':'甲','卯':'甲','未':'甲','巳':'庚','酉':'庚','丑':'庚'};
+        const ty = {'寅':'丑','卯':'寅','辰':'卯','巳':'辰','午':'巳','未':'午','申':'未','酉':'申','戌':'酉','亥':'戌','子':'亥','丑':'子'};
+        if(td[mz] === g || td[mz] === z) res.push({n:'天德贵人', t:'vip'});
+        if(yd[mz] === g) res.push({n:'月德贵人', t:'vip'});
+        if(ty[mz] === z) res.push({n:'天医', t:'normal'});
+        if(idx === 2 && ['壬辰','庚戌','庚辰','戊戌'].includes(pillar)) res.push({n:'魁罡', t:'danger'});
+        if(['甲辰','乙巳','壬申','丙申','丁亥','庚辰','戊戌','癸亥','辛巳','乙丑'].includes(pillar)) res.push({n:'十恶大败', t:'danger'});
+        if(['甲辰','乙亥','丙辰','丁酉','庚戌','壬午','戊午','辛亥','癸卯','丁卯'].includes(pillar)) res.push({n:'十灵日', t:'normal'});
+        if(['丙午','丁未','壬子','癸丑'].includes(pillar)) res.push({n:'阴阳差错', t:'danger'});
+        return res.map(x => `<span class="ss-tag ss-${x.t}">${x.n}</span>`).join('');
+    }
+</script>
+</body>
+</html>
+

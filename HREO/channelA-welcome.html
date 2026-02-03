@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>少年英雄觉醒系统 - 欢迎英雄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            /* 参数调整说明：
+               1. #2e1437 (深紫): 提升了亮度，不再是死黑，透出紫色
+               2. #16362d (深绿): 对应你截图中的绿色，但更有光泽
+               3. #3a1c1c (深红): 保留了红色的温润感
+               4. #1c2541 (深蓝): 经典的午夜蓝，作为冷暖色的过渡
+            */
+            background: linear-gradient(-45deg, #2e1437, #16362d, #3a1c1c, #1c2541);
+            
+            background-size: 400% 400%;
+            animation: gradientDark 18s ease infinite;
+        }
+
+        @keyframes gradientDark {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div id="app-view" class="pt-16 flex justify-center">
+        <div class="min-w-[300px] max-w-[500px] w-full bg-black rounded-[20px] shadow-2xl relative overflow-hidden">
+            
+            <!-- 通道A：已觉醒英雄 - 欢迎界面 -->
+            <section id="scr-channelA-welcome" class="flex flex-col items-center justify-center p-8 z-50 bg-[#050b14] min-h-[600px]">
+                <div class="text-center">
+                    <div class="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">欢迎回到主场</div>
+                    <div id="hero-title" class="text-[var(--neon-cyan)] font-bold orbitron text-xl mb-2">荣耀统帅</div>
+                    <div class="text-gray-400 text-sm mb-6">神经链路已重连。当前同步率：98%</div>
+                    <div class="text-white text-sm mb-8">你的驾驶舱已就绪。今日有 3 个进化任务待处理。</div>
+                    <div class="w-full max-w-md mx-auto">
+                        <div class="glass-panel p-6 rounded-3xl border border-white/10">
+                            <div class="text-center text-[var(--neon-cyan)] font-bold orbitron">正在进入驾驶舱...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // 1.5秒后自动进入驾驶舱
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 1500);
+    </script>
+</body>
+</html>

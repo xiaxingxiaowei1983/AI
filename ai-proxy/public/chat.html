@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通义千问 API 测试</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1890ff;
+    }
+    
+    .chat-container {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    .input-area {
+      margin-bottom: 20px;
+    }
+    
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      resize: vertical;
+      min-height: 100px;
+      font-size: 14px;
+    }
+    
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #1890ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background-color: #40a9ff;
+    }
+    
+    button:disabled {
+      background-color: #d9d9d9;
+      cursor: not-allowed;
+    }
+    
+    .result-area {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: white;
+      min-height: 150px;
+    }
+    
+    .loading {
+      text-align: center;
+      color: #666;
+      padding: 20px;
+    }
+    
+    .error {
+      color: #ff4d4f;
+      margin-top: 10px;
+    }
+    
+    .note {
+      margin-top: 30px;
+      padding: 10px;
+      background-color: #e6f7ff;
+      border-left: 4px solid #1890ff;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>通义千问 API 测试</h1>
+  
+  <div class="chat-container">
+    <div class="input-area">
+      <textarea 
+        id="prompt" 
+        placeholder="请输入您的问题，例如：今天吃什么好？"
+      ></textarea>
+      <button id="sendBtn" onclick="sendMessage()">发送</button>
+    </div>
+    
+    <div class="result-area" id="result">
+      <p>AI 回答将显示在这里...</p>
+    </div>
+  </div>
+  
+  <div class="note">
+    <strong>安全说明：</strong>前端仅调用本地代理接口，绝不接触任何密钥。API Key 仅存储在服务器环境变量中，符合阿里云官方安全规范。
+  </div>
+  
+  <script>
+    async function sendMessage() {
+      const prompt = document.getElementById('prompt').value.trim();
+      const sendBtn = document.getElementById('sendBtn');
+      const result = document.getElementById('result');
+      
+      if (!prompt) {
+        alert('请输入问题');
+        return;
+      }
+      
+      // 显示加载状态
+      sendBtn.disabled = true;
+      sendBtn.textContent = '发送中...';
+      result.innerHTML = '<div class="loading">AI 正在思考...</div>';
+      
+      try {
+        // 调用本地代理接口
+        const response = await fetch('/api/ai', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ prompt: prompt })
+        });
+        
+        const data = await response.json();
+        
+        if (data.reply) {
+          result.innerHTML = `<p>${data.reply}</p>`;
+        } else if (data.error) {
+          result.innerHTML = `<p class="error">错误：${data.error}</p>`;
+        } else {
+          result.innerHTML = '<p class="error">未知错误</p>';
+        }
+      } catch (error) {
+        console.error('请求失败:', error);
+        result.innerHTML = '<p class="error">网络错误，请稍后重试</p>';
+      } finally {
+        // 恢复按钮状态
+        sendBtn.disabled = false;
+        sendBtn.textContent = '发送';
+      }
+    }
+    
+    // 回车键发送
+    document.getElementById('prompt').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>

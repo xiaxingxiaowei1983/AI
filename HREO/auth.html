@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>少年英雄觉醒系统 - 登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="sys.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            /* 参数调整说明：
+               1. #2e1437 (深紫): 提升了亮度，不再是死黑，透出紫色
+               2. #16362d (深绿): 对应你截图中的绿色，但更有光泽
+               3. #3a1c1c (深红): 保留了红色的温润感
+               4. #1c2541 (深蓝): 经典的午夜蓝，作为冷暖色的过渡
+            */
+            background: linear-gradient(-45deg, #2e1437, #16362d, #3a1c1c, #1c2541);
+            
+            background-size: 400% 400%;
+            animation: gradientDark 18s ease infinite;
+        }
+
+        @keyframes gradientDark {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div id="app-view" class="pt-16 flex justify-center">
+        <div class="min-w-[300px] max-w-[500px] w-full bg-black rounded-[20px] shadow-2xl relative overflow-hidden">
+            
+            <!-- 登录页 -->
+            <section id="scr-auth" class="flex flex-col justify-center p-8 z-30 bg-[#050b14] min-h-[600px]">
+                <!-- 返回主页按钮 -->
+                <a href="index.html" class="absolute top-6 left-6 z-20 text-white hover:text-[var(--neon-cyan)] transition-colors">
+                    <span class="material-symbols-outlined">home</span>
+                </a>
+                
+                <!-- 背景光效 -->
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-1/2 transform translate-x-1/2 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <div class="text-center mb-10">
+                        <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 mb-2">英雄回归</h1>
+                        <p class="text-lg text-white">少年英雄觉醒系统</p>
+                    </div>
+                    
+                    <div class="space-y-5 max-w-md mx-auto">
+                        <!-- 输入框容器 -->
+                        <div class="space-y-4">
+                            <div class="relative group">
+                                <span class="material-symbols-outlined absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm group-focus-within:text-cyan-400 transition-colors">person</span>
+                                <input type="text" id="in-id" placeholder="ID / 用户名 / 邮箱" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 pl-12 text-sm outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all backdrop-blur-sm">
+                            </div>
+                            
+                            <div class="relative group">
+                                <span class="material-symbols-outlined absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm group-focus-within:text-cyan-400 transition-colors">lock</span>
+                                <input type="password" placeholder="Passcode" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 pl-12 text-sm outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all backdrop-blur-sm">
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center text-[10px] text-gray-500 pt-1">
+                            <div class="flex items-center gap-2 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="w-4 h-4 rounded border-white/20 bg-white/5 text-cyan-400 focus:ring-cyan-400/20">
+                                <span>保持连接</span>
+                            </div>
+                            <span onclick="alert('管理员登录功能即将开放')" class="cursor-pointer hover:text-cyan-400 transition-colors">管理员登录</span>
+                        </div>
+                        
+                        <!-- 登录按钮 -->
+                        <button onclick="window.sys.login('Hero')" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-black font-bold orbitron rounded-xl text-sm hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all transform hover:scale-[1.02]">
+                            >>> LINK START
+                        </button>
+                        
+                        <!-- 注册和游客登录 -->
+                        <div class="text-center text-[10px] pt-4">
+                            <span class="text-gray-500">没有账号？</span>
+                            <a href="register.html" class="text-purple-400 cursor-pointer hover:text-purple-300 transition-colors ml-1">英雄请注册</a>
+                            <span class="text-gray-500 mx-2">或</span>
+                            <button onclick="window.sys.login('Guest')" class="text-purple-400 cursor-pointer hover:text-purple-300 transition-colors">游客登录</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>

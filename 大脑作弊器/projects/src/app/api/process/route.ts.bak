@@ -1,0 +1,359 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { LLMClient, Config, SearchClient } from 'coze-coding-dev-sdk';
+import { verifyToken } from "@/storage/database/auth";
+import { scriptService } from "@/services/scriptService";
+
+// 辅助函数：提取文件文本
+async function extractTextFromFile(base64Data: string): Promise<string> {
+  // 提取base64数据部分
+  const base64Content = base64Data.split(',')[1];
+  const buffer = Buffer.from(base64Content, 'base64');
+  
+  // 简化处理：尝试将文件内容转换为文本
+  // 对于PDF和EPUB，这里需要专门的解析库，暂时返回占位文本
+  // 实际生产环境需要安装pdf-parse、epub-parser等库
+  try {
+    // 尝试解码为文本
+    const text = buffer.toString('utf-8');
+    return text.substring(0, 10000); // 限制长度
+  } catch {
+    return `文件内容提取成功，长度：${buffer.length} 字节`;
+  }
+}
+
+// 辅助函数：从URL提取网页内容（使用搜索）
+async function extractTextFromURL(url: string): Promise<string> {
+  // 简化处理：使用搜索功能查找相关内容
+  const config = new Config();
+  const searchClient = new SearchClient(config);
+
+  try {
+    // 从URL中提取可能的查询词
+    const urlParts = url.split('/');
+    const possibleQuery = urlParts[urlParts.length - 1] || url;
+
+    const response = await searchClient.webSearch(possibleQuery, 3, true);
+
+    // 如果有总结，返回总结
+    if (response.summary) {
+      return `网页内容摘要：\n\n${response.summary}`;
+    }
+
+    // 否则返回搜索结果的snippet
+    if (response.web_items && response.web_items.length > 0) {
+      return response.web_items
+        .map(item => `${item.title}\n${item.snippet}`)
+        .join('\n\n');
+    }
+
+    return `未能获取到URL内容：${url}`;
+  } catch (error: any) {
+    console.error('URL处理失败:', error);
+    throw new Error(`URL处理失败: ${error.message || '未知错误'}`);
+  }
+}
+
+// 辅助函数：提取图片中的文字（使用视觉模型）
+async function extractTextFromImage(imageBuffer: Buffer): Promise<string> {
+  const config = new Config();
+  const client = new LLMClient(config);
+
+  const base64Image = `data:image/jpeg;base64,${imageBuffer.toString('base64')}`;
+
+  const messages = [
+    {
+      role: 'user' as const,
+      content: [
+        { type: 'text' as const, text: '请识别这张图片中的所有文字内容，包括标题、正文等所有可见文字。请完整、准确地提取出来。' },
+        {
+          type: 'image_url' as const,
+          image_url: {
+            url: base64Image,
+            detail: 'high' as const,
+          },
+        },
+      ],
+    },
+  ];
+
+  try {
+    console.log('开始图片识别，图片大小:', imageBuffer.length, '字节');
+
+    // 使用超时控制，避免API调用卡住
+    const response = await Promise.race([
+      client.invoke(messages, {
+        model: 'doubao-seed-1-6-vision-250815',
+        temperature: 0.3,
+      }),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('图片识别超时')), 30000)
+      )
+    ]) as any;
+
+    console.log('图片识别成功，结果长度:', response.content?.length || 0);
+    return response.content || '';
+  } catch (error: any) {
+    console.error('图片识别失败:', error);
+    if (error.message === '图片识别超时') {
+      throw new Error('图片识别超时（超过30秒），请尝试使用更清晰或更小的图片');
+    }
+    throw new Error(`图片识别失败: ${error.message || '未知错误'}`);
+  }
+}
+
+// 辅助函数：使用LLM生成"名道法术器例"结构的脚本
+async function generateScript(content: string): Promise<any> {
+  const config = new Config();
+  const client = new LLMClient(config);
+
+  const systemPrompt = `你是一位专业的认知提炼专家，擅长从海量信息中提取核心精华，生成可执行的实战脚本。
+
+你的任务是将用户输入的内容，按照"名道法术器例"的六维结构，提炼成一份简洁有力的核心脚本。
+
+## 输出结构要求：
+1. **名 (Name)**：核心概念 - 用一句话精确定义主题的本质（50-100字）
+2. **道 (Dao)**：底层逻辑 - 揭示事物背后的根本规律和原理，为什么这样做（200-300字）
+3. **法 (Fa)**：执行框架 - 提供系统化的行动方法论，分3-5个步骤说明（300-400字）
+4. **术 (Shu)**：具体方法 - 给出3-5个可直接执行的操作步骤或技巧，包含具体做法（300-400字）
+5. **器 (Qi)**：工具资源 - 推荐相关的工具、模板、书籍、网站等实用资源（200-300字）
+6. **例 (Li)**：实战案例 - 提供具体的应用场景或成功案例，说明如何应用（300-400字）
+
+## 输出格式要求：
+- 直接输出JSON格式，包含以下字段：
+  {
+    "title": "简短标题",
+    "name": "名的内容",
+    "dao": "道的内容",
+    "fa": "法的内容",
+    "shu": "术的内容",
+    "qi": "器的内容",
+    "li": "例的内容"
+  }
+- 确保每个字段内容充实、实用、易懂
+- 总字数控制在1500-2200字之间
+- 语言简洁有力，避免冗余废话和空洞表述
+- 所有内容必须源自输入内容，不得编造
+- 确保JSON格式正确，不要添加任何其他文字说明或标记
+
+## 注意事项：
+- 提炼要精准，抓住核心，直击本质
+- 道要讲清楚"为什么"，法要说明"怎么做"，术要给出"具体步骤"
+- 器要推荐真实可用的工具，例要给出可复制的案例
+- 保持逻辑连贯，六部分内容相互呼应，形成完整的知识体系`;
+
+  const messages = [
+    { role: 'system' as const, content: systemPrompt },
+    { role: 'user' as const, content: `请帮我提炼以下内容：\n\n${content}` },
+  ];
+
+  try {
+    console.log('开始生成脚本，输入内容长度:', content.length);
+
+    // 使用超时控制，避免LLM调用卡住
+    const response = await Promise.race([
+      client.invoke(messages, {
+        model: 'doubao-seed-1-8-251228',
+        temperature: 0.7,
+      }),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('脚本生成超时')), 60000)
+      )
+    ]) as any;
+
+    console.log('脚本生成成功，原始结果长度:', response.content?.length || 0);
+
+    // 尝试解析JSON
+    const jsonMatch = response.content.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const parsed = JSON.parse(jsonMatch[0]);
+      console.log('JSON解析成功');
+      return parsed;
+    } else {
+      // 如果没有找到JSON，返回默认结构
+      console.warn('未找到JSON格式，使用默认结构');
+      return {
+        title: '认知脚本',
+        name: response.content.substring(0, 200),
+        dao: response.content.substring(200, 600),
+        fa: response.content.substring(600, 1200),
+        shu: response.content.substring(1200, 1900),
+        qi: response.content.substring(1900, 2300),
+        li: response.content.substring(2300, 2800),
+      };
+    }
+  } catch (error: any) {
+    console.error('脚本生成失败:', error);
+    if (error.message === '脚本生成超时') {
+      throw new Error('脚本生成超时（超过60秒），请尝试减少输入内容');
+    }
+    throw new Error(`脚本生成失败: ${error.message || '未知错误'}`);
+  }
+}
+
+// 辅助函数：提取多张图片中的文字（使用视觉模型）
+async function extractTextFromImages(base64Images: string[]): Promise<string> {
+  console.log('开始批量识别图片，数量:', base64Images.length);
+
+  const allTexts: string[] = [];
+
+  for (let i = 0; i < base64Images.length; i++) {
+    try {
+      console.log(`识别第 ${i + 1}/${base64Images.length} 张图片...`);
+      const base64Data = base64Images[i].split(',')[1];
+      const buffer = Buffer.from(base64Data, 'base64');
+      const text = await extractTextFromImage(buffer);
+
+      // 添加图片索引标识
+      allTexts.push(`【图片 ${i + 1}】\n${text}`);
+
+      console.log(`第 ${i + 1} 张图片识别完成，长度:`, text.length);
+    } catch (error: any) {
+      console.error(`第 ${i + 1} 张图片识别失败:`, error);
+      // 继续处理下一张图片，不中断整个流程
+      allTexts.push(`【图片 ${i + 1}】识别失败: ${error.message}`);
+    }
+  }
+
+  // 合并所有图片的识别结果
+  const combinedText = allTexts.join('\n\n');
+  console.log('所有图片识别完成，总长度:', combinedText.length);
+
+  return combinedText;
+}
+
+import { NextRequest, NextResponse } from "next/server";
+import { LLMClient, Config, SearchClient } from "coze-coding-dev-sdk";
+import { verifyToken } from "@/storage/database/auth";
+import { scriptService } from "@/services/scriptService";
+  console.log('收到处理请求');
+
+  try {
+    const body = await request.json();
+    const { type, content, saveToHistory } = body;
+
+    console.log('请求类型:', type);
+    console.log('内容长度:', content?.length || 0);
+
+    // 验证用户身份（用于保存历史记录）
+    const token = request.headers.get("authorization")?.replace("Bearer ", "");
+    const payload = verifyToken(token || "");
+    const userId = payload?.userId;
+
+    let extractedContent = '';
+
+    // 根据输入类型提取内容
+    if (type === 'file') {
+      // 处理文件上传（base64格式）
+      if (typeof content === 'string') {
+        console.log('开始提取文件内容...');
+        extractedContent = await extractTextFromFile(content);
+        console.log('文件内容提取完成，长度:', extractedContent.length);
+      } else {
+        return NextResponse.json(
+          { error: '文件格式错误' },
+          { status: 400 }
+        );
+      }
+    } else if (type === 'url') {
+      // 处理链接
+      console.log('开始提取URL内容...');
+      extractedContent = await extractTextFromURL(content);
+      console.log('URL内容提取完成，长度:', extractedContent.length);
+    } else if (type === 'image') {
+      // 处理多张图片（base64数组）
+      if (Array.isArray(content) && content.length > 0) {
+        // 验证所有图片格式
+        const validImages = content.every(img =>
+          typeof img === 'string' && img.startsWith('data:image')
+        );
+
+        if (!validImages) {
+          return NextResponse.json(
+            { error: '图片格式错误' },
+            { status: 400 }
+          );
+        }
+
+        // 检查图片数量
+        if (content.length > 9) {
+          return NextResponse.json(
+            { error: '最多只能上传9张图片' },
+            { status: 400 }
+          );
+        }
+
+        console.log('开始批量提取图片内容...');
+        extractedContent = await extractTextFromImages(content);
+        console.log('图片内容提取完成，长度:', extractedContent.length);
+      } else if (typeof content === 'string' && content.startsWith('data:image')) {
+        // 兼容单张图片的情况
+        console.log('开始提取单张图片内容...');
+        const base64Data = content.split(',')[1];
+        const buffer = Buffer.from(base64Data, 'base64');
+        extractedContent = await extractTextFromImage(buffer);
+        console.log('图片内容提取完成，长度:', extractedContent.length);
+      } else {
+        return NextResponse.json(
+          { error: '图片格式错误' },
+          { status: 400 }
+        );
+      }
+    } else {
+      return NextResponse.json(
+        { error: `不支持的输入类型: ${type}` },
+        { status: 400 }
+      );
+    }
+
+    // 检查内容长度
+    if (extractedContent.length < 100) {
+      return NextResponse.json(
+        { error: `内容太少（${extractedContent.length}字符），无法生成有效脚本，请提供更详细的内容` },
+        { status: 400 }
+      );
+    }
+
+    // 生成脚本
+    console.log('开始生成脚本...');
+    const script = await generateScript(extractedContent);
+    console.log('脚本生成完成');
+
+    // 如果用户已登录且要求保存，则保存到历史记录
+    let savedScript = null;
+    if (userId && saveToHistory) {
+      try {
+        savedScript = await scriptService.saveScript({
+          userId,
+          title: script.title || "认知脚本",
+          content: script,
+          inputType: type,
+          inputContent: "",
+        });
+        console.log('脚本已保存到历史记录:', savedScript.id);
+      } catch (error) {
+        console.error('保存脚本到历史记录失败:', error);
+        // 不影响主流程，继续返回结果
+      }
+    }
+
+    return NextResponse.json({
+      ...script,
+      savedScriptId: savedScript?.id,
+    });
+  } catch (error: any) {
+    console.error('处理失败:', error);
+
+    // 提取错误信息
+    let errorMessage = '处理失败，请重试';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    } else if (typeof error === 'string') {
+      errorMessage = error;
+    }
+
+    return NextResponse.json(
+      { error: errorMessage },
+      { status: 500 }
+    );
+  }
+}

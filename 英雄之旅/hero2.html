@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>少年英雄觉醒系统 v7.2 - Admin Update</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js"></script>
+
+    <style>
+        /* 全局配置 */
+        :root { 
+            --neon-blue: #00f3ff; 
+            --neon-purple: #bc13fe; 
+            --neon-gold: #ffd700; 
+            --neon-red: #ff2a6d;
+            --dark-bg: #050b14; 
+            --glass: rgba(16, 24, 39, 0.9); 
+            --glass-border: rgba(255,255,255,0.1);
+        }
+        
+        body { 
+            font-family: 'Noto Sans SC', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: #e2e8f0; 
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(188, 19, 254, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.05) 0%, transparent 25%);
+            overflow-x: hidden;
+        }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        
+        /* 滚动条 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+        /* 组件样式 */
+        .glass-panel { 
+            background: var(--glass); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid var(--glass-border); 
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-btn.active { 
+            background: rgba(0, 243, 255, 0.15); 
+            color: var(--neon-blue); 
+            border-bottom: 2px solid var(--neon-blue);
+        }
+
+        /* 动画 */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .btn-cyber {
+            position: relative; overflow: hidden; transition: all 0.3s;
+        }
+        .btn-cyber:hover {
+            box-shadow: 0 0 15px var(--neon-blue);
+            text-shadow: 0 0 5px white;
+        }
+
+        /* PRD 样式 */
+        .prd-content h1 { font-size: 2rem; color: white; margin-bottom: 1.5rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
+        .prd-content h2 { font-size: 1.5rem; color: var(--neon-blue); margin-top: 2rem; margin-bottom: 1rem; font-family: 'Orbitron'; }
+        .prd-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: rgba(255,255,255,0.03); }
+        .prd-content th, .prd-content td { border: 1px solid #334155; padding: 12px; text-align: left; font-size: 0.9rem; }
+        .prd-content th { background: rgba(0,0,0,0.3); color: var(--neon-blue); }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur border-b border-white/10 h-16 flex justify-between items-center px-6">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[var(--neon-blue)] text-3xl">psychology_alt</span>
+            <div>
+                <div class="text-white font-bold orbitron tracking-wider text-lg">HERO SYSTEM <span class="text-[var(--neon-blue)]">v7.2</span></div>
+                <div class="text-[10px] text-gray-500 tracking-widest uppercase">Awakening Protocol</div>
+            </div>
+        </div>
+        
+        <div class="flex bg-gray-900/80 rounded-lg p-1 border border-white/10">
+            <button onclick="app.switchTab('prd')" id="tab-prd" class="nav-btn active px-6 py-1.5 rounded text-sm font-medium text-gray-400 transition-all hover:text-white">PRD 文档</button>
+            <button onclick="app.switchTab('proto')" id="tab-proto" class="nav-btn px-6 py-1.5 rounded text-sm font-medium text-gray-400 transition-all hover:text-white">交互原型</button>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20 px-4 md:px-8 pb-10 max-w-7xl mx-auto w-full">
+
+        <div id="view-prd" class="prd-content max-w-4xl mx-auto fade-in">
+            <h1>产品需求文档 (PRD)</h1>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 text-xs text-gray-400 font-mono bg-black/30 p-4 rounded border border-white/10">
+                <div>版本: <span class="text-white">v7.2</span></div>
+                <div>状态: <span class="text-[var(--neon-blue)]">已迭代</span></div>
+                <div>更新: <span class="text-white">2026-01-15</span></div>
+                <div>变更: <span class="text-[var(--neon-gold)]">Admin & Auth</span></div>
+            </div>
+
+            <h2>1. 业务流程图 (User Flow)</h2>
+            <div class="mermaid bg-black/20 p-4 rounded border border-white/5 mb-8">
+            graph TD
+                A[访客进入] --> B{拥有ID卡?}
+                B -- 否 --> C[新用户注册<br>Create Profile]
+                C --> D[登录<br>Login]
+                B -- 是 --> D
+                D --> E{身份判断}
+                E -- 学生Hero --> F[指挥中心<br>Dashboard]
+                F --> G[觉醒测试]
+                E -- 管理员Admin --> H[控制台<br>Console]
+                H --> I[数据看板]
+                H --> J[题库管理]
+                J --> K[新增/编辑题目]
+            </div>
+
+            <h2>2. 变更功能列表 (v7.2)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">模块</th>
+                        <th width="30%">功能点</th>
+                        <th>详细描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>身份验证</td>
+                        <td>新用户注册</td>
+                        <td>支持无账号用户创建档案（用户名/密码），注册成功后自动跳转登录。</td>
+                    </tr>
+                    <tr>
+                        <td>用户体验</td>
+                        <td>Hero 欢迎语</td>
+                        <td>Dashboard 顶部显示 "Welcome Hero [用户名]"，增强代入感。</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">后台管理</td>
+                        <td>管理员登录</td>
+                        <td>明确入口文案，与学生登录区分。</td>
+                    </tr>
+                    <tr>
+                        <td>题库管理</td>
+                        <td>支持管理员查看当前测试题目列表，并进行增删改操作（Mock）。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="view-proto" class="hidden h-full">
+            
+            <div id="proto-container" class="relative w-full max-w-[390px] mx-auto min-h-[800px] border border-gray-700 rounded-[30px] overflow-hidden bg-black shadow-[0_0_50px_rgba(0,243,255,0.1)]">
+                
+                <div class="bg-black/80 px-5 py-3 flex justify-between items-center text-xs text-gray-400 z-50 relative">
+                    <span>9:41</span>
+                    <div class="flex gap-1">
+                        <span class="material-symbols-outlined text-sm">wifi</span>
+                        <span class="material-symbols-outlined text-sm">battery_full</span>
+                    </div>
+                </div>
+
+                <div id="screen-auth" class="absolute inset-0 bg-black flex flex-col justify-center p-8 z-40 fade-in">
+                    <div class="text-center mb-10">
+                        <div class="w-20 h-20 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center animate-pulse">
+                            <span class="material-symbols-outlined text-4xl text-white">fingerprint</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white orbitron tracking-widest">ACCESS <span class="text-[var(--neon-blue)]">CONTROL</span></h2>
+                        <p class="text-xs text-gray-500 mt-2">SYSTEM v7.2 // READY</p>
+                    </div>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); app.login();">
+                        <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-3 flex items-center gap-3 focus-within:border-[var(--neon-blue)] transition-colors">
+                            <span class="material-symbols-outlined text-gray-500">badge</span>
+                            <input type="text" id="login-id" placeholder="ID / 用户名" class="bg-transparent border-none outline-none text-white text-sm w-full font-mono" value="Skywalker">
+                        </div>
+                        <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-3 flex items-center gap-3 focus-within:border-[var(--neon-blue)] transition-colors">
+                            <span class="material-symbols-outlined text-gray-500">lock</span>
+                            <input type="password" placeholder="Passcode" class="bg-transparent border-none outline-none text-white text-sm w-full font-mono" value="******">
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-xs text-gray-500 mt-2">
+                            <label class="flex items-center gap-1">
+                                <input type="checkbox" class="accent-[var(--neon-blue)]"> 保持连接
+                            </label>
+                            <span class="cursor-pointer hover:text-[var(--neon-blue)] border-b border-transparent hover:border-[var(--neon-blue)] transition" onclick="app.fillAdmin()">管理员登录</span>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 mt-6 bg-[var(--neon-blue)] text-black font-bold rounded-lg orbitron hover:bg-cyan-300 transition shadow-[0_0_15px_rgba(0,243,255,0.4)] btn-cyber">
+                            >>> LINK START
+                        </button>
+                    </form>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="text-xs text-gray-600">没有账号?</p>
+                        <button onclick="app.toRegister()" class="text-xs text-[var(--neon-purple)] font-bold mt-1 border-b border-transparent hover:border-[var(--neon-purple)]">申请新身份 (REGISTER)</button>
+                    </div>
+                </div>
+
+                <div id="screen-register" class="absolute inset-0 bg-black flex flex-col justify-center p-8 z-40 hidden">
+                    <div class="text-center mb-8">
+                         <div class="w-16 h-16 border-2 border-[var(--neon-purple)] rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-3xl text-[var(--neon-purple)]">person_add</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white orbitron">NEW PROFILE</h2>
+                        <p class="text-xs text-gray-500 mt-1">创建你的英雄档案</p>
+                    </div>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); app.doRegister();">
+                        <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-3">
+                            <div class="text-[10px] text-[var(--neon-purple)] mb-1">HERO NAME</div>
+                            <input type="text" id="reg-name" placeholder="请输入代号/姓名" class="bg-transparent border-none outline-none text-white text-sm w-full">
+                        </div>
+                        <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-3">
+                            <div class="text-[10px] text-[var(--neon-purple)] mb-1">SECURE CODE</div>
+                            <input type="password" placeholder="设置密码" class="bg-transparent border-none outline-none text-white text-sm w-full">
+                        </div>
+                        <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-3">
+                             <div class="text-[10px] text-[var(--neon-purple)] mb-1">CONFIRM</div>
+                            <input type="password" placeholder="确认密码" class="bg-transparent border-none outline-none text-white text-sm w-full">
+                        </div>
+
+                        <button type="submit" class="w-full py-3 mt-4 bg-[var(--neon-purple)] text-white font-bold rounded-lg orbitron hover:bg-purple-600 transition shadow-[0_0_15px_rgba(188,19,254,0.4)]">
+                            CONFIRM REGISTRATION
+                        </button>
+                    </form>
+
+                    <button onclick="app.toLogin()" class="mt-6 text-center w-full text-xs text-gray-500 hover:text-white">
+                        < 返回登录
+                    </button>
+                </div>
+
+                <div id="screen-dashboard" class="absolute inset-0 bg-gray-900 overflow-y-auto hidden z-30 pb-20">
+                    <div class="p-6 pt-8 bg-gradient-to-b from-gray-900 to-gray-800 border-b border-gray-700 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-white text-lg font-bold">Welcome Hero, <br><span id="user-display-name" class="text-[var(--neon-blue)]">---</span></h2>
+                            <p class="text-xs text-gray-400 font-mono mt-1">系统状态: 在线</p>
+                        </div>
+                        <button onclick="app.logout()" class="bg-gray-800 hover:bg-red-900/50 text-gray-400 hover:text-red-400 p-2 rounded-lg transition">
+                             <span class="material-symbols-outlined text-lg">logout</span>
+                        </button>
+                    </div>
+
+                    <div class="p-4 space-y-4">
+                        <div class="glass-panel p-5 rounded-2xl relative overflow-hidden group cursor-pointer" onclick="app.startTest()">
+                            <div class="absolute right-0 top-0 w-32 h-32 bg-[var(--neon-blue)] blur-[60px] opacity-20 group-hover:opacity-40 transition"></div>
+                            <div class="relative z-10">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-[var(--neon-blue)] font-bold orbitron text-sm">START MISSION</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-1">启动觉醒测试</h3>
+                                <p class="text-xs text-gray-400 mb-4">分析你的 MBTI 核心与职业倾向</p>
+                                <div class="inline-flex items-center text-xs font-bold text-white bg-white/10 px-3 py-2 rounded-lg group-hover:bg-[var(--neon-blue)] group-hover:text-black transition">
+                                    立即进入 <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <div class="glass-panel p-5 rounded-2xl">
+                             <h3 class="text-sm font-bold text-gray-300 mb-2">历史档案</h3>
+                             <div class="text-xs text-gray-500 italic">暂无测试记录</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="screen-admin" class="absolute inset-0 bg-[#0a0f1c] hidden z-30 flex flex-col">
+                    <div class="p-6 pt-8 bg-gray-900 border-b border-gray-800 flex justify-between items-center shrink-0">
+                        <h2 class="text-[var(--neon-gold)] font-bold orbitron text-lg flex items-center gap-2">
+                            <span class="material-symbols-outlined">shield_person</span> ADMIN
+                        </h2>
+                        <button onclick="app.logout()" class="text-xs text-gray-500 hover:text-red-400 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">logout</span> 退出
+                        </button>
+                    </div>
+
+                    <div class="flex border-b border-gray-800 bg-gray-900/50 shrink-0">
+                        <button onclick="app.switchAdminTab('data')" id="adm-tab-data" class="flex-1 py-3 text-xs font-bold text-[var(--neon-blue)] border-b-2 border-[var(--neon-blue)] transition">数据概览</button>
+                        <button onclick="app.switchAdminTab('questions')" id="adm-tab-questions" class="flex-1 py-3 text-xs font-bold text-gray-500 hover:text-white transition">题目管理</button>
+                    </div>
+
+                    <div class="flex-grow overflow-y-auto relative p-4">
+                        
+                        <div id="adm-view-data" class="space-y-6 fade-in">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-gray-800/50 p-4 rounded-xl border border-white/5">
+                                    <div class="text-xs text-gray-400 mb-1">完成人数</div>
+                                    <div class="text-2xl font-bold text-white">42</div>
+                                </div>
+                                <div class="bg-gray-800/50 p-4 rounded-xl border border-white/5">
+                                    <div class="text-xs text-gray-400 mb-1">待关注</div>
+                                    <div class="text-2xl font-bold text-[var(--neon-red)]">3</div>
+                                </div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl">
+                                <h3 class="text-xs font-bold text-gray-300 mb-4">班级倾向分布</h3>
+                                <canvas id="classChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div id="adm-view-questions" class="hidden space-y-4 fade-in">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs text-gray-400">当前题库: <span id="q-count">0</span> 题</span>
+                                <button onclick="app.addMockQuestion()" class="px-3 py-1 bg-[var(--neon-blue)] text-black text-xs font-bold rounded hover:bg-cyan-300 flex items-center">
+                                    <span class="material-symbols-outlined text-xs mr-1">add</span> 新增题目
+                                </button>
+                            </div>
+
+                            <div id="admin-q-list" class="space-y-3 pb-10">
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="screen-quiz" class="absolute inset-0 bg-[var(--dark-bg)] hidden z-40 flex flex-col pt-10">
+                     <div class="px-6 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <button onclick="app.exitTest()" class="text-gray-500 hover:text-white"><span class="material-symbols-outlined">close</span></button>
+                            <span class="text-xs text-[var(--neon-blue)] font-mono">SCANNING...</span>
+                        </div>
+                        <div class="h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-500 to-purple-500 w-0 transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <div id="question-card" class="mx-4 glass-panel p-6 rounded-2xl flex-grow flex flex-col fade-in relative overflow-hidden mb-8">
+                        <div>
+                            <span class="text-[10px] font-bold px-2 py-1 rounded bg-gray-700 text-gray-300 mb-4 inline-block" id="q-tag">CAT</span>
+                            <h2 id="q-text" class="text-lg font-bold leading-relaxed mb-8 text-white mt-2">...</h2>
+                        </div>
+                        <div id="options-area" class="space-y-3 mt-auto"></div>
+                    </div>
+                </div>
+
+                <div id="screen-result" class="absolute inset-0 bg-[#0a0f1c] hidden z-40 overflow-y-auto">
+                    <div class="bg-gradient-to-r from-blue-900 to-purple-900 p-8 pt-12 text-center rounded-b-[40px]">
+                        <h2 id="res-hero-name" class="text-3xl font-bold text-white mb-2">---</h2>
+                        <div class="flex justify-center gap-2 mt-2" id="res-tags"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="glass-panel p-4 rounded-2xl mb-4">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                         <button onclick="app.exitTest()" class="w-full py-3 bg-gray-800 text-white text-sm rounded-xl border border-gray-600">返回首页</button>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <div class="max-w-[390px] mx-auto mt-4 text-center text-xs text-gray-500">
+                <p>提示：学生名为任意字符，管理员名为 <span class="text-[var(--neon-blue)]">admin</span></p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+
+        // 数据源
+        const SYSTEM_DATA = {
+            questions: [
+                { id: 1, q: "你更喜欢拆解玩具、修理东西？", type: 'scale', tag: 'R', cat: '实干型' },
+                { id: 2, q: "遇到不懂的现象，你是否非要搞清原理？", type: 'scale', tag: 'I', cat: '研究型' },
+                { id: 3, q: "周末更喜欢找朋友聚会？", type: 'binary', opts: [{t:"是 (E)", v:'E'}, {t:"否 (I)", v:'I'}], cat: '能量来源' },
+            ],
+            archetypes: {
+                'R': { title: '先锋特工', desc: '行动力爆表的实干家。' },
+                'I': { title: '真理贤者', desc: '智慧超群的解谜者。' },
+                'A': { title: '造梦幻术师', desc: '不拘一格的创作者。' },
+                'S': { title: '圣光牧师', desc: '温暖人心的治愈者。' },
+                'E': { title: '荣耀统帅', desc: '天生的领袖。' },
+                'C': { title: '秩序执行官', desc: '精密运转的管理者。' }
+            }
+        };
+
+        const app = {
+            user: '',
+            
+            // UI 切换
+            switchTab: (tab) => {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.getElementById('tab-' + tab).classList.add('active');
+                if(tab === 'prd') {
+                    document.getElementById('view-prd').classList.remove('hidden');
+                    document.getElementById('view-proto').classList.add('hidden');
+                } else {
+                    document.getElementById('view-prd').classList.add('hidden');
+                    document.getElementById('view-proto').classList.remove('hidden');
+                }
+            },
+
+            // Auth 流程
+            toRegister: () => {
+                document.getElementById('screen-auth').classList.add('hidden');
+                document.getElementById('screen-register').classList.remove('hidden');
+                document.getElementById('screen-register').classList.add('fade-in');
+            },
+
+            toLogin: () => {
+                document.getElementById('screen-register').classList.add('hidden');
+                document.getElementById('screen-auth').classList.remove('hidden');
+            },
+
+            doRegister: () => {
+                const name = document.getElementById('reg-name').value || 'New Hero';
+                alert('注册成功！正在建立神经连接...');
+                document.getElementById('login-id').value = name;
+                app.toLogin();
+            },
+
+            fillAdmin: () => {
+                document.getElementById('login-id').value = 'admin';
+            },
+
+            login: () => {
+                const id = document.getElementById('login-id').value;
+                app.user = id;
+                
+                document.getElementById('screen-auth').classList.add('hidden');
+                
+                if (id.toLowerCase() === 'admin') {
+                    document.getElementById('screen-admin').classList.remove('hidden');
+                    document.getElementById('screen-admin').classList.add('fade-in');
+                    app.initAdminChart();
+                    app.renderAdminQuestions();
+                } else {
+                    // 问题4解决：设置欢迎语
+                    document.getElementById('user-display-name').innerText = id;
+                    document.getElementById('screen-dashboard').classList.remove('hidden');
+                    document.getElementById('screen-dashboard').classList.add('fade-in');
+                }
+            },
+
+            // 问题1解决：修复 Logout
+            logout: () => {
+                app.user = '';
+                // 隐藏所有功能屏
+                document.getElementById('screen-admin').classList.add('hidden');
+                document.getElementById('screen-dashboard').classList.add('hidden');
+                document.getElementById('screen-result').classList.add('hidden');
+                document.getElementById('screen-quiz').classList.add('hidden');
+                // 显示登录屏
+                document.getElementById('screen-auth').classList.remove('hidden');
+                // 重置输入框
+                document.getElementById('login-id').value = ''; 
+            },
+
+            // Admin Logic
+            switchAdminTab: (tab) => {
+                const tabs = ['data', 'questions'];
+                tabs.forEach(t => {
+                    const btn = document.getElementById(`adm-tab-${t}`);
+                    const view = document.getElementById(`adm-view-${t}`);
+                    if (t === tab) {
+                        btn.classList.add('border-[var(--neon-blue)]', 'text-[var(--neon-blue)]');
+                        btn.classList.remove('text-gray-500');
+                        view.classList.remove('hidden');
+                    } else {
+                        btn.classList.remove('border-[var(--neon-blue)]', 'text-[var(--neon-blue)]');
+                        btn.classList.add('text-gray-500');
+                        view.classList.add('hidden');
+                    }
+                });
+            },
+
+            renderAdminQuestions: () => {
+                const list = document.getElementById('admin-q-list');
+                document.getElementById('q-count').innerText = SYSTEM_DATA.questions.length;
+                list.innerHTML = '';
+                
+                SYSTEM_DATA.questions.forEach((q, idx) => {
+                    const item = document.createElement('div');
+                    item.className = 'bg-gray-800/50 p-3 rounded-lg border border-white/5 flex justify-between items-center';
+                    item.innerHTML = `
+                        <div class="flex-1 mr-2">
+                            <div class="text-[10px] text-[var(--neon-purple)] font-bold mb-1">[${q.cat}] ${q.type === 'scale' ? '量表题' : '二选题'}</div>
+                            <div class="text-xs text-white truncate">${q.q}</div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="text-gray-500 hover:text-white"><span class="material-symbols-outlined text-sm">edit</span></button>
+                            <button class="text-gray-500 hover:text-red-400" onclick="app.delQuestion(${idx})"><span class="material-symbols-outlined text-sm">delete</span></button>
+                        </div>
+                    `;
+                    list.appendChild(item);
+                });
+            },
+
+            addMockQuestion: () => {
+                const newQ = { 
+                    id: Date.now(), 
+                    q: "新增的测试题目 (模拟)...", 
+                    type: 'scale', 
+                    tag: 'C', 
+                    cat: '新增分类' 
+                };
+                SYSTEM_DATA.questions.push(newQ);
+                app.renderAdminQuestions();
+                // 滚动到底部
+                const container = document.getElementById('adm-view-questions').parentNode;
+                container.scrollTop = container.scrollHeight;
+            },
+
+            delQuestion: (idx) => {
+                if(confirm('确定删除该题目吗?')) {
+                    SYSTEM_DATA.questions.splice(idx, 1);
+                    app.renderAdminQuestions();
+                }
+            },
+
+            // Student Test Logic
+            startTest: () => {
+                document.getElementById('screen-dashboard').classList.add('hidden');
+                document.getElementById('screen-quiz').classList.remove('hidden');
+                sys.start();
+            },
+            
+            exitTest: () => {
+                document.getElementById('screen-result').classList.add('hidden');
+                document.getElementById('screen-quiz').classList.add('hidden');
+                document.getElementById('screen-dashboard').classList.remove('hidden');
+                sys.reset();
+            },
+
+            initAdminChart: () => {
+                const ctx = document.getElementById('classChart').getContext('2d');
+                if(window.adminChart) window.adminChart.destroy();
+                window.adminChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['R', 'I', 'A', 'S', 'E', 'C'],
+                        datasets: [{
+                            label: '人数',
+                            data: [5, 8, 2, 4, 6, 3],
+                            backgroundColor: 'rgba(0, 243, 255, 0.5)',
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: { x: { display: true, grid: {display:false} }, y: { display: false } },
+                        plugins: { legend: {display:false} }
+                    }
+                });
+            }
+        };
+
+        // 测试引擎
+        const sys = {
+            step: 0,
+            scores: { R:0, I:0, A:0, S:0, E:0, C:0 },
+            mbti: { E:0, I:0 }, // 简化Demo
+            
+            reset: () => {
+                sys.step = 0;
+                sys.scores = { R:0, I:0, A:0, S:0, E:0, C:0 };
+            },
+
+            start: () => {
+                sys.renderQ();
+            },
+
+            renderQ: () => {
+                const q = SYSTEM_DATA.questions[sys.step];
+                document.getElementById('q-text').innerText = q.q;
+                document.getElementById('q-tag').innerText = q.cat;
+                const area = document.getElementById('options-area');
+                area.innerHTML = '';
+                
+                const pct = Math.round(((sys.step + 1) / SYSTEM_DATA.questions.length) * 100);
+                document.getElementById('progress-bar').style.width = pct + '%';
+
+                if(q.type === 'scale') {
+                    [{t:'非常符合',v:2}, {t:'一般',v:1}, {t:'不符合',v:0}].forEach(o => {
+                        const btn = document.createElement('button');
+                        btn.className = 'w-full p-4 text-left rounded-xl border border-gray-700 hover:border-[var(--neon-blue)] bg-white/5 hover:bg-white/10 text-sm mb-2 transition text-gray-300';
+                        btn.innerText = o.t;
+                        btn.onclick = () => { sys.scores[q.tag] += o.v; sys.next(); };
+                        area.appendChild(btn);
+                    });
+                } else {
+                    q.opts.forEach(o => {
+                        const btn = document.createElement('button');
+                        btn.className = 'w-full p-4 text-left rounded-xl border border-gray-700 hover:border-[var(--neon-blue)] bg-white/5 hover:bg-white/10 text-sm mb-2 transition text-gray-300';
+                        btn.innerText = o.t;
+                        btn.onclick = () => sys.next();
+                        area.appendChild(btn);
+                    });
+                }
+            },
+
+            next: () => {
+                sys.step++;
+                if(sys.step < SYSTEM_DATA.questions.length) {
+                    sys.renderQ();
+                } else {
+                    sys.finish();
+                }
+            },
+
+            finish: () => {
+                document.getElementById('screen-quiz').classList.add('hidden');
+                document.getElementById('screen-result').classList.remove('hidden');
+                
+                // 简单计算最高分
+                let max = -1, type = 'R';
+                for(let k in sys.scores) if(sys.scores[k]>max) { max=sys.scores[k]; type=k; }
+                const hero = SYSTEM_DATA.archetypes[type] || SYSTEM_DATA.archetypes['R'];
+
+                document.getElementById('res-hero-name').innerText = hero.title;
+                document.getElementById('res-tags').innerHTML = `<span class="px-2 py-1 bg-black/30 rounded text-xs border border-[var(--neon-blue)] text-[var(--neon-blue)]">${type}-Type</span>`;
+                sys.drawChart();
+            },
+
+            drawChart: () => {
+                const ctx = document.getElementById('radarChart').getContext('2d');
+                if(window.myRadar) window.myRadar.destroy();
+                window.myRadar = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['R', 'I', 'A', 'S', 'E', 'C'],
+                        datasets: [{
+                            data: Object.values(sys.scores),
+                            borderColor: '#00f3ff',
+                            backgroundColor: 'rgba(0, 243, 255, 0.2)',
+                        }]
+                    },
+                    options: { scales: { r: { ticks: {display:false}, grid: {color:'rgba(255,255,255,0.1)'} } }, plugins: { legend: {display:false} } }
+                });
+            }
+        };
+    </script>
+</body>
+</html>

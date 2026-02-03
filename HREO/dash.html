@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>少年英雄觉醒系统 - 待觉醒者主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="sys.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            /* 参数调整说明：
+               1. #2e1437 (深紫): 提升了亮度，不再是死黑，透出紫色
+               2. #16362d (深绿): 对应你截图中的绿色，但更有光泽
+               3. #3a1c1c (深红): 保留了红色的温润感
+               4. #1c2541 (深蓝): 经典的午夜蓝，作为冷暖色的过渡
+            */
+            background: linear-gradient(-45deg, #2e1437, #16362d, #3a1c1c, #1c2541);
+            
+            background-size: 400% 400%;
+            animation: gradientDark 18s ease infinite;
+        }
+
+        @keyframes gradientDark {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div id="app-view" class="pt-16 flex justify-center">
+        <div class="min-w-[300px] max-w-[500px] w-full bg-black rounded-[20px] shadow-2xl relative overflow-hidden">
+            
+            <!-- 主页 -->
+            <section id="scr-dash" class="flex flex-col z-30 bg-[#050b14] min-h-[600px]">
+                <div class="p-6 pt-10 space-y-4">
+                    <!-- 访客身份警告 -->
+                    <div id="guest-alert" class="flex items-center gap-2 p-3 bg-[#1a1a2e] border border-yellow-500 rounded-lg">
+                        <span class="material-symbols-outlined text-yellow-500">warning</span>
+                        <span class="text-yellow-400 text-xs">访客身份警告：你的英雄档案面临丢失风险</span>
+                    </div>
+                    
+                    <!-- 欢迎信息 -->
+                    <div class="bg-[#1a1a2e] rounded-lg p-4">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-white text-lg font-bold">Welcome, 待觉醒者</h2>
+                            <a href="auth.html" class="material-symbols-outlined text-[var(--neon-cyan)] cursor-pointer hover:text-white transition-colors">logout</a>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            <span class="text-green-400 text-xs">系统状态：在线 (Online)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- HERO AWAKENING 区域 -->
+                    <div class="bg-[#1a1a2e] rounded-lg p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-[var(--neon-cyan)] font-bold">HERO AWAKENING</h3>
+                            <span class="bg-[#0f3460] text-[var(--neon-cyan)] text-xs px-2 py-1 rounded">免费觉醒通道</span>
+                        </div>
+                        <div class="text-white text-sm font-bold mb-2">启动英雄认证任务</div>
+                        <div class="text-gray-400 text-xs mb-4">MBTI 潜能扫描 × 职业定位匹配 (预计耗时2min)</div>
+                        <button onclick="window.location.href='quiz.html'" class="bg-transparent text-[var(--neon-cyan)] text-xs font-bold px-4 py-2 rounded border-2 border-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)] hover:shadow-[0_0_25px_#00f3ff] hover:text-black transition-all duration-300">
+                            接入系统 →
+                        </button>
+                    </div>
+                    
+                    <!-- 作战记录 -->
+                    <div class="bg-[#1a1a2e] rounded-lg p-4">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-gray-500">history</span>
+                                <span class="text-gray-400 text-xs">作战记录</span>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-500">visibility</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mt-2">查看已生成的英雄数据</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>

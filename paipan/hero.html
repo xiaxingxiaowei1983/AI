@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>少年英雄觉醒系统 v7.0 Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root { --neon-blue: #00f3ff; --neon-purple: #bc13fe; --neon-gold: #ffd700; --dark-bg: #050b14; --glass: rgba(16, 24, 39, 0.8); }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: var(--dark-bg); color: white; background-image: radial-gradient(circle at 50% 50%, #111827 0%, #000 100%); }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .glass-panel { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 15px rgba(0,243,255,0.1); }
+        .btn-option { transition: all 0.2s; border: 1px solid #374151; }
+        .btn-option:active { transform: scale(0.98); border-color: var(--neon-blue); background: rgba(0,243,255,0.1); }
+        .progress-bar { transition: width 0.3s ease; }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <div class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur border-b border-white/10 p-4 flex justify-between items-center">
+        <div class="text-[var(--neon-blue)] font-bold orbitron">HERO SYSTEM v7.0</div>
+        <div class="text-xs text-gray-400">Pro Max</div>
+    </div>
+
+    <main id="app" class="flex-grow flex items-center justify-center p-4 pt-16">
+        
+        <section id="screen-welcome" class="w-full max-w-md text-center fade-in">
+            <div class="mb-8 relative inline-block">
+                <div class="absolute inset-0 bg-[var(--neon-blue)] blur-xl opacity-20 animate-pulse"></div>
+                <span class="material-symbols-outlined text-8xl text-white relative z-10">psychology_alt</span>
+            </div>
+            <h1 class="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">多维觉醒程序</h1>
+            <p class="text-gray-400 text-sm mb-8 px-4">
+                基于 RIASEC / MBTI / VIA / CAAS 四大心理学模型<br>
+                构建你的 360° 英雄人格档案
+            </p>
+            <button onclick="sys.start()" class="w-full py-4 bg-[var(--neon-blue)] text-black font-bold rounded-xl orbitron hover:bg-cyan-300 transition shadow-[0_0_15px_rgba(0,243,255,0.4)]">
+                >>> START SCAN
+            </button>
+        </section>
+
+        <section id="screen-quiz" class="w-full max-w-md hidden">
+            <div class="mb-6">
+                <div class="flex justify-between text-xs text-[var(--neon-blue)] mb-1 orbitron">
+                    <span>SYNCING...</span>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div class="h-1 bg-gray-800 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-500 to-purple-500 w-0"></div>
+                </div>
+            </div>
+
+            <div id="question-card" class="glass-panel p-6 rounded-2xl min-h-[300px] flex flex-col justify-between fade-in">
+                <div>
+                    <span class="text-xs font-bold px-2 py-1 rounded bg-gray-700 text-gray-300 mb-2 inline-block" id="q-tag">职业锚点</span>
+                    <h2 id="q-text" class="text-lg font-bold leading-relaxed mb-6 mt-2">题目加载中...</h2>
+                </div>
+                
+                <div id="options-area" class="space-y-3">
+                    </div>
+            </div>
+        </section>
+
+        <section id="screen-result" class="w-full max-w-md hidden fade-in pb-10">
+            <div class="glass-panel rounded-2xl overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-900 to-purple-900 p-6 text-center relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)]"></div>
+                    <p class="text-xs text-blue-200 mb-1 orbitron">IDENTITY CONFIRMED</p>
+                    <h2 id="res-hero-name" class="text-3xl font-bold text-white mb-2 shadow-black drop-shadow-lg">---</h2>
+                    <div class="flex justify-center gap-2 mt-2" id="res-tags"></div>
+                </div>
+
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h3 class="text-sm font-bold text-gray-400 mb-3 flex items-center">
+                            <span class="material-symbols-outlined text-sm mr-1">radar</span> 职业信条 (RIASEC)
+                        </h3>
+                        <div class="w-full bg-gray-800 rounded-lg p-3">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <h3 class="text-sm font-bold text-[var(--neon-gold)] mb-2 flex items-center">
+                            <span class="material-symbols-outlined text-sm mr-1">bolt</span> 能量核心 (MBTI)
+                        </h3>
+                        <p id="res-mbti-desc" class="text-sm text-gray-300 leading-relaxed"></p>
+                    </div>
+
+                    <div class="bg-blue-500/10 p-4 rounded-xl border border-blue-500/30">
+                        <h3 class="text-sm font-bold text-[var(--neon-blue)] mb-2 flex items-center">
+                            <span class="material-symbols-outlined text-sm mr-1">school</span> 觉醒指南 (AI Analysis)
+                        </h3>
+                        <p id="res-advice" class="text-sm text-gray-300 leading-relaxed"></p>
+                    </div>
+
+                    <div class="mt-6 flex gap-3">
+                        <button onclick="location.reload()" class="flex-1 py-3 border border-gray-600 rounded-lg text-sm hover:bg-gray-800">重启测试</button>
+                        <button class="flex-1 py-3 bg-[var(--neon-blue)] text-black font-bold rounded-lg text-sm hover:bg-cyan-400">保存档案</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const SYSTEM_DATA = {
+            // 题库 (RIASEC 6题 + MBTI 4题 + VIA/CAAS 5题)
+            questions: [
+                // RIASEC
+                { q: "你更喜欢拆解玩具、修理东西，或在户外运动中解决问题？", type: 'scale', tag: 'R', cat: '职业倾向' },
+                { q: "遇到不懂的现象，你是否非要打破砂锅问到底，搞清原理？", type: 'scale', tag: 'I', cat: '职业倾向' },
+                { q: "把脑子里的画面画出来、设计新东西，比按部就班更爽？", type: 'scale', tag: 'A', cat: '职业倾向' },
+                { q: "同学心情不好，你是否总是第一个察觉并愿意去安慰？", type: 'scale', tag: 'S', cat: '职业倾向' },
+                { q: "在小组中，你享受分配任务、说服大家听你的主意吗？", type: 'scale', tag: 'E', cat: '职业倾向' },
+                { q: "你喜欢把书桌整理得井井有条，制定计划并严格执行吗？", type: 'scale', tag: 'C', cat: '职业倾向' },
+                // MBTI
+                { q: "周末回血方式：", type: 'binary', opts: [{t:"找朋友聚会 (E)", v:'E'}, {t:"一个人宅着 (I)", v:'I'}], cat: '能量来源' },
+                { q: "老师讲课时，你更关注：", type: 'binary', opts: [{t:"具体的公式事实 (S)", v:'S'}, {t:"背后的意义可能 (N)", v:'N'}], cat: '信息处理' },
+                { q: "做决定时，你更看重：", type: 'binary', opts: [{t:"逻辑和公平 (T)", v:'T'}, {t:"感受和关系 (F)", v:'F'}], cat: '决策方式' },
+                { q: "出去旅游，你的习惯：", type: 'binary', opts: [{t:"做详细攻略 (J)", v:'J'}, {t:"看心情随机玩 (P)", v:'P'}], cat: '生活方式' },
+                // VIA & CAAS
+                { q: "遇到极难的挑战，你的第一反应：", type: 'binary', opts: [{t:"兴奋，死磕到底", tag:'Grit', score:1}, {t:"慌张，想放弃", tag:'Grit', score:0}], cat: '潜能' },
+                { q: "看到新奇装置，你想：", type: 'binary', opts: [{t:"怎么运行的？(好奇)", tag:'Curiosity', score:1}, {t:"能用来干嘛？(实用)", tag:'Curiosity', score:0}], cat: '潜能' },
+                { q: "对于“未来想做什么”，你：", type: 'binary', opts: [{t:"经常想，有计划", tag:'Concern', score:1}, {t:"没想过，随缘", tag:'Concern', score:0}], cat: '适应力' },
+                { q: "要上台演讲，你觉得：", type: 'binary', opts: [{t:"我肯定能搞定", tag:'Confidence', score:1}, {t:"我可能不行", tag:'Confidence', score:0}], cat: '适应力' }
+            ],
+            
+            // 职业原型映射 (RIASEC Top 1)
+            archetypes: {
+                'R': { title: '先锋特工 (Vanguard)', desc: '行动力爆表的实干家，现实世界的征服者。' },
+                'I': { title: '真理贤者 (Sage)', desc: '智慧超群的解谜者，用逻辑洞穿一切迷雾。' },
+                'A': { title: '造梦幻术师 (Visionary)', desc: '不拘一格的创作者，用想象力重塑世界。' },
+                'S': { title: '圣光牧师 (Guardian)', desc: '温暖人心的治愈者，团队的精神支柱。' },
+                'E': { title: '荣耀统帅 (Commander)', desc: '天生的领袖，带领团队走向胜利。' },
+                'C': { title: '秩序执行官 (Executor)', desc: '精密运转的管理者，确保一切万无一失。' }
+            }
+        };
+
+        const sys = {
+            step: 0,
+            scores: { R:0, I:0, A:0, S:0, E:0, C:0 }, // RIASEC
+            mbti: { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 }, // MBTI
+            caas: { score: 0, total: 0 }, // Adaptability
+            
+            start: () => {
+                document.getElementById('screen-welcome').classList.add('hidden');
+                document.getElementById('screen-quiz').classList.remove('hidden');
+                sys.renderQ();
+            },
+
+            renderQ: () => {
+                const q = SYSTEM_DATA.questions[sys.step];
+                document.getElementById('q-text').innerText = q.q;
+                document.getElementById('q-tag').innerText = q.cat;
+                const area = document.getElementById('options-area');
+                area.innerHTML = '';
+
+                // 更新进度
+                const pct = Math.round((sys.step / SYSTEM_DATA.questions.length) * 100);
+                document.getElementById('progress-bar').style.width = pct + '%';
+                document.getElementById('progress-text').innerText = pct + '%';
+
+                // 生成选项
+                if(q.type === 'scale') {
+                    // RIASEC 量表题
+                    const opts = [
+                        { t: '是的，非常符合', v: 2 },
+                        { t: '一般 / 有时候', v: 1 },
+                        { t: '不是，完全不符', v: 0 }
+                    ];
+                    opts.forEach(o => {
+                        const btn = document.createElement('button');
+                        btn.className = 'w-full p-4 text-left rounded-xl btn-option text-sm mb-2';
+                        btn.innerText = o.t;
+                        btn.onclick = () => sys.answerScale(q.tag, o.v);
+                        area.appendChild(btn);
+                    });
+                } else {
+                    // MBTI/其他 二选题
+                    q.opts.forEach(o => {
+                        const btn = document.createElement('button');
+                        btn.className = 'w-full p-4 text-left rounded-xl btn-option text-sm mb-2';
+                        btn.innerText = o.t;
+                        btn.onclick = () => sys.answerBinary(o);
+                        area.appendChild(btn);
+                    });
+                }
+            },
+
+            answerScale: (tag, val) => {
+                sys.scores[tag] += val;
+                sys.next();
+            },
+
+            answerBinary: (opt) => {
+                if(opt.v) {
+                    sys.mbti[opt.v]++; // MBTI 计分
+                }
+                if(opt.tag) {
+                    sys.caas.score += opt.score; // CAAS 计分
+                    sys.caas.total++;
+                }
+                sys.next();
+            },
+
+            next: () => {
+                sys.step++;
+                if(sys.step < SYSTEM_DATA.questions.length) {
+                    sys.renderQ();
+                } else {
+                    sys.finish();
+                }
+            },
+
+            finish: () => {
+                document.getElementById('screen-quiz').classList.add('hidden');
+                document.getElementById('screen-result').classList.remove('hidden');
+                
+                // 1. 计算 RIASEC 最高项 (决定职业原型)
+                let maxScore = -1;
+                let topType = 'R';
+                for(let k in sys.scores) {
+                    if(sys.scores[k] > maxScore) {
+                        maxScore = sys.scores[k];
+                        topType = k;
+                    }
+                }
+                const hero = SYSTEM_DATA.archetypes[topType];
+                
+                // 2. 计算 MBTI 字符串
+                const mbtiStr = (sys.mbti.E >= sys.mbti.I ? 'E' : 'I') +
+                                (sys.mbti.S >= sys.mbti.N ? 'S' : 'N') +
+                                (sys.mbti.T >= sys.mbti.F ? 'T' : 'F') +
+                                (sys.mbti.J >= sys.mbti.P ? 'J' : 'P');
+                
+                // 3. 计算 CAAS 状态
+                const adaptability = sys.caas.score >= 2 ? "高适应力" : "潜力觉醒中";
+
+                // 渲染结果
+                document.getElementById('res-hero-name').innerText = hero.title;
+                document.getElementById('res-tags').innerHTML = `
+                    <span class="px-2 py-1 bg-black/30 rounded text-xs border border-[var(--neon-blue)] text-[var(--neon-blue)]">${mbtiStr}</span>
+                    <span class="px-2 py-1 bg-black/30 rounded text-xs border border-[var(--neon-gold)] text-[var(--neon-gold)]">${adaptability}</span>
+                `;
+                
+                document.getElementById('res-mbti-desc').innerText = `你的能量核心代码为 [${mbtiStr}]。配合 ${hero.desc}，这意味着你在处理任务时，更倾向于使用${mbtiStr.includes('N')?'直觉与创新':'经验与实操'}，并依据${mbtiStr.includes('T')?'逻辑':'情感'}做出判断。`;
+
+                // 动态生成建议
+                let advice = "";
+                if(sys.caas.score < 2) {
+                    advice = "检测到你的“生涯护盾”能量较低（有些迷茫或信心不足）。建议：不要想太远的未来，本周先尝试做一件你擅长的小事，比如" + (topType==='A'?'画一幅画':'整理书桌') + "，建立微小的成就感。";
+                } else {
+                    advice = "你的“生涯护盾”坚固。建议：你已经准备好接受挑战。本周任务：去找一个该领域的专业视频（如纪录片），深度了解" + hero.title.split(' ')[0] + "的真实工作内容。";
+                }
+                document.getElementById('res-advice').innerText = advice;
+
+                // 绘制雷达图
+                sys.drawChart();
+            },
+
+            drawChart: () => {
+                const ctx = document.getElementById('radarChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['R(实干)', 'I(研究)', 'A(艺术)', 'S(社交)', 'E(统帅)', 'C(秩序)'],
+                        datasets: [{
+                            label: '职业倾向',
+                            data: [sys.scores.R, sys.scores.I, sys.scores.A, sys.scores.S, sys.scores.E, sys.scores.C],
+                            backgroundColor: 'rgba(0, 243, 255, 0.2)',
+                            borderColor: '#00f3ff',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(255,255,255,0.1)' },
+                                grid: { color: 'rgba(255,255,255,0.1)' },
+                                pointLabels: { color: '#ccc', font: {size: 10} },
+                                ticks: { display: false, max: 5, min: 0 }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+        };
+    </script>
+</body>
+</html>

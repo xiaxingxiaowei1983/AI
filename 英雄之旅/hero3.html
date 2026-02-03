@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>少年英雄觉醒系统 v6.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #050b14;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(188, 19, 254, 0.1) 0%, transparent 20%),
+                linear-gradient(rgba(5, 11, 20, 0.9), rgba(5, 11, 20, 0.9)),
+                url('https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=1000&auto=format&fit=crop'); 
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        
+        /* 磨砂玻璃卡片 */
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* 霓虹按钮特效 */
+        .neon-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-blue), inset 0 0 5px var(--neon-blue); 
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        .neon-btn:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 15px var(--neon-blue), inset 0 0 10px var(--neon-blue);
+            transform: translateY(-2px);
+        }
+        .neon-btn-purple {
+            border-color: var(--neon-purple);
+            color: var(--neon-purple);
+            box-shadow: 0 0 5px var(--neon-purple), inset 0 0 5px var(--neon-purple);
+            text-shadow: 0 0 5px var(--neon-purple);
+        }
+        .neon-btn-purple:hover {
+            background: rgba(188, 19, 254, 0.1);
+            box-shadow: 0 0 15px var(--neon-purple), inset 0 0 10px var(--neon-purple);
+        }
+
+        /* 扫描线动画 */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: var(--neon-blue);
+            opacity: 0.5;
+            animation: scan 3s linear infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* 页面切换动画 */
+        .fade-enter { opacity: 0; transform: scale(0.95); }
+        .fade-enter-active { opacity: 1; transform: scale(1); transition: opacity 300ms, transform 300ms; }
+        .fade-exit { opacity: 1; transform: scale(1); }
+        .fade-exit-active { opacity: 0; transform: scale(1.05); transition: opacity 300ms, transform 300ms; }
+        
+        .hidden-page { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="fixed inset-0 pointer-events-none z-0" style="background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 243, 255, 0.03) 2px, rgba(0, 243, 255, 0.03) 3px);"></div>
+
+    <main id="app" class="relative z-10 w-full max-w-md">
+        
+        <section id="screen-welcome" class="glass-panel rounded-2xl p-8 text-center relative overflow-hidden">
+            <div class="scanline"></div>
+            <div class="mb-6">
+                <span class="material-symbols-outlined text-6xl text-[var(--neon-blue)] animate-pulse">fingerprint</span>
+            </div>
+            <h1 class="text-3xl font-bold mb-2 orbitron tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-blue)] to-white">
+                HERO AWAKENING
+            </h1>
+            <p class="text-[var(--neon-blue)] text-sm mb-6 orbitron">SYSTEM V6.0 // LABS</p>
+            <p class="text-gray-300 mb-8 text-sm leading-relaxed">
+                欢迎来到英雄觉醒实验室。<br>
+                我是你的系统导航员。<br>
+                别紧张，这只是一次对你<br>
+                <span class="text-[var(--neon-purple)] font-bold">“出厂设置”</span>的深度扫描。
+            </p>
+            <button onclick="startQuiz()" class="neon-btn w-full py-4 rounded-xl text-[var(--neon-blue)] font-bold orbitron tracking-widest uppercase">
+                >>> 初始化系统
+            </button>
+        </section>
+
+        <section id="screen-quiz" class="hidden-page glass-panel rounded-2xl p-6 relative">
+            <div class="w-full bg-gray-800 h-1 rounded-full mb-6 overflow-hidden">
+                <div id="progress-bar" class="h-full bg-[var(--neon-blue)] transition-all duration-300" style="width: 10%"></div>
+            </div>
+            
+            <div class="mb-2 flex justify-between items-end">
+                <span class="text-[var(--neon-blue)] font-bold text-lg orbitron">Q<span id="q-number">1</span></span>
+                <span class="text-gray-500 text-xs orbitron">DATA SCANNING...</span>
+            </div>
+
+            <h2 id="q-text" class="text-xl font-bold mb-8 min-h-[60px] leading-relaxed">
+                题目加载中...
+            </h2>
+
+            <div class="space-y-4">
+                <button onclick="answer(1)" class="w-full glass-panel hover:bg-white/10 text-left p-4 rounded-xl transition-all border border-gray-700 hover:border-[var(--neon-blue)] group">
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 rounded-full border border-gray-500 mr-3 flex items-center justify-center group-hover:border-[var(--neon-blue)]">
+                            <div class="w-3 h-3 rounded-full bg-[var(--neon-blue)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <span id="opt-a" class="text-sm text-gray-300 group-hover:text-white">选项 A</span>
+                    </div>
+                </button>
+                <button onclick="answer(-1)" class="w-full glass-panel hover:bg-white/10 text-left p-4 rounded-xl transition-all border border-gray-700 hover:border-[var(--neon-purple)] group">
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 rounded-full border border-gray-500 mr-3 flex items-center justify-center group-hover:border-[var(--neon-purple)]">
+                            <div class="w-3 h-3 rounded-full bg-[var(--neon-purple)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <span id="opt-b" class="text-sm text-gray-300 group-hover:text-white">选项 B</span>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <section id="screen-engine" class="hidden-page glass-panel rounded-2xl p-6 text-center">
+            <h2 class="text-xl font-bold mb-2">选择你的原力驱动</h2>
+            <p class="text-gray-400 text-xs mb-6">这是决定你战斗理由的关键一步</p>
+
+            <div class="space-y-4">
+                <button onclick="selectEngine('X')" class="neon-btn w-full p-4 rounded-xl text-left hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-[var(--neon-blue)] font-bold orbitron">ENGINE X</span>
+                        <span class="material-symbols-outlined text-[var(--neon-blue)]">swords</span>
+                    </div>
+                    <div class="text-white font-bold text-lg mb-1">胜利之剑</div>
+                    <div class="text-xs text-gray-400 group-hover:text-gray-300">为了赢！享受攻克难关、刷新纪录。</div>
+                </button>
+
+                <button onclick="selectEngine('Y')" class="neon-btn-purple w-full p-4 rounded-xl text-left hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-[var(--neon-purple)] font-bold orbitron">ENGINE Y</span>
+                        <span class="material-symbols-outlined text-[var(--neon-purple)]">construction</span>
+                    </div>
+                    <div class="text-white font-bold text-lg mb-1">创世之锤</div>
+                    <div class="text-xs text-gray-400 group-hover:text-gray-300">为了造！享受把想法变成现实。</div>
+                </button>
+
+                <button onclick="selectEngine('Z')" class="relative overflow-hidden w-full p-4 rounded-xl text-left border border-green-400 text-green-400 hover:bg-green-400/10 transition-all group shadow-[0_0_5px_rgba(74,222,128,0.5)]">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold orbitron">ENGINE Z</span>
+                        <span class="material-symbols-outlined">hub</span>
+                    </div>
+                    <div class="text-white font-bold text-lg mb-1">连接之链</div>
+                    <div class="text-xs text-gray-400 group-hover:text-gray-300">为了爱！享受被人需要、团队在一起。</div>
+                </button>
+            </div>
+        </section>
+
+        <section id="screen-loading" class="hidden-page glass-panel rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[400px]">
+            <div class="relative w-24 h-24 mb-8">
+                <div class="absolute inset-0 border-4 border-[var(--neon-blue)] rounded-full border-t-transparent animate-spin"></div>
+                <div class="absolute inset-2 border-4 border-[var(--neon-purple)] rounded-full border-b-transparent animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+                <span class="material-symbols-outlined absolute inset-0 flex items-center justify-center text-3xl text-white animate-pulse">memory</span>
+            </div>
+            <h2 class="text-xl font-bold mb-2 animate-pulse">正在生成觉醒档案...</h2>
+            <div id="loading-text" class="text-xs text-[var(--neon-blue)] orbitron font-mono">
+                ANALYZING NEURAL PATHWAYS...
+            </div>
+        </section>
+
+        <section id="screen-result" class="hidden-page glass-panel rounded-2xl overflow-hidden relative">
+            <div class="bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] h-2 w-full"></div>
+            
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <p class="text-xs text-gray-400 orbitron mb-1">S.H.I.E.L.D ARCHIVE</p>
+                        <h2 class="text-2xl font-bold text-white mb-1" id="res-title">Loading...</h2>
+                        <div class="flex gap-2 mt-2" id="res-tags">
+                            </div>
+                    </div>
+                    <div class="w-12 h-12 rounded-lg border border-gray-600 bg-gray-800 flex items-center justify-center">
+                         <span class="material-symbols-outlined text-2xl text-white">verified_user</span>
+                    </div>
+                </div>
+
+                <div class="w-full aspect-video bg-gray-800 rounded-xl mb-6 relative overflow-hidden group">
+                     <img id="res-image" src="" alt="Hero Archetype" class="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                         <div>
+                             <p class="text-[var(--neon-blue)] text-xs font-bold mb-1">GENETIC MATCH</p>
+                             <p class="text-white text-sm font-bold flex items-center">
+                                 <span class="material-symbols-outlined text-base mr-1">person</span>
+                                 <span id="res-prototype">...</span>
+                             </p>
+                         </div>
+                     </div>
+                </div>
+
+                <div class="mb-6 relative h-48 w-full flex justify-center items-center">
+                     <canvas id="radarChart"></canvas>
+                </div>
+
+                <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div class="flex items-center mb-2">
+                        <span class="material-symbols-outlined text-[var(--neon-purple)] mr-2 text-sm">auto_stars</span>
+                        <span class="text-xs font-bold text-[var(--neon-purple)] orbitron">GEMINI AI MISSION</span>
+                    </div>
+                    <p id="res-mission" class="text-sm text-gray-300 leading-relaxed">
+                        Loading mission data...
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <button onclick="location.reload()" class="p-3 rounded-lg border border-gray-600 text-gray-400 text-sm hover:bg-gray-800 transition-colors">
+                        重启系统
+                    </button>
+                    <button onclick="alert('海报已生成！(模拟)')" class="p-3 rounded-lg bg-[var(--neon-blue)] text-black font-bold text-sm hover:bg-cyan-400 transition-colors flex items-center justify-center">
+                        <span class="material-symbols-outlined text-base mr-1">download</span> 生成海报
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        /* ================= 数据层 ================= */
+        const QUESTIONS = [
+            // Y轴: 理性(+) vs 感性(-)
+            { q: "面对超难的游戏Boss，你的第一反应是：", a: "查攻略，分析弱点数值 (+理性)", b: "凭手感，多试几次 (+感性)", axis: 'y' },
+            { q: "班级义卖，你更想负责：", a: "管钱记账，确保不亏 (+秩序)", b: "画海报/吆喝卖货 (+感染)", axis: 'y' },
+            { q: "朋友找你哭诉，你会：", a: "帮他分析问题给方案 (+解决)", b: "给他递纸巾陪他骂 (+情绪)", axis: 'y' },
+            { q: "评价科幻电影，你更看重：", a: "设定严谨无漏洞 (+逻辑)", b: "特效酷/剧情感人 (+体验)", axis: 'y' },
+            { q: "理想的机器人助手是：", a: "效率极高帮写作业 (+功能)", b: "懂我心思陪我聊天 (+陪伴)", axis: 'y' },
+            
+            // X轴: 向外(+) vs 向内(-)
+            { q: "周末最完美的回血方式：", a: "一个人宅着看书/发呆 (-向内)", b: "约朋友出去玩/聚会 (+向外)", axis: 'x' },
+            { q: "小组作业你的角色通常是：", a: "幕后军师(查资料) (-构想)", b: "现场领队(演讲) (+行动)", axis: 'x' },
+            { q: "选一种超能力：", a: "隐身/读心 (暗处观察)", b: "飞行/力量 (明处拯救)", axis: 'x' },
+            { q: "遇到不合理规定，倾向于：", a: "心里默默吐槽/写日记 (-深思)", b: "直接找老师理论 (+实战)", axis: 'x' },
+            { q: "建造秘密基地，你愿意：", a: "画精美设计图 (-设计)", b: "亲手搬砖搭建 (+建造)", axis: 'x' }
+        ];
+
+        const ARCHETYPES = {
+            'Q1': { name: '智慧圣殿', trait: '理性·向内', color: '#60a5fa' }, // 蓝
+            'Q2': { name: '荣耀竞技场', trait: '理性·向外', color: '#facc15' }, // 黄
+            'Q3': { name: '光辉聚落', trait: '感性·向外', color: '#fb923c' }, // 橙
+            'Q4': { name: '梦境工坊', trait: '感性·向内', color: '#c084fc' }  // 紫
+        };
+
+        const MISSIONS = {
+            'Q1-X': { title: '解谜大师', proto: '柯南 / 华罗庚', desc: '你的大脑是解开宇宙谜题的钥匙。去找一个你一直搞不懂的原理，把它彻底搞懂。' },
+            'Q1-Y': { title: '系统架构师', proto: '比尔·盖茨 / 核心程序员', desc: '你天生适合构建规则。尝试用逻辑图或代码，设计一个能帮你做决定的“小工具”。' },
+            'Q1-Z': { title: '战略军师', proto: '诸葛亮 / 智库顾问', desc: '智慧是你连接他人的桥梁。观察最近的一个团队活动，为他们写下“必胜策略”。' },
+            
+            'Q2-X': { title: '全能战神', proto: 'Faker / 谷爱凌', desc: '赛场就是你的主场。选一项你喜欢的运动或游戏，给自己定一个这周必须要打破的记录。' },
+            'Q2-Y': { title: '实干巨匠', proto: '埃隆·马斯克 / 戴森', desc: '空谈误国，实干兴邦。动手拆开一个旧玩具，研究明白后再装回去。' },
+            'Q2-Z': { title: '守护专家', proto: '钟南山 / 精英医生', desc: '你的技术能救人。用你的知识或技能（比如修电脑/讲题），切实地帮同学解决一个麻烦。' },
+            
+            'Q3-X': { title: '热血领袖', proto: '路飞 / 学生会主席', desc: '你是天生的聚光灯。这周主动发起一次活动（哪怕是约饭），并由你来安排所有流程。' },
+            'Q3-Y': { title: '舞台主宰', proto: '乔布斯 / 导演', desc: '世界是你的舞台。策划一个惊喜，或者录制一段有趣的视频，发给朋友们看。' },
+            'Q3-Z': { title: '治愈光环', proto: '董宇辉 / 心理咨询师', desc: '你的温柔最有力量。发现班里那个最近不太说话的同学，给他写张鼓励的纸条。' },
+            
+            'Q4-X': { title: '先锋极客', proto: '独立游戏人', desc: '你不走寻常路。去接触一种很小众的艺术或游戏，分析它为什么独特。' },
+            'Q4-Y': { title: '造梦主神', proto: '宫崎骏 / J.K.罗琳', desc: '你的想象力是无价之宝。把昨晚的梦，写成500字故事或画出来。' },
+            'Q4-Z': { title: '灵魂画手', proto: '几米 / 治愈系博主', desc: '用作品说话。做一个能表达心情的手账或歌单，分享给懂你的人。' }
+        };
+
+        // 对应不同象限的模拟图片 (使用 Unsplash 关键词)
+        const HERO_IMAGES = {
+            'Q1': 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80', // Science/Lab
+            'Q2': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80', // Tech/Work
+            'Q3': 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80', // Friends/Group
+            'Q4': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80'  // Art/Creative
+        };
+
+        /* ================= 逻辑层 ================= */
+        let state = { step: 0, x: 0, y: 0, engine: '' };
+        
+        // 页面切换
+        function switchScreen(fromId, toId) {
+            const fromEl = document.getElementById(fromId);
+            const toEl = document.getElementById(toId);
+            
+            fromEl.classList.add('fade-exit-active');
+            setTimeout(() => {
+                fromEl.classList.add('hidden-page');
+                fromEl.classList.remove('fade-exit-active');
+                
+                toEl.classList.remove('hidden-page');
+                toEl.classList.add('fade-enter');
+                setTimeout(() => toEl.classList.remove('fade-enter'), 300);
+            }, 300);
+        }
+
+        // 开始测试
+        function startQuiz() {
+            switchScreen('screen-welcome', 'screen-quiz');
+            loadQuestion();
+        }
+
+        // 加载题目
+        function loadQuestion() {
+            if (state.step >= QUESTIONS.length) {
+                switchScreen('screen-quiz', 'screen-engine');
+                return;
+            }
+            const q = QUESTIONS[state.step];
+            document.getElementById('q-number').innerText = state.step + 1;
+            document.getElementById('q-text').innerText = q.q;
+            document.getElementById('opt-a').innerText = q.a;
+            document.getElementById('opt-b').innerText = q.b;
+            
+            // 更新进度条
+            const progress = ((state.step) / QUESTIONS.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+        }
+
+        // 回答问题
+        function answer(val) {
+            const q = QUESTIONS[state.step];
+            if (q.axis === 'x') {
+                // 原逻辑: A(-10) B(+10), 这里为了方便传入1或-1
+                state.x += (val === 1) ? -10 : 10; // A=1(向内-), B=-1(向外+) -- 修正逻辑适配UI按钮顺序
+                // 修正：上面的 answer(1) 对应按钮A，answer(-1) 对应按钮B
+                // 题目1-5 (Y轴): A(+10理性), B(-10感性)
+                // 题目6-10(X轴): A(-10向内), B(+10向外)
+                
+                if(state.step < 5) { // 前5题其实不会进这个分支，因为QUESTIONS数组顺序是Y先X后
+                    // 容错逻辑
+                } else {
+                     // X轴: A按钮传1 -> 应该是-10(向内); B按钮传-1 -> 应该是+10(向外)
+                     // 所以: val=1 -> -10, val=-1 -> +10
+                     state.x += (val === 1) ? -10 : 10;
+                }
+            } else {
+                // Y轴: A按钮传1 -> +10(理性); B按钮传-1 -> -10(感性)
+                state.y += (val === 1) ? 10 : -10;
+            }
+            
+            state.step++;
+            loadQuestion();
+        }
+
+        // 选择引擎
+        function selectEngine(type) {
+            state.engine = type;
+            switchScreen('screen-engine', 'screen-loading');
+            
+            // 模拟 AI 计算过程
+            const texts = [
+                "正在解析神经元数据...",
+                "定位星图坐标...",
+                "正在匹配英雄原型...",
+                "生成觉醒任务..."
+            ];
+            let i = 0;
+            const interval = setInterval(() => {
+                if(i < texts.length) {
+                    document.getElementById('loading-text').innerText = texts[i];
+                    i++;
+                }
+            }, 800);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                showResult();
+            }, 3500);
+        }
+
+        // 展示结果
+        function showResult() {
+            switchScreen('screen-loading', 'screen-result');
+            
+            // 1. 计算象限
+            let qId = '';
+            if (state.x < 0 && state.y >= 0) qId = 'Q1';
+            else if (state.x >= 0 && state.y >= 0) qId = 'Q2';
+            else if (state.x >= 0 && state.y < 0) qId = 'Q3';
+            else qId = 'Q4';
+            
+            // 2. 获取结果数据
+            const archetype = MISSIONS[`${qId}-${state.engine}`];
+            const quadrantInfo = ARCHETYPES[qId];
+            
+            // 3. 渲染 DOM
+            document.getElementById('res-title').innerText = archetype.title;
+            document.getElementById('res-prototype').innerText = archetype.proto;
+            document.getElementById('res-mission').innerText = archetype.desc;
+            document.getElementById('res-image').src = HERO_IMAGES[qId];
+            
+            // 渲染标签
+            const tagsContainer = document.getElementById('res-tags');
+            tagsContainer.innerHTML = `
+                <span class="px-2 py-1 rounded text-xs font-bold bg-gray-700 text-white">${quadrantInfo.name}</span>
+                <span class="px-2 py-1 rounded text-xs font-bold border border-[var(--neon-blue)] text-[var(--neon-blue)]">
+                    驱动: ${state.engine === 'X' ? '攻克' : state.engine === 'Y' ? '创造' : '连接'}
+                </span>
+            `;
+
+            // 4. 绘制雷达图
+            drawRadar(state.x, state.y);
+        }
+
+        function drawRadar(x, y) {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            
+            // 数据归一化 (0-100) 用于图表展示
+            // 理性(Top): Y>0, 感性(Bottom): Y<0
+            // 向内(Left): X<0, 向外(Right): X>0
+            
+            // 转换为四个维度的能力值 (模拟)
+            // Head (理): Y正值 -> 映射到 50-100
+            // Heart(感): Y负值 -> 映射到 50-100
+            // Hand (行): X正值
+            // Eye  (视): X负值
+            
+            let dHead = 50 + (y > 0 ? y : 0);
+            let dHeart = 50 + (y < 0 ? Math.abs(y) : 0);
+            let dHand = 50 + (x > 0 ? x : 0);
+            let dEye = 50 + (x < 0 ? Math.abs(x) : 0);
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['逻辑 (Head)', '行动 (Hand)', '共情 (Heart)', '审美 (Eye)'],
+                    datasets: [{
+                        label: '能力倾向',
+                        data: [dHead, dHand, dHeart, dEye],
+                        backgroundColor: 'rgba(0, 243, 255, 0.2)',
+                        borderColor: '#00f3ff',
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: { color: '#ccc', font: { family: 'Orbitron', size: 10 } },
+                            ticks: { display: false, max: 100, min: 0 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    animation: { duration: 2000, easing: 'easeOutQuart' }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

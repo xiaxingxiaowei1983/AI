@@ -1,0 +1,6 @@
+[skill]
+  skill_package = "bug-fix-debugger.skill"
+  name = "bug-fix-debugger"
+  description = "BUG排查与修复总入口，提供4个阶段的选择指导，包括问题诊断、方案设计、执行规划、执行与验收的完整流程框架"
+  project_name = "BUG修复技能"
+  project_description = "BUG修复总入口，4阶段流程指导"

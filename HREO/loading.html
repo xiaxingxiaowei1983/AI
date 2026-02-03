@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>少年英雄觉醒系统 - 加载中</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="system-data.js"></script>
+    <script src="sys.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            /* 参数调整说明：
+               1. #2e1437 (深紫): 提升了亮度，不再是死黑，透出紫色
+               2. #16362d (深绿): 对应你截图中的绿色，但更有光泽
+               3. #3a1c1c (深红): 保留了红色的温润感
+               4. #1c2541 (深蓝): 经典的午夜蓝，作为冷暖色的过渡
+            */
+            background: linear-gradient(-45deg, #2e1437, #16362d, #3a1c1c, #1c2541);
+            
+            background-size: 400% 400%;
+            animation: gradientDark 18s ease infinite;
+        }
+
+        @keyframes gradientDark {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div id="app-view" class="pt-16 flex justify-center">
+        <div class="min-w-[300px] max-w-[500px] w-full bg-black rounded-[20px] shadow-2xl relative overflow-hidden">
+            
+            <!-- 黑客帝国代码雨背景 -->
+            <canvas id="matrix-rain" class="absolute inset-0 w-full h-full opacity-20"></canvas>
+            
+            <!-- 加载页面 -->
+            <section id="scr-loading" class="flex flex-col items-center justify-center z-60 bg-black min-h-[600px]">
+                <div class="text-center">
+                    <div id="loading-text" class="text-cyan-400 text-sm mb-4 orbitron">正在解析神经元数据...</div>
+                    <div class="w-full max-w-xs h-1 bg-gray-900 rounded-full overflow-hidden mb-2">
+                        <div id="loading-progress" class="h-full bg-gradient-to-r from-cyan-500 to-purple-600 w-0 transition-all duration-400 ease-out"></div>
+                    </div>
+                    <div id="loading-code" class="text-cyan-400 text-xs mt-4 font-mono">0000 0000 0000</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // 黑客帝国代码雨效果
+        class MatrixRain {
+            constructor(canvasId) {
+                this.canvas = document.getElementById(canvasId);
+                this.ctx = this.canvas.getContext('2d');
+                this.chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+                this.fontSize = 14;
+                this.columns = 0;
+                this.drops = [];
+                this.resize();
+                this.init();
+            }
+            
+            resize() {
+                this.canvas.width = this.canvas.offsetWidth;
+                this.canvas.height = this.canvas.offsetHeight;
+                this.columns = Math.floor(this.canvas.width / this.fontSize);
+                this.drops = Array(this.columns).fill(1);
+            }
+            
+            init() {
+                this.ctx.fillStyle = '#000';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+                this.animate();
+            }
+            
+            animate() {
+                this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                this.ctx.fillStyle = '#00f3ff';
+                this.ctx.font = `${this.fontSize}px monospace`;
+                
+                for (let i = 0; i < this.drops.length; i++) {
+                    const text = this.chars.charAt(Math.floor(Math.random() * this.chars.length));
+                    this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
+                    
+                    if (this.drops[i] * this.fontSize > this.canvas.height && Math.random() > 0.975) {
+                        this.drops[i] = 0;
+                    }
+                    this.drops[i]++;
+                }
+                
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+        
+        // 初始化代码雨
+        let matrixRain;
+        document.addEventListener('DOMContentLoaded', () => {
+            matrixRain = new MatrixRain('matrix-rain');
+            window.addEventListener('resize', () => {
+                matrixRain.resize();
+            });
+            
+            // 加载动画步骤
+            const loadingSteps = [
+                { text: '正在解析神经元数据...', progress: 25 },
+                { text: '连接地球 Online服务器...', progress: 50 },
+                { text: '匹配历史名人数据库...', progress: 75 },
+                { text: '生成独特英雄代码...', progress: 100 }
+            ];
+            
+            let step = 0;
+            const loadingInterval = setInterval(() => {
+                if (step < loadingSteps.length) {
+                    // 更新加载文本和进度
+                    document.getElementById('loading-text').innerText = loadingSteps[step].text;
+                    document.getElementById('loading-progress').style.width = loadingSteps[step].progress + '%';
+                    
+                    // 生成随机代码
+                    const randomCode = Array(3).fill(0).map(() => Math.floor(Math.random() * 10000).toString().padStart(4, '0')).join(' ');
+                    document.getElementById('loading-code').innerText = randomCode;
+                    
+                    step++;
+                } else {
+                    // 加载完成，添加过渡效果
+                    clearInterval(loadingInterval);
+                    
+                    // 代码雨加速效果
+                    matrixRain.fontSize = 20;
+                    
+                    // 添加过渡动画
+                    const loadingSection = document.getElementById('scr-loading');
+                    loadingSection.style.opacity = '0';
+                    loadingSection.style.transition = 'opacity 0.5s ease-out';
+                    
+                    // 延迟跳转
+                    setTimeout(() => {
+                        window.location.href = 'result.html';
+                    }, 800);
+                }
+            }, 400);
+        });
+    </script>
+</body>
+</html>

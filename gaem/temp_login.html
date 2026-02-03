@@ -1,0 +1,81 @@
+                                {/* 登录标题 */}
+                                <h2 style={{
+                                    color: '#00FFFF',
+                                    textAlign: 'center',
+                                    marginBottom: '20px',
+                                    fontSize: '24px'
+                                }}>
+                                    登录 / LOGIN
+                                </h2>
+                                
+                                {/* 统一登录表单 */}
+                                <div>
+                                    <div style={{ marginBottom: '15px' }}>
+                                        <label style={{
+                                            display: 'block',
+                                            color: '#00FFFF',
+                                            marginBottom: '5px',
+                                            fontSize: '14px'
+                                        }}>
+                                            邮箱/手机号
+                                        </label>
+                                        <input 
+                                            type="text"
+                                            value={loginAccount}
+                                            onChange={(e) => setLoginAccount(e.target.value)}
+                                            placeholder="请输入邮箱或手机号"
+                                            style={{
+                                                width: '100%',
+                                                padding: '10px',
+                                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                                border: '1px solid rgba(0, 255, 255, 0.3)',
+                                                borderRadius: '5px',
+                                                color: 'white',
+                                                fontSize: '16px'
+                                            }}
+                                        />
+                                    </div>
+                                    
+                                    <div style={{ marginBottom: '20px' }}>
+                                        <label style={{
+                                            display: 'block',
+                                            color: '#00FFFF',
+                                            marginBottom: '5px',
+                                            fontSize: '14px'
+                                        }}>
+                                            密码
+                                        </label>
+                                        <input 
+                                            type="password"
+                                            value={loginPassword}
+                                            onChange={(e) => setLoginPassword(e.target.value)}
+                                            placeholder="请输入密码"
+                                            style={{
+                                                width: '100%',
+                                                padding: '10px',
+                                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                                border: '1px solid rgba(0, 255, 255, 0.3)',
+                                                borderRadius: '5px',
+                                                color: 'white',
+                                                fontSize: '16px'
+                                            }}
+                                        />
+                                    </div>
+                                    
+                                    <button 
+                                        onClick={handleLogin}
+                                        style={{
+                                            width: '100%',
+                                            padding: '12px',
+                                            background: 'linear-gradient(to right, rgba(138, 43, 226, 0.7), rgba(0, 255, 255, 0.7))',
+                                            color: 'white',
+                                            border: 'none',
+                                            borderRadius: '5px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold',
+                                            transition: 'all 0.3s ease'
+                                        }}
+                                    >
+                                        登录
+                                    </button>
+                                </div>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房树人心理分析：看见你的内在真相</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', 'PingFang SC', serif;
+            background: linear-gradient(180deg, #faf9f7 0%, #f5f3f0 100%);
+            color: #4a4a4a;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 治愈系风格背景装饰 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(173, 216, 230, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(255, 218, 185, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* 封面区域 */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #7a7a7a;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .cloud-decoration {
+            position: absolute;
+            width: 120px;
+            height: 60px;
+            background: radial-gradient(ellipse, rgba(135, 206, 235, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+        }
+
+        .cloud-1 {
+            top: -30px;
+            left: -20px;
+            width: 100px;
+            height: 50px;
+        }
+
+        .cloud-2 {
+            bottom: -25px;
+            right: -15px;
+            width: 140px;
+            height: 70px;
+        }
+
+        /* 引言区域 */
+        .intro {
+            background: linear-gradient(135deg, rgba(255, 250, 240, 0.8) 0%, rgba(255, 245, 230, 0.6) 100%);
+            border-radius: 16px;
+            padding: 30px 40px;
+            margin: 50px 0;
+            position: relative;
+            border: 1px solid rgba(255, 200, 150, 0.3);
+        }
+
+        .intro::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            font-size: 4rem;
+            color: rgba(255, 200, 150, 0.4);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: #5a5a5a;
+            font-style: italic;
+            text-align: center;
+            position: relative;
+        }
+
+        /* 章节标题 */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4a4a4a;
+            margin: 60px 0 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 200, 150, 0.4);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255, 200, 150, 0.8), rgba(135, 206, 235, 0.8));
+            border-radius: 2px;
+        }
+
+        /* 章节小标题 */
+        .subsection-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #5a5a5a;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .subsection-title::before {
+            content: '●';
+            color: rgba(255, 180, 130, 0.6);
+            margin-right: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* 正文段落 */
+        p {
+            font-size: 1rem;
+            color: #5a5a5a;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* 重点内容 */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(135, 206, 250, 0.1) 0%, rgba(255, 218, 185, 0.1) 100%);
+            border-left: 4px solid rgba(255, 180, 130, 0.6);
+            border-radius: 8px 16px 16px 8px;
+            padding: 20px 30px;
+            margin: 30px 0;
+        }
+
+        .highlight-text {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            font-weight: 400;
+        }
+
+        /* 左右对照布局 */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 35px 0;
+        }
+
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .comparison-card-left {
+            background: linear-gradient(135deg, rgba(255, 240, 245, 0.5) 0%, rgba(255, 235, 238, 0.3) 100%);
+        }
+
+        .comparison-card-right {
+            background: linear-gradient(135deg, rgba(240, 248, 255, 0.5) 0%, rgba(227, 242, 253, 0.3) 100%);
+        }
+
+        .comparison-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-content {
+            font-size: 0.95rem;
+            color: #6a6a6a;
+        }
+
+        /* 图片插入区域 */
+        .image-section {
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .inserted-image {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+
+        .image-caption {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #8a8a8a;
+            font-style: italic;
+        }
+
+        /* 引用块 */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(255, 245, 235, 0.6) 0%, rgba(255, 240, 245, 0.6) 100%);
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin: 35px 0;
+            position: relative;
+            border: 1px solid rgba(255, 200, 150, 0.2);
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            font-style: italic;
+            line-height: 1.9;
+        }
+
+        /* 结尾区域 */
+        .conclusion {
+            text-align: center;
+            margin: 60px 0 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 250, 240, 0.9) 0%, rgba(255, 245, 230, 0.7) 100%);
+            border-radius: 20px;
+            position: relative;
+            border: 2px solid rgba(255, 200, 150, 0.3);
+        }
+
+        .conclusion-text {
+            font-size: 1.25rem;
+            color: #4a4a4a;
+            font-weight: 400;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-signature {
+            font-size: 1rem;
+            color: #7a7a7a;
+            font-style: italic;
+        }
+
+        /* 装饰元素 */
+        .decoration-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255, 180, 130, 0.6), rgba(135, 206, 235, 0.6));
+            margin: 40px auto;
+            border-radius: 2px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .subsection-title {
+                font-size: 1.1rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .intro {
+                padding: 20px 25px;
+            }
+
+            .quote-block {
+                padding: 20px 25px;
+            }
+
+            .conclusion {
+                padding: 30px 25px;
+            }
+
+            .conclusion-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* 柔和的动画效果 */
+        @keyframes gentle-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: gentle-fade-in 1s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面区域 -->
+        <div class="hero fade-in">
+            <div class="cloud-decoration cloud-1"></div>
+            <div class="cloud-decoration cloud-2"></div>
+
+            <h1 class="hero-title">房树人心理分析</h1>
+            <p class="hero-subtitle">看见你的内在真相，拥抱被压抑的真实自我</p>
+
+            <div class="hero-image-container">
+                <img src="https://s.coze.cn/image/YwCuPftVoO0/" alt="房树人心理分析" class="hero-image">
+            </div>
+        </div>
+
+        <div class="decoration-line"></div>
+
+        <!-- 引言 -->
+        <div class="intro fade-in delay-1">
+            <p class="intro-text">这幅画本身是一个"看见"的过程。当你拿起画笔，画出房子、树木、小女孩时，你已经在潜意识层面看见了那些被压抑的渴望和需求。现在，我们需要将这种潜意识看见转化为意识层面的看见和接纳。</p>
+        </div>
+
+        <!-- 第一部分 -->
+        <h2 class="section-title fade-in delay-2">一、两张画，两个战场</h2>
+
+        <p class="fade-in delay-2">描绘了一位在规则与自由、责任与自我、庇护与成长之间寻找动态平衡的现代母亲。您的内在资源（树的粗壮、房屋的稳固）足以支撑当前挑战，但需要有意识地为自己补充能量，而非仅仅为孩子和家庭提供养分。</p>
+
+        <div class="highlight-box fade-in delay-2">
+            <p class="highlight-text">在职业责任和家庭照料之间努力维持平衡，在坚强外表下藏着脆弱的内在小孩，在追求成就的同时渴望简单和温暖。</p>
+        </div>
+
+        <!-- 左右对照 -->
+        <div class="comparison-grid fade-in delay-3">
+            <div class="comparison-card comparison-card-left">
+                <h3 class="comparison-title">左侧：过去·传统·情感</h3>
+                <p class="comparison-content">房子（家庭）被放在左侧，暗示着你将家庭视为情感的根基和过去的延续。这是你的情感港湾，承载着温暖和爱的渴望。</p>
+            </div>
+            <div class="comparison-card comparison-card-right">
+                <h3 class="comparison-title">右侧：未来·理性·发展</h3>
+                <p class="comparison-content">树木（成长/事业）被放在右侧，暗示着你将职业/成长视为面向未来的理性选择。这是你追求成就和自我实现的领域。</p>
+            </div>
+        </div>
+
+        <!-- 第一张画的细节分析 -->
+        <h3 class="subsection-title">第一张：坡上的树</h3>
+
+        <p>不是平地，这个细节很关键——你觉得自己不是在平地上种树，而是在斜坡上硬撑。作为两个孩子的妈妈，你对"基础稳固"有近乎执念的渴求（两张画都在强调根），但心里清楚当下的养育环境并不轻松，需要"扎根努力"才能站稳脚跟。那些裸露在外的树根，暴露了你深层的生存焦虑：担心自己给不了孩子足够的安全感，担心地基是松的。</p>
+
+        <!-- 配图区域 -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <img src="https://s.coze.cn/image/Rizjf2HxTX8/" alt="坡上的树" class="inserted-image">
+            </div>
+            <p class="image-caption">在斜坡上努力扎根</p>
+        </div>
+
+        <div class="quote-block">
+            <p class="quote-text">蘑菇云树冠是你的安全气囊。当职场压得你喘不过气时，你就飘到这个想象空间里缓口气。云朵状的树冠不是你逃避现实，而是你为自己创造的温柔庇护所，一种必要的心理保护。</p>
+        </div>
+
+        <h3 class="subsection-title">第二张：房树人的左右分隔</h3>
+
+        <p>把房子放左边（代表过去/情感/家庭），树放右边（代表未来/理性/事业），中间勉强塞着一个小女孩。你在家是满分妈妈，在职场是满分领导，但这两个角色之间没有走廊，你活成了两个明确分区，切换一次消耗一次。</p>
+
+        <!-- 配图区域 -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <img src="https://s.coze.cn/image/fKFd4wTMtsU/" alt="房树人的左右分隔" class="inserted-image">
+            </div>
+            <p class="image-caption">左右分区的心理空间</p>
+        </div>
+
+        <!-- 第二部分 -->
+        <h2 class="section-title">二、裂痕是你活过的证据</h2>
+
+        <p>仔细看树的内部，那锯齿状的条纹，是你成长历程的诚实记录。你在职场厮杀、在二胎妈妈的琐碎里摸爬滚打，经历过背叛、过劳、深夜的自我怀疑。这些没有被你"正能量"掉，只是被压进了木纹里。它们提醒着你：成长从来不是平滑的。</p>
+
+        <div class="highlight-box">
+            <p class="highlight-text">你画在房子前的两朵小花，简单却生动，那是你的两个孩子，也是你生活里微小但确定的幸福感。但注意，它们靠近房子而非人物——这个细节暴露了一个隐痛：你的母性角色强于个体身份。作为母亲你总是优先，但那个"你"自己在哪里？</p>
+        </div>
+
+        <!-- 配图区域 -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <img src="https://s.coze.cn/image/vtV9kO2fGs0/" alt="树干的裂痕" class="inserted-image">
+            </div>
+            <p class="image-caption">那些锯齿状的条纹，是你活过的证据</p>
+        </div>
+
+        <!-- 第三部分 -->
+        <h2 class="section-title">三、那个被挤到边缘的小女孩</h2>
+
+        <p>这是最真实的部分：你画的是扎双马尾的小女孩，她站在画面中央偏下，笑得没心没肺，张开手臂呈现纯粹的开心。但问题是——她被挤到下方了。作为职场你必须理性控制，作为妈妈你必须可靠周到，那个代表你直觉、任性和纯粹生命力的小女孩，只能被多重角色挤压到画纸的边缘地带。她是你被压抑的真实自我。</p>
+
+        <div class="quote-block">
+            <p class="quote-text">但她在笑，而且你让她站在视觉焦点。这说明你内心深处知道：她才是原动力，不是负担。那些让你觉得活着有劲儿的瞬间，你现在需要做的，是把她从画面下方扶起来，让她成为你生命的中心，而不是被庇护的配角。</p>
+        </div>
+
+        <!-- 配图区域 -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <img src="https://www.coze.cn/s/Zx4Vm37CocA/?width_height=1600x2848" alt="微笑的小女孩" class="inserted-image">
+            </div>
+            <p class="image-caption">那个微笑的小女孩，是你被压抑的真实自我</p>
+        </div>
+
+        <!-- 第四部分 -->
+        <h2 class="section-title">四、真正的平衡不是"搞定一切"</h2>
+
+        <p>你不需要消除这些"不完美"——锯齿状的树干、山坡上的倾斜、角色的分裂。真正的成长是学会带着它们前行，不是分裂成多个完美角色，而是在多样性中找到统一。</p>
+
+        <div class="highlight-box">
+            <p class="highlight-text">想象一个有多个房间的房子：每个房间都是一个自我角色。在不同房间之间建立通畅的走廊，让每个房间都能被定期使用。</p>
+        </div>
+
+        <p>左侧的温暖房子、右侧的生命力大树、中央的小女孩，它们构成的和谐不是来自"消除冲突"，而是来自接纳多样性：接纳职业压力和家庭责任的双重性，接纳坚强外表和柔软内心的二元性，接纳成就追求和简单生活的矛盾性。</p>
+
+        <!-- 配图区域 -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <img src="https://s.coze.cn/image/-rHJLDrTPT4/" alt="角色整合" class="inserted-image">
+            </div>
+            <p class="image-caption">接纳的前提是看见</p>
+        </div>
+
+        <!-- 结语 -->
+        <div class="conclusion">
+            <p class="conclusion-text">你已经做得很好了。<br>现在，试着对自己好一点。</p>
+            <p class="conclusion-signature">—— 在多样性中找到统一，带着不完美前行</p>
+        </div>
+
+        <div class="decoration-line"></div>
+
+        <!-- 底部装饰 -->
+        <div style="text-align: center; margin-top: 30px;">
+            <div style="font-size: 0.85rem; color: #9a9a9a; font-style: italic;">
+                每一个裂痕，都是光照进来的地方
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 简单的滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // 观察所有段落和标题
+            document.querySelectorAll('p, h2, h3, .highlight-box, .quote-block').forEach(function(el) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

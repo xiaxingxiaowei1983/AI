@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 - 大脑作弊器</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-black': '#000000',
+                        'bg-dark': '#111111',
+                        'bg-gray': '#222222',
+                        'text-white': '#ffffff',
+                        'text-gray': '#999999',
+                        'border-gray': '#333333',
+                        'primary': '#2563eb',
+                        'success': '#2ed573',
+                        'warning': '#ffa502',
+                        'error': '#ff4757'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link:hover {
+            background-color: #222222;
+        }
+        .sidebar-link.active {
+            background-color: #222222;
+            border-left: 3px solid #ffffff;
+        }
+        .table-row:hover {
+            background-color: #111111;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="flex h-screen">
+        <!-- 侧边栏 -->
+        <aside class="w-64 bg-bg-dark border-r border-border-gray flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-border-gray">
+                <h1 class="text-xl font-bold">大脑作弊器</h1>
+                <p class="text-sm text-text-gray mt-1">后台管理系统</p>
+            </div>
+
+            <!-- 导航菜单 -->
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="#" class="sidebar-link active flex items-center px-4 py-3 rounded" data-page="dashboard">
+                    <i class="fa fa-tachometer w-5"></i>
+                    <span class="ml-3">仪表盘</span>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded" data-page="users">
+                    <i class="fa fa-users w-5"></i>
+                    <span class="ml-3">用户管理</span>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded" data-page="api-configs">
+                    <i class="fa fa-plug w-5"></i>
+                    <span class="ml-3">API配置</span>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded" data-page="llm-models">
+                    <i class="fa fa-brain w-5"></i>
+                    <span class="ml-3">LLM模型</span>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded" data-page="thinking-models">
+                    <i class="fa fa-lightbulb-o w-5"></i>
+                    <span class="ml-3">思维模型</span>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded" data-page="stats">
+                    <i class="fa fa-bar-chart w-5"></i>
+                    <span class="ml-3">数据统计</span>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded" data-page="settings">
+                    <i class="fa fa-cog w-5"></i>
+                    <span class="ml-3">系统设置</span>
+                </a>
+            </nav>
+
+            <!-- 用户信息 -->
+            <div class="p-4 border-t border-border-gray">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-bg-gray flex items-center justify-center">
+                        <i class="fa fa-user text-text-gray"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <p class="text-sm font-medium" id="admin-username">管理员</p>
+                        <p class="text-xs text-text-gray" id="admin-email">admin@example.com</p>
+                    </div>
+                    <button id="logout-btn" class="text-text-gray hover:text-white transition-colors" title="退出登录">
+                        <i class="fa fa-sign-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="flex-1 overflow-auto">
+            <!-- 顶部栏 -->
+            <header class="bg-bg-dark border-b border-border-gray px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-light" id="page-title">仪表盘</h2>
+                    <button onclick="window.location.href='/index.html'" class="text-text-gray hover:text-white transition-colors">
+                        <i class="fa fa-external-link mr-2"></i>
+                        返回首页
+                    </button>
+                </div>
+            </header>
+
+            <!-- 页面内容 -->
+            <div class="p-8" id="page-content">
+                <!-- 仪表盘内容 -->
+                <div id="dashboard-page" class="page-section">
+                    <!-- 统计卡片 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-text-gray text-sm">总用户数</p>
+                                    <p class="text-3xl font-bold mt-2" id="total-users">0</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-bg-gray flex items-center justify-center">
+                                    <i class="fa fa-users text-text-gray text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-text-gray text-sm">今日注册</p>
+                                    <p class="text-3xl font-bold mt-2" id="today-users">0</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-bg-gray flex items-center justify-center">
+                                    <i class="fa fa-user-plus text-success text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-text-gray text-sm">处理次数</p>
+                                    <p class="text-3xl font-bold mt-2" id="total-process">0</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-bg-gray flex items-center justify-center">
+                                    <i class="fa fa-cog text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-text-gray text-sm">系统状态</p>
+                                    <p class="text-3xl font-bold mt-2 text-success">正常</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-bg-gray flex items-center justify-center">
+                                    <i class="fa fa-check-circle text-success text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 最近用户 -->
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <h3 class="text-lg font-medium mb-4">最近注册用户</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-border-gray">
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">用户名</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">邮箱</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">角色</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">注册时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-users-table">
+                                    <tr>
+                                        <td colspan="4" class="py-8 text-center text-text-gray">加载中...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 用户管理页面 -->
+                <div id="users-page" class="page-section hidden">
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-medium">用户列表</h3>
+                            <button id="refresh-users-btn" class="text-text-gray hover:text-white transition-colors">
+                                <i class="fa fa-refresh mr-2"></i>刷新
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-border-gray">
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">ID</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">用户名</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">邮箱</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">角色</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">状态</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">注册时间</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table">
+                                    <tr>
+                                        <td colspan="7" class="py-8 text-center text-text-gray">加载中...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 数据统计页面 -->
+                <div id="stats-page" class="page-section hidden">
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <h3 class="text-lg font-medium mb-4">数据统计</h3>
+                        <div class="text-center py-12">
+                            <i class="fa fa-bar-chart text-6xl text-text-gray mb-4"></i>
+                            <p class="text-text-gray">统计功能开发中...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系统设置页面 -->
+                <div id="settings-page" class="page-section hidden">
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <h3 class="text-lg font-medium mb-4">系统设置</h3>
+                        <div class="text-center py-12">
+                            <i class="fa fa-cog text-6xl text-text-gray mb-4"></i>
+                            <p class="text-text-gray">设置功能开发中...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API配置页面 -->
+                <div id="api-configs-page" class="page-section hidden">
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-medium">API配置管理</h3>
+                            <button id="add-api-config-btn" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                <i class="fa fa-plus mr-2"></i>添加配置
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-border-gray">
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">配置键</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">配置值</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">描述</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">加密</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">更新时间</th>
+                                        <th class="text-left py-3 px-4 text-text-gray text-sm font-medium">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="api-configs-table">
+                                    <tr>
+                                        <td colspan="6" class="py-8 text-center text-text-gray">加载中...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LLM模型页面 -->
+                <div id="llm-models-page" class="page-section hidden">
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-lg font-medium">LLM模型配置</h3>
+                                <p class="text-text-gray text-sm mt-1">基于扣子SDK的LLM配置（API密钥自动从环境变量加载）</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button id="test-llm-btn" class="bg-success hover:bg-green-600 text-white px-4 py-2 rounded transition-colors">
+                                    <i class="fa fa-plug mr-2"></i>测试连接
+                                </button>
+                                <button id="save-llm-config-btn" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                    <i class="fa fa-save mr-2"></i>保存配置
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-text-gray text-sm mb-2">模型ID</label>
+                                <select id="llm-model" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                    <option value="doubao-seed-1-8-251228">doubao-seed-1-8-251228 (默认，多模态Agent优化)</option>
+                                    <option value="doubao-seed-1-6-251015">doubao-seed-1-6-251015 (平衡性能)</option>
+                                    <option value="doubao-seed-1-6-flash-250615">doubao-seed-1-6-flash-250615 (快速响应)</option>
+                                    <option value="doubao-seed-1-6-thinking-250715">doubao-seed-1-6-thinking-250715 (思维模型)</option>
+                                    <option value="doubao-seed-1-6-vision-250815">doubao-seed-1-6-vision-250815 (视觉模型)</option>
+                                    <option value="doubao-seed-1-6-lite-251015">doubao-seed-1-6-lite-251015 (轻量级)</option>
+                                    <option value="deepseek-v3-2-251201">deepseek-v3-2-251201 (DeepSeek V3.2)</option>
+                                    <option value="deepseek-r1-250528">deepseek-r1-250528 (DeepSeek R1)</option>
+                                    <option value="kimi-k2-250905">kimi-k2-250905 (Kimi K2)</option>
+                                </select>
+                                <p class="text-text-gray text-xs mt-1">选择适合你场景的模型</p>
+                            </div>
+                            <div>
+                                <label class="block text-text-gray text-sm mb-2">温度参数</label>
+                                <input type="number" id="llm-temperature" step="0.1" min="0" max="2" value="1.0" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                <p class="text-text-gray text-xs mt-1">0-2：0=确定性，1=平衡，2=创造性</p>
+                            </div>
+                            <div>
+                                <label class="block text-text-gray text-sm mb-2">思维模式</label>
+                                <select id="llm-thinking" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                    <option value="disabled">disabled (快速响应)</option>
+                                    <option value="enabled">enabled (深度推理)</option>
+                                </select>
+                                <p class="text-text-gray text-xs mt-1">深度推理适用于复杂任务（数学、逻辑、分析）</p>
+                            </div>
+                            <div>
+                                <label class="block text-text-gray text-sm mb-2">缓存模式</label>
+                                <select id="llm-caching" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                    <option value="disabled">disabled (无缓存)</option>
+                                    <option value="enabled">enabled (缓存上下文)</option>
+                                </select>
+                                <p class="text-text-gray text-xs mt-1">缓存可加速多轮对话，降低成本</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 bg-bg-gray border border-border-gray rounded p-4">
+                            <h4 class="font-medium mb-3 flex items-center">
+                                <i class="fa fa-info-circle text-primary mr-2"></i>
+                                配置说明
+                            </h4>
+                            <ul class="text-text-gray text-sm space-y-2">
+                                <li>• <strong>API密钥</strong>：SDK自动从环境变量加载，无需手动配置</li>
+                                <li>• <strong>模型选择</strong>：根据任务类型选择合适的模型</li>
+                                <li>• <strong>温度参数</strong>：低温度适合代码生成，高温度适合创意写作</li>
+                                <li>• <strong>思维模式</strong>：启用后会增加推理深度，但响应较慢</li>
+                                <li>• <strong>缓存模式</strong>：多轮对话时建议启用，可提高性能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 思维模型页面 -->
+                <div id="thinking-models-page" class="page-section hidden">
+                    <div class="bg-bg-dark border border-border-gray rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-medium">思维模型库管理</h3>
+                            <button id="add-thinking-model-btn" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                <i class="fa fa-plus mr-2"></i>添加模型
+                            </button>
+                        </div>
+                        <div id="thinking-models-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="text-center py-12 col-span-full">
+                                <i class="fa fa-lightbulb-o text-6xl text-text-gray mb-4"></i>
+                                <p class="text-text-gray">加载中...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 思维模型编辑弹窗 -->
+                <div id="thinking-model-modal" class="fixed inset-0 z-50 hidden">
+                    <div class="absolute inset-0" style="background-color: rgba(0,0,0,0.9);"></div>
+                    <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+                        <div class="bg-bg-dark border border-border-gray rounded-lg w-full max-w-2xl max-h-[90vh] overflow-auto">
+                            <div class="p-6">
+                                <h3 class="text-xl font-medium mb-6" id="model-modal-title">添加思维模型</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">模型名称 <span class="text-error">*</span></label>
+                                        <input type="text" id="model-name" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary" placeholder="例如：第一性原理">
+                                    </div>
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">分类</label>
+                                        <select id="model-category" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                            <option value="决策">决策</option>
+                                            <option value="创新">创新</option>
+                                            <option value="学习">学习</option>
+                                            <option value="分析">分析</option>
+                                            <option value="规划">规划</option>
+                                            <option value="其他">其他</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">图标</label>
+                                        <select id="model-icon" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                            <option value="fa-lightbulb-o">💡 灯泡</option>
+                                            <option value="fa-cogs">⚙️ 齿轮</option>
+                                            <option value="fa-rocket">🚀 火箭</option>
+                                            <option value="fa-microscope">🔬 显微镜</option>
+                                            <option value="fa-puzzle-piece">🧩 拼图</option>
+                                            <option value="fa-balance-scale">⚖️ 天平</option>
+                                            <option value="fa-sitemap">🌳 树状图</option>
+                                            <option value="fa-line-chart">📈 折线图</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">描述</label>
+                                        <input type="text" id="model-description" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary" placeholder="简短描述该模型">
+                                    </div>
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">详细内容 <span class="text-error">*</span></label>
+                                        <textarea id="model-content" rows="8" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary" placeholder="输入模型的详细说明..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">示例 (JSON格式)</label>
+                                        <textarea id="model-examples" rows="4" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary font-mono text-sm" placeholder='[{"title": "示例1", "content": "示例内容"}]'></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-text-gray text-sm mb-2">排序</label>
+                                        <input type="number" id="model-sort-order" value="0" class="w-full bg-bg-gray border border-border-gray rounded px-4 py-2 focus:outline-none focus:border-primary">
+                                    </div>
+                                </div>
+                                <div class="flex justify-end space-x-4 mt-6">
+                                    <button id="cancel-model-btn" class="px-6 py-2 border border-border-gray rounded hover:bg-bg-gray transition-colors">取消</button>
+                                    <button id="save-model-btn" class="px-6 py-2 bg-primary hover:bg-blue-600 rounded transition-colors">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="fixed top-4 right-4 bg-success text-white px-6 py-3 rounded-lg shadow-lg z-50 hidden">
+        <div class="flex items-center">
+            <i class="fa fa-check-circle mr-3"></i>
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

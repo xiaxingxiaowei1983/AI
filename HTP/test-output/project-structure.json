@@ -1,0 +1,57 @@
+{
+  ".coze": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\.coze",
+  ".gitignore": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\.gitignore",
+  "assets": {
+    "image.png": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\assets\\image.png"
+  },
+  "awkn-article-illustrator-code": {
+    "references": {
+      "styles": {
+        "blueprint.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\blueprint.md",
+        "chalkboard.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\chalkboard.md",
+        "editorial.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\editorial.md",
+        "elegant.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\elegant.md",
+        "fantasy-animation.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\fantasy-animation.md",
+        "flat-doodle.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\flat-doodle.md",
+        "flat.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\flat.md",
+        "intuition-machine.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\intuition-machine.md",
+        "minimal.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\minimal.md",
+        "nature.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\nature.md",
+        "notion.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\notion.md",
+        "pixel-art.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\pixel-art.md",
+        "playful.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\playful.md",
+        "retro.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\retro.md",
+        "scientific.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\scientific.md",
+        "sketch-notes.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\sketch-notes.md",
+        "sketch.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\sketch.md",
+        "vector-illustration.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\vector-illustration.md",
+        "vintage.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\vintage.md",
+        "warm.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\warm.md",
+        "watercolor.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\references\\styles\\watercolor.md"
+      }
+    },
+    "SKILL.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\awkn-article-illustrator-code\\SKILL.md"
+  },
+  "htp-insight": {
+    "assets": {
+      "html-template.html": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\assets\\html-template.html"
+    },
+    "references": {
+      "brand-positioning.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\brand-positioning.md",
+      "brand.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\brand.md",
+      "elevator-pitch.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\elevator-pitch.md",
+      "htp-analysis-framework.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\htp-analysis-framework.md",
+      "htp-symbolism-dictionary.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\htp-symbolism-dictionary.md",
+      "htp-warning-signs.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\htp-warning-signs.md",
+      "product-description.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\product-description.md",
+      "promotion.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\promotion.md",
+      "skill-logic-and-implementation.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\references\\skill-logic-and-implementation.md"
+    },
+    "scripts": {},
+    "SKILL.md": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight\\SKILL.md"
+  },
+  "htp-insight.skill": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-insight.skill",
+  "htp-psychology-analysis.skill": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\htp-psychology-analysis.skill",
+  "requirements.txt": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\requirements.txt",
+  "tree-mirror.skill": "C:\\Users\\10919\\Desktop\\AI\\HTP\\projects\\tree-mirror.skill"
+}
