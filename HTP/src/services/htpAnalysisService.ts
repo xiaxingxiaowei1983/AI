@@ -141,6 +141,10 @@ export async function analyzeDrawingWithAI(imageData: string): Promise<AnalysisR
 
     console.log('开始调用阿里云百炼API...');
 
+    // 添加超时设置
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒超时
+
     // 调用API
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -148,8 +152,11 @@ export async function analyzeDrawingWithAI(imageData: string): Promise<AnalysisR
         'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(requestBody)
+      body: JSON.stringify(requestBody),
+      signal: controller.signal
     });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       const errorData = await response.json() as HtpAnalysisError;

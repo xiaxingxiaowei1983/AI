@@ -53,25 +53,33 @@ export default function LoadingPage() {
     }, 2000);
 
     // 进度条动画
-    const progressInterval = setInterval(() => {
-      progressRef.current += Math.random() * 8;
-      if (progressRef.current >= 100) {
-        progressRef.current = 100;
-        clearInterval(progressInterval);
-        
-        // 调用真实的分析函数（只调用一次）
-        if (userDrawing && !isAnalyzing) {
-          setIsAnalyzing(true);
-          analyzeUserDrawing(userDrawing).then(() => {
-            setIsAnalyzing(false);
-          }).catch((error) => {
-            console.error('分析失败:', error);
-            setIsAnalyzing(false);
-          });
-        }
-      }
-      setProgress(progressRef.current);
-    }, 300);
+        const progressInterval = setInterval(() => {
+          progressRef.current += Math.random() * 8;
+          if (progressRef.current >= 100) {
+            progressRef.current = 100;
+            clearInterval(progressInterval);
+            
+            // 调用真实的分析函数（只调用一次）
+            if (userDrawing && !isAnalyzing) {
+              console.log('开始分析用户画作...');
+              setIsAnalyzing(true);
+              analyzeUserDrawing(userDrawing).then(() => {
+                console.log('分析完成');
+                setIsAnalyzing(false);
+              }).catch((error) => {
+                console.error('分析失败:', error);
+                setIsAnalyzing(false);
+                // 即使失败也跳转到结果页面
+                goToResult();
+              });
+            } else if (!userDrawing) {
+              console.error('没有用户画作数据');
+              // 没有画作数据时也跳转到结果页面
+              goToResult();
+            }
+          }
+          setProgress(progressRef.current);
+        }, 300);
 
     return () => {
       clearInterval(messageInterval);

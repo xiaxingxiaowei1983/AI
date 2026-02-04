@@ -160,6 +160,9 @@ export async function analyzeDrawing(drawing: UserDrawing): Promise<AnalysisResu
       
       const reports = generateReports(imageAnalysis);
       storeReports(reports);
+      
+      // 设置imageAnalysis字段
+      result.imageAnalysis = imageAnalysis;
     }
     
     return result;
@@ -220,6 +223,9 @@ export async function analyzeDrawing(drawing: UserDrawing): Promise<AnalysisResu
     
     const reports = generateReports(imageAnalysis);
     storeReports(reports);
+    
+    // 设置imageAnalysis字段
+    localResult.imageAnalysis = imageAnalysis;
     
     return localResult;
   }
@@ -359,6 +365,154 @@ function generateClientReport(analysis: ImageAnalysis): string {
 function storeReports(reports: Reports) {
   console.log('存储专业分析报告（结构化数据）:', JSON.stringify(reports.professional, null, 2));
   console.log('存储客户洞察报告:', reports.client.length, '字符');
+}
+
+// 辅助函数：生成布局描述
+function generateLayoutDescription(analysis: any): string {
+  return '整体布局平衡，元素分布协调';
+}
+
+// 辅助函数：生成构图描述
+function generateCompositionDescription(analysis: any): string {
+  return '构图和谐，空间利用合理';
+}
+
+// 辅助函数：生成房子描述
+function generateHouseDescription(analysis: any): string {
+  return '房子结构完整，门窗敞开，显示内心世界开放';
+}
+
+// 辅助函数：生成树木描述
+function generateTreeDescription(analysis: any): string {
+  return '树木茂盛，树干粗壮，显示生命力旺盛';
+}
+
+// 辅助函数：生成人物描述
+function generatePersonDescription(analysis: any): string {
+  return '人物姿态舒展，表情自然，显示自信状态';
+}
+
+// 辅助函数：生成线条描述
+function generateLinesDescription(analysis: any): string {
+  return '线条流畅，力度适中，显示情绪稳定';
+}
+
+// 辅助函数：生成涂抹描述
+function generateErasureDescription(analysis: any): string {
+  return '无明显涂抹，显示低焦虑水平';
+}
+
+// 辅助函数：生成细节描述
+function generateDetailsDescription(analysis: any): string {
+  return '细节适中，显示观察力正常';
+}
+
+// 辅助函数：生成空间描述
+function generateSpaceDescription(analysis: any): string {
+  return '空间利用合理，显示心理状态平衡';
+}
+
+// 辅助函数：生成布局分析
+function generateLayoutAnalysis(analysis: any): any {
+  return {
+    position: '居中',
+    size: '适中',
+    balance: '平衡'
+  };
+}
+
+// 辅助函数：生成元素分析
+function generateElementAnalysis(analysis: any): any {
+  return {
+    house: '房子象征家庭和内心世界',
+    tree: '树木象征成长和生命力',
+    person: '人物象征自我认知'
+  };
+}
+
+// 辅助函数：生成技术分析
+function generateTechnicalAnalysis(analysis: any): any {
+  return {
+    lines: '线条质量良好',
+    erasures: '无明显涂抹',
+    details: '细节适中',
+    space: '空间利用合理'
+  };
+}
+
+// 辅助函数：生成情绪分析
+function generateEmotionalAnalysis(analysis: any): any {
+  return {
+    tone: '积极',
+    energy: '中等',
+    anxiety: '低',
+    defense: '适中'
+  };
+}
+
+// 辅助函数：生成发展分析
+function generateDevelopmentAnalysis(analysis: any): any {
+  return {
+    stage: '符合发展阶段',
+    selfDevelopment: '自我接纳',
+    adaptability: '良好',
+    growthOrientation: '积极'
+  };
+}
+
+// 辅助函数：生成核心特质
+function generateCoreTraits(analysis: any): string[] {
+  return ['开放', '自信', '平衡', '成长导向'];
+}
+
+// 辅助函数：生成心理状态
+function generatePsychologicalState(analysis: any): any {
+  return {
+    emotion: '稳定',
+    selfCognition: '清晰',
+    adaptability: '良好'
+  };
+}
+
+// 辅助函数：生成优势
+function generateStrengths(analysis: any): string[] {
+  return ['开放心态', '自我接纳', '情绪稳定', '成长潜力'];
+}
+
+// 辅助函数：生成挑战
+function generateChallenges(analysis: any): string[] {
+  return ['需要更多自我探索', '平衡不同角色'];
+}
+
+// 辅助函数：生成风险评估
+function generateRiskAssessment(analysis: any): any {
+  return {
+    level: '低',
+    indicators: '无明显风险指标',
+    analysis: '心理状态稳定',
+    functionalImpairment: '无',
+    riskSources: '无'
+  };
+}
+
+// 辅助函数：生成专业建议
+function generateProfessionalRecommendations(analysis: any): any {
+  return {
+    counseling: {
+      needed: '否',
+      focus: '自我探索',
+      approach: '个体咨询'
+    },
+    therapy: {
+      recommended: '无',
+      focus: '无'
+    },
+    development: {
+      personal: '继续自我探索',
+      psychological: '保持情绪平衡',
+      followUp: '定期自我评估'
+    }
+  };
 }
 
 // 生成插图

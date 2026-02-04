@@ -1,0 +1,35 @@
+# 忽略嵌入的git仓库
+.trae/skills/
+1/
+
+# 忽略node_modules
+node_modules/
+
+# 忽略构建产物
+dist/
+build/
+
+# 忽略环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 忽略日志文件
+logs/
+*.log
+
+# 忽略编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略Trae IDE文件
+.trae/
