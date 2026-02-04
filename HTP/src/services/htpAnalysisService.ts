@@ -92,7 +92,7 @@ interface HtpAnalysisError {
 
 // 阿里云百炼API配置
 const DASHSCOPE_API_KEY = import.meta.env.VITE_DASHSCOPE_API_KEY || 'sk-5b3ed10963f34b4aa7eca0ecb72ab216';
-const DASHSCOPE_APP_ID = import.meta.env.VITE_DASHSCOPE_APP_ID || 'YOUR_APP_ID';
+const DASHSCOPE_APP_ID = import.meta.env.VITE_DASHSCOPE_APP_ID || 'c68f3c9527644a35ba1d27c099066191';
 const API_URL = `https://dashscope.aliyuncs.com/api/v1/apps/${DASHSCOPE_APP_ID}/completion`;
 
 // 解析AI返回的结果

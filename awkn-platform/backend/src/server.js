@@ -32,7 +32,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5178'],
+  origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : ['http://localhost:3000', 'http://localhost:5178', 'http://localhost:5173'],
   credentials: true,
 }));
 
@@ -124,6 +124,7 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`AWKN后端服务运行在端口 ${PORT}`);
   console.log(`环境: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`前端URL: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
 });
 
 module.exports = app;
