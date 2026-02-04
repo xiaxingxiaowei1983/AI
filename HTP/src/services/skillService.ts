@@ -98,82 +98,26 @@ export interface ProfessionalReport {
 // 引入阿里云百炼API服务
 import { analyzeDrawingWithAI, analyzeDrawingLocal } from './htpAnalysisService';
 
-// 智能体技能调用（使用阿里云百炼API）
+// 智能体技能调用（仅使用阿里云百炼API，不使用本地模拟）
 export async function analyzeDrawing(drawing: UserDrawing): Promise<AnalysisResult> {
   const startTime = Date.now();
   
-  try {
-    // 尝试调用阿里云百炼API
-    console.log('开始AI分析...');
-    const result = await analyzeDrawingWithAI(drawing.imageData || '');
-    console.log(`AI分析完成，耗时: ${Date.now() - startTime}ms`);
-    
-    // 生成专业报告
-    if (result) {
-      // 如果有真实分析结果，生成专业报告
-      const imageAnalysis = {
-        hasHouse: true,
-        hasTree: true,
-        hasPerson: true,
-        houseFeatures: {
-          position: 'center',
-          size: 'medium',
-          hasRoof: true,
-          hasDoor: true,
-          hasWindow: true,
-          doorSize: 'medium',
-          windowCount: 2,
-          structure: 'complete'
-        },
-        treeFeatures: {
-          position: 'right',
-          size: 'large',
-          trunkThickness: 'thick',
-          crownDensity: 'dense',
-          growthDirection: 'upward',
-          health: 'healthy'
-        },
-        personFeatures: {
-          position: 'center',
-          size: 'medium',
-          hasHead: true,
-          hasBody: true,
-          hasLimbs: true,
-          hasFace: true,
-          expression: 'smile',
-          posture: 'standing',
-          hasClothes: false
-        },
-        technicalFeatures: {
-          lineQuality: 'medium',
-          lineContinuity: 'continuous',
-          erasureLevel: 'none',
-          detailLevel: 'medium',
-          spaceUsage: 'moderate'
-        },
-        overallComposition: {
-          balance: 'balanced',
-          crowding: 'spaced',
-          tilt: 'none'
-        }
-      };
-      
-      const reports = generateReports(imageAnalysis);
-      storeReports(reports);
-      
-      // 设置imageAnalysis字段
-      result.imageAnalysis = imageAnalysis;
-    }
-    
-    return result;
-    
-  } catch (error) {
-    console.error('AI分析失败，使用本地分析:', error);
-    
-    // 如果AI分析失败，使用本地分析
-    const localResult = analyzeDrawingLocal(drawing);
-    
-    // 生成专业报告
+  console.log('开始AI分析流程...');
+  console.log('用户画作数据:', {
+    method: drawing.method,
+    hasImageData: !!drawing.imageData,
+    imageDataLength: drawing.imageData ? drawing.imageData.length : 0
+  });
+  
+  // 只调用阿里云百炼API，不使用本地模拟
+  console.log('开始调用阿里云百炼API...');
+  const result = await analyzeDrawingWithAI(drawing.imageData || '');
+  console.log(`AI分析完成，耗时: ${Date.now() - startTime}ms`);
+  
+  // 生成专业报告
+  if (result) {
+    console.log('AI分析成功，开始生成专业报告...');
+    // 如果有真实分析结果，生成专业报告
     const imageAnalysis = {
       hasHouse: true,
       hasTree: true,
@@ -225,10 +169,12 @@ export async function analyzeDrawing(drawing: UserDrawing): Promise<AnalysisResu
     storeReports(reports);
     
     // 设置imageAnalysis字段
-    localResult.imageAnalysis = imageAnalysis;
-    
-    return localResult;
+    result.imageAnalysis = imageAnalysis;
+    console.log('专业报告生成完成');
   }
+  
+  console.log('AI分析流程完成，返回分析结果');
+  return result;
 }
 
 // 生成两份报告

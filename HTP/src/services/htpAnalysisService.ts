@@ -123,12 +123,43 @@ function parseAnalysisResult(text: string): Partial<AnalysisResult> {
   };
 }
 
+// 网络连接检测
+async function checkNetworkConnectivity(): Promise<boolean> {
+  try {
+    console.log('开始检测网络连接...');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5秒超时
+    
+    const response = await fetch('https://dashscope.aliyuncs.com', {
+      method: 'HEAD',
+      signal: controller.signal
+    });
+    
+    clearTimeout(timeoutId);
+    console.log('网络连接检测成功:', response.ok);
+    return response.ok;
+  } catch (error) {
+    console.error('网络连接检测失败:', error);
+    return false;
+  }
+}
+
 // 调用阿里云百炼API进行HTP分析
 export async function analyzeDrawingWithAI(imageData: string): Promise<AnalysisResult> {
   const startTime = Date.now();
   
   try {
-    // 构建请求体
+    console.log('开始调用阿里云百炼API...');
+    console.log('API URL:', API_URL);
+    console.log('App ID:', DASHSCOPE_APP_ID);
+    
+    // 检测网络连接
+    const isConnected = await checkNetworkConnectivity();
+    if (!isConnected) {
+      console.warn('网络连接检测失败，可能无法正常调用API');
+    }
+    
+    // 构建阿里云百炼 API 标准请求体
     const requestBody = {
       input: {
         prompt: `${HTP_SYSTEM_PROMPT}\n\n请分析以下房树人绘画作品，生成完整的心理分析报告。图片数据：${imageData.substring(0, 100)}...`
@@ -139,18 +170,22 @@ export async function analyzeDrawingWithAI(imageData: string): Promise<AnalysisR
       }
     };
 
-    console.log('开始调用阿里云百炼API...');
+    console.log('请求参数准备完成，开始发送API请求...');
 
     // 添加超时设置
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒超时
+    const timeoutId = setTimeout(() => {
+      console.error('API调用超时，30秒后自动终止');
+      controller.abort();
+    }, 30000); // 30秒超时
 
     // 调用API
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-Request-Id': `htp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
       },
       body: JSON.stringify(requestBody),
       signal: controller.signal
@@ -158,13 +193,34 @@ export async function analyzeDrawingWithAI(imageData: string): Promise<AnalysisR
 
     clearTimeout(timeoutId);
 
+    console.log(`API响应状态码: ${response.status}`);
+    
     if (!response.ok) {
-      const errorData = await response.json() as HtpAnalysisError;
-      throw new Error(`API调用失败: ${errorData.error?.message || response.statusText}`);
+      let errorData;
+      try {
+        errorData = await response.json();
+        console.error('API错误响应:', errorData);
+        
+        // 分析常见错误类型
+        if (errorData.error?.code === '401') {
+          console.error('API Key 无效或未授权');
+        } else if (errorData.error?.code === '429') {
+          console.error('API 调用频率过高，已达到限流上限');
+        } else if (errorData.error?.code === '500') {
+          console.error('API 服务内部错误');
+        }
+      } catch (jsonError) {
+        console.error('解析错误响应失败:', jsonError);
+        errorData = { error: { message: await response.text() } };
+      }
+      throw new Error(`API调用失败: ${errorData.error?.message || errorData.message || response.statusText}`);
     }
 
-    const data = await response.json() as HtpAnalysisResponse;
-    const resultText = data.output?.text || '';
+    const data = await response.json();
+    console.log('API成功响应:', data);
+    
+    const resultText = data.output?.text || data.Text || '';
+    console.log('API返回文本长度:', resultText.length);
 
     console.log(`API调用完成，耗时: ${Date.now() - startTime}ms`);
 
@@ -181,6 +237,21 @@ export async function analyzeDrawingWithAI(imageData: string): Promise<AnalysisR
 
   } catch (error) {
     console.error('HTP分析失败:', error);
+    console.error('错误详情:', error instanceof Error ? error.stack : error);
+    
+    // 分析错误类型
+    if (error instanceof Error) {
+      if (error.name === 'AbortError') {
+        console.error('API调用被终止（超时或用户取消）');
+      } else if (error.message.includes('NetworkError')) {
+        console.error('网络错误，可能是网络连接问题');
+      } else if (error.message.includes('401')) {
+        console.error('认证错误，API Key 可能无效');
+      } else if (error.message.includes('429')) {
+        console.error('限流错误，API 调用频率过高');
+      }
+    }
+    
     throw error;
   }
 }
