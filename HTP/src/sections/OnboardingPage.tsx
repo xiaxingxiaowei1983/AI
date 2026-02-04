@@ -36,7 +36,7 @@ const FlowerDecoration = ({ className }: { className?: string }) => (
 );
 
 export default function OnboardingPage() {
-  const { goToLanding, goToCanvas, goToUpload } = useApp();
+  const { goToLanding, goToCanvas, goToLoading, setUserDrawing } = useApp();
   const [isVisible, setIsVisible] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -65,9 +65,18 @@ export default function OnboardingPage() {
 
       // 读取文件并跳转
       const reader = new FileReader();
-      reader.onload = () => {
-        // 存储图片数据并跳转
-        goToUpload();
+      reader.onload = (event) => {
+        const imageData = event.target?.result as string;
+        if (imageData) {
+          // 设置用户画作数据
+          setUserDrawing({
+            imageData,
+            method: 'upload',
+            timestamp: Date.now()
+          });
+          // 直接跳转到加载页进行分析
+          goToLoading();
+        }
       };
       reader.readAsDataURL(file);
     }

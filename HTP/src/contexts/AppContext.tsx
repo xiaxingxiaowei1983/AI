@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import type { AppState, UserDrawing, AnalysisResult } from '@/types';
 import { analyzeDrawing, type Reports, generateReports } from '@/services/skillService';
-import { analyzeImage, type ImageAnalysis } from '@/services/imageAnalysisService';
+
 
 interface AppContextType {
   // 当前页面状态
@@ -60,14 +60,25 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       // 设置为loading状态
       setCurrentState('loading');
       
+      // 清空之前的分析结果，确保不会显示旧数据
+      setAnalysisResult(null);
+      setProfessionalReport(null);
+      
       // 生成分析结果（包含 imageAnalysis）
+      console.log('开始调用 analyzeDrawing 函数...');
       const result = await analyzeDrawing(drawing);
+      console.log('analyzeDrawing 函数调用完成，结果:', result);
+      
+      // 更新分析结果
       setAnalysisResult(result);
+      console.log('分析结果已更新');
       
       // 先根据风险等级跳转到结果页面（不等待专业报告生成）
       if (result.risk_level === 'high') {
+        console.log('风险等级为 high，跳转到 risk-result 页面');
         setCurrentState('risk-result');
       } else {
+        console.log('风险等级为', result.risk_level, '跳转到 result 页面');
         setCurrentState('result');
       }
       
@@ -75,13 +86,24 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       if (result.imageAnalysis) {
         // 延迟一点时间再生成，让用户先看到结果页面
         setTimeout(() => {
+          console.log('开始生成专业报告...');
           const reports = generateReports(result.imageAnalysis);
           setProfessionalReport(reports);
+          console.log('专业报告生成完成');
         }, 1000);
       }
     } catch (error) {
       console.error('分析失败:', error);
-      // 分析失败时显示默认结果
+      console.error('错误详情:', error instanceof Error ? error.stack : error);
+      // 分析失败时显示错误信息，而不是旧数据
+      setAnalysisResult({
+        section_see: '分析失败',
+        section_understand: 'API调用失败，请检查网络连接或稍后重试',
+        section_grow: '请确保网络连接正常，或联系管理员',
+        illustrations: [],
+        risk_level: 'low'
+      });
+      // 跳转到结果页面显示错误信息
       setCurrentState('result');
     }
   }, []);

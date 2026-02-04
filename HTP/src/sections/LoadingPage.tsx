@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useApp } from '@/contexts/AppContext';
-import { mockAnalysisResult, mockRiskResult, loadingMessages } from '@/types';
+import { loadingMessages } from '@/types';
 import { Brain } from 'lucide-react';
 
 // 装饰性花朵
@@ -52,9 +52,12 @@ export default function LoadingPage() {
       setCurrentMessageIndex(prev => (prev + 1) % loadingMessages.length);
     }, 2000);
 
-    // 进度条动画
+    // 进度条动画 - 更加平滑和真实
         const progressInterval = setInterval(() => {
-          progressRef.current += Math.random() * 8;
+          // 前期进度较慢，后期逐渐加快
+          const progressSpeed = progressRef.current < 70 ? Math.random() * 2 : Math.random() * 5;
+          progressRef.current += progressSpeed;
+          
           if (progressRef.current >= 100) {
             progressRef.current = 100;
             clearInterval(progressInterval);
@@ -73,13 +76,13 @@ export default function LoadingPage() {
                 goToResult();
               });
             } else if (!userDrawing) {
-              console.error('没有用户画作数据');
-              // 没有画作数据时也跳转到结果页面
-              goToResult();
+              console.error('没有用户画作数据，跳转到首页');
+              // 没有画作数据时跳转到首页
+              window.location.href = '/';
             }
           }
           setProgress(progressRef.current);
-        }, 300);
+        }, 200);
 
     return () => {
       clearInterval(messageInterval);
@@ -130,7 +133,7 @@ export default function LoadingPage() {
         </div>
         
         {/* 加载文案 */}
-        <div className="text-center mb-8 h-16">
+        <div className="text-center mb-8 h-20">
           <p 
             key={currentMessageIndex}
             className="font-serif text-lg sm:text-xl text-foreground animate-fade-in"
@@ -139,6 +142,9 @@ export default function LoadingPage() {
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             AI正在深度分析你的画作
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            这可能需要一些时间，请耐心等待...
           </p>
         </div>
         
