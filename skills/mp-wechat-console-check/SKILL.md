@@ -1,0 +1,145 @@
+﻿---
+name: "wechat-console-check"
+description: "核对微信公众平台开发设置：request/socket/upload/download/业务域名白名单、AppID、服务器配置，避免“小程序不通但代码没问题”。Invoke when 准备发体验版/提审/上线，或网络/WS/上传失败时。"
+---
+
+# Skill 3：微信公众平台配置校验（WeChat Console Check）
+
+## 目标
+把“小程序能不能联网”的平台侧硬门槛一次性校验清楚：  
+**只要这里没配对，小程序就是必失败**，你再改代码也没用。
+
+本 skill 负责确认：
+- AppID 正确
+- 合法域名白名单（request/socket/upload/download）齐全且正确
+- 业务域名（web-view 用到才需要）
+- 服务器相关配置（如你们用到登录回调/消息推送等）
+
+## 何时调用（触发条件）
+- 每次准备上传体验版之前
+- 每次改域名/证书/WS 路径/上传域名之前
+- 出现这些现象时（高概率是平台配置问题）：
+  - 小程序请求接口失败（尤其是真机）
+  - WS 连不上/一直断开（wss）
+  - 上传/下载失败
+  - 明明 H5 能用，小程序不通
+
+## 输入（固定表单）
+- AppID：
+- 目标环境：staging / prod
+- API Base URL（HTTPS）：
+- 是否启用实时：是/否
+- WSS 域名 + 路径（若启用）：`wss://____` + `/ws`（你们常用）<mccoremem id="03fl75psdph7oiq63zur4f5vg" /></mccoremem>
+- 是否有 uploadFile/downloadFile：是/否
+- 是否使用 web-view：是/否
+- 白名单口径（来自 MP Freeze Spec）：
+  - request：
+  - socket：
+  - uploadFile：
+  - downloadFile：
+  - 业务域名（如需要）：
+
+## 前置约束（硬规则）
+- 任一项不一致：结论直接 FAIL（停止后续联调/提审）
+- 白名单必须与 MP Freeze Spec 一致（不允许“我觉得差不多”）
+- 小程序线上网络必须使用 HTTPS/WSS（不讨论 http/ws）
+
+## 校验清单（逐条勾选）
+> 下面的“位置”是给小白用的：你只要按路径点进去核对即可。
+
+### Check 1：账号与 AppID
+- 位置：微信公众平台 → 设置/开发设置 → AppID
+- ✅ AppID 与输入一致
+- ✅ 小程序主体/类目与产品一致（避免审核时被判不符）
+
+FAIL 的前三定位路径：
+1) 是否切错了小程序账号（经常多个项目混）
+2) AppID 是否填错/复制错
+3) 是否把测试号当正式号使用
+
+### Check 2：request 合法域名（接口域名）
+- 位置：开发 → 开发设置 → 服务器域名 → request 合法域名
+- ✅ 已添加 `https://<API域名>`（注意：只填域名，不带路径）
+- ✅ 域名可公开访问，且 HTTPS 证书正常
+
+常见错误（看到就算 FAIL）：
+- 填了 `http://`
+- 填了带路径的 `https://api.xxx.com/api`
+- 域名不是你实际请求的那个（有 api1/api2 混用）
+
+FAIL 的前三定位路径：
+1) DNS 是否解析到正确服务器
+2) HTTPS 证书是否有效/完整链
+3) 是否填错域名（漏了子域名）
+
+### Check 3：socket 合法域名（实时 wss）
+- 位置：开发 → 开发设置 → 服务器域名 → socket 合法域名
+- ✅ 若启用实时：已添加 `wss://<WS域名>`（只填域名，不带路径）
+- ✅ 你们小程序端 WS 路径固定（例如 `/ws`）<mccoremem id="03fl75psdph7oiq63zur4f5vg" /></mccoremem>
+
+常见错误：
+- 只配了 request，没配 socket（实时必失败）
+- 误把 `https://` 当作 socket 域名（应填 wss）
+- 真实连接域名与填的不是同一个
+
+FAIL 的前三定位路径：
+1) 是否漏配 socket 合法域名
+2) 是否连接的其实是另一个域名（配置漂移）
+3) 是否证书/协议导致 wss 握手失败
+
+### Check 4：uploadFile / downloadFile 合法域名（如有上传下载）
+- 位置：开发 → 开发设置 → 服务器域名 → uploadFile/downloadFile 合法域名
+- ✅ 若有上传：uploadFile 已配置对应 HTTPS 域名
+- ✅ 若有下载：downloadFile 已配置对应 HTTPS 域名
+
+常见错误：
+- 只配 request，上传/下载仍失败
+- 上传走了另一个域名（对象存储/CDN 域名未配置）
+
+FAIL 的前三定位路径：
+1) 上传/下载是否走了不同的域名
+2) 域名是否支持 HTTPS
+3) 是否被重定向到其他域名（小程序对重定向更敏感）
+
+### Check 5：业务域名（仅 web-view 需要）
+- 位置：开发 → 开发设置 → 业务域名
+- ✅ 若使用 web-view：已添加 web-view 页面所用域名（HTTPS）
+
+常见错误：
+- 用了 web-view，但没配业务域名 → web-view 打不开
+
+FAIL 的前三定位路径：
+1) 是否真的用了 web-view
+2) web-view 域名是否与 H5 域名一致
+3) 是否 HTTPS/证书问题
+
+### Check 6：开发者工具与环境切换（防“我以为是线上其实是测试”）
+- ✅ 你清楚当前跑的是：体验版/开发版/线上版 哪一个
+- ✅ 当前 API Base URL 与目标环境一致（staging/prod 不混）
+
+FAIL 的前三定位路径：
+1) 是否发布了新体验版但手机没更新
+2) 是否切错环境（dev 配置被打进 prod 包）
+3) 是否缓存导致仍在旧版本
+
+## 验收点（可量化）
+- A1：request/socket/upload/download/业务域名（如需要）与 MP Freeze Spec 完全一致
+- A2：真机发起一次 API 请求成功（有返回结果）
+- A3：若启用实时：真机建立 wss 连接成功并收到一条消息/心跳 <mccoremem id="03fl75psdph7oiq63zur4f5vg" /></mccoremem>
+- A4：若涉及上传：uploadFile 成功；若涉及下载：downloadFile 成功
+
+## 输出格式（固定，直接复制到发布记录）
+- WeChat Console Check：PASS / FAIL
+- AppID：____
+- request 合法域名：✅/❌（证据：截图/文字）
+- socket 合法域名：✅/❌（证据：截图/文字）
+- uploadFile 合法域名：✅/❌（证据：截图/文字）
+- downloadFile 合法域名：✅/❌（证据：截图/文字）
+- 业务域名（如需）：✅/❌（证据：截图/文字）
+- 环境一致性（开发/体验/线上）：✅/❌（证据：版本号/截图）
+- 若 FAIL：本次停止；前三定位路径：P1___ / P2___ / P3___
+
+## 完成标准（本 skill 完成的判定）
+- 你能给出 PASS/FAIL
+- 每个配置项都能提供证据（最简单就是微信后台截图）
+- FAIL 时停止后续联调/提审，先把平台侧配对

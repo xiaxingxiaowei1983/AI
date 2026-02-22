@@ -33,3 +33,69 @@ Thumbs.db
 
 # 忽略Trae IDE文件
 .trae/
+
+# 忽略安装包
+*.exe
+*.msi
+*.dmg
+*.pkg
+
+# 忽略临时文件
+temp/
+tmp/
+*.tmp
+*.temp
+
+# 忽略缓存文件
+.cache/
+*.cache
+
+# 忽略数据库文件
+*.db
+*.sqlite
+
+# 忽略备份文件
+*.bak
+*.backup
+
+# 忽略证书文件
+*.pem
+*.key
+
+# 忽略大型文件
+*.zip
+*.rar
+*.7z
+
+# 忽略OpenClaw认证文件
+.adal/
+.agent/
+.agents/
+.augment/
+.claude/
+.clawhub/
+.cline/
+.codebuddy/
+.commandcode/
+.continue/
+.crush/
+.cursor/
+.factory/
+.goose/
+.iflow/
+.junie/
+.kilocode/
+.kiro/
+.kode/
+.mcpjam/
+.mux/
+.neovate/
+.openhands/
+.pi/
+.pochi/
+.qoder/
+.qwen/
+.roo/
+.vibe/
+.windsurf/
+.zencoder/
