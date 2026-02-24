@@ -1,0 +1,465 @@
+{
+  "id": "cap_1771950626260_1sxpqbttm",
+  "name": "能力树根部",
+  "level": 0,
+  "inputs": [],
+  "outputs": [],
+  "prerequisites": [],
+  "failureBoundaries": [],
+  "usageCount": 1,
+  "lastUsed": 1771950626347,
+  "status": "ACTIVE",
+  "createdAt": 1771950626260,
+  "updatedAt": 1771950626347,
+  "path": "能力树根部",
+  "children": [
+    {
+      "id": "cap_1771950626268_5rjovt2d6",
+      "name": "基础操作",
+      "level": 1,
+      "inputs": [
+        "操作类型",
+        "操作参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "操作权限",
+        "必要资源"
+      ],
+      "failureBoundaries": [
+        "权限不足",
+        "资源缺失",
+        "参数错误"
+      ],
+      "usageCount": 1,
+      "lastUsed": 1771950626347,
+      "status": "ACTIVE",
+      "createdAt": 1771950626268,
+      "updatedAt": 1771950626347,
+      "path": "能力树根部 → 基础操作",
+      "children": [
+        {
+          "id": "cap_1771950626269_j99hp4w3v",
+          "name": "文件操作",
+          "level": 1,
+          "inputs": [
+            "文件路径",
+            "操作类型",
+            "操作内容"
+          ],
+          "outputs": [
+            "操作结果",
+            "文件状态"
+          ],
+          "prerequisites": [
+            "文件存在",
+            "权限正确",
+            "磁盘空间充足"
+          ],
+          "failureBoundaries": [
+            "文件不存在",
+            "权限不足",
+            "磁盘空间不足",
+            "文件损坏"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 基础操作 → 文件操作",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_iuzqbyt5j",
+          "name": "网络请求",
+          "level": 1,
+          "inputs": [
+            "请求URL",
+            "请求方法",
+            "请求参数"
+          ],
+          "outputs": [
+            "响应数据",
+            "响应状态"
+          ],
+          "prerequisites": [
+            "网络连接",
+            "请求权限",
+            "API可用性"
+          ],
+          "failureBoundaries": [
+            "网络断开",
+            "请求超时",
+            "权限拒绝",
+            "API错误"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 基础操作 → 网络请求",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_r13m64i5y",
+          "name": "数据处理",
+          "level": 1,
+          "inputs": [
+            "原始数据",
+            "处理规则",
+            "目标格式"
+          ],
+          "outputs": [
+            "处理结果",
+            "处理状态"
+          ],
+          "prerequisites": [
+            "数据格式正确",
+            "处理规则有效",
+            "计算资源充足"
+          ],
+          "failureBoundaries": [
+            "数据格式错误",
+            "处理规则无效",
+            "计算资源不足",
+            "处理超时"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 基础操作 → 数据处理",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_6fhsv6hm5",
+          "name": "缓存管理",
+          "level": 1,
+          "inputs": [
+            "缓存键",
+            "缓存操作",
+            "缓存数据"
+          ],
+          "outputs": [
+            "缓存状态",
+            "缓存数据"
+          ],
+          "prerequisites": [
+            "缓存系统可用",
+            "缓存空间充足",
+            "操作权限"
+          ],
+          "failureBoundaries": [
+            "缓存系统不可用",
+            "缓存空间不足",
+            "权限不足",
+            "缓存过期"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 基础操作 → 缓存管理",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cap_1771950626269_8i8hligou",
+      "name": "可复用流程",
+      "level": 2,
+      "inputs": [
+        "流程类型",
+        "流程参数",
+        "执行上下文"
+      ],
+      "outputs": [
+        "流程结果",
+        "执行状态",
+        "执行日志"
+      ],
+      "prerequisites": [
+        "流程定义完整",
+        "必要资源可用",
+        "执行权限"
+      ],
+      "failureBoundaries": [
+        "流程定义错误",
+        "资源缺失",
+        "权限不足",
+        "执行超时"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "createdAt": 1771950626269,
+      "updatedAt": 1771950626269,
+      "path": "能力树根部 → 可复用流程",
+      "children": [
+        {
+          "id": "cap_1771950626269_whtnk2e4u",
+          "name": "PCEC进化流程",
+          "level": 2,
+          "inputs": [
+            "当前周期",
+            "进化目标",
+            "系统状态"
+          ],
+          "outputs": [
+            "进化成果",
+            "进化状态",
+            "进化产物"
+          ],
+          "prerequisites": [
+            "系统稳定运行",
+            "进化资源充足",
+            "管理员授权"
+          ],
+          "failureBoundaries": [
+            "系统不稳定",
+            "资源不足",
+            "进化方向错误",
+            "连续无进化"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 可复用流程 → PCEC进化流程",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_h2eh0k7m0",
+          "name": "热点信息管理",
+          "level": 2,
+          "inputs": [
+            "信息类型",
+            "更新频率",
+            "存储容量"
+          ],
+          "outputs": [
+            "热点信息缓存",
+            "更新状态",
+            "访问统计"
+          ],
+          "prerequisites": [
+            "信息源可用",
+            "存储容量充足",
+            "更新机制有效"
+          ],
+          "failureBoundaries": [
+            "信息源不可用",
+            "存储容量不足",
+            "更新机制失效",
+            "信息过期"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 可复用流程 → 热点信息管理",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_e85ktsw1j",
+          "name": "报告生成",
+          "level": 2,
+          "inputs": [
+            "报告类型",
+            "报告参数",
+            "数据来源"
+          ],
+          "outputs": [
+            "报告内容",
+            "报告状态",
+            "传递记录"
+          ],
+          "prerequisites": [
+            "数据来源可用",
+            "模板定义完整",
+            "传递渠道畅通"
+          ],
+          "failureBoundaries": [
+            "数据来源不可用",
+            "模板错误",
+            "传递渠道阻塞",
+            "生成超时"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 可复用流程 → 报告生成",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cap_1771950626269_qyy7skqgg",
+      "name": "问题分解策略",
+      "level": 3,
+      "inputs": [
+        "问题描述",
+        "目标约束",
+        "可用资源"
+      ],
+      "outputs": [
+        "分解方案",
+        "执行计划",
+        "预期结果"
+      ],
+      "prerequisites": [
+        "问题定义清晰",
+        "目标可衡量",
+        "资源信息完整"
+      ],
+      "failureBoundaries": [
+        "问题定义模糊",
+        "目标不可衡量",
+        "资源信息缺失",
+        "分解逻辑错误"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "createdAt": 1771950626269,
+      "updatedAt": 1771950626269,
+      "path": "能力树根部 → 问题分解策略",
+      "children": [
+        {
+          "id": "cap_1771950626269_wp2ym3nle",
+          "name": "商业分析",
+          "level": 3,
+          "inputs": [
+            "业务数据",
+            "分析维度",
+            "目标指标"
+          ],
+          "outputs": [
+            "分析结果",
+            "洞察建议",
+            "优化方案"
+          ],
+          "prerequisites": [
+            "数据质量良好",
+            "分析方法适用",
+            "业务理解深入"
+          ],
+          "failureBoundaries": [
+            "数据质量差",
+            "方法不适用",
+            "业务理解不足",
+            "分析深度不够"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 问题分解策略 → 商业分析",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_ud9cy6vcl",
+          "name": "技术架构设计",
+          "level": 3,
+          "inputs": [
+            "业务需求",
+            "技术约束",
+            "性能指标"
+          ],
+          "outputs": [
+            "架构方案",
+            "技术选型",
+            "实施计划"
+          ],
+          "prerequisites": [
+            "需求理解准确",
+            "约束信息完整",
+            "技术知识充足"
+          ],
+          "failureBoundaries": [
+            "需求理解错误",
+            "约束信息缺失",
+            "技术知识不足",
+            "方案不可行"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 问题分解策略 → 技术架构设计",
+          "children": []
+        },
+        {
+          "id": "cap_1771950626269_m0a6mp3t9",
+          "name": "资源优化",
+          "level": 3,
+          "inputs": [
+            "资源现状",
+            "优化目标",
+            "约束条件"
+          ],
+          "outputs": [
+            "优化方案",
+            "预期收益",
+            "实施步骤"
+          ],
+          "prerequisites": [
+            "资源信息准确",
+            "目标可衡量",
+            "约束明确"
+          ],
+          "failureBoundaries": [
+            "资源信息错误",
+            "目标不可衡量",
+            "约束不明确",
+            "方案不可行"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "createdAt": 1771950626269,
+          "updatedAt": 1771950626269,
+          "path": "能力树根部 → 问题分解策略 → 资源优化",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cap_1771950626346_y4bct442r",
+      "name": "测试能力",
+      "level": 2,
+      "inputs": [
+        "测试输入"
+      ],
+      "outputs": [
+        "测试输出"
+      ],
+      "prerequisites": [
+        "测试前提"
+      ],
+      "failureBoundaries": [
+        "测试失败边界"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "createdAt": 1771950626346,
+      "updatedAt": 1771950626346,
+      "path": "能力树根部 → 测试能力",
+      "children": []
+    }
+  ]
+}

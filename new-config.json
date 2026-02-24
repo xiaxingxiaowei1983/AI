@@ -1,0 +1,19 @@
+{
+  "gateway": {
+    "mode": "local"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "volcengine-plan/ark-code-latest"
+      }
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_a91012cd0ab89bc9",
+      "appSecret": "W2dl8mRwy7ArghhqZSp9heG8i3I2FVP5"
+    }
+  }
+}

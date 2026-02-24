@@ -1,0 +1,31 @@
+{
+  "name": "value-function-core",
+  "version": "1.0.0",
+  "description": "价值函数突变核心模块 - 基于内在价值函数评估和选择值得进化的能力",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "value-function",
+    "mutation",
+    "ai-evolution",
+    "capability-assessment"
+  ],
+  "author": "陈婷 (剑锋传奇)",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  }
+}

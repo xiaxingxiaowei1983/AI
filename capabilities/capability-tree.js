@@ -808,6 +808,12 @@ class CapabilityTree {
         this._importNode(childData, this.root);
       }
     }
+    
+    return {
+      success: true,
+      message: `成功导入能力树，包含 ${this.nodeMap.size} 个节点`,
+      timestamp: Date.now()
+    };
   }
 
   // 递归导入节点
@@ -823,7 +829,12 @@ class CapabilityTree {
       lastUsed: nodeData.lastUsed,
       status: nodeData.status || 'ACTIVE',
       createdAt: nodeData.createdAt || Date.now(),
-      updatedAt: nodeData.updatedAt || Date.now()
+      updatedAt: nodeData.updatedAt || Date.now(),
+      // VFM相关字段
+      vScore: nodeData.vScore || 0,
+      valueDimensions: nodeData.valueDimensions || {},
+      isLowValue: nodeData.isLowValue || false,
+      lastEvaluation: nodeData.lastEvaluation || null
     });
     
     parent.addChild(newNode);
@@ -837,11 +848,396 @@ class CapabilityTree {
     }
   }
   
+  // 动态添加节点（增强版）
+  addNodeEnhanced(name, level, parentId = null, details = {}) {
+    try {
+      const parent = parentId ? this.nodeMap.get(parentId) : this.root;
+      if (!parent) {
+        throw new Error('父节点不存在');
+      }
+
+      // 验证层级
+      if (level <= parent.level) {
+        throw new Error('子节点层级必须大于父节点层级');
+      }
+
+      // 检查是否已存在相似节点
+      const existingNode = this.findSimilarNode(name, parent);
+      if (existingNode) {
+        // 合并相似能力
+        this.mergeNodes(existingNode, details);
+        return {
+          success: true,
+          message: '已存在相似节点，已合并',
+          node: existingNode
+        };
+      }
+
+      // 创建新节点
+      const newNode = new CapabilityNode(name, level, parent, details);
+      
+      if (parentId) {
+        parent.addChild(newNode);
+      } else {
+        this.root.addChild(newNode);
+      }
+
+      this.nodeMap.set(newNode.id, newNode);
+      
+      return {
+        success: true,
+        message: '节点添加成功',
+        node: newNode
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: `添加节点失败: ${error.message}`,
+        error: error.message
+      };
+    }
+  }
+  
+  // 动态编辑节点
+  editNodeEnhanced(nodeId, updates = {}) {
+    try {
+      const node = this.findNode(nodeId);
+      if (!node) {
+        throw new Error('节点不存在');
+      }
+
+      // 验证更新数据
+      if (updates.level && node.parent && updates.level <= node.parent.level) {
+        throw new Error('节点层级必须大于父节点层级');
+      }
+
+      // 更新节点属性
+      Object.keys(updates).forEach(key => {
+        if (key !== 'id' && key !== 'parent' && key !== 'children' && key !== 'createdAt') {
+          node[key] = updates[key];
+        }
+      });
+
+      node.updatedAt = Date.now();
+      
+      return {
+        success: true,
+        message: '节点编辑成功',
+        node: node
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: `编辑节点失败: ${error.message}`,
+        error: error.message
+      };
+    }
+  }
+  
+  // 动态删除节点
+  deleteNodeEnhanced(nodeId) {
+    try {
+      const node = this.findNode(nodeId);
+      if (!node) {
+        throw new Error('节点不存在');
+      }
+
+      // 检查是否有子节点
+      if (node.children && node.children.length > 0) {
+        throw new Error('该节点有子节点，请先删除子节点');
+      }
+
+      // 从父节点中移除
+      if (node.parent) {
+        const removed = node.parent.removeChild(nodeId);
+        if (!removed) {
+          throw new Error('从父节点中移除失败');
+        }
+      }
+
+      // 从节点映射中删除
+      this.nodeMap.delete(nodeId);
+      
+      return {
+        success: true,
+        message: '节点删除成功',
+        nodeId: nodeId
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: `删除节点失败: ${error.message}`,
+        error: error.message
+      };
+    }
+  }
+  
+  // 移动节点
+  moveNode(nodeId, newParentId) {
+    try {
+      const node = this.findNode(nodeId);
+      const newParent = this.findNode(newParentId);
+      
+      if (!node || !newParent) {
+        throw new Error('节点或父节点不存在');
+      }
+
+      // 验证层级
+      if (node.level <= newParent.level) {
+        throw new Error('节点层级必须大于新父节点层级');
+      }
+
+      // 检查循环依赖
+      let current = newParent;
+      while (current) {
+        if (current.id === node.id) {
+          throw new Error('不能将节点移动到其自身或子节点下');
+        }
+        current = current.parent;
+      }
+
+      // 从原父节点中移除
+      if (node.parent) {
+        node.parent.removeChild(nodeId);
+      }
+
+      // 添加到新父节点
+      newParent.addChild(node);
+      node.parent = newParent;
+      node.updatedAt = Date.now();
+      
+      return {
+        success: true,
+        message: '节点移动成功',
+        node: node,
+        newParentId: newParentId
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: `移动节点失败: ${error.message}`,
+        error: error.message
+      };
+    }
+  }
+  
+  // 能力树版本管理
+  createVersion(name, description = '') {
+    const versionData = {
+      id: `version_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      name: name || `版本 ${new Date().toISOString()}`,
+      description: description,
+      timestamp: Date.now(),
+      treeData: this.export(),
+      status: this.getStatus()
+    };
+    
+    return versionData;
+  }
+  
+  // 恢复版本
+  restoreVersion(versionData) {
+    try {
+      if (!versionData || !versionData.treeData) {
+        throw new Error('版本数据无效');
+      }
+
+      // 导入版本数据
+      this.import(versionData.treeData);
+      
+      return {
+        success: true,
+        message: `成功恢复版本: ${versionData.name}`,
+        timestamp: Date.now()
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: `恢复版本失败: ${error.message}`,
+        error: error.message
+      };
+    }
+  }
+  
+  // 高级搜索功能
+  search(query, options = {}) {
+    const {
+      fields = ['name', 'path'],
+      exactMatch = false,
+      caseSensitive = false,
+      limit = 20
+    } = options;
+
+    const normalizedQuery = caseSensitive ? query : query.toLowerCase();
+    const results = [];
+
+    for (const node of this.nodeMap.values()) {
+      if (node.level === 0) continue; // 跳过根节点
+
+      let match = false;
+
+      // 按字段搜索
+      for (const field of fields) {
+        let value;
+        
+        switch (field) {
+          case 'name':
+            value = node.name;
+            break;
+          case 'path':
+            value = node.getPath();
+            break;
+          case 'status':
+            value = node.status;
+            break;
+          case 'id':
+            value = node.id;
+            break;
+          default:
+            continue;
+        }
+
+        if (value) {
+          const normalizedValue = caseSensitive ? value : value.toLowerCase();
+          
+          if (exactMatch) {
+            if (normalizedValue === normalizedQuery) {
+              match = true;
+              break;
+            }
+          } else {
+            if (normalizedValue.includes(normalizedQuery)) {
+              match = true;
+              break;
+            }
+          }
+        }
+      }
+
+      if (match) {
+        results.push({
+          node: node,
+          path: node.getPath(),
+          score: this._calculateSearchScore(node, normalizedQuery)
+        });
+      }
+    }
+
+    // 按搜索分数排序
+    results.sort((a, b) => b.score - a.score);
+    
+    // 限制结果数量
+    return results.slice(0, limit);
+  }
+  
+  // 计算搜索分数
+  _calculateSearchScore(node, query) {
+    let score = 0;
+    
+    // 名称匹配权重
+    if (node.name.toLowerCase().includes(query)) {
+      score += 0.7;
+    }
+    
+    // 路径匹配权重
+    if (node.getPath().toLowerCase().includes(query)) {
+      score += 0.3;
+    }
+    
+    // 使用次数权重
+    score += Math.min(node.usageCount / 100, 0.2);
+    
+    // 价值评分权重
+    score += Math.min(node.vScore / 200, 0.2);
+    
+    return score;
+  }
+  
+  // 过滤节点
+  filterNodes(criteria = {}) {
+    const {
+      level,
+      status,
+      minUsageCount,
+      minVScore,
+      isLowValue
+    } = criteria;
+
+    return Array.from(this.nodeMap.values()).filter(node => {
+      if (node.level === 0) return false; // 跳过根节点
+      
+      if (level !== undefined && node.level !== level) return false;
+      if (status && node.status !== status) return false;
+      if (minUsageCount !== undefined && node.usageCount < minUsageCount) return false;
+      if (minVScore !== undefined && node.vScore < minVScore) return false;
+      if (isLowValue !== undefined && node.isLowValue !== isLowValue) return false;
+      
+      return true;
+    });
+  }
+  
+  // 获取能力树统计信息（增强版）
+  getEnhancedStatus() {
+    const nodes = this.getAllNodes();
+    const stats = this.getStatus();
+    
+    // 计算价值相关统计
+    const valueStats = {
+      averageVScore: 0,
+      maxVScore: 0,
+      minVScore: 100,
+      highValueCount: 0,
+      lowValueCount: 0
+    };
+    
+    if (nodes.length > 1) { // 排除根节点
+      const valueNodes = nodes.filter(n => n.level > 0);
+      const vScores = valueNodes.map(n => n.vScore);
+      
+      valueStats.averageVScore = vScores.reduce((sum, score) => sum + score, 0) / vScores.length;
+      valueStats.maxVScore = Math.max(...vScores);
+      valueStats.minVScore = Math.min(...vScores);
+      valueStats.highValueCount = valueNodes.filter(n => n.vScore >= 70).length;
+      valueStats.lowValueCount = valueNodes.filter(n => n.vScore < 30 || n.isLowValue).length;
+    }
+    
+    // 计算使用相关统计
+    const usageStats = {
+      averageUsageCount: 0,
+      maxUsageCount: 0,
+      recentlyUsedCount: 0
+    };
+    
+    if (nodes.length > 1) {
+      const valueNodes = nodes.filter(n => n.level > 0);
+      const usageCounts = valueNodes.map(n => n.usageCount);
+      
+      usageStats.averageUsageCount = usageCounts.reduce((sum, count) => sum + count, 0) / usageCounts.length;
+      usageStats.maxUsageCount = Math.max(...usageCounts);
+      
+      // 最近使用的节点（7天内）
+      const sevenDaysAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+      usageStats.recentlyUsedCount = valueNodes.filter(n => n.lastUsed && n.lastUsed >= sevenDaysAgo).length;
+    }
+    
+    return {
+      ...stats,
+      valueStats,
+      usageStats,
+      timestamp: Date.now()
+    };
+  }
+  
   // 生成能力树可视化表示
   generateVisualization() {
     const visualization = {
       nodes: [],
-      links: []
+      links: [],
+      metadata: {
+        timestamp: Date.now(),
+        totalNodes: this.nodeMap.size,
+        status: this.getStatus()
+      }
     };
     
     // 生成节点
@@ -853,7 +1249,17 @@ class CapabilityTree {
         status: node.status,
         usageCount: node.usageCount,
         lastUsed: node.lastUsed,
-        size: Math.max(10, Math.min(50, 10 + node.usageCount * 2))
+        size: Math.max(10, Math.min(50, 10 + node.usageCount * 2)),
+        vScore: node.vScore,
+        isLowValue: node.isLowValue,
+        valueDimensions: node.valueDimensions,
+        createdAt: node.createdAt,
+        updatedAt: node.updatedAt,
+        path: node.getPath(),
+        // 颜色编码
+        color: this._getNodeColor(node),
+        // 图标编码
+        icon: this._getNodeIcon(node)
       });
       
       // 生成连接
@@ -861,12 +1267,154 @@ class CapabilityTree {
         visualization.links.push({
           source: node.parent.id,
           target: node.id,
-          type: 'parent-child'
+          type: 'parent-child',
+          strength: this._getLinkStrength(node)
         });
       }
     }
     
     return visualization;
+  }
+  
+  // 获取节点颜色
+  _getNodeColor(node) {
+    switch (node.status) {
+      case 'ACTIVE':
+        return node.vScore > 70 ? '#4CAF50' : node.vScore > 30 ? '#2196F3' : '#FFC107';
+      case 'CANDIDATE_TRIM':
+        return '#FF9800';
+      case 'DISABLED':
+        return '#F44336';
+      default:
+        return '#9E9E9E';
+    }
+  }
+  
+  // 获取节点图标
+  _getNodeIcon(node) {
+    switch (node.level) {
+      case 1:
+        return '🔵'; // 分支节点
+      case 2:
+        return '🟢'; // 功能节点
+      case 3:
+        return '🟣'; // 高级节点
+      default:
+        return '⚪'; // 根节点
+    }
+  }
+  
+  // 获取连接强度
+  _getLinkStrength(node) {
+    // 基于使用次数和价值评分计算连接强度
+    const usageFactor = Math.min(node.usageCount / 10, 1);
+    const valueFactor = Math.min(node.vScore / 100, 1);
+    return (usageFactor + valueFactor) / 2;
+  }
+  
+  // 生成交互式可视化数据
+  generateInteractiveVisualization() {
+    const baseData = this.generateVisualization();
+    
+    // 添加交互相关数据
+    const interactiveData = {
+      ...baseData,
+      interactive: true,
+      actions: {
+        addNode: true,
+        editNode: true,
+        deleteNode: true,
+        moveNode: true,
+        evaluateValue: true,
+        markUsage: true
+      },
+      filters: {
+        byLevel: [1, 2, 3],
+        byStatus: ['ACTIVE', 'CANDIDATE_TRIM', 'DISABLED'],
+        byValue: { min: 0, max: 100 }
+      },
+      searchOptions: {
+        enabled: true,
+        fields: ['name', 'path', 'status']
+      }
+    };
+    
+    return interactiveData;
+  }
+  
+  // 生成可视化配置
+  generateVisualizationConfig() {
+    return {
+      layout: {
+        type: 'hierarchical',
+        direction: 'top-down',
+        padding: 20,
+        spacing: 50
+      },
+      nodeStyles: {
+        active: {
+          fill: '#4CAF50',
+          stroke: '#388E3C',
+          strokeWidth: 2
+        },
+        candidateTrim: {
+          fill: '#FF9800',
+          stroke: '#F57C00',
+          strokeWidth: 2
+        },
+        disabled: {
+          fill: '#F44336',
+          stroke: '#D32F2F',
+          strokeWidth: 2
+        }
+      },
+      linkStyles: {
+        default: {
+          stroke: '#9E9E9E',
+          strokeWidth: 1,
+          dash: []
+        },
+        strong: {
+          stroke: '#2196F3',
+          strokeWidth: 3,
+          dash: []
+        },
+        weak: {
+          stroke: '#BDBDBD',
+          strokeWidth: 1,
+          dash: [5, 5]
+        }
+      },
+      tooltip: {
+        enabled: true,
+        fields: ['name', 'level', 'status', 'usageCount', 'vScore', 'path', 'valueDimensions']
+      },
+      animation: {
+        enabled: true,
+        duration: 500
+      },
+      // 新增：交互式控制选项
+      interaction: {
+        enabled: true,
+        zoom: true,
+        pan: true,
+        nodeClick: true,
+        linkClick: false
+      },
+      // 新增：过滤器选项
+      filters: {
+        enabled: true,
+        byLevel: true,
+        byStatus: true,
+        byValue: true,
+        byUsage: true
+      },
+      // 新增：导出选项
+      export: {
+        enabled: true,
+        formats: ['json', 'png', 'svg']
+      }
+    };
   }
   
   // 生成文本形式的能力树
@@ -988,7 +1536,7 @@ class CapabilityTree {
     // 计算各价值维度的平均评分
     const dimensionAverages = {};
     if (allCapabilities.length > 0) {
-      const dimensions = ['highFrequency', 'failureReduction', 'userBurden', 'selfCost'];
+      const dimensions = ['highFrequency', 'failureReduction', 'userBurden', 'selfCost', 'strategicValue', 'scalability', 'integrationValue', 'innovationPotential'];
       dimensions.forEach(dimension => {
         const sum = allCapabilities.reduce((acc, node) => {
           return acc + (node.valueDimensions[dimension] || 0);
@@ -996,6 +1544,30 @@ class CapabilityTree {
         dimensionAverages[dimension] = sum / allCapabilities.length;
       });
     }
+
+    // 计算价值趋势
+    const valueTrends = this._calculateValueTrends(allCapabilities);
+
+    // 生成VFM评估报告
+    const vfmReport = vfmEvaluator.generateReport(
+      allCapabilities.map(node => ({
+        id: node.id,
+        capability: {
+          name: node.name,
+          description: `能力: ${node.name}`,
+          type: node.level === 1 ? 'core' : node.level === 2 ? 'intermediate' : 'advanced',
+          tools: node.tool ? [node.tool] : [],
+          inputs: node.inputs,
+          outputs: node.outputs
+        },
+        timestamp: node.lastEvaluation || Date.now(),
+        dimensionScores: node.valueDimensions,
+        totalScore: node.vScore,
+        threshold: vfmEvaluator.threshold || 50,
+        isLowValue: node.isLowValue,
+        shouldProceed: node.vScore >= (vfmEvaluator.threshold || 50) && !node.isLowValue
+      }))
+    );
 
     return {
       id: `value_report_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -1005,20 +1577,133 @@ class CapabilityTree {
       lowValueCapabilities: lowValueCapabilities.length,
       averageVScore,
       dimensionAverages,
+      valueTrends,
+      vfmReport,
       highValueCapabilities: highValueCapabilities.map(node => ({
         id: node.id,
         name: node.name,
         level: node.level,
         vScore: node.vScore,
-        isLowValue: node.isLowValue
+        isLowValue: node.isLowValue,
+        valueDimensions: node.valueDimensions,
+        lastEvaluation: node.lastEvaluation
       })),
       lowValueCapabilities: lowValueCapabilities.map(node => ({
         id: node.id,
         name: node.name,
         level: node.level,
         vScore: node.vScore,
-        isLowValue: node.isLowValue
-      }))
+        isLowValue: node.isLowValue,
+        valueDimensions: node.valueDimensions,
+        lastEvaluation: node.lastEvaluation
+      })),
+      // 按价值维度排序的能力
+      capabilitiesByDimension: this._getCapabilitiesByDimension(),
+      // 价值分布统计
+      valueDistribution: this._getValueDistribution()
+    };
+  }
+
+  // 计算价值趋势
+  _calculateValueTrends(capabilities) {
+    // 这里可以实现价值趋势分析逻辑
+    // 例如：分析最近的价值评估变化
+    return {
+      overall: 'stable', // stable, increasing, decreasing
+      trendData: [],
+      recommendations: [
+        '建议关注战略价值维度的提升',
+        '可扩展性能力需要进一步发展',
+        '集成价值是当前的优势领域'
+      ]
+    };
+  }
+
+  // 按价值维度获取能力
+  _getCapabilitiesByDimension() {
+    const dimensions = ['highFrequency', 'failureReduction', 'userBurden', 'selfCost', 'strategicValue', 'scalability', 'integrationValue', 'innovationPotential'];
+    const result = {};
+
+    dimensions.forEach(dimension => {
+      result[dimension] = this.getAllNodes()
+        .filter(node => node.level > 0 && node.valueDimensions[dimension])
+        .sort((a, b) => (b.valueDimensions[dimension] || 0) - (a.valueDimensions[dimension] || 0))
+        .slice(0, 5);
+    });
+
+    return result;
+  }
+
+  // 获取价值分布
+  _getValueDistribution() {
+    const capabilities = this.getAllNodes().filter(node => node.level > 0 && node.vScore > 0);
+    const distribution = {
+      low: 0, // 0-30
+      medium: 0, // 31-70
+      high: 0 // 71-100
+    };
+
+    capabilities.forEach(node => {
+      if (node.vScore <= 30) {
+        distribution.low++;
+      } else if (node.vScore <= 70) {
+        distribution.medium++;
+      } else {
+        distribution.high++;
+      }
+    });
+
+    return distribution;
+  }
+
+  // 批量评估能力价值
+  batchEvaluateValue(nodeIds) {
+    if (!Array.isArray(nodeIds)) {
+      nodeIds = [nodeIds];
+    }
+
+    const results = {};
+
+    for (const nodeId of nodeIds) {
+      try {
+        const evaluation = this.evaluateCapabilityValue(nodeId);
+        results[nodeId] = evaluation;
+      } catch (error) {
+        results[nodeId] = {
+          error: error.message,
+          timestamp: Date.now()
+        };
+      }
+    }
+
+    return results;
+  }
+
+  // 评估所有能力的价值（增强版）
+  evaluateAllCapabilitiesEnhanced() {
+    const nodes = this.getAllNodes().filter(node => node.level > 0);
+    const results = this.batchEvaluateValue(nodes.map(node => node.id));
+
+    // 计算整体评估统计
+    const validResults = Object.values(results).filter(r => !r.error);
+    const stats = {
+      totalEvaluated: nodes.length,
+      successfulEvaluations: validResults.length,
+      averageScore: validResults.length > 0
+        ? validResults.reduce((sum, r) => sum + r.totalScore, 0) / validResults.length
+        : 0,
+      highValueCount: validResults.filter(r => r.shouldProceed).length,
+      lowValueCount: validResults.filter(r => r.isLowValue).length
+    };
+
+    return {
+      results,
+      stats,
+      timestamp: Date.now(),
+      // 按总评分排序的结果
+      sortedResults: Object.entries(results)
+        .filter(([_, r]) => !r.error)
+        .sort(([_, a], [__, b]) => b.totalScore - a.totalScore)
     };
   }
 

@@ -1,0 +1,38 @@
+{
+  "timestamp": 1771919637445,
+  "system": {
+    "uptime": 0.1512818,
+    "memory": {
+      "rss": 47136768,
+      "heapTotal": 7925760,
+      "heapUsed": 5124304,
+      "external": 1678595,
+      "arrayBuffers": 10511
+    },
+    "cpu": {
+      "usage": 32.95590783508894,
+      "cores": 12
+    }
+  },
+  "pcec": {
+    "cycles": 0,
+    "successfulCycles": 0,
+    "failedCycles": 0,
+    "substantialEvolutions": 0,
+    "nonSubstantialEvolutions": 0
+  },
+  "capabilities": {
+    "total": 0,
+    "active": 0,
+    "byLevel": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "performance": {
+    "cycleDuration": 0,
+    "evolutionSpeed": 0,
+    "successRate": 0
+  }
+}

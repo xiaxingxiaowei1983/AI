@@ -1,0 +1,25 @@
+{
+  "id": "rollback-1771919637392",
+  "timestamp": 1771919637392,
+  "status": "created",
+  "description": "Automatic rollback point creation",
+  "systemState": {
+    "timestamp": 1771919637392,
+    "processInfo": {
+      "pid": 25328,
+      "memoryUsage": {
+        "rss": 45895680,
+        "heapTotal": 7663616,
+        "heapUsed": 4973424,
+        "external": 1678595,
+        "arrayBuffers": 10511
+      },
+      "uptime": 0.0979057
+    },
+    "environment": {
+      "nodeVersion": "v24.13.0",
+      "platform": "win32",
+      "arch": "x64"
+    }
+  }
+}

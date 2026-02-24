@@ -31,15 +31,15 @@ try {
 // 尝试导入反进化锁定系统，如果不存在则使用空对象
 let antiDegenerationLock;
 try {
-  const adlModule = require('./capabilities/anti-degeneration-lock');
-  antiDegenerationLock = adlModule.antiDegenerationLock;
+  const adlModule = require('./skills/adl-core');
+  antiDegenerationLock = adlModule.getADLInstance();
 } catch (error) {
   console.error(`Error loading anti-degeneration lock: ${error.message}`);
   antiDegenerationLock = {
     validateEvolution: () => ({ valid: true, violations: [], reason: 'No ADL violations detected' }),
     createRollbackPoint: () => ({}),
     rollbackToLatest: () => null,
-    getStatus: () => ({ status: 'ACTIVE', priority: 'HIGHEST', rollbackPointsCount: 0 })
+    getStatus: () => ({ status: 'ACTIVE', priority: 'HIGHEST', rollbackPointsCount: 0, config: { overridePCEC: false } })
   };
 }
 
@@ -1025,10 +1025,23 @@ async function executePCECCycle() {
   console.log('📊 反进化锁定状态:', adlStatus);
   
   // 检查ADL优先级
-  if (adlStatus.config && adlStatus.config.overridePCEC) {
+  if (adlStatus.config && adlStatus.config.overridePCEC && adlStatus.config.status === 'ENFORCED' && adlStatus.config.priority === 'LEVEL0') {
     console.log('⚠️  ADL优先级高于PCEC，检查是否需要跳过PCEC执行');
-    // 这里可以添加更复杂的逻辑，例如检查ADL是否有特定的指令
-    // 目前我们只是记录这个信息，不阻止PCEC执行
+    
+    // 检查是否有ADL指令要求跳过PCEC
+    const shouldSkipPCEC = adlStatus.config.skipPCEC || false;
+    if (shouldSkipPCEC) {
+      console.log('🚫 ADL指令要求跳过PCEC执行');
+      
+      // 写入状态
+      writeStorage({ status: status });
+      
+      console.log('\n❌ PCEC周期被ADL跳过');
+      console.log('========================================\n');
+      return null;
+    }
+    
+    console.log('✅ ADL允许PCEC继续执行，但会严格监控');
   }
   
   // 创建回滚点
@@ -1040,10 +1053,15 @@ async function executePCECCycle() {
     treeStatus: treeStatus
   };
   const evolutionHypothesis = '尝试通过系统优化来增强系统能力';
-  const rollbackPoint = antiDegenerationLock.createRollbackPoint(currentState, evolutionHypothesis);
-  console.log('✅ 回滚点创建成功:', rollbackPoint.timestamp);
+  const rollbackPoint = antiDegenerationLock.createRollbackPoint('PCEC进化回滚点', currentState, [
+    '成功率 < 90%',
+    '进化降低系统稳定性',
+    '进化引入无法验证的机制',
+    '进化违反禁止行为'
+  ]);
+  console.log('✅ 回滚点创建成功:', rollbackPoint.id);
   console.log('📋 进化假设:', evolutionHypothesis);
-  console.log('🔒 回滚条件:', rollbackPoint.rollbackConditions);
+  console.log('🔒 回滚条件:', rollbackPoint.failureConditions);
   
   // 思维爆炸
   const explosionResult = explodeThinking();

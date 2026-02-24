@@ -1,0 +1,21 @@
+{
+  "type": "behavior-rule",
+  "cycle": 43,
+  "name": "Behavior Rule for Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+  "description": "Generated from new-feature evolution",
+  "rule": {
+    "condition": "when facing similar evolution opportunities",
+    "action": "prioritize this evolution approach",
+    "rationale": "Based on successful new-feature evolution",
+    "exceptions": [
+      "anti-degeneration lock violations",
+      "significant context differences"
+    ]
+  },
+  "generated": 1771918249515,
+  "source": {
+    "success": true,
+    "type": "new-feature",
+    "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力"
+  }
+}

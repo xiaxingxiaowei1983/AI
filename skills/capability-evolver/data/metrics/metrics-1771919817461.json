@@ -1,0 +1,52 @@
+{
+  "id": "metrics-1771919817461",
+  "timestamp": 1771919817461,
+  "system": {
+    "uptime": 180.165201,
+    "memory": {
+      "rss": 46325760,
+      "heapTotal": 6352896,
+      "heapUsed": 5409984,
+      "external": 1695307,
+      "arrayBuffers": 18667
+    },
+    "cpu": {
+      "usage": 29.882879063358125,
+      "cores": 12
+    },
+    "disk": {
+      "free": 100000000000,
+      "total": 200000000000,
+      "used": 100000000000
+    }
+  },
+  "pcec": {
+    "cycles": 51,
+    "successfulCycles": 0,
+    "failedCycles": 0,
+    "substantialEvolutions": 0,
+    "nonSubstantialEvolutions": 0,
+    "lastCycle": 0
+  },
+  "capabilities": {
+    "total": 0,
+    "active": 0,
+    "byLevel": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "performance": {
+    "cycleDuration": 0,
+    "evolutionSpeed": 0,
+    "successRate": 0,
+    "resourceUsage": 21.025541140029723
+  },
+  "evolution": {
+    "recentEvolutions": 0,
+    "evolutionTypes": {},
+    "averageEvolutionTime": 0,
+    "evolutionTrend": "stable"
+  }
+}

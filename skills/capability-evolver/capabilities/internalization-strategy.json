@@ -1,0 +1,182 @@
+{
+  "strategies": [
+    {
+      "capabilityId": "hot-info-cache",
+      "name": "热点信息缓存层",
+      "internalization": "行为模式",
+      "implementation": {
+        "defaultUsage": true,
+        "autoCache": true,
+        "priorityLevel": "HIGH",
+        "integrationPoints": [
+          "查询处理流程",
+          "工具调用前检查",
+          "重复请求检测"
+        ],
+        "decisionRules": [
+          "所有查询请求优先检查缓存",
+          "缓存未命中时执行原始操作并更新缓存",
+          "响应时间超过1秒时强制启用缓存"
+        ]
+      },
+      "adoptionPhase": "立即"
+    },
+    {
+      "capabilityId": "file-handling",
+      "name": "文件处理能力",
+      "internalization": "行为模式",
+      "implementation": {
+        "defaultUsage": true,
+        "autoDetect": true,
+        "priorityLevel": "MEDIUM",
+        "integrationPoints": [
+          "文件操作流程",
+          "数据持久化",
+          "配置管理"
+        ],
+        "decisionRules": [
+          "所有文件操作通过统一接口执行",
+          "自动处理文件格式转换",
+          "文件操作失败时提供详细错误信息"
+        ]
+      },
+      "adoptionPhase": "立即"
+    },
+    {
+      "capabilityId": "capability-assessment",
+      "name": "能力评估与验证",
+      "internalization": "高阶操作",
+      "implementation": {
+        "planningPhase": true,
+        "autoEvaluate": true,
+        "priorityLevel": "HIGH",
+        "integrationPoints": [
+          "能力规划阶段",
+          "新功能评估",
+          "进化决策"
+        ],
+        "decisionRules": [
+          "所有新能力必须经过评估流程",
+          "评估分数低于50分的能力不被采纳",
+          "评估结果作为进化决策的主要依据"
+        ]
+      },
+      "adoptionPhase": "立即"
+    },
+    {
+      "capabilityId": "pcec-scheduler",
+      "name": "周期性进化调度",
+      "internalization": "行为模式",
+      "implementation": {
+        "defaultUsage": true,
+        "autoSchedule": true,
+        "priorityLevel": "HIGH",
+        "integrationPoints": [
+          "系统启动流程",
+          "进化管理",
+          "状态监控"
+        ],
+        "decisionRules": [
+          "系统启动时自动初始化调度器",
+          "每1小时执行一次进化任务",
+          "调度失败时自动重试"
+        ]
+      },
+      "adoptionPhase": "立即"
+    },
+    {
+      "capabilityId": "mind-explosion",
+      "name": "思维爆炸模式",
+      "internalization": "优先解法",
+      "implementation": {
+        "problemSolving": true,
+        "autoTrigger": true,
+        "priorityLevel": "MEDIUM",
+        "integrationPoints": [
+          "创新任务",
+          "难题解决",
+          "进化规划"
+        ],
+        "decisionRules": [
+          "遇到复杂问题时触发思维爆炸",
+          "连续失败时强制使用思维爆炸",
+          "重大决策前执行思维爆炸分析"
+        ]
+      },
+      "adoptionPhase": "逐步"
+    },
+    {
+      "capabilityId": "anti-degeneration-lock",
+      "name": "反进化锁定",
+      "internalization": "高阶操作",
+      "implementation": {
+        "planningPhase": true,
+        "autoValidate": true,
+        "priorityLevel": "HIGHEST",
+        "integrationPoints": [
+          "进化验证阶段",
+          "能力采纳决策",
+          "系统稳定性检查"
+        ],
+        "decisionRules": [
+          "所有进化必须通过反进化锁定验证",
+          "违反锁定规则的进化必须回滚",
+          "锁定验证失败时拒绝能力采纳"
+        ]
+      },
+      "adoptionPhase": "立即"
+    },
+    {
+      "capabilityId": "capability-tree",
+      "name": "能力树管理",
+      "internalization": "行为模式",
+      "implementation": {
+        "defaultUsage": true,
+        "autoManage": true,
+        "priorityLevel": "HIGH",
+        "integrationPoints": [
+          "能力生命周期管理",
+          "系统架构设计",
+          "能力调用路径"
+        ],
+        "decisionRules": [
+          "所有能力必须在能力树中注册",
+          "定期执行能力树修剪",
+          "能力调用优先选择树中路径"
+        ]
+      },
+      "adoptionPhase": "立即"
+    },
+    {
+      "capabilityId": "rollback-mechanism",
+      "name": "回滚机制",
+      "internalization": "行为模式",
+      "implementation": {
+        "defaultUsage": true,
+        "autoRollback": true,
+        "priorityLevel": "HIGH",
+        "integrationPoints": [
+          "进化执行前",
+          "能力变更",
+          "系统异常处理"
+        ],
+        "decisionRules": [
+          "所有进化操作前创建回滚点",
+          "进化失败时自动执行回滚",
+          "回滚后重新评估进化方案"
+        ]
+      },
+      "adoptionPhase": "立即"
+    }
+  ],
+  "governance": {
+    "reviewCycle": "每周",
+    "performanceMetrics": [
+      "内生化能力使用率",
+      "能力调用成功率",
+      "系统稳定性指标"
+    ],
+    "adjustmentProcess": "基于性能指标定期调整策略",
+    "complianceCheck": "每次进化后验证内生化策略执行情况"
+  }
+}

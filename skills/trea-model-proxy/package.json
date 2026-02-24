@@ -1,0 +1,40 @@
+{
+  "name": "trea-model-proxy",
+  "version": "1.0.0",
+  "description": "无需API密钥调用Trea大模型的代理服务，为智能体提供零成本的模型访问能力。",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js start",
+    "init": "node index.js init",
+    "config": "node index.js config",
+    "status": "node index.js status",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "model-proxy",
+    "api-free",
+    "trea",
+    "agent"
+  ],
+  "author": "Trea Model Proxy",
+  "license": "MIT",
+  "dependencies": {
+    "openclaw": "^2026.2.21"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.2.21"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/skills"
+  },
+  "bugs": {
+    "url": "https://github.com/openclaw/skills/issues"
+  },
+  "homepage": "https://docs.openclaw.ai/skills/trea-model-proxy"
+}

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 高光日历 (The Highlight Calendar) - PRD Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        highlight: '#4D6BFE',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        /* Apple-style minimalist scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFFFF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CCCCCC;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #999999;
+        }
+        
+        .bento-card {
+            @apply bg-gray-50 rounded-[2rem] p-8 border border-gray-100 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-highlight/20;
+        }
+        .card-glow {
+            @apply absolute -top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-highlight/10 to-transparent blur-3xl pointer-events-none mix-blend-multiply;
+        }
+        .en-label {
+            @apply text-sm text-gray-500 font-medium tracking-wider uppercase mt-1 block;
+        }
+        .huge-text {
+            @apply text-6xl xl:text-8xl font-black tracking-tight leading-none;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans p-4 md:p-8 lg:p-12 bg-white">
+
+    <div class="max-w-[1920px] mx-auto">
+        
+        <header class="mb-12">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-2">2026 高光日历 <span class="text-highlight">.</span></h1>
+            <p class="text-xl md:text-2xl text-gray-600 font-bold">Project Highlight V1.0 (MVP)</p>
+            <p class="en-label">基于底层逻辑演算的生活气象台与焦虑缓解工具</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">
+
+            <div class="bento-card col-span-1 md:col-span-6 lg:col-span-6 flex flex-col justify-between">
+                <div class="card-glow"></div>
+                <div>
+                    <i class="fa-solid fa-bullseye text-highlight text-4xl mb-4"></i>
+                    <h2 class="text-4xl font-black mb-2">去玄学化核心价值</h2>
+                    <span class="en-label">Unique Selling Proposition</span>
+                    <div class="mt-8 space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">拒绝“煞气”，转化为“避坑”</h3>
+                            <p class="text-gray-600 font-medium">De-mystified Strategy. 不提供模糊运势，提供现代行动策略。</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-1">情绪代偿与希望锚点</h3>
+                            <p class="text-gray-600 font-medium">Emotional Compensation. 为当下焦虑提供未来的确定性时间点。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card col-span-1 md:col-span-3 lg:col-span-3 bg-gray-100">
+                <i class="fa-solid fa-user-ninja text-black text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black">目标用户：搞钱青年</h2>
+                <span class="en-label">Target Audience & Pain Points</span>
+                <div class="mt-8">
+                    <p class="huge-text text-highlight">焦虑</p>
+                    <p class="text-lg font-bold mt-2">“现在努力有用吗？”</p>
+                    <p class="huge-text text-highlight mt-6">迷茫</p>
+                    <p class="text-lg font-bold mt-2">“何时能翻盘？”</p>
+                </div>
+            </div>
+
+             <div class="bento-card col-span-1 md:col-span-3 lg:col-span-3">
+                <i class="fa-solid fa-link text-highlight text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black">行为设计闭环</h2>
+                <span class="en-label">The Hook Model</span>
+                <ul class="mt-8 space-y-4 font-bold">
+                    <li class="flex items-center"><i class="fa-solid fa-arrow-right text-highlight mr-3"></i> 触发：朋友圈高光热力图</li>
+                    <li class="flex items-center"><i class="fa-solid fa-arrow-right text-highlight mr-3"></i> 行动：极简输入生日</li>
+                    <li class="flex items-center"><i class="fa-solid fa-arrow-right text-highlight mr-3"></i> 酬赏：每日体感 + 倒计时</li>
+                    <li class="flex items-center"><i class="fa-solid fa-arrow-right text-highlight mr-3"></i> 投入：保存年度关键词海报</li>
+                </ul>
+            </div>
+
+            <div class="bento-card col-span-1 md:col-span-12 lg:col-span-12 bg-black text-white">
+                <div class="flex flex-col md:flex-row items-center justify-between px-8">
+                    <div class="mb-8 md:mb-0">
+                        <h2 class="text-4xl font-black text-white">核心逻辑架构：黑盒</h2>
+                        <span class="en-label text-gray-400">The Black Box Logic (前端隐蔽)</span>
+                    </div>
+                    <div class="flex items-center space-x-8">
+                        <div class="text-center">
+                            <div class="text-5xl mb-2"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="font-bold">用户生辰输入</div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right-long text-highlight text-4xl animate-pulse"></i>
+                        <div class="text-center p-6 border-2 border-highlight rounded-2xl bg-gray-900">
+                            <div class="text-4xl mb-2 text-highlight"><i class="fa-solid fa-microchip"></i></div>
+                            <div class="font-black text-xl">宗师级后端引擎</div>
+                            <div class="text-sm text-gray-400">大六壬 / Phase 0-3 协议</div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right-long text-highlight text-4xl animate-pulse"></i>
+                         <div class="text-center">
+                            <div class="text-5xl mb-2 text-highlight"><i class="fa-solid fa-language"></i></div>
+                            <div class="font-bold">全脱敏生活化翻译</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card col-span-1 md:col-span-6 lg:col-span-4 flex flex-col">
+                <div class="card-glow"></div>
+                 <i class="fa-solid fa-gauge-high text-highlight text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black mb-2">首页：高光仪表盘</h2>
+                 <span class="en-label">Feature A: Dashboard</span>
+                
+                <div class="mt-6 p-6 bg-white rounded-3xl border-2 border-highlight/20 text-center shadow-lg">
+                    <p class="text-gray-500 font-bold mb-2">距离下一个 [灵感爆发] 时刻</p>
+                    <div class="huge-text text-highlight">03<span class="text-4xl text-black">天</span> 14<span class="text-4xl text-black">时</span></div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-xl font-bold mb-3">今日行动指令 (Action Item)</h4>
+                     <div class="flex items-start">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i>
+                        <p class="text-lg font-bold">“别去追逐风口，你就是风，坐稳了。” (旺禄格)</p>
+                     </div>
+                </div>
+            </div>
+
+            <div class="bento-card col-span-1 md:col-span-6 lg:col-span-4">
+                <i class="fa-solid fa-chart-line text-highlight text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black mb-2">年度洞察：能量图</h2>
+                <span class="en-label">Feature B: 2026 trend Chart</span>
+                <div class="mt-8 h-64 relative">
+                     <canvas id="energyChart"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <span class="inline-block px-4 py-2 bg-black text-white text-lg font-bold rounded-full">年度关键词：[ 逆风翻盘 ]</span>
+                </div>
+            </div>
+
+             <div class="bento-card col-span-1 md:col-span-6 lg:col-span-4 bg-gray-50 relative">
+                <i class="fa-solid fa-share-nodes text-highlight text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black mb-2">裂变：避坑密卷</h2>
+                <span class="en-label">Feature C: Viral Poster</span>
+                
+                <div class="mt-6 mx-auto w-2/3 aspect-[9/16] bg-white border-4 border-black rounded-[2.5rem] p-4 flex flex-col items-center justify-between shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-highlight/5 z-0"></div>
+                    <div class="text-center z-10 mt-4">
+                        <h4 class="font-black text-sm uppercase tracking-widest mb-2">2026 个人使用说明书</h4>
+                        <h3 class="text-4xl font-black text-highlight leading-tight">闷声<br>发财</h3>
+                        <p class="text-xs font-bold mt-2">NO.88394</p>
+                    </div>
+                    <div class="w-full h-32 bg-gray-100 rounded-xl flex items-center justify-center z-10">
+                        <i class="fa-solid fa-chart-simple text-highlight text-5xl opacity-50"></i>
+                    </div>
+                    <div class="text-center z-10 mb-4">
+                         <i class="fa-solid fa-qrcode text-4xl"></i>
+                         <p class="text-[10px] font-bold mt-2">扫码生成你的 2026 高光时刻</p>
+                    </div>
+                </div>
+            </div>
+
+             <div class="bento-card col-span-1 md:col-span-12 lg:col-span-8">
+                <i class="fa-solid fa-diagram-project text-highlight text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black mb-6">核心业务流程</h2>
+                <span class="en-label mb-8">Business Process Flow</span>
+
+                <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-4 mt-8">
+                    <div class="flex-1 bg-white p-6 rounded-2xl border border-gray-200 text-center relative">
+                        <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
+                        <i class="fa-solid fa-user text-2xl mb-2"></i>
+                        <div class="font-bold">用户输入生辰</div>
+                        <div class="text-sm text-gray-500">点击生成</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 text-2xl hidden md:block"></i>
+                    <div class="flex-1 bg-gray-900 text-white p-6 rounded-2xl border border-gray-900 text-center relative">
+                        <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-highlight text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
+                        <i class="fa-solid fa-gears text-2xl mb-2 text-highlight"></i>
+                        <div class="font-bold">后端排盘演算</div>
+                        <div class="text-sm text-gray-400">识别格局 (如:鬼动)</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 text-2xl hidden md:block"></i>
+                    <div class="flex-1 bg-highlight/10 p-6 rounded-2xl border border-highlight/30 text-center relative">
+                        <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
+                        <i class="fa-solid fa-spell-check text-2xl mb-2 text-highlight"></i>
+                        <div class="font-bold">翻译层映射</div>
+                        <div class="text-sm text-gray-600">匹配生活化文案</div>
+                    </div>
+                     <i class="fa-solid fa-chevron-right text-gray-300 text-2xl hidden md:block"></i>
+                    <div class="flex-1 bg-white p-6 rounded-2xl border border-gray-200 text-center relative">
+                        <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
+                        <i class="fa-solid fa-mobile-screen text-2xl mb-2"></i>
+                        <div class="font-bold">前端渲染/导出</div>
+                        <div class="text-sm text-gray-500">仪表盘 & 海报</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-6 lg:col-span-4 grid grid-rows-2 gap-6">
+                
+                <div class="bento-card bg-gray-50 flex flex-col justify-center">
+                    <h2 class="text-2xl font-black mb-4"><i class="fa-solid fa-chart-pie text-highlight mr-2"></i> 关键指标 & NFR</h2>
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div>
+                            <div class="text-4xl font-black text-highlight">1.2+</div>
+                            <div class="font-bold text-sm mt-1">K-Factor (裂变系数)</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black text-highlight">&lt;1.5s</div>
+                            <div class="font-bold text-sm mt-1">海报生成时间</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black text-highlight">&gt;500</div>
+                            <div class="font-bold text-sm mt-1">并发 QPS</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black text-highlight">100%</div>
+                            <div class="font-bold text-sm mt-1">文本脱敏率</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-card bg-black text-white flex flex-col justify-center">
+                    <h2 class="text-2xl font-black mb-4"><i class="fa-solid fa-triangle-exclamation text-highlight mr-2"></i> 文案风控指南</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-900 rounded-xl border-l-4 border-green-500">
+                            <h3 class="font-bold mb-2 text-green-500"><i class="fa-solid fa-check mr-2"></i> Do (提倡)</h3>
+                            <ul class="text-sm space-y-1 text-gray-300">
+                                <li>“系统过载” (代替 鬼动)</li>
+                                <li>“能量满格” (代替 旺相)</li>
+                                <li>“护城河” (代替 禄)</li>
+                            </ul>
+                        </div>
+                         <div class="p-4 bg-gray-900 rounded-xl border-l-4 border-red-500">
+                            <h3 class="font-bold mb-2 text-red-500"><i class="fa-solid fa-xmark mr-2"></i> Don't (禁止)</h3>
+                             <ul class="text-sm space-y-1 text-gray-300">
+                                <li>任何天干地支 (甲乙丙丁)</li>
+                                <li>任何吉凶断语 (大凶/血光)</li>
+                                <li>宿命论表达 (命中注定)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div> <footer class="mt-12 text-center text-gray-500 font-medium">
+            <p>2026 Highlight Calendar PRD. Designed for "外表极客，内核宗师".</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const ctx = document.getElementById('energyChart').getContext('2d');
+        
+        // Create a gradient for the chart line
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(77, 107, 254, 0.6)');   // #4D6BFE with opacity
+        gradient.addColorStop(1, 'rgba(77, 107, 254, 0.0)');
+
+        const energyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                datasets: [{
+                    label: '2026 能量值',
+                    data: [30, 45, 85, 60, 95, 50, 40, 75, 80, 20, 55, 90],
+                    borderColor: '#4D6BFE',
+                    backgroundColor: gradient,
+                    borderWidth: 4,
+                    pointBackgroundColor: '#FFFFFF',
+                    pointBorderColor: '#4D6BFE',
+                    pointBorderWidth: 3,
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    fill: true,
+                    tension: 0.4 // Smooth curve
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 14 },
+                        padding: 12,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                const keywords = ['潜龙勿用', '见龙在田', '飞龙在天', '亢龙有悔', '高光时刻', '平稳过渡', '注意避坑', '贵人相助', '灵感爆发', '闭关修炼', '蓄势待发', '完美收官'];
+                                return `能量: ${context.parsed.y} - 关键词: ${keywords[context.dataIndex]}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            display: false // Hide Y axis labels for cleaner look
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            color: '#999999',
+                            font: {
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

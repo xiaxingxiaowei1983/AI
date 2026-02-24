@@ -1,0 +1,222 @@
+你希望让 OpenClaw 实现**场景化智能切换模型**：外部集成（飞书/微信机器人）、团队/智能体互聊场景自动用豆包 API，而单智能体本地调用、深度思考场景自动用 Trae 内置模型，无需手动传参。这个需求的核心是**基于场景特征自动识别并切换模型**，而非人工指定参数。
+
+### 实现思路
+1. **场景特征定义**：先明确不同场景的可识别特征（如请求来源、Prompt 关键词、触发方式）；
+2. **自动识别逻辑**：编写场景识别函数，根据特征判断当前属于「外部集成/多智能体对话」还是「单智能体本地/深度思考」；
+3. **无感切换**：识别场景后自动加载对应配置、启动对应网关，全程无需手动指定模式；
+4. **兜底机制**：保留手动切换入口，防止自动识别出错。
+
+### 具体实现步骤
+
+#### 步骤 1：
+
+步骤 1：准备豆包 API 基础信息
+首先需要获取豆包的 API Key（这是调用豆包模型的前提）：
+访问 豆包开放平台（或豆包开发者中心）；
+注册 / 登录后创建应用，获取 API Key 和 API 端点（豆包 API 通用端点：https://api.doubao.com/v1/chat/completions）；
+记录好 apiKey 和 endpoint，后续配置会用到。
+
+确保 `openclaw-trea.json`（Trae 内置）和 `openclaw-doubao.json`（豆包 API）存在，其中豆包 API 建议用环境变量管理 Key（安全）：
+```json
+// openclaw-doubao.json
+{
+  "model": {
+    "provider": "doubao",
+    "apiKey": "${DOUBAO_API_KEY}", // 环境变量占位符
+    "endpoint": "https://api.doubao.com/v1/chat/completions",
+    "modelName": "doubao-pro"
+  },
+  "evo": { "enable": true, "review": true, "autoImprove": false },
+  "agent": { "autoRun": true }
+}
+```
+
+#### 步骤 2：编写智能场景识别脚本 `scene-detector.js`
+核心是识别「外部集成/多智能体对话」和「单智能体本地/深度思考」场景，你可根据实际需求调整识别规则：
+```javascript
+// scene-detector.js：场景识别核心模块
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * 智能识别当前场景，返回模型类型（trea/doubao）
+ * 识别规则可根据你的实际需求扩展
+ */
+function detectScene() {
+  // 规则1：检测是否有外部触发（飞书/微信机器人请求）→ 用豆包API
+  const hasExternalTrigger = checkExternalTrigger();
+  if (hasExternalTrigger) {
+    console.log("🔍 识别到外部触发（飞书/微信机器人）→ 切换到豆包API模型");
+    return "doubao";
+  }
+
+  // 规则2：检测Prompt是否含多智能体对话特征（团队/互聊）→ 用豆包API
+  const isMultiAgentChat = checkMultiAgentChat();
+  if (isMultiAgentChat) {
+    console.log("🔍 识别到多智能体/团队对话 → 切换到豆包API模型");
+    return "doubao";
+  }
+
+  // 规则3：检测Prompt是否含深度思考关键词（单独调用/深度分析）→ 用Trae内置
+  const isDeepThinking = checkDeepThinking();
+  if (isDeepThinking) {
+    console.log("🔍 识别到单智能体深度思考场景 → 切换到Trae内置模型");
+    return "trea";
+  }
+
+  // 默认场景：单智能体本地调用 → Trae内置
+  console.log("🔍 默认场景（单智能体本地调用）→ 切换到Trae内置模型");
+  return "trea";
+}
+
+/**
+ * 检测是否有外部触发（飞书/微信机器人）
+ * 可根据实际情况扩展：如检测环境变量、请求参数、特定文件等
+ */
+function checkExternalTrigger() {
+  // 示例1：检测是否存在机器人触发的环境变量（如飞书机器人启动时设置）
+  if (process.env.EXTERNAL_BOT === "feishu" || process.env.EXTERNAL_BOT === "wechat") {
+    return true;
+  }
+  // 示例2：检测是否有外部请求的临时标记文件
+  const triggerFile = path.join(__dirname, ".external-trigger");
+  return fs.existsSync(triggerFile);
+}
+
+/**
+ * 检测是否为多智能体/团队对话
+ * 识别Prompt中是否含多角色、对话、协作等关键词
+ */
+function checkMultiAgentChat() {
+  if (!fs.existsSync("./agent.prompt")) return false;
+  const promptContent = fs.readFileSync("./agent.prompt", "utf8");
+  // 可自定义关键词：团队、对话、协作、多智能体、互相、沟通等
+  const multiAgentKeywords = ["团队", "对话", "协作", "多智能体", "互相", "沟通", "讨论"];
+  return multiAgentKeywords.some(keyword => promptContent.includes(keyword));
+}
+
+/**
+ * 检测是否为深度思考场景
+ * 识别Prompt中是否含深度思考、分析、设计、重构等关键词
+ */
+function checkDeepThinking() {
+  if (!fs.existsSync("./agent.prompt")) return false;
+  const promptContent = fs.readFileSync("./agent.prompt", "utf8");
+  // 可自定义关键词：深度思考、分析、设计、重构、优化、详细、拆解等
+  const deepThinkingKeywords = ["深度思考", "分析", "设计", "重构", "优化", "详细", "拆解", "规划"];
+  return deepThinkingKeywords.some(keyword => promptContent.includes(keyword));
+}
+
+// 导出识别函数
+module.exports = { detectScene };
+```
+
+#### 步骤 3：编写全自动切换启动脚本 `start-auto.js`
+整合场景识别、配置加载、网关启动逻辑，实现一键启动、自动切换：
+```javascript
+// start-auto.js：全自动智能切换启动脚本
+const { OpenClaw } = require('openclaw');
+const { detectScene } = require('./scene-detector');
+const path = require('path');
+const { exec } = require('child_process');
+
+// 第一步：智能识别场景
+const mode = detectScene();
+
+// 第二步：配置文件映射
+const configMap = {
+  trea: path.join(__dirname, './openclaw-trea.json'),
+  doubao: path.join(__dirname, './openclaw-doubao.json')
+};
+
+// 第三步：自动启动对应网关（无需手动敲网关命令）
+console.log(`🚀 正在启动OpenClaw网关（${mode}模式）...`);
+const gatewayCommand = mode === "trea" 
+  ? "openclaw gateway start --trea-internal" 
+  : "openclaw gateway start";
+
+// 执行网关启动命令
+const gatewayProcess = exec(gatewayCommand);
+gatewayProcess.stdout.on('data', (data) => {
+  console.log(`网关日志：${data.trim()}`);
+});
+gatewayProcess.stderr.on('data', (data) => {
+  console.error(`网关错误：${data.trim()}`);
+});
+
+// 网关启动后（延迟2秒确保网关就绪），初始化OpenClaw
+setTimeout(() => {
+  const claw = new OpenClaw({
+    configPath: configMap[mode],
+    promptPath: './agent.prompt',
+    useTreaInternalModel: mode === 'trea'
+  });
+
+  // 启动核心功能
+  console.log(`✅ OpenClaw已启动（${mode === 'trea' ? 'Trae内置模型' : '豆包API模型'}）`);
+  claw.startEvo();
+  claw.startAgent();
+}, 2000);
+
+// 监听退出信号，优雅关闭网关
+process.on('SIGINT', () => {
+  console.log("\n🛑 正在关闭OpenClaw和网关...");
+  gatewayProcess.kill();
+  process.exit(0);
+});
+```
+
+#### 步骤 4：使用与扩展（一键启动+灵活适配）
+##### 1. 基础使用（全自动切换）
+在 Trae 终端执行以下命令即可，脚本会自动识别场景并切换模型：
+```bash
+# （可选）设置豆包API Key环境变量（避免硬编码）
+export DOUBAO_API_KEY=你的豆包API Key
+
+# 一键启动（自动识别场景）
+node start-auto.js
+```
+
+##### 2. 适配飞书/微信机器人场景
+当你需要用飞书/微信机器人触发 OpenClaw 时，只需在启动前设置环境变量，脚本会自动识别并切换到豆包 API：
+```bash
+# 飞书机器人场景
+export EXTERNAL_BOT=feishu
+node start-auto.js
+
+# 微信机器人场景
+export EXTERNAL_BOT=wechat
+node start-auto.js
+```
+
+##### 3. 手动强制切换（兜底机制）
+如果自动识别出错，可通过参数强制指定模式（保留手动控制能力）：
+```javascript
+// 改造start-auto.js，增加手动参数兜底
+const manualMode = process.argv[2]; // 手动指定模式（trea/doubao）
+const mode = manualMode || detectScene(); // 有手动参数则优先，否则自动识别
+```
+使用时：
+```bash
+# 强制用Trae内置模型
+node start-auto.js trea
+
+# 强制用豆包API模型
+node start-auto.js doubao
+```
+
+##### 4. 扩展识别规则
+你可根据自己的实际需求，修改 `scene-detector.js` 中的识别规则：
+- 新增场景：如「批量处理任务」→ 用豆包 API，可添加 `checkBatchTask()` 函数；
+- 调整关键词：如增加「批量」「批量生成」「批量执行」等关键词；
+- 自定义触发条件：如检测特定文件、端口、进程是否存在。
+
+### 总结
+1. **核心实现**：通过 `scene-detector.js` 识别场景特征（外部触发、多智能体对话、深度思考），`start-auto.js` 自动加载对应配置、启动网关，实现无感切换；
+2. **关键特性**：
+   - 全自动：默认无需参数，脚本自动判断场景；
+   - 可扩展：识别规则可根据需求灵活调整；
+   - 有兜底：保留手动参数强制切换，防止自动识别出错；
+3. **使用便捷性**：一键启动 `node start-auto.js` 即可，飞书/微信机器人场景只需设置环境变量，无需修改代码。
+
+这套方案既满足了「不同场景自动切换模型」的智能需求，又保留了手动控制的灵活性，完全适配你提出的「外部集成用API、本地深度思考用内置」的核心诉求。

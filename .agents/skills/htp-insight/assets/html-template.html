@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘画心理洞察报告</title>
+    <style>
+        /* Warm Style - 温暖友好的风格 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.8;
+            color: #4A4A4A;
+            background-color: #FFFAF0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #FFFAF0 0%, #FED7AA 100%);
+            min-height: 100vh;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .drawing-preview {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ED8936;
+            font-size: 36px;
+            border-bottom: 3px solid #ED8936;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #C05621;
+            font-size: 28px;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #744210;
+            font-size: 22px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 24px;
+            font-size: 17px;
+            line-height: 1.9;
+            text-align: justify;
+        }
+
+        .insight-box {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin: 30px 0;
+            border-left: 4px solid #ED8936;
+        }
+
+        .insight-box p:first-child {
+            font-weight: 600;
+            color: #C05621;
+            margin-bottom: 20px;
+        }
+
+        .action-suggestion {
+            background-color: #F0FFF4;
+            border-left: 4px solid #48BB78;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+
+        .action-suggestion h3 {
+            color: #48BB78;
+            margin-top: 0;
+        }
+
+        .invitation-box {
+            background: linear-gradient(135deg, #F0FFF4 0%, #E6FFFA 100%);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px solid #48BB78;
+        }
+
+        .invitation-box p {
+            font-size: 18px;
+            font-style: italic;
+            color: #2F855A;
+            line-height: 2;
+        }
+
+        ol, ul {
+            margin-left: 30px;
+            margin-bottom: 24px;
+        }
+
+        li {
+            margin-bottom: 16px;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        li strong {
+            color: #C05621;
+            font-weight: 600;
+        }
+
+        .meta-info {
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #FED7AA;
+        }
+
+        /* 风险警示样式 */
+        .risk-warning {
+            background-color: #FFF5F5;
+            border-left: 4px solid #E53E3E;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 12px;
+        }
+
+        .risk-warning h3 {
+            color: #E53E3E;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .risk-warning p {
+            font-size: 16px;
+            color: #C53030;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .illustration, .drawing-preview {
+                margin: 20px auto;
+            }
+
+            .insight-box, .action-suggestion, .invitation-box {
+                padding: 20px;
+            }
+        }
+
+        /* 打印样式 */
+        @media print {
+            body {
+                background-color: #FFFFFF;
+            }
+
+            .container {
+                padding: 20px;
+                background: none;
+            }
+
+            .illustration, .drawing-preview {
+                max-width: 100%;
+                page-break-inside: avoid;
+                margin: 20px 0;
+            }
+
+            h2 {
+                page-break-before: always;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .illustration {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 原始绘画展示 -->
+        <div class="header-section">
+            <img src="original-drawing.png" alt="您绘制的画" class="drawing-preview">
+            <h1>绘画心理洞察报告</h1>
+        </div>
+
+        <!-- 封面插图 -->
+        <img src="illustration-cover.png" alt="封面插图 - 整体心理状态" class="illustration">
+
+        <!-- 深度洞察部分 -->
+        <h2>一、深度洞察</h2>
+
+        <img src="illustration-insight.png" alt="深度洞察插图 - 关键意象" class="illustration">
+
+        <div class="insight-box">
+            <p>【整体画面解码】</p>
+            <p>【这里放置整体画面解码的内容】用1-2句话描述整体画面特征，直接引出核心心理状态。</p>
+        </div>
+
+        <div class="insight-box">
+            <p>【关键意象解读】</p>
+            <p>【这里放置关键意象解读的内容】选取2-3个最关键的视觉特征，深度融合心理学解读。</p>
+        </div>
+
+        <div class="insight-box">
+            <p>【当前状态定位】</p>
+            <p>【这里放置当前状态定位的内容】简洁刻画当前心理状态。</p>
+        </div>
+
+        <div class="insight-box">
+            <p>【核心矛盾与渴望】</p>
+            <p>【这里放置核心矛盾与渴望的内容】点明最深层的矛盾和核心渴望。</p>
+        </div>
+
+        <!-- 行动建议部分 -->
+        <h2>二、行动建议</h2>
+
+        <img src="illustration-action.png" alt="行动建议插图 - 积极行动" class="illustration">
+
+        <div class="action-suggestion">
+            <h3>核心方向</h3>
+            <p>【这里放置核心方向的内容】一句话概括主要成长方向。</p>
+        </div>
+
+        <div class="action-suggestion">
+            <h3>具体实践建议</h3>
+            <ol>
+                <li><strong>看见与接纳</strong><br>【这里放置建议内容】建立自我对话习惯，每天晚上花10分钟，诚实地对自己说：今天，我的哪个"自我"处于主导地位？这个状态让我感觉如何？接纳的前提是看见。</li>
+                <li><strong>建立角色边界</strong><br>【这里放置建议内容】为职业、家庭、自我角色设定清晰的边界条件。比如，工作时间内全力投入，但允许自己在某些问题上做到"足够好"而非"完美"；回家后，通过一个简单的过渡仪式（如深呼吸、听一首歌），帮助自己从职业角色切换到家庭角色。</li>
+                <li><strong>养育内在小孩</strong><br>【这里放置建议内容】那个微笑的小女孩是你最宝贵的心理资源，她代表着你的创造力、直觉、童真。建议你每周至少保留2小时纯粹的"自我时间"，做没有功利性的事。不是"消除"她，而是让她成为你生命的中心。</li>
+            </ol>
+        </div>
+
+        <!-- 风险警示（如有高风险） -->
+        <div class="risk-warning" style="display: none;">
+            <h3>⚠️ 风险警示</h3>
+            <p>【这里放置风险警示内容】如检测到高风险或中风险，显示此警示框。</p>
+        </div>
+
+        <!-- 最后的邀请 -->
+        <img src="illustration-invitation.png" alt="最后的邀请插图 - 温暖支持" class="illustration">
+
+        <h2>三、最后的邀请</h2>
+
+        <div class="invitation-box">
+            <p>【这里放置最后的邀请内容】一段温暖而有力的话，提供支持和希望。</p>
+        </div>
+
+        <!-- 页脚信息 -->
+        <div class="meta-info">
+            <p>分析时间：2024年XX月XX日</p>
+            <p>分析方法：HTP房树人分析</p>
+            <p>【如有风险警示】⚠️ 本报告检测到需要关注的风险信号，建议寻求专业心理咨询师的帮助</p>
+            <p><em>注：本报告仅供参考，不替代专业临床诊断</em></p>
+        </div>
+    </div>
+</body>
+</html>

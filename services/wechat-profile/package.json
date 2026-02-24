@@ -1,0 +1,23 @@
+{
+  "name": "wechat-profile-service",
+  "version": "1.0.0",
+  "description": "微信形象管理服务，实现智能体个人形象的自主设计和管理",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "wechaty": "^1.20.0",
+    "wechaty-puppet-padlocal": "^1.12.0",
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "redis": "^4.6.0",
+    "openai": "^4.0.0",
+    "axios": "^1.6.0",
+    "sharp": "^0.32.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

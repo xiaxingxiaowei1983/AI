@@ -67,6 +67,15 @@ class LifeDecisionMasterCapabilityTree {
       prerequisites: ['领域知识完整', '资源可评估', '执行能力明确'],
       failureBoundaries: ['领域知识不足', '资源约束过强', '执行路径模糊']
     });
+
+    // 5. 通信策略
+    this.communicationStrategy = this.tree.addNode('通信策略', 3, null, {
+      description: '与用户通信的顶层策略框架',
+      inputs: ['用户意图', '交互情境', '内容需求'],
+      outputs: ['消息格式', '情感表达', '交互方案'],
+      prerequisites: ['意图明确', '情境清晰', '工具可用'],
+      failureBoundaries: ['意图模糊', '情境复杂', '工具不可用']
+    });
   }
 
   // 创建中层节点（可复用流程）
@@ -114,6 +123,24 @@ class LifeDecisionMasterCapabilityTree {
       outputs: ['成长路径', '学习计划', '技能发展方案'],
       prerequisites: ['目标明确', '资源可规划', '执行意愿强'],
       failureBoundaries: ['目标模糊', '资源不可控', '执行意愿弱']
+    });
+
+    // 富消息流程
+    this.richMessagingProcess = this.tree.addNode('富消息流程', 2, this.communicationStrategy.id, {
+      description: '富文本消息的生成和处理流程',
+      inputs: ['Markdown文本', '标题（可选）', '颜色（可选）'],
+      outputs: ['结构化消息', '卡片格式', '交互元素'],
+      prerequisites: ['内容完整', '格式正确', '工具可用'],
+      failureBoundaries: ['内容为空', '格式错误', '工具不可用']
+    });
+
+    // 表情反应流程
+    this.expressiveReactionProcess = this.tree.addNode('表情反应流程', 2, this.communicationStrategy.id, {
+      description: '基于情感的表情反应流程',
+      inputs: ['情绪/意图', '交互情境', '用户状态'],
+      outputs: ['表情选择', '情感表达', '反应生成'],
+      prerequisites: ['情绪明确', '情境清晰', '工具可用'],
+      failureBoundaries: ['情绪模糊', '情境复杂', '工具不可用']
     });
   }
 
@@ -180,6 +207,33 @@ class LifeDecisionMasterCapabilityTree {
       outputs: ['价值观映射', '一致性分析', '优先级排序'],
       prerequisites: ['陈述真实', '记录完整', '分析方法适用'],
       failureBoundaries: ['陈述不真实', '记录不完整', '方法不适用']
+    });
+
+    // 富消息生成操作
+    this.richMessageGeneration = this.tree.addNode('富消息生成操作', 1, this.richMessagingProcess.id, {
+      description: '生成富文本消息卡片的操作',
+      inputs: ['Markdown文本', '标题', '颜色'],
+      outputs: ['飞书卡片', '结构化消息', '消息ID'],
+      prerequisites: ['内容完整', '格式正确', '工具可用'],
+      failureBoundaries: ['内容为空', '格式错误', '工具不可用']
+    });
+
+    // 表情生成操作
+    this.stickerGeneration = this.tree.addNode('表情生成操作', 1, this.expressiveReactionProcess.id, {
+      description: '生成表情反应的操作',
+      inputs: ['情绪/意图', '交互情境'],
+      outputs: ['表情符号', 'image_key', '缓存状态'],
+      prerequisites: ['情绪明确', '情境清晰', '工具可用'],
+      failureBoundaries: ['情绪模糊', '情境复杂', '工具不可用']
+    });
+
+    // 消息发送操作
+    this.messageSending = this.tree.addNode('消息发送操作', 1, this.richMessagingProcess.id, {
+      description: '发送消息的操作',
+      inputs: ['消息内容', 'webhook URL'],
+      outputs: ['发送结果', '状态码', '响应时间'],
+      prerequisites: ['内容完整', 'URL有效', '网络可用'],
+      failureBoundaries: ['内容为空', 'URL无效', '网络不可用']
     });
   }
 

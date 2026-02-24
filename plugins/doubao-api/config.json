@@ -1,0 +1,84 @@
+{
+  "api": {
+    "key": "c13b2982-0aab-4c75-9404-0deb12a219ec",
+    "endpoint": "https://ark.cn-beijing.volces.com/api/v3/responses",
+    "defaultModel": "doubao-seed-2-0-lite-260215"
+  },
+  "models": [
+    {
+      "name": "doubao-seed-2-0-lite-260215",
+      "description": "火山引擎豆包多模态模型",
+      "capabilities": {
+        "textInput": true,
+        "imageInput": true,
+        "videoInput": true,
+        "textOutput": true,
+        "imageOutput": false,
+        "videoOutput": false
+      }
+    },
+    {
+      "name": "doubao-seed-1-8",
+      "description": "豆包种子模型1.8版本",
+      "capabilities": {
+        "textInput": true,
+        "imageInput": true,
+        "videoInput": true,
+        "textOutput": true,
+        "imageOutput": false,
+        "videoOutput": false
+      }
+    }
+  ],
+  "openclaw": {
+    "integration": {
+      "enabled": true,
+      "agentId": "doubao",
+      "agentName": "豆包AI",
+      "description": "基于火山引擎豆包的多模态AI助手"
+    }
+  },
+  "evo": {
+    "integration": {
+      "enabled": true,
+      "nodeId": "node_doubao_api",
+      "capabilities": [
+        "multimodal_analysis",
+        "image_analysis",
+        "text_generation",
+        "visual_question_answering"
+      ]
+    }
+  },
+  "teams": [
+    {
+      "id": "frontend",
+      "name": "前端团队",
+      "permissions": ["text_input", "image_input"]
+    },
+    {
+      "id": "backend",
+      "name": "后端团队",
+      "permissions": ["text_input"]
+    },
+    {
+      "id": "design",
+      "name": "设计团队",
+      "permissions": ["text_input", "image_input"]
+    },
+    {
+      "id": "product",
+      "name": "产品团队",
+      "permissions": ["text_input", "image_input"]
+    }
+  ],
+  "rateLimits": {
+    "requestsPerMinute": 60,
+    "tokensPerMinute": 10000
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 3600,
+    "maxSize": 1000
+  }
+}

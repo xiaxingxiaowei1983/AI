@@ -1,0 +1,344 @@
+{
+  "id": "dashboard-1771920637280",
+  "timestamp": 1771920637280,
+  "overview": {
+    "totalCycles": 54,
+    "successfulCycles": 0,
+    "failedCycles": 0,
+    "substantialEvolutions": 0,
+    "systemStatus": "healthy",
+    "evolutionStatus": "warning"
+  },
+  "metrics": {
+    "id": "metrics-1771920637254",
+    "timestamp": 1771920637254,
+    "system": {
+      "uptime": 600.5799418,
+      "memory": {
+        "rss": 47132672,
+        "heapTotal": 7925760,
+        "heapUsed": 5792408,
+        "external": 1703499,
+        "arrayBuffers": 26859
+      },
+      "cpu": {
+        "usage": 30.450583231599033,
+        "cores": 12
+      },
+      "disk": {
+        "free": 100000000000,
+        "total": 200000000000,
+        "used": 100000000000
+      }
+    },
+    "pcec": {
+      "cycles": 54,
+      "successfulCycles": 0,
+      "failedCycles": 0,
+      "substantialEvolutions": 0,
+      "nonSubstantialEvolutions": 0,
+      "lastCycle": 0
+    },
+    "capabilities": {
+      "total": 0,
+      "active": 0,
+      "byLevel": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "performance": {
+      "cycleDuration": 0,
+      "evolutionSpeed": 0,
+      "successRate": 0,
+      "resourceUsage": 21.483481121094307
+    },
+    "evolution": {
+      "recentEvolutions": 0,
+      "evolutionTypes": {},
+      "averageEvolutionTime": 0,
+      "evolutionTrend": "stable"
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert-1771919697454-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919697454,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919697460-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919697460,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919757462-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919757462,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919757468-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919757468,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919817469-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919817469,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919817479-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919817479,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919877466-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919877466,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919877484-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919877484,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919937471-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919937471,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919937494-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919937494,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919997496-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919997496,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919997543-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919997543,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919997609-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919997609,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920096914-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920096914,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920096932-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920096932,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920156914-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920156914,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920156938-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920156938,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920216919-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920216919,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920216954-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920216954,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920276924-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920276924,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920276959-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920276959,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920336935-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920336935,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920336974-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920336974,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920396948-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920396948,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920396987-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920396987,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920456963-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920456963,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920456986-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920456986,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920516960-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920516960,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920516990-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920516990,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920576972-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920576972,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920577005-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920577005,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920636994-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920636994,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771920637014-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771920637014,
+      "status": "active"
+    }
+  ],
+  "trends": {
+    "evolution": "stable",
+    "performance": "stable",
+    "resourceUsage": "stable"
+  },
+  "recommendations": [
+    {
+      "id": "rec-1771920637303-activity",
+      "type": "evolution",
+      "priority": "medium",
+      "message": "No recent evolutions detected",
+      "action": "Check PCEC scheduler and ensure evolution tasks are running"
+    }
+  ]
+}

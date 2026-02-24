@@ -1,0 +1,35 @@
+{
+  "type": "capability-shape",
+  "cycle": 47,
+  "name": "Capability Shape for Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+  "description": "Generated from new-feature evolution",
+  "shape": {
+    "inputs": [
+      "evolution opportunity",
+      "existing capabilities"
+    ],
+    "outputs": [
+      "new capability",
+      "evolution result"
+    ],
+    "invariants": [
+      "anti-degeneration lock validation",
+      "mind explosion completion"
+    ],
+    "variables": [
+      "evolution type",
+      "complexity level",
+      "implementation effort"
+    ],
+    "failurePoints": [
+      "evolution failure",
+      "anti-degeneration lock violation"
+    ]
+  },
+  "generated": 1771918849475,
+  "source": {
+    "success": true,
+    "type": "new-feature",
+    "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力"
+  }
+}

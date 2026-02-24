@@ -1,0 +1,198 @@
+要的是在 Trae 中写代码，通过 OpenClaw 的 API 来实现完全自动化的 NotebookLM 操作，而不是手动发一次指令。这是一个开发者级别的解决方案。
+ 
+核心方案
+我们将在 Trae 中创建一个 Node.js 脚本，利用 OpenClaw 的 SDK 或 HTTP API，结合 Puppeteer（浏览器自动化），实现 24 小时待命的全自动 NotebookLM 机器人。
+ 
+第一步：在 Trae 中初始化项目
+1. 打开 Trae，新建文件夹 notebooklm-bot。
+2. 在 Trae 终端中运行：
+bash
+ 
+ 
+运行
+ 
+ 
+ 
+ 
+npm init -y
+npm install
+ openclaw axios puppeteer
+ 
+ 
+第二步：编写自动化脚本 index.js
+在 Trae 中新建文件 index.js，复制以下代码（这是一个完整的自动化框架）：
+javascript
+ 
+ 
+运行
+ 
+ 
+ 
+ 
+const axios = require('axios');
+const puppeteer = require('puppeteer');
+
+// ================= 配置区域 =================
+const CONFIG = {
+    openclawApiUrl: 'http://127.0.0.1:18789/api/v1',
+    notebooklmUrl: 'https://notebooklm.google.com',
+    // 你要监控的文件夹（有新文件就自动上传）
+    watchFolder: '/path/to/your/documents',
+    // 下载文件夹
+    downloadFolder: '/path/to/downloads'
+};
+
+// ================= 核心功能 =================
+
+class NotebookLMAutomator {
+    constructor() {
+        this.browser = null;
+        this.page = null;
+    }
+
+    // 1. 初始化浏览器
+    async init() {
+        console.log('正在启动浏览器...');
+        this.browser = await puppeteer.launch({ 
+            headless: false, // 设为 true 则后台运行
+            defaultViewport: null 
+        });
+        this.page = await this.browser.newPage();
+        
+        // 设置下载路径
+        await this.page._client.send('Page.setDownloadBehavior', {
+            behavior: 'allow',
+            downloadPath: CONFIG.downloadFolder
+        });
+    }
+
+    // 2. 登录并访问 NotebookLM
+    async loginAndAccess() {
+        console.log('正在访问 NotebookLM...');
+        await this.page.goto(CONFIG.notebooklmUrl, { waitUntil: 'networkidle2' });
+        
+        // 这里假设你已经在浏览器中登录过 Google，
+        // 如果需要处理登录逻辑，可以在这里补充 Puppeteer 代码
+        // 例如：点击登录按钮、输入账号密码等
+        
+        console.log('已进入 NotebookLM 主页');
+    }
+
+    // 3. 上传文件并生成内容
+    async processFile(filePath, prompt = '请总结这份文档的核心内容') {
+        console.log(`正在处理文件: ${filePath}`);
+        
+        // 点击 "New Project"
+        await this.page.waitForSelector('button:has-text("New Project")');
+        await this.page.click('button:has-text("New Project")');
+
+        // 上传文件
+        const [fileChooser] = await Promise.all([
+            this.page.waitForFileChooser(),
+            this.page.click('input[type="file"]')
+        ]);
+        await fileChooser.accept([filePath]);
+
+        // 等待上传完成
+        await this.page.waitForTimeout(5000); // 根据文件大小调整
+
+        // 输入提示词并发送
+        await this.page.fill('textarea[placeholder*="Ask"]', prompt);
+        await this.page.press('textarea[placeholder*="Ask"]', 'Enter');
+
+        // 等待生成完成
+        await this.page.waitForTimeout(10000);
+        
+        console.log('内容生成完毕');
+    }
+
+    // 4. 下载结果
+    async downloadResult() {
+        console.log('正在下载结果...');
+        // 点击 Export/Download 按钮（需根据实际页面元素调整选择器）
+        await this.page.click('button:has-text("Export")');
+        await this.page.waitForTimeout(3000);
+        console.log('下载完成');
+    }
+
+    // 5. 主流程
+    async run(filePath) {
+        try {
+            await this.init();
+            await this.loginAndAccess();
+            await this.processFile(filePath);
+            await this.downloadResult();
+        } catch (error) {
+            console.error('自动化过程出错:', error);
+        } finally {
+            // 保持浏览器打开，或关闭：await this.browser.close();
+        }
+    }
+}
+
+// ================= 启动机器人 =================
+
+// 示例：处理单个文件
+const bot = new NotebookLMAutomator();
+// 把下面的路径换成你要处理的文件
+bot
+.run('/path/to/your/test.pdf');
+ 
+ 
+第三步：通过 OpenClaw 增强（可选）
+如果你想利用 OpenClaw 的能力来处理更复杂的逻辑，可以在脚本中调用 OpenClaw 的 API：
+javascript
+ 
+ 
+运行
+ 
+ 
+ 
+ 
+// 在 index.js 中添加这个函数
+async function callOpenClaw(task) {
+    try {
+        const response = await axios.post(`${CONFIG.openclawApiUrl}/chat`, {
+            message:
+ task
+        });
+        return response.data;
+    } catch (error) {
+        console.error('调用 OpenClaw 失败:', error);
+    }
+}
+
+// 使用示例：让 OpenClaw 帮你决定用什么提示词
+const smartPrompt = await callOpenClaw('帮我写一个提示词，用于分析这份财务报表，要求提取关键数据');
+ 
+ 
+第四步：在 Trae 中运行
+1. 保存 index.js。
+2. 在 Trae 终端运行：
+bash
+ 
+ 
+运行
+ 
+ 
+ 
+ 
+node
+ index.js
+ 
+脚本会自动打开浏览器，操作 NotebookLM 完成上传、生成和下载。
+ 
+进阶：让它永远运行
+如果你想让它自动监控文件夹，有新文件就处理，可以在 Trae 中安装 chokidar 并修改代码：
+bash
+ 
+ 
+运行
+ 
+ 
+ 
+ 
+npm install
+ chokidar
+ 
+然后在 index.js 中加入文件监控逻辑。

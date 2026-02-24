@@ -1,0 +1,146 @@
+{
+  "status": {
+    "timestamp": 1771919637484,
+    "systemStatus": "healthy",
+    "evolutionStatus": "warning",
+    "activeAlerts": 0,
+    "criticalAlerts": 0,
+    "metricsCollected": 5,
+    "dashboardLastUpdated": 1771919637478,
+    "performanceTrend": "stable",
+    "resourceUsageTrend": "stable"
+  },
+  "latestMetrics": {
+    "id": "metrics-1771919637486",
+    "timestamp": 1771919637486,
+    "system": {
+      "uptime": 0.1921109,
+      "memory": {
+        "rss": 47349760,
+        "heapTotal": 7925760,
+        "heapUsed": 5710544,
+        "external": 1687151,
+        "arrayBuffers": 10511
+      },
+      "cpu": {
+        "usage": 14.902315899932429,
+        "cores": 12
+      },
+      "disk": {
+        "free": 100000000000,
+        "total": 200000000000,
+        "used": 100000000000
+      }
+    },
+    "pcec": {
+      "cycles": 51,
+      "successfulCycles": 0,
+      "failedCycles": 0,
+      "substantialEvolutions": 0,
+      "nonSubstantialEvolutions": 0,
+      "lastCycle": 0
+    },
+    "capabilities": {
+      "total": 0,
+      "active": 0,
+      "byLevel": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "performance": {
+      "cycleDuration": 0,
+      "evolutionSpeed": 0,
+      "successRate": 0,
+      "resourceUsage": 20.191447979232134
+    },
+    "evolution": {
+      "recentEvolutions": 0,
+      "evolutionTypes": {},
+      "averageEvolutionTime": 0,
+      "evolutionTrend": "stable"
+    }
+  },
+  "alerts": [],
+  "dashboard": {
+    "id": "dashboard-1771919637499",
+    "timestamp": 1771919637499,
+    "overview": {
+      "totalCycles": 51,
+      "successfulCycles": 0,
+      "failedCycles": 0,
+      "substantialEvolutions": 0,
+      "systemStatus": "healthy",
+      "evolutionStatus": "warning"
+    },
+    "metrics": {
+      "id": "metrics-1771919637493",
+      "timestamp": 1771919637493,
+      "system": {
+        "uptime": 0.1990073,
+        "memory": {
+          "rss": 47349760,
+          "heapTotal": 7925760,
+          "heapUsed": 5777144,
+          "external": 1687151,
+          "arrayBuffers": 10511
+        },
+        "cpu": {
+          "usage": 34.08317421498515,
+          "cores": 12
+        },
+        "disk": {
+          "free": 100000000000,
+          "total": 200000000000,
+          "used": 100000000000
+        }
+      },
+      "pcec": {
+        "cycles": 51,
+        "successfulCycles": 0,
+        "failedCycles": 0,
+        "substantialEvolutions": 0,
+        "nonSubstantialEvolutions": 0,
+        "lastCycle": 0
+      },
+      "capabilities": {
+        "total": 0,
+        "active": 0,
+        "byLevel": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
+      "performance": {
+        "cycleDuration": 0,
+        "evolutionSpeed": 0,
+        "successRate": 0,
+        "resourceUsage": 19.309925966015516
+      },
+      "evolution": {
+        "recentEvolutions": 0,
+        "evolutionTypes": {},
+        "averageEvolutionTime": 0,
+        "evolutionTrend": "stable"
+      }
+    },
+    "alerts": [],
+    "trends": {
+      "evolution": "stable",
+      "performance": "stable",
+      "resourceUsage": "stable"
+    },
+    "recommendations": [
+      {
+        "id": "rec-1771919637501-activity",
+        "type": "evolution",
+        "priority": "medium",
+        "message": "No recent evolutions detected",
+        "action": "Check PCEC scheduler and ensure evolution tasks are running"
+      }
+    ]
+  },
+  "exportTime": 1771919637504
+}

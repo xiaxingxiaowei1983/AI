@@ -1,0 +1,455 @@
+{
+  "assessmentSystem": {
+    "name": "能力进化评估系统",
+    "description": "评估能力进化的效果，验证是否达到更快、更稳、更少步骤的目标",
+    "coreMetrics": [
+      {
+        "id": "speed",
+        "name": "执行速度",
+        "description": "完成相同任务所需的时间",
+        "measurement": {
+          "method": "时间测量",
+          "unit": "秒",
+          "baseline": "进化前的执行时间",
+          "target": "至少减少10%的执行时间"
+        },
+        "evaluationCriteria": {
+          "excellent": "执行时间减少30%以上",
+          "good": "执行时间减少10-30%",
+          "average": "执行时间减少0-10%",
+          "poor": "执行时间增加"
+        }
+      },
+      {
+        "id": "stability",
+        "name": "稳定性",
+        "description": "能力执行的成功率和可靠性",
+        "measurement": {
+          "method": "成功率统计",
+          "unit": "百分比",
+          "baseline": "进化前的成功率",
+          "target": "至少提高5%的成功率"
+        },
+        "evaluationCriteria": {
+          "excellent": "成功率提高15%以上",
+          "good": "成功率提高5-15%",
+          "average": "成功率提高0-5%",
+          "poor": "成功率下降"
+        }
+      },
+      {
+        "id": "steps",
+        "name": "步骤数量",
+        "description": "完成任务所需的操作步骤",
+        "measurement": {
+          "method": "步骤计数",
+          "unit": "步骤",
+          "baseline": "进化前的步骤数",
+          "target": "至少减少1个步骤"
+        },
+        "evaluationCriteria": {
+          "excellent": "步骤减少3个以上",
+          "good": "步骤减少1-3个",
+          "average": "步骤不变",
+          "poor": "步骤增加"
+        }
+      },
+      {
+        "id": "resourceUsage",
+        "name": "资源使用",
+        "description": "能力执行消耗的系统资源",
+        "measurement": {
+          "method": "资源监控",
+          "metrics": ["内存使用", "CPU使用率", "网络请求数"],
+          "baseline": "进化前的资源消耗",
+          "target": "至少减少10%的资源消耗"
+        },
+        "evaluationCriteria": {
+          "excellent": "资源消耗减少25%以上",
+          "good": "资源消耗减少10-25%",
+          "average": "资源消耗减少0-10%",
+          "poor": "资源消耗增加"
+        }
+      },
+      {
+        "id": "userExperience",
+        "name": "用户体验",
+        "description": "用户使用能力的便捷性和满意度",
+        "measurement": {
+          "method": "用户反馈和行为分析",
+          "metrics": ["操作复杂度", "满意度评分", "错误率"],
+          "baseline": "进化前的用户体验",
+          "target": "用户满意度提高10%以上"
+        },
+        "evaluationCriteria": {
+          "excellent": "用户满意度提高20%以上",
+          "good": "用户满意度提高10-20%",
+          "average": "用户满意度提高0-10%",
+          "poor": "用户满意度下降"
+        }
+      }
+    ],
+    "assessmentMethods": [
+      {
+        "id": "benchmark-testing",
+        "name": "基准测试",
+        "description": "在控制条件下测试进化前后的性能",
+        "process": [
+          "定义测试场景和数据集",
+          "记录进化前的基准性能",
+          "执行能力进化",
+          "测试进化后的性能",
+          "比较前后性能差异"
+        ],
+        "tools": [
+          "性能测试工具",
+          "自动化测试脚本",
+          "基准测试框架"
+        ]
+      },
+      {
+        "id": "real-world-testing",
+        "name": "真实场景测试",
+        "description": "在实际使用场景中评估能力表现",
+        "process": [
+          "识别典型使用场景",
+          "收集真实用户任务",
+          "执行任务并记录表现",
+          "分析任务完成情况",
+          "评估用户反馈"
+        ],
+        "tools": [
+          "用户测试",
+          "使用场景分析",
+          "反馈收集工具"
+        ]
+      },
+      {
+        "id": "comparative-analysis",
+        "name": "比较分析",
+        "description": "与同类能力或解决方案进行比较",
+        "process": [
+          "识别比较基准",
+          "定义比较维度",
+          "收集比较数据",
+          "分析相对优势",
+          "生成比较报告"
+        ],
+        "tools": [
+          "竞争对手分析",
+          "行业标准比较",
+          "最佳实践评估"
+        ]
+      },
+      {
+        "id": "long-term-monitoring",
+        "name": "长期监控",
+        "description": "持续监控能力在长期使用中的表现",
+        "process": [
+          "建立监控指标",
+          "设置监控阈值",
+          "收集长期数据",
+          "分析趋势变化",
+          "识别潜在问题"
+        ],
+        "tools": [
+          "性能监控系统",
+          "错误跟踪工具",
+          "用户行为分析"
+        ]
+      }
+    ],
+    "successCriteria": {
+      "name": "成功标准",
+      "description": "判断能力进化是否成功的标准",
+      "primaryCriteria": [
+        {
+          "id": "faster",
+          "name": "更快",
+          "description": "执行速度明显提升",
+          "threshold": "执行时间减少至少10%",
+          "weight": 0.3
+        },
+        {
+          "id": "more-stable",
+          "name": "更稳",
+          "description": "稳定性明显提高",
+          "threshold": "成功率提高至少5%",
+          "weight": 0.3
+        },
+        {
+          "id": "fewer-steps",
+          "name": "更少步骤",
+          "description": "完成任务的步骤明显减少",
+          "threshold": "步骤减少至少1个",
+          "weight": 0.2
+        },
+        {
+          "id": "resource-efficient",
+          "name": "资源高效",
+          "description": "资源使用明显减少",
+          "threshold": "资源消耗减少至少10%",
+          "weight": 0.1
+        },
+        {
+          "id": "user-friendly",
+          "name": "用户友好",
+          "description": "用户体验明显改善",
+          "threshold": "用户满意度提高至少10%",
+          "weight": 0.1
+        }
+      ],
+      "overallSuccess": {
+        "name": "整体成功标准",
+        "description": "综合评估能力进化是否成功",
+        "criteria": [
+          "至少满足3个主要标准",
+          "整体加权得分达到70分以上",
+          "没有任何维度出现负向变化"
+        ],
+        "successLevels": {
+          "excellent": "满足所有5个标准，加权得分90分以上",
+          "good": "满足4个标准，加权得分80-90分",
+          "average": "满足3个标准，加权得分70-80分",
+          "poor": "满足少于3个标准，加权得分低于70分"
+        }
+      }
+    },
+    "assessmentProcess": {
+      "name": "评估流程",
+      "description": "执行能力进化评估的标准流程",
+      "stages": [
+        {
+          "id": "pre-assessment",
+          "name": "预评估阶段",
+          "description": "评估进化前的基准状态",
+          "activities": [
+            "定义评估场景和任务",
+            "收集进化前的性能数据",
+            "建立基准指标",
+            "设置评估目标"
+          ],
+          "deliverables": [
+            "基准性能报告",
+            "评估计划",
+            "成功标准定义"
+          ]
+        },
+        {
+          "id": "execution",
+          "name": "执行阶段",
+          "description": "执行能力进化并收集数据",
+          "activities": [
+            "实施能力进化",
+            "执行基准测试",
+            "收集真实场景数据",
+            "记录执行过程和结果"
+          ],
+          "deliverables": [
+            "测试数据集合",
+            "执行日志",
+            "初步分析结果"
+          ]
+        },
+        {
+          "id": "analysis",
+          "name": "分析阶段",
+          "description": "分析收集的数据，评估进化效果",
+          "activities": [
+            "比较前后性能差异",
+            "评估成功标准达成情况",
+            "分析优势和不足",
+            "识别改进机会"
+          ],
+          "deliverables": [
+            "性能比较报告",
+            "成功标准评估",
+            "优势劣势分析"
+          ]
+        },
+        {
+          "id": "reporting",
+          "name": "报告阶段",
+          "description": "生成评估报告并提出建议",
+          "activities": [
+            "综合评估结果",
+            "生成详细报告",
+            "提出改进建议",
+            "制定后续计划"
+          ],
+          "deliverables": [
+            "最终评估报告",
+            "改进建议清单",
+            "后续行动计划"
+          ]
+        }
+      ]
+    },
+    "improvementMechanism": {
+      "name": "改进机制",
+      "description": "基于评估结果持续改进能力",
+      "process": [
+        {
+          "id": "gap-analysis",
+          "name": "差距分析",
+          "description": "分析评估结果与目标的差距",
+          "activities": [
+            "识别未达标的维度",
+            "分析差距原因",
+            "优先级排序改进机会"
+          ]
+        },
+        {
+          "id": "action-planning",
+          "name": "行动计划",
+          "description": "制定改进行动计划",
+          "activities": [
+            "定义具体改进措施",
+            "分配责任和时间表",
+            "设置改进目标"
+          ]
+        },
+        {
+          "id": "implementation",
+          "name": "实施改进",
+          "description": "执行改进措施",
+          "activities": [
+            "实施技术改进",
+            "优化流程和方法",
+            "更新文档和指南"
+          ]
+        },
+        {
+          "id": "validation",
+          "name": "验证改进",
+          "description": "验证改进措施的效果",
+          "activities": [
+            "重新测试改进后的能力",
+            "评估改进效果",
+            "调整改进策略"
+          ]
+        }
+      ],
+      "feedbackLoop": {
+        "name": "反馈循环",
+        "description": "建立持续改进的反馈机制",
+        "components": [
+          "定期评估",
+          "用户反馈收集",
+          "性能监控",
+          "最佳实践分享"
+        ]
+      }
+    },
+    "caseStudies": [
+      {
+        "id": "hot-info-cache-improvement",
+        "name": "热点信息缓存层改进",
+        "scenario": "改进热点信息缓存能力",
+        "preEvolution": {
+          "speed": "3秒/查询",
+          "stability": "85%成功率",
+          "steps": "3个步骤",
+          "resourceUsage": "100MB内存",
+          "userExperience": "70%满意度"
+        },
+        "postEvolution": {
+          "speed": "0.5秒/查询",
+          "stability": "98%成功率",
+          "steps": "1个步骤",
+          "resourceUsage": "50MB内存",
+          "userExperience": "95%满意度"
+        },
+        "improvement": {
+          "speed": "83%减少",
+          "stability": "13%提高",
+          "steps": "2个减少",
+          "resourceUsage": "50%减少",
+          "userExperience": "25%提高"
+        },
+        "successLevel": "excellent",
+        "weightedScore": "95"
+      },
+      {
+        "id": "file-handling-optimization",
+        "name": "文件处理能力优化",
+        "scenario": "优化文件处理能力",
+        "preEvolution": {
+          "speed": "5秒/操作",
+          "stability": "80%成功率",
+          "steps": "4个步骤",
+          "resourceUsage": "150MB内存",
+          "userExperience": "65%满意度"
+        },
+        "postEvolution": {
+          "speed": "2秒/操作",
+          "stability": "92%成功率",
+          "steps": "2个步骤",
+          "resourceUsage": "100MB内存",
+          "userExperience": "85%满意度"
+        },
+        "improvement": {
+          "speed": "60%减少",
+          "stability": "12%提高",
+          "steps": "2个减少",
+          "resourceUsage": "33%减少",
+          "userExperience": "20%提高"
+        },
+        "successLevel": "excellent",
+        "weightedScore": "92"
+      }
+    ],
+    "governance": {
+      "name": "评估治理",
+      "description": "管理评估过程的质量和一致性",
+      "components": [
+        {
+          "id": "assessment-team",
+          "name": "评估团队",
+          "description": "负责执行评估的专业团队",
+          "roles": [
+            "评估负责人",
+            "技术评估专家",
+            "用户体验评估专家",
+            "数据分析师"
+          ],
+          "responsibilities": [
+            "设计评估方案",
+            "执行评估测试",
+            "分析评估数据",
+            "生成评估报告"
+          ]
+        },
+        {
+          "id": "quality-assurance",
+          "name": "质量保证",
+          "description": "确保评估过程的质量和可靠性",
+          "activities": [
+            "评估方法验证",
+            "数据质量检查",
+            "结果一致性验证",
+            "评估流程审计"
+          ],
+          "standards": [
+            "评估方法科学性",
+            "数据收集完整性",
+            "分析方法合理性",
+            "报告内容准确性"
+          ]
+        },
+        {
+          "id": "continuous-improvement",
+          "name": "持续改进",
+          "description": "不断优化评估系统本身",
+          "activities": [
+            "评估流程审查",
+            "评估方法更新",
+            "最佳实践分享",
+            "行业标准对齐"
+          ],
+          "frequency": "每季度一次"
+        }
+      ]
+    }
+  }
+}

@@ -38,6 +38,10 @@ const FlowerDecoration = ({ className }: { className?: string }) => (
 export default function OnboardingPage() {
   const { goToLanding, goToCanvas, goToLoading, setUserDrawing } = useApp();
   const [isVisible, setIsVisible] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    age: '',
+    gender: ''
+  });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -46,6 +50,14 @@ export default function OnboardingPage() {
 
   const handleUploadClick = () => {
     fileInputRef.current?.click();
+  };
+
+  const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInfo({ ...userInfo, age: e.target.value });
+  };
+
+  const handleGenderChange = (gender: string) => {
+    setUserInfo({ ...userInfo, gender });
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +84,9 @@ export default function OnboardingPage() {
           setUserDrawing({
             imageData,
             method: 'upload',
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            age: userInfo.age,
+            gender: userInfo.gender
           });
           // 直接跳转到加载页进行分析
           goToLoading();
@@ -80,6 +94,19 @@ export default function OnboardingPage() {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const handleGoToCanvas = () => {
+    // 设置用户画作数据（初始为空，绘制完成后会更新）
+    setUserDrawing({
+      imageData: null,
+      method: 'draw',
+      timestamp: Date.now(),
+      age: userInfo.age,
+      gender: userInfo.gender
+    });
+    // 跳转到画板页面
+    goToCanvas();
   };
 
   return (
@@ -114,13 +141,13 @@ export default function OnboardingPage() {
           </p>
         </div>
         
-        {/* 说明卡片 */}
+        {/* 合并后的卡片：说明文字 + 用户信息输入 */}
         <div 
           className={`gold-card p-5 mb-8 mx-auto max-w-sm w-full transition-all duration-800 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-3 mb-4">
             <div className="p-2 rounded-full bg-warm-lavender/50 flex-shrink-0">
               <Brain className="w-5 h-5 text-warm-purple" />
             </div>
@@ -128,6 +155,44 @@ export default function OnboardingPage() {
               <p className="text-xs text-muted-foreground leading-relaxed">
                 房树人测验是一种经典的心理投射技术，通过你的绘画，可以了解你的内心世界、情感状态和人际关系。
               </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1">
+                年龄
+              </label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                value={userInfo.age}
+                onChange={handleAgeChange}
+                placeholder="请输入您的年龄"
+                className="w-full px-4 py-2 rounded-lg border border-warm-pink/30 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-warm-pink/50"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1">
+                性别
+              </label>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleGenderChange('男')}
+                  className={`flex-1 py-2 rounded-lg transition-all ${userInfo.gender === '男' ? 'bg-warm-blue/30 border-2 border-warm-blue/50' : 'bg-white/50 border border-warm-pink/30 hover:bg-warm-blue/10'}`}
+                >
+                  男
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleGenderChange('女')}
+                  className={`flex-1 py-2 rounded-lg transition-all ${userInfo.gender === '女' ? 'bg-warm-pink/30 border-2 border-warm-pink/50' : 'bg-white/50 border border-warm-pink/30 hover:bg-warm-pink/10'}`}
+                >
+                  女
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -170,7 +235,7 @@ export default function OnboardingPage() {
           
           {/* 在线绘制选项 */}
           <button
-            onClick={goToCanvas}
+            onClick={handleGoToCanvas}
             className={`gold-card p-6 text-left transition-all duration-800 delay-400 hover:scale-[1.02] ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}

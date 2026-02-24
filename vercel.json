@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd HTP && npm install && npm run build",
+  "outputDirectory": "HTP/dist",
+  "installCommand": "cd HTP && npm install",
+  "devCommand": "cd HTP && npm run dev",
+  "framework": "vite",
+  "rootDirectory": "HTP"
+}

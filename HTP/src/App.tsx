@@ -5,7 +5,7 @@ import CanvasPage from '@/sections/CanvasPage';
 import LoadingPage from '@/sections/LoadingPage';
 import ResultPage from '@/sections/ResultPage';
 import RiskResultPage from '@/sections/RiskResultPage';
-import ProfessionalReportPage from '@/sections/ProfessionalReportPage';
+
 import { Toaster } from '@/components/ui/sonner';
 
 // 路由组件
@@ -28,8 +28,7 @@ function AppRouter() {
       return <ResultPage />;
     case 'risk-result':
       return <RiskResultPage />;
-    case 'professional-report':
-      return <ProfessionalReportPage />;
+
     default:
       return <LandingPage />;
   }

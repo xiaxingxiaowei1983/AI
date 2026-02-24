@@ -1,0 +1,9 @@
+{
+  "project": "local",
+  "deploy": {
+    "prod": {
+      "url": "http://localhost:54321"
+    }
+  },
+  "user": "xiaxingxiaowei1983@gmail.com"
+}

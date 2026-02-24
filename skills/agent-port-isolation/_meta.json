@@ -1,0 +1,27 @@
+{
+  "name": "agent-port-isolation",
+  "version": "1.0.0",
+  "description": "智能体端口隔离指南，为每个智能体或项目分配独立的端口，避免端口冲突",
+  "author": "系统管理员",
+  "created": "2026-02-23",
+  "category": "系统运维",
+  "tags": ["端口隔离", "智能体管理", "系统运维", "OpenClaw", "端口配置"],
+  "requires": [],
+  "provides": [
+    "智能体端口分配",
+    "多智能体并行运行",
+    "端口冲突解决",
+    "智能体启动管理"
+  ],
+  "usage": "为多个智能体或项目分配独立的端口，避免端口冲突，支持并行运行",
+  "priority": "high",
+  "related_skills": [
+    "green-tea-startup-troubleshooting",
+    "system-tools",
+    "openclaw-deployer"
+  ],
+  "compatibility": {
+    "openclaw": "2026.2.22-2",
+    "nodejs": ">=18.0.0"
+  }
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "timestamp": "2026-02-23T08:50:20.024Z",
+    "data": {
+      "tokenEfficiency": 94.51214392426213,
+      "responseTime": 2.947595127564493,
+      "taskCompletionRate": 96.52008124325405,
+      "errorRate": 3.132334368524069,
+      "capabilityGrowth": 77.3954718777503,
+      "innovationScore": 84.26651695996674
+    },
+    "overallScore": 63.36773278357408,
+    "analysis": {
+      "strengths": [
+        "Token 效率: 94.51",
+        "任务完成率: 96.52",
+        "创新得分: 84.27"
+      ],
+      "weaknesses": [
+        "响应时间: 2.95",
+        "错误率: 3.13"
+      ],
+      "recommendations": []
+    }
+  },
+  {
+    "timestamp": "2026-02-23T08:50:20.033Z",
+    "data": {
+      "tokenEfficiency": 64.03413604019015,
+      "responseTime": 6.780399654123466,
+      "taskCompletionRate": 71.25103903768259,
+      "errorRate": 6.699593303869317,
+      "capabilityGrowth": 94.7075581374587,
+      "innovationScore": 98.4494311651085
+    },
+    "overallScore": 58.05258235465854,
+    "analysis": {
+      "strengths": [
+        "能力增长: 94.71",
+        "创新得分: 98.45"
+      ],
+      "weaknesses": [
+        "响应时间: 6.78",
+        "错误率: 6.70"
+      ],
+      "recommendations": [
+        "分析任务失败原因，针对性提升智能体能力",
+        "加强错误处理机制，提高系统稳定性"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-02-23T09:50:20.029Z",
+    "data": {
+      "tokenEfficiency": 99.29044136602204,
+      "responseTime": 7.776188183014725,
+      "taskCompletionRate": 71.69854774171999,
+      "errorRate": 1.2167593656445064,
+      "capabilityGrowth": 82.18738847699294,
+      "innovationScore": 84.18158264643058
+    },
+    "overallScore": 60.50208562236082,
+    "analysis": {
+      "strengths": [
+        "Token 效率: 99.29",
+        "能力增长: 82.19",
+        "创新得分: 84.18"
+      ],
+      "weaknesses": [
+        "响应时间: 7.78",
+        "错误率: 1.22"
+      ],
+      "recommendations": [
+        "分析任务失败原因，针对性提升智能体能力"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-02-23T10:50:20.034Z",
+    "data": {
+      "tokenEfficiency": 70.25186166384205,
+      "responseTime": 5.934885953006005,
+      "taskCompletionRate": 99.11378341147386,
+      "errorRate": 9.943149651779553,
+      "capabilityGrowth": 98.5896298291003,
+      "innovationScore": 81.5449407737888
+    },
+    "overallScore": 63.27501994621438,
+    "analysis": {
+      "strengths": [
+        "任务完成率: 99.11",
+        "能力增长: 98.59",
+        "创新得分: 81.54"
+      ],
+      "weaknesses": [
+        "响应时间: 5.93",
+        "错误率: 9.94"
+      ],
+      "recommendations": [
+        "加强错误处理机制，提高系统稳定性"
+      ]
+    }
+  }
+]

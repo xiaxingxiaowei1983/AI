@@ -1,0 +1,918 @@
+[
+  {
+    "id": "viol_1771956331394_efcvkx0f2",
+    "timestamp": 1771956331394,
+    "type": "ROLLBACK",
+    "reason": "测试回滚原因",
+    "details": {
+      "rollbackPointId": "rb_1771956331390_4yjyai0t5",
+      "rollbackDescription": "测试回滚点",
+      "failureConditions": [
+        "成功率 < 90%",
+        "进化降低确定性",
+        "进化引入无法解释的机制",
+        "进化违反禁止行为",
+        "进化引入模糊概念",
+        "系统稳定性下降",
+        "响应时间增加50%以上",
+        "错误率增加20%以上"
+      ]
+    }
+  },
+  {
+    "id": "viol_1771956331402_hn23291h4",
+    "timestamp": 1771956331402,
+    "type": "ROLLBACK",
+    "reason": "成功率低于阈值: 85% < 90%, 响应时间增加超过50%: 60.00000000000001%, 错误率增加超过20%: 25%, 系统稳定性下降: 85%",
+    "details": {
+      "rollbackPointId": "rb_1771956331398_zltc7jvsj",
+      "rollbackDescription": "测试回滚点",
+      "failureConditions": [
+        "成功率 < 90%",
+        "进化降低确定性",
+        "进化引入无法解释的机制",
+        "进化违反禁止行为",
+        "进化引入模糊概念",
+        "系统稳定性下降",
+        "响应时间增加50%以上",
+        "错误率增加20%以上"
+      ]
+    }
+  },
+  {
+    "id": "viol_1771957100919_hruq3srol",
+    "timestamp": 1771957100919,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，稳定可靠",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误"
+      ],
+      "usageCount": 100,
+      "lastUsed": 1771870700914
+    }
+  },
+  {
+    "id": "viol_1771957100923_4vexsk6xk",
+    "timestamp": 1771957100923,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可复用性应优先于可扩展性",
+    "details": {
+      "id": "cap_5",
+      "name": "高效数据处理",
+      "level": 1,
+      "description": "高效处理大量数据，减少系统负载，提升响应速度",
+      "inputs": [
+        "数据集合",
+        "处理参数"
+      ],
+      "outputs": [
+        "处理结果",
+        "性能指标"
+      ],
+      "prerequisites": [
+        "数据可用",
+        "处理资源充足"
+      ],
+      "failureBoundaries": [
+        "数据不可用",
+        "资源不足",
+        "处理超时"
+      ],
+      "usageCount": 80,
+      "lastUsed": 1771955300914
+    }
+  },
+  {
+    "id": "viol_1771957100929_o3xpdzfb6",
+    "timestamp": 1771957100929,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "name": "价值函数突变",
+      "description": "更新价值函数权重: 测试突变: 增加稳定性和复用性权重",
+      "inputs": [
+        "{\"reuseFrequency\":0.25,\"failureRateImpact\":0.25,\"cognitiveLoadReduction\":0.2,\"reasoningCostReduction\":0.15,\"systemCertainty\":0.15}"
+      ],
+      "outputs": [
+        "{\"reuseFrequency\":0.3,\"failureRateImpact\":0.3,\"cognitiveLoadReduction\":0.15,\"reasoningCostReduction\":0.1,\"systemCertainty\":0.15}"
+      ],
+      "prerequisites": [
+        "ADL验证通过",
+        "权重验证通过"
+      ],
+      "failureBoundaries": [
+        "ADL验证失败",
+        "权重验证失败"
+      ]
+    }
+  },
+  {
+    "id": "viol_1771957100932_lfapvgtu0",
+    "timestamp": 1771957100932,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "禁止行为: VAGUE_CONCEPTS",
+    "details": {
+      "id": "cap_1771957100913_67mjqwixq",
+      "name": "Communication (通信)",
+      "level": 1,
+      "inputs": [
+        "通信类型",
+        "通信内容",
+        "目标渠道"
+      ],
+      "outputs": [
+        "通信结果",
+        "传递状态",
+        "反馈信息"
+      ],
+      "prerequisites": [
+        "通信权限",
+        "渠道可用",
+        "内容合规"
+      ],
+      "failureBoundaries": [
+        "权限不足",
+        "渠道不可用",
+        "内容违规",
+        "传递失败"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "vScore": 0,
+      "valueDimensions": {},
+      "isLowValue": false,
+      "lastEvaluation": null,
+      "createdAt": 1771957100913,
+      "updatedAt": 1771957100914,
+      "path": "OpenClaw AI Agent (Main) → Communication (通信)",
+      "children": [
+        {
+          "id": "cap_1771957100914_3rk6zylsf",
+          "name": "Rich Messaging (Output)",
+          "level": 2,
+          "inputs": [
+            "Text (Markdown)",
+            "Title (Optional)",
+            "Color"
+          ],
+          "outputs": [
+            "Feishu Card",
+            "发送状态",
+            "消息ID"
+          ],
+          "prerequisites": [
+            "Feishu集成",
+            "消息模板",
+            "发送权限"
+          ],
+          "failureBoundaries": [
+            "集成失败",
+            "模板错误",
+            "权限不足",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957100914,
+          "updatedAt": 1771957100914,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Rich Messaging (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957100914_glwb0ikc2",
+          "name": "Expressive Reaction (Output)",
+          "level": 2,
+          "inputs": [
+            "Emotion/Intent"
+          ],
+          "outputs": [
+            "Sticker Image",
+            "发送状态",
+            "image_key"
+          ],
+          "prerequisites": [
+            "Sticker资源",
+            "发送权限",
+            "情绪识别"
+          ],
+          "failureBoundaries": [
+            "资源缺失",
+            "权限不足",
+            "识别失败",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957100914,
+          "updatedAt": 1771957100914,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Expressive Reaction (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957100914_y917hg2sf",
+          "name": "Persona Management (Internal)",
+          "level": 2,
+          "inputs": [
+            "User ID"
+          ],
+          "outputs": [
+            "Persona Info",
+            "Status",
+            "Rule Set"
+          ],
+          "prerequisites": [
+            "Persona定义",
+            "规则配置",
+            "用户信息"
+          ],
+          "failureBoundaries": [
+            "定义缺失",
+            "配置错误",
+            "信息不足",
+            "切换失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957100914,
+          "updatedAt": 1771957100914,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Persona Management (Internal)",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "viol_1771957198145_xioic4qsb",
+    "timestamp": 1771957198145,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，稳定可靠",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误"
+      ],
+      "usageCount": 100,
+      "lastUsed": 1771870798141
+    }
+  },
+  {
+    "id": "viol_1771957198148_tik5k79y2",
+    "timestamp": 1771957198148,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可复用性应优先于可扩展性",
+    "details": {
+      "id": "cap_5",
+      "name": "高效数据处理",
+      "level": 1,
+      "description": "高效处理大量数据，减少系统负载，提升响应速度",
+      "inputs": [
+        "数据集合",
+        "处理参数"
+      ],
+      "outputs": [
+        "处理结果",
+        "性能指标"
+      ],
+      "prerequisites": [
+        "数据可用",
+        "处理资源充足"
+      ],
+      "failureBoundaries": [
+        "数据不可用",
+        "资源不足",
+        "处理超时"
+      ],
+      "usageCount": 80,
+      "lastUsed": 1771955398141
+    }
+  },
+  {
+    "id": "viol_1771957198156_i7g6sn6tj",
+    "timestamp": 1771957198156,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "禁止行为: VAGUE_CONCEPTS",
+    "details": {
+      "id": "cap_1771957198141_lj0s9gcmq",
+      "name": "Communication (通信)",
+      "level": 1,
+      "inputs": [
+        "通信类型",
+        "通信内容",
+        "目标渠道"
+      ],
+      "outputs": [
+        "通信结果",
+        "传递状态",
+        "反馈信息"
+      ],
+      "prerequisites": [
+        "通信权限",
+        "渠道可用",
+        "内容合规"
+      ],
+      "failureBoundaries": [
+        "权限不足",
+        "渠道不可用",
+        "内容违规",
+        "传递失败"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "vScore": 0,
+      "valueDimensions": {},
+      "isLowValue": false,
+      "lastEvaluation": null,
+      "createdAt": 1771957198141,
+      "updatedAt": 1771957198141,
+      "path": "OpenClaw AI Agent (Main) → Communication (通信)",
+      "children": [
+        {
+          "id": "cap_1771957198141_6xcqwxbpo",
+          "name": "Rich Messaging (Output)",
+          "level": 2,
+          "inputs": [
+            "Text (Markdown)",
+            "Title (Optional)",
+            "Color"
+          ],
+          "outputs": [
+            "Feishu Card",
+            "发送状态",
+            "消息ID"
+          ],
+          "prerequisites": [
+            "Feishu集成",
+            "消息模板",
+            "发送权限"
+          ],
+          "failureBoundaries": [
+            "集成失败",
+            "模板错误",
+            "权限不足",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957198141,
+          "updatedAt": 1771957198141,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Rich Messaging (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957198141_tghrg4l7e",
+          "name": "Expressive Reaction (Output)",
+          "level": 2,
+          "inputs": [
+            "Emotion/Intent"
+          ],
+          "outputs": [
+            "Sticker Image",
+            "发送状态",
+            "image_key"
+          ],
+          "prerequisites": [
+            "Sticker资源",
+            "发送权限",
+            "情绪识别"
+          ],
+          "failureBoundaries": [
+            "资源缺失",
+            "权限不足",
+            "识别失败",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957198141,
+          "updatedAt": 1771957198141,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Expressive Reaction (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957198141_1vawkb12k",
+          "name": "Persona Management (Internal)",
+          "level": 2,
+          "inputs": [
+            "User ID"
+          ],
+          "outputs": [
+            "Persona Info",
+            "Status",
+            "Rule Set"
+          ],
+          "prerequisites": [
+            "Persona定义",
+            "规则配置",
+            "用户信息"
+          ],
+          "failureBoundaries": [
+            "定义缺失",
+            "配置错误",
+            "信息不足",
+            "切换失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957198141,
+          "updatedAt": 1771957198141,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Persona Management (Internal)",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "viol_1771957256105_4xzrk9rab",
+    "timestamp": 1771957256105,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，稳定可靠",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误"
+      ],
+      "usageCount": 100,
+      "lastUsed": 1771870856100
+    }
+  },
+  {
+    "id": "viol_1771957256108_7krqi7o9u",
+    "timestamp": 1771957256108,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可复用性应优先于可扩展性",
+    "details": {
+      "id": "cap_5",
+      "name": "高效数据处理",
+      "level": 1,
+      "description": "高效处理大量数据，减少系统负载，提升响应速度",
+      "inputs": [
+        "数据集合",
+        "处理参数"
+      ],
+      "outputs": [
+        "处理结果",
+        "性能指标"
+      ],
+      "prerequisites": [
+        "数据可用",
+        "处理资源充足"
+      ],
+      "failureBoundaries": [
+        "数据不可用",
+        "资源不足",
+        "处理超时"
+      ],
+      "usageCount": 80,
+      "lastUsed": 1771955456100
+    }
+  },
+  {
+    "id": "viol_1771957256117_7jvzf84ov",
+    "timestamp": 1771957256117,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "禁止行为: VAGUE_CONCEPTS",
+    "details": {
+      "id": "cap_1771957256100_eqefesnom",
+      "name": "Communication (通信)",
+      "level": 1,
+      "inputs": [
+        "通信类型",
+        "通信内容",
+        "目标渠道"
+      ],
+      "outputs": [
+        "通信结果",
+        "传递状态",
+        "反馈信息"
+      ],
+      "prerequisites": [
+        "通信权限",
+        "渠道可用",
+        "内容合规"
+      ],
+      "failureBoundaries": [
+        "权限不足",
+        "渠道不可用",
+        "内容违规",
+        "传递失败"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "vScore": 0,
+      "valueDimensions": {},
+      "isLowValue": false,
+      "lastEvaluation": null,
+      "createdAt": 1771957256100,
+      "updatedAt": 1771957256100,
+      "path": "OpenClaw AI Agent (Main) → Communication (通信)",
+      "children": [
+        {
+          "id": "cap_1771957256100_2cbvblxcc",
+          "name": "Rich Messaging (Output)",
+          "level": 2,
+          "inputs": [
+            "Text (Markdown)",
+            "Title (Optional)",
+            "Color"
+          ],
+          "outputs": [
+            "Feishu Card",
+            "发送状态",
+            "消息ID"
+          ],
+          "prerequisites": [
+            "Feishu集成",
+            "消息模板",
+            "发送权限"
+          ],
+          "failureBoundaries": [
+            "集成失败",
+            "模板错误",
+            "权限不足",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957256100,
+          "updatedAt": 1771957256100,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Rich Messaging (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957256100_m556sc6yo",
+          "name": "Expressive Reaction (Output)",
+          "level": 2,
+          "inputs": [
+            "Emotion/Intent"
+          ],
+          "outputs": [
+            "Sticker Image",
+            "发送状态",
+            "image_key"
+          ],
+          "prerequisites": [
+            "Sticker资源",
+            "发送权限",
+            "情绪识别"
+          ],
+          "failureBoundaries": [
+            "资源缺失",
+            "权限不足",
+            "识别失败",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957256100,
+          "updatedAt": 1771957256100,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Expressive Reaction (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957256100_ocue4tg9e",
+          "name": "Persona Management (Internal)",
+          "level": 2,
+          "inputs": [
+            "User ID"
+          ],
+          "outputs": [
+            "Persona Info",
+            "Status",
+            "Rule Set"
+          ],
+          "prerequisites": [
+            "Persona定义",
+            "规则配置",
+            "用户信息"
+          ],
+          "failureBoundaries": [
+            "定义缺失",
+            "配置错误",
+            "信息不足",
+            "切换失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957256100,
+          "updatedAt": 1771957256100,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Persona Management (Internal)",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "viol_1771957414751_hon98ihlc",
+    "timestamp": 1771957414751,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，稳定可靠",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误"
+      ],
+      "usageCount": 100,
+      "lastUsed": 1771871014746
+    }
+  },
+  {
+    "id": "viol_1771957414755_ejk2v7ehs",
+    "timestamp": 1771957414755,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可复用性应优先于可扩展性",
+    "details": {
+      "id": "cap_5",
+      "name": "高效数据处理",
+      "level": 1,
+      "description": "高效处理大量数据，减少系统负载，提升响应速度",
+      "inputs": [
+        "数据集合",
+        "处理参数"
+      ],
+      "outputs": [
+        "处理结果",
+        "性能指标"
+      ],
+      "prerequisites": [
+        "数据可用",
+        "处理资源充足"
+      ],
+      "failureBoundaries": [
+        "数据不可用",
+        "资源不足",
+        "处理超时"
+      ],
+      "usageCount": 80,
+      "lastUsed": 1771955614746
+    }
+  },
+  {
+    "id": "viol_1771957414765_00yp2409c",
+    "timestamp": 1771957414765,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "禁止行为: VAGUE_CONCEPTS",
+    "details": {
+      "id": "cap_1771957414746_cs32o3xst",
+      "name": "Communication (通信)",
+      "level": 1,
+      "inputs": [
+        "通信类型",
+        "通信内容",
+        "目标渠道"
+      ],
+      "outputs": [
+        "通信结果",
+        "传递状态",
+        "反馈信息"
+      ],
+      "prerequisites": [
+        "通信权限",
+        "渠道可用",
+        "内容合规"
+      ],
+      "failureBoundaries": [
+        "权限不足",
+        "渠道不可用",
+        "内容违规",
+        "传递失败"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "vScore": 0,
+      "valueDimensions": {},
+      "isLowValue": false,
+      "lastEvaluation": null,
+      "createdAt": 1771957414746,
+      "updatedAt": 1771957414746,
+      "path": "OpenClaw AI Agent (Main) → Communication (通信)",
+      "children": [
+        {
+          "id": "cap_1771957414746_hhahn1ijs",
+          "name": "Rich Messaging (Output)",
+          "level": 2,
+          "inputs": [
+            "Text (Markdown)",
+            "Title (Optional)",
+            "Color"
+          ],
+          "outputs": [
+            "Feishu Card",
+            "发送状态",
+            "消息ID"
+          ],
+          "prerequisites": [
+            "Feishu集成",
+            "消息模板",
+            "发送权限"
+          ],
+          "failureBoundaries": [
+            "集成失败",
+            "模板错误",
+            "权限不足",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957414746,
+          "updatedAt": 1771957414746,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Rich Messaging (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957414746_2klu08w1s",
+          "name": "Expressive Reaction (Output)",
+          "level": 2,
+          "inputs": [
+            "Emotion/Intent"
+          ],
+          "outputs": [
+            "Sticker Image",
+            "发送状态",
+            "image_key"
+          ],
+          "prerequisites": [
+            "Sticker资源",
+            "发送权限",
+            "情绪识别"
+          ],
+          "failureBoundaries": [
+            "资源缺失",
+            "权限不足",
+            "识别失败",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957414746,
+          "updatedAt": 1771957414746,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Expressive Reaction (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771957414746_ahqbywc0k",
+          "name": "Persona Management (Internal)",
+          "level": 2,
+          "inputs": [
+            "User ID"
+          ],
+          "outputs": [
+            "Persona Info",
+            "Status",
+            "Rule Set"
+          ],
+          "prerequisites": [
+            "Persona定义",
+            "规则配置",
+            "用户信息"
+          ],
+          "failureBoundaries": [
+            "定义缺失",
+            "配置错误",
+            "信息不足",
+            "切换失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771957414746,
+          "updatedAt": 1771957414746,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Persona Management (Internal)",
+          "children": []
+        }
+      ]
+    }
+  }
+]

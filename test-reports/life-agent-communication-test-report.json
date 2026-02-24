@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-02-24T18:37:13.641Z",
+  "tests": {
+    "工具加载测试": true,
+    "能力树通信分支测试": true,
+    "富消息工具功能测试": true,
+    "表情反应工具功能测试": true,
+    "通信任务分析测试": true,
+    "完整通信工作流测试": true
+  },
+  "summary": {
+    "passedTests": 6,
+    "totalTests": 6,
+    "passRate": 100
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "市场分析任务",
+  "description": "分析当前市场趋势和竞争情况",
+  "priority": "high",
+  "content": "需要详细分析市场规模、增长趋势、主要竞争对手和市场机会",
+  "analysis": {
+    "type": "analysis",
+    "complexity": "low",
+    "priority": "high",
+    "requiredSkills": [
+      "market_analysis"
+    ],
+    "timeEstimate": "short",
+    "keywords": [],
+    "createdAt": "2026-02-23T08:05:43.209Z"
+  },
+  "status": "assigned",
+  "createdAt": "2026-02-23T08:05:43.210Z",
+  "id": "task-1771833943210-qls5ze5w3",
+  "updatedAt": "2026-02-23T08:05:43.220Z",
+  "assignedTo": "master",
+  "assignedAt": "2026-02-23T08:05:43.219Z"
+}

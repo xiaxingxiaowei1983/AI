@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Life Risk Radar | 人生风控雷达</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            dark: '#000000',
+                            gray: '#1c1c1e',
+                            blue: '#0A84FF',
+                            indigo: '#5E5CE6',
+                            orange: '#FF9F0A',
+                            red: '#FF453A',
+                            green: '#30D158',
+                            glass: 'rgba(255, 255, 255, 0.08)',
+                            glassBorder: 'rgba(255, 255, 255, 0.12)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'tech-gradient': 'radial-gradient(circle at 20% 20%, #1a2a4a 0%, #000000 60%)',
+                        'card-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)'
+                    },
+                    animation: {
+                        'scan-line': 'scan 3s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        scan: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000;
+            background-image: radial-gradient(circle at top right, #0f1c35 0%, #000000 40%),
+                              radial-gradient(circle at bottom left, #120826 0%, #000000 40%);
+            color: #ffffff;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Base Class */
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .glass-panel:hover {
+            background: rgba(44, 44, 46, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px) scale(1.005);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+
+        /* Radar Scan Animation Effect */
+        .radar-scan-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent 0deg, rgba(10, 132, 255, 0.1) 60deg, rgba(10, 132, 255, 0.4) 90deg, transparent 91deg);
+            transform-origin: top left;
+            animation: radar-spin 4s linear infinite;
+            pointer-events: none;
+            opacity: 0.6;
+            margin-top: -50%; /* Center adjustment */
+            margin-left: -50%;
+            mask-image: radial-gradient(circle, transparent 30%, black 70%);
+        }
+
+        @keyframes radar-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(10, 132, 255, 0.5);
+        }
+        
+        .status-dot {
+            box-shadow: 0 0 10px currentColor;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 lg:p-12 flex flex-col items-center">
+
+    <header class="w-full max-w-[1600px] mb-8 flex justify-between items-center glass-panel px-8 py-5 !rounded-full !transform-none !hover:none">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-gradient-to-tr from-apple-blue to-apple-indigo rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/50">
+                <i class="fa-solid fa-radar text-white text-lg"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight">Life Risk Radar <span class="text-apple-blue">2026</span></h1>
+                <p class="text-xs text-gray-400 font-medium tracking-wide">个人年度风险管理驾驶舱</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex flex-col items-end">
+                <span class="text-xs text-gray-400">系统状态</span>
+                <span class="text-xs text-apple-green font-bold flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-apple-green status-dot animate-pulse"></span> 
+                    实时监测中
+                </span>
+            </div>
+            <button class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors border border-white/10">
+                <i class="fa-regular fa-user mr-2"></i> 个人中心
+            </button>
+        </div>
+    </header>
+
+    <main class="w-full max-w-[1600px] grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6">
+
+        <div class="col-span-1 md:col-span-4 lg:col-span-5 glass-panel p-0 relative overflow-hidden flex flex-col h-[500px]">
+            <div class="p-6 border-b border-white/5 flex justify-between items-center z-10 bg-black/20 backdrop-blur-sm">
+                <div>
+                    <h2 class="text-lg font-bold">全景风险扫描</h2>
+                    <p class="text-sm text-gray-400">Panoramic Risk Scan</p>
+                </div>
+                <div class="text-xs px-2 py-1 bg-apple-red/20 text-apple-red rounded border border-apple-red/30">
+                    Warning
+                </div>
+            </div>
+            
+            <div id="radarChart" class="flex-1 w-full h-full z-0"></div>
+            
+            <div class="absolute bottom-6 left-6 z-10">
+                <div class="flex items-center gap-2 text-xs text-gray-500 font-mono">
+                    <i class="fa-solid fa-crosshairs animate-spin-slow"></i>
+                    <span>SCANNING: SECTOR 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-2 lg:col-span-4 flex flex-col gap-6">
+            <div class="glass-panel p-6 flex-1 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-apple-orange/20 blur-[60px] rounded-full"></div>
+                
+                <div class="flex justify-between items-start z-10">
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-400">整体风险等级</h3>
+                        <div class="text-3xl font-bold mt-1 text-apple-orange drop-shadow-lg">橙色预警</div>
+                        <div class="text-xs text-apple-orange/80 mt-1 font-mono">AMBER_WARNING</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-full border-2 border-apple-orange flex items-center justify-center text-apple-orange shadow-[0_0_15px_rgba(255,159,10,0.4)]">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                </div>
+
+                <div class="mt-8 z-10">
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-400">Risk Index</span>
+                        <span class="font-bold font-mono text-xl">68<span class="text-xs text-gray-500">/100</span></span>
+                    </div>
+                    <div class="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
+                        <div class="bg-gradient-to-r from-apple-green via-apple-orange to-apple-red h-2 rounded-full" style="width: 68%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+                        检测到流年高波动节点。建议启动防御性悲观策略，避免鲁莽决策。
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 flex items-center justify-between bg-gradient-to-r from-apple-indigo/10 to-transparent">
+                <div>
+                    <h3 class="text-sm font-medium text-gray-400">防御护盾 (Shield Protocol)</h3>
+                    <div class="text-2xl font-bold mt-1 text-white flex items-center gap-2">
+                        3 <span class="text-sm font-normal text-gray-400">套方案已生成</span>
+                    </div>
+                </div>
+                <div class="w-12 h-12 bg-apple-indigo/20 rounded-full flex items-center justify-center text-apple-indigo border border-apple-indigo/30">
+                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-2 lg:col-span-3 glass-panel p-6 flex flex-col justify-center items-center text-center relative bg-apple-blue/5 border-apple-blue/20">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            
+            <i class="fa-solid fa-file-contract text-4xl text-apple-blue mb-4 drop-shadow-[0_0_15px_rgba(10,132,255,0.6)]"></i>
+            <h3 class="text-xl font-bold mb-2">防御授权书</h3>
+            <p class="text-xs text-gray-400 mb-6 px-4">生成你的 2026 年度避险海报，向不确定性宣战。</p>
+            
+            <button class="w-full py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                生成海报 (Viral Asset)
+            </button>
+            <p class="text-[10px] text-gray-500 mt-4">已有 12,403 人开启防御模式</p>
+        </div>
+
+        <div class="col-span-1 md:col-span-2 lg:col-span-4 glass-panel p-6 border-l-4 border-l-apple-red">
+            <div class="flex justify-between items-start mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-apple-red">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">财务风控</h4>
+                        <p class="text-xs text-gray-400">Financial Firewall</p>
+                    </div>
+                </div>
+                <span class="px-2 py-1 bg-red-900/30 text-apple-red text-xs rounded border border-red-500/20">高波动</span>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-black/20 p-3 rounded-lg border border-white/5">
+                    <p class="text-sm text-gray-300"><i class="fa-solid fa-triangle-exclamation text-apple-orange mr-2"></i><span class="font-bold">风险:</span> 5月易出现非理性决策，现金流承压。</p>
+                </div>
+                <div class="bg-apple-blue/10 p-3 rounded-lg border border-apple-blue/20">
+                    <p class="text-sm text-blue-200"><i class="fa-solid fa-shield text-apple-blue mr-2"></i><span class="font-bold">防御:</span> 锁定流动性，拒绝熟人借贷。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-2 lg:col-span-4 glass-panel p-6 border-l-4 border-l-apple-orange">
+            <div class="flex justify-between items-start mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-apple-orange">
+                        <i class="fa-solid fa-handshake-slash"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">人际风控</h4>
+                        <p class="text-xs text-gray-400">Social Safety</p>
+                    </div>
+                </div>
+                <span class="px-2 py-1 bg-orange-900/30 text-apple-orange text-xs rounded border border-orange-500/20">摩擦系数高</span>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-black/20 p-3 rounded-lg border border-white/5">
+                    <p class="text-sm text-gray-300"><i class="fa-solid fa-triangle-exclamation text-apple-orange mr-2"></i><span class="font-bold">风险:</span> 8月沟通误会频发，易陷合同纠纷。</p>
+                </div>
+                <div class="bg-apple-blue/10 p-3 rounded-lg border border-apple-blue/20">
+                    <p class="text-sm text-blue-200"><i class="fa-solid fa-shield text-apple-blue mr-2"></i><span class="font-bold">防御:</span> 承诺必落纸面，开启“静音模式”。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-4 lg:col-span-4 glass-panel p-6 border-l-4 border-l-apple-green">
+            <div class="flex justify-between items-start mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-apple-green">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">健康风控</h4>
+                        <p class="text-xs text-gray-400">Health Monitor</p>
+                    </div>
+                </div>
+                <span class="px-2 py-1 bg-green-900/30 text-apple-green text-xs rounded border border-green-500/20">底盘不稳</span>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-black/20 p-3 rounded-lg border border-white/5">
+                    <p class="text-sm text-gray-300"><i class="fa-solid fa-triangle-exclamation text-apple-orange mr-2"></i><span class="font-bold">风险:</span> 11月免疫力下降，易疲劳透支。</p>
+                </div>
+                <div class="bg-apple-blue/10 p-3 rounded-lg border border-apple-blue/20">
+                    <p class="text-sm text-blue-200"><i class="fa-solid fa-shield text-apple-blue mr-2"></i><span class="font-bold">防御:</span> 强制规律作息，预约全面体检。</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="mt-8 text-center text-gray-600 text-[10px] max-w-4xl px-4">
+        <p>本产品基于统计学与心理学模型（Swiss Cheese Model / Prospect Theory）推演，仅供个人年度规划参考。</p>
+        <p class="mt-1">© 2026 Life Risk Radar. All Defensive Strategies Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartDom = document.getElementById('radarChart');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                color: ['#0A84FF', '#FF9F0A'],
+                tooltip: {
+                    trigger: 'item',
+                    backgroundColor: 'rgba(0,0,0,0.7)',
+                    borderColor: '#333',
+                    textStyle: { color: '#fff' }
+                },
+                radar: {
+                    indicator: [
+                        { name: '财务 (Finance)', max: 100 },
+                        { name: '人际 (Social)', max: 100 },
+                        { name: '健康 (Health)', max: 100 },
+                        { name: '事业 (Career)', max: 100 },
+                        { name: '情绪 (Mood)', max: 100 }
+                    ],
+                    shape: 'circle',
+                    splitNumber: 4,
+                    axisName: {
+                        color: 'rgba(255,255,255,0.6)',
+                        fontFamily: 'Inter',
+                        fontSize: 12
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: [
+                                'rgba(255, 255, 255, 0.05)', 
+                                'rgba(255, 255, 255, 0.05)',
+                                'rgba(255, 255, 255, 0.05)', 
+                                'rgba(255, 255, 255, 0.1)'
+                            ].reverse()
+                        }
+                    },
+                    splitArea: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '风险 vs 防御',
+                        type: 'radar',
+                        lineStyle: {
+                            width: 2
+                        },
+                        symbol: 'circle',
+                        symbolSize: 6,
+                        data: [
+                            {
+                                value: [80, 70, 60, 40, 50], // Risk Levels
+                                name: '当前风险指数 (Risk)',
+                                areaStyle: {
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                        { offset: 0, color: 'rgba(255, 69, 58, 0.6)' },
+                                        { offset: 1, color: 'rgba(255, 69, 58, 0.1)' }
+                                    ])
+                                },
+                                itemStyle: { color: '#FF453A' }
+                            },
+                            {
+                                value: [40, 50, 80, 90, 80], // Defense Capacity
+                                name: '防御能力 (Defense)',
+                                areaStyle: {
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                        { offset: 0, color: 'rgba(10, 132, 255, 0.4)' },
+                                        { offset: 1, color: 'rgba(10, 132, 255, 0.1)' }
+                                    ])
+                                },
+                                itemStyle: { color: '#0A84FF' }
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            myChart.setOption(option);
+
+            // Responsive Resize
+            window.addEventListener('resize', function() {
+                myChart.resize();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+{
+  "timestamp": 1771940695650,
+  "totalTests": 24,
+  "passedTests": 24,
+  "failedTests": 0,
+  "passRate": "100.00",
+  "testResults": [
+    {
+      "test": "Prohibited Behaviors Detection - Complexity without benefit",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution lacks clear action steps or behavior changes",
+        "Use of prohibited behavior: 为了\"显得更聪明\"而增加复杂度"
+      ]
+    },
+    {
+      "test": "Prohibited Behaviors Detection - Unverifiable mechanism",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution lacks clear action steps or behavior changes",
+        "Use of prohibited behavior: 引入无法验证、无法复现、无法解释的机制",
+        "Evolution lacks verification, reproducibility, or explainability mechanisms"
+      ]
+    },
+    {
+      "test": "Prohibited Behaviors Detection - Vague concepts",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Use of prohibited metaphysical language: 某种程度上",
+        "Use of prohibited vague language: 某种程度",
+        "Evolution uses vague concepts without concrete implementation details",
+        "Use of prohibited behavior: 使用模糊概念替代可执行策略"
+      ]
+    },
+    {
+      "test": "Prohibited Behaviors Detection - Feeling-based decision",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution lacks clear action steps or behavior changes",
+        "Use of prohibited behavior: 把\"感觉正确\"当作决策依据"
+      ]
+    },
+    {
+      "test": "Prohibited Behaviors Detection - Valid evolution",
+      "passed": true,
+      "expected": false,
+      "actual": false,
+      "issues": []
+    },
+    {
+      "test": "Stability Priority Enforcement - Novelty over stability",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution prioritizes novelty over stability - stability must come first"
+      ]
+    },
+    {
+      "test": "Stability Priority Enforcement - Extensibility over explainability",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution prioritizes extensibility over explainability - explainability must come before extensibility"
+      ]
+    },
+    {
+      "test": "Stability Priority Enforcement - Reusability over stability",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution prioritizes reusability over stability - stability must come first"
+      ]
+    },
+    {
+      "test": "Stability Priority Enforcement - Stability first",
+      "passed": true,
+      "expected": false,
+      "actual": false,
+      "issues": []
+    },
+    {
+      "test": "Anti-Metaphysics Detection - Metaphysical language - 某种程度上",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Use of prohibited metaphysical language: 某种程度上",
+        "Use of prohibited vague language: 某种程度",
+        "Evolution uses vague concepts without concrete implementation details",
+        "Evolution lacks clear action steps or behavior changes",
+        "Use of prohibited behavior: 使用模糊概念替代可执行策略"
+      ]
+    },
+    {
+      "test": "Anti-Metaphysics Detection - Metaphysical language - 可能是一种",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Use of prohibited metaphysical language: 可能是一种",
+        "Use of prohibited vague language: 可能是",
+        "Use of prohibited vague language: 本质上",
+        "Evolution uses vague concepts without concrete implementation details",
+        "Evolution lacks clear action steps or behavior changes",
+        "Use of prohibited behavior: 使用模糊概念替代可执行策略"
+      ]
+    },
+    {
+      "test": "Anti-Metaphysics Detection - Vague concepts without concrete details",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution uses vague concepts without concrete implementation details"
+      ]
+    },
+    {
+      "test": "Anti-Metaphysics Detection - Concrete language",
+      "passed": true,
+      "expected": false,
+      "actual": false,
+      "issues": []
+    },
+    {
+      "test": "Rollback Mechanism - Create rollback point",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "test": "Rollback Mechanism - Get rollback points",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "test": "Rollback Mechanism - Analyze history",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "test": "Rollback Mechanism - Rollback to point",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "test": "PCEC Integration - Validate valid evolution",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "test": "PCEC Integration - Validate invalid evolution",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "test": "PCEC Integration - Get lock status",
+      "passed": true,
+      "expected": "ACTIVE",
+      "actual": "ACTIVE"
+    },
+    {
+      "test": "Edge Cases - Empty evolution result",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution task failed",
+        "Evolution lacks clear type or message",
+        "Evolution is not substantial"
+      ]
+    },
+    {
+      "test": "Edge Cases - Evolution without type",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution lacks clear type or message",
+        "Evolution lacks clear action steps or behavior changes",
+        "Evolution is not substantial"
+      ]
+    },
+    {
+      "test": "Edge Cases - Evolution without message",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution lacks clear type or message"
+      ]
+    },
+    {
+      "test": "Edge Cases - Failed evolution",
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "issues": [
+        "Evolution task failed",
+        "Evolution lacks clear action steps or behavior changes"
+      ]
+    }
+  ]
+}

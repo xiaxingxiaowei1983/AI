@@ -1,0 +1,7 @@
+{
+  "type": "defaultStrategy",
+  "name": "缓存优先策略",
+  "description": "优先使用缓存减少重复计算和外部调用",
+  "application": "高频查询和计算密集型任务",
+  "benefits": "提高响应速度，减少系统负载，降低成本"
+}

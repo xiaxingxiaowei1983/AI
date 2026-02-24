@@ -1,0 +1,19 @@
+{
+  "id": "test-agent-1",
+  "name": "测试智能体1",
+  "type": "business",
+  "capabilities": [
+    "business_model_analysis",
+    "market_analysis"
+  ],
+  "description": "测试用智能体1",
+  "status": "active",
+  "workload": 0,
+  "performance": {
+    "completedTasks": 0,
+    "successRate": 1,
+    "averageResponseTime": 3
+  },
+  "createdAt": "2026-02-23T08:04:17.482Z",
+  "updatedAt": "2026-02-23T08:04:17.490Z"
+}

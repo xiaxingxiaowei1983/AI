@@ -1,0 +1,24 @@
+{
+  "name": "wechat-moments-service",
+  "version": "1.0.0",
+  "description": "微信朋友圈自动化发布服务，实现内容生成、定时发布和效果分析",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "wechaty": "^1.20.0",
+    "wechaty-puppet-padlocal": "^1.12.0",
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "redis": "^4.6.0",
+    "openai": "^4.0.0",
+    "node-schedule": "^2.1.1",
+    "axios": "^1.6.0",
+    "sharp": "^0.32.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

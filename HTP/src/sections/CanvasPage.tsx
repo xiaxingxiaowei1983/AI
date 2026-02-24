@@ -226,6 +226,42 @@ export default function CanvasPage() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // 获取画布尺寸
+    const width = canvas.width / (window.devicePixelRatio || 1);
+    const height = canvas.height / (window.devicePixelRatio || 1);
+
+    // 创建临时画布，绘制当前内容
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = width;
+    tempCanvas.height = height;
+    const tempCtx = tempCanvas.getContext('2d');
+    if (tempCtx) {
+      // 绘制当前画布内容
+      tempCtx.drawImage(canvas, 0, 0, width, height);
+
+      // 获取图像数据
+      const imageData = tempCtx.getImageData(0, 0, width, height).data;
+      let hasContent = false;
+      let contentCount = 0;
+
+      // 检查是否有绘制内容
+      for (let i = 0; i < imageData.length; i += 4) {
+        const alpha = imageData[i + 3];
+        if (alpha > 0) {
+          contentCount++;
+          if (contentCount > 100) { // 需要至少100个非透明像素
+            hasContent = true;
+            break;
+          }
+        }
+      }
+
+      if (!hasContent) {
+        alert('请画出更多内容，确保包含房子、树和人哦~');
+        return;
+      }
+    }
+
     const imageData = canvas.toDataURL('image/png');
     setUserDrawing({
       imageData,

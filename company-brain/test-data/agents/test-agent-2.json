@@ -1,0 +1,19 @@
+{
+  "id": "test-agent-2",
+  "name": "测试智能体2",
+  "type": "psychological",
+  "capabilities": [
+    "psychological_test",
+    "content_creation"
+  ],
+  "description": "测试用智能体2",
+  "status": "active",
+  "workload": 0,
+  "performance": {
+    "completedTasks": 0,
+    "successRate": 1,
+    "averageResponseTime": 3
+  },
+  "createdAt": "2026-02-23T08:04:17.496Z",
+  "updatedAt": "2026-02-23T08:04:17.496Z"
+}

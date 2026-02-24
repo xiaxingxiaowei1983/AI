@@ -1,0 +1,79 @@
+{
+  "id": "dashboard-1771919637462",
+  "timestamp": 1771919637462,
+  "overview": {
+    "totalCycles": 51,
+    "successfulCycles": 0,
+    "failedCycles": 0,
+    "substantialEvolutions": 0,
+    "systemStatus": "healthy",
+    "evolutionStatus": "warning"
+  },
+  "metrics": {
+    "id": "metrics-1771919637457",
+    "timestamp": 1771919637457,
+    "system": {
+      "uptime": 0.1626198,
+      "memory": {
+        "rss": 47149056,
+        "heapTotal": 7925760,
+        "heapUsed": 5274880,
+        "external": 1687151,
+        "arrayBuffers": 10511
+      },
+      "cpu": {
+        "usage": 31.392383678318588,
+        "cores": 12
+      },
+      "disk": {
+        "free": 100000000000,
+        "total": 200000000000,
+        "used": 100000000000
+      }
+    },
+    "pcec": {
+      "cycles": 51,
+      "successfulCycles": 0,
+      "failedCycles": 0,
+      "substantialEvolutions": 0,
+      "nonSubstantialEvolutions": 0,
+      "lastCycle": 0
+    },
+    "capabilities": {
+      "total": 0,
+      "active": 0,
+      "byLevel": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "performance": {
+      "cycleDuration": 0,
+      "evolutionSpeed": 0,
+      "successRate": 0,
+      "resourceUsage": 23.843829450764346
+    },
+    "evolution": {
+      "recentEvolutions": 0,
+      "evolutionTypes": {},
+      "averageEvolutionTime": 0,
+      "evolutionTrend": "stable"
+    }
+  },
+  "alerts": [],
+  "trends": {
+    "evolution": "stable",
+    "performance": "insufficient_data",
+    "resourceUsage": "insufficient_data"
+  },
+  "recommendations": [
+    {
+      "id": "rec-1771919637464-activity",
+      "type": "evolution",
+      "priority": "medium",
+      "message": "No recent evolutions detected",
+      "action": "Check PCEC scheduler and ensure evolution tasks are running"
+    }
+  ]
+}

@@ -1,0 +1,739 @@
+{
+  "timestamp": 1771919149466,
+  "status": {
+    "lastMainTrigger": 0,
+    "lastEvolution": 0,
+    "evolutionCount": 0,
+    "pendingTasks": [],
+    "completedTasks": [],
+    "currentCycle": 49,
+    "isRunning": true
+  },
+  "registry": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-24T11:05:00Z",
+    "capabilities": {
+      "environment-configuration": {
+        "id": "environment-configuration",
+        "name": "环境配置管理",
+        "description": "管理系统环境中的配置和依赖，确保环境一致性和可靠性",
+        "type": "high-level",
+        "status": "active",
+        "createdAt": "2026-02-24T10:00:00Z",
+        "lastUsed": "2026-02-24T10:30:00Z",
+        "usageCount": 5,
+        "successRate": 1,
+        "baseCapabilities": [
+          "git-ssh-config",
+          "tool-installation",
+          "cross-dialog-sync"
+        ],
+        "dependencies": [],
+        "tags": [
+          "configuration",
+          "environment",
+          "dependencies"
+        ]
+      },
+      "system-health": {
+        "id": "system-health",
+        "name": "系统健康维护",
+        "description": "自动检测和解决系统运行中的问题，确保系统健康和稳定",
+        "type": "high-level",
+        "status": "active",
+        "createdAt": "2026-02-24T10:15:00Z",
+        "lastUsed": "2026-02-24T10:45:00Z",
+        "usageCount": 3,
+        "successRate": 1,
+        "baseCapabilities": [
+          "file-encoding-fix",
+          "build-deployment"
+        ],
+        "dependencies": [],
+        "tags": [
+          "health",
+          "maintenance",
+          "troubleshooting"
+        ]
+      },
+      "process-automation": {
+        "id": "process-automation",
+        "name": "流程自动化",
+        "description": "将重复的手动流程自动化，提高效率和一致性",
+        "type": "high-level",
+        "status": "active",
+        "createdAt": "2026-02-24T10:30:00Z",
+        "lastUsed": "2026-02-24T11:00:00Z",
+        "usageCount": 4,
+        "successRate": 1,
+        "baseCapabilities": [
+          "task-management",
+          "agent-creation",
+          "build-deployment"
+        ],
+        "dependencies": [],
+        "tags": [
+          "automation",
+          "process",
+          "efficiency"
+        ]
+      },
+      "technical-strategy": {
+        "id": "technical-strategy",
+        "name": "技术战略规划",
+        "description": "为项目和系统提供技术战略指导，确保技术决策的合理性和前瞻性",
+        "type": "high-level",
+        "status": "active",
+        "createdAt": "2026-02-24T10:45:00Z",
+        "lastUsed": "2026-02-24T11:15:00Z",
+        "usageCount": 2,
+        "successRate": 1,
+        "baseCapabilities": [
+          "tech-stack-evaluation",
+          "agent-creation"
+        ],
+        "dependencies": [],
+        "tags": [
+          "strategy",
+          "planning",
+          "architecture"
+        ]
+      },
+      "intelligent-assistant": {
+        "id": "intelligent-assistant",
+        "name": "智能助手",
+        "description": "主动识别和满足用户需求，提供个性化的智能辅助",
+        "type": "high-level",
+        "status": "active",
+        "createdAt": "2026-02-24T11:00:00Z",
+        "lastUsed": "2026-02-24T11:30:00Z",
+        "usageCount": 3,
+        "successRate": 1,
+        "baseCapabilities": [
+          "task-management",
+          "tech-stack-evaluation"
+        ],
+        "dependencies": [],
+        "tags": [
+          "assistant",
+          "personalization",
+          "proactive"
+        ]
+      },
+      "git-ssh-config": {
+        "id": "git-ssh-config",
+        "name": "Git SSH配置管理",
+        "description": "管理Git的SSH密钥配置，确保Git操作的安全性和可靠性",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T00:00:00Z",
+        "lastUsed": "2026-02-24T10:00:00Z",
+        "usageCount": 10,
+        "successRate": 0.9,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "git",
+          "ssh",
+          "configuration"
+        ]
+      },
+      "tool-installation": {
+        "id": "tool-installation",
+        "name": "工具安装集成",
+        "description": "安装和集成各种开发工具，确保环境的完整性",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T00:30:00Z",
+        "lastUsed": "2026-02-24T10:15:00Z",
+        "usageCount": 8,
+        "successRate": 0.85,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "tools",
+          "installation",
+          "dependencies"
+        ]
+      },
+      "cross-dialog-sync": {
+        "id": "cross-dialog-sync",
+        "name": "跨对话框配置同步",
+        "description": "在不同对话框之间同步配置，确保环境一致性",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T01:00:00Z",
+        "lastUsed": "2026-02-24T10:30:00Z",
+        "usageCount": 6,
+        "successRate": 0.95,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "synchronization",
+          "configuration",
+          "dialog"
+        ]
+      },
+      "file-encoding-fix": {
+        "id": "file-encoding-fix",
+        "name": "文件编码问题解决",
+        "description": "解决文件编码问题，确保文件的正确显示和处理",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T01:30:00Z",
+        "lastUsed": "2026-02-24T10:45:00Z",
+        "usageCount": 5,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "encoding",
+          "files",
+          "troubleshooting"
+        ]
+      },
+      "build-deployment": {
+        "id": "build-deployment",
+        "name": "项目构建部署",
+        "description": "管理项目的构建和部署流程，确保项目的顺利发布",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T02:00:00Z",
+        "lastUsed": "2026-02-24T11:00:00Z",
+        "usageCount": 7,
+        "successRate": 0.8,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "build",
+          "deployment",
+          "projects"
+        ]
+      },
+      "agent-creation": {
+        "id": "agent-creation",
+        "name": "代理创建配置",
+        "description": "创建和配置各种代理，实现功能的模块化和专业化",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T02:30:00Z",
+        "lastUsed": "2026-02-24T11:15:00Z",
+        "usageCount": 4,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "agents",
+          "creation",
+          "configuration"
+        ]
+      },
+      "task-management": {
+        "id": "task-management",
+        "name": "任务管理规划",
+        "description": "管理和规划各种任务，确保工作的有序进行",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T03:00:00Z",
+        "lastUsed": "2026-02-24T11:30:00Z",
+        "usageCount": 9,
+        "successRate": 0.95,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "tasks",
+          "management",
+          "planning"
+        ]
+      },
+      "tech-stack-evaluation": {
+        "id": "tech-stack-evaluation",
+        "name": "技术栈评估选择",
+        "description": "评估和选择适合项目的技术栈，确保技术决策的合理性",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-23T03:30:00Z",
+        "lastUsed": "2026-02-24T11:45:00Z",
+        "usageCount": 3,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "tech-stack",
+          "evaluation",
+          "selection"
+        ]
+      },
+      "hot-info-cache": {
+        "id": "hot-info-cache",
+        "name": "热点信息缓存层",
+        "description": "用于快速响应主人的查询请求，减少重复计算和工具调用",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-24T11:15:00Z",
+        "lastUsed": "2026-02-24T11:30:00Z",
+        "usageCount": 5,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "cache",
+          "performance",
+          "hot-info"
+        ]
+      },
+      "agent-management": {
+        "id": "agent-management",
+        "name": "智能体启动与管理",
+        "description": "管理智能体的启动、配置和状态监控，确保智能体的可用性和稳定性",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-24T11:45:00Z",
+        "lastUsed": "2026-02-24T11:45:00Z",
+        "usageCount": 1,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "agents",
+          "management",
+          "startup"
+        ]
+      },
+      "config-analysis": {
+        "id": "config-analysis",
+        "name": "配置文件分析",
+        "description": "分析和验证配置文件的有效性，识别缺失项并提供修复建议",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-24T11:45:00Z",
+        "lastUsed": "2026-02-24T11:45:00Z",
+        "usageCount": 1,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "configuration",
+          "analysis",
+          "validation"
+        ]
+      },
+      "system-diagnosis": {
+        "id": "system-diagnosis",
+        "name": "系统状态诊断",
+        "description": "诊断系统组件的运行状态，识别错误并提供故障定位",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-24T11:45:00Z",
+        "lastUsed": "2026-02-24T11:45:00Z",
+        "usageCount": 1,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "system",
+          "diagnosis",
+          "health"
+        ]
+      },
+      "agent-coordination": {
+        "id": "agent-coordination",
+        "name": "多智能体协调",
+        "description": "协调多个智能体的协作，优化任务分配和资源利用",
+        "type": "base",
+        "status": "active",
+        "createdAt": "2026-02-24T11:45:00Z",
+        "lastUsed": "2026-02-24T11:45:00Z",
+        "usageCount": 1,
+        "successRate": 1,
+        "baseCapabilities": [],
+        "dependencies": [],
+        "tags": [
+          "agents",
+          "coordination",
+          "collaboration"
+        ]
+      },
+      "agent-ecosystem-management": {
+        "id": "agent-ecosystem-management",
+        "name": "智能体生态管理",
+        "description": "管理智能体生态系统的整体运行，确保智能体之间的有效协作和资源优化",
+        "type": "high-level",
+        "status": "active",
+        "createdAt": "2026-02-24T11:45:00Z",
+        "lastUsed": "2026-02-24T11:45:00Z",
+        "usageCount": 1,
+        "successRate": 1,
+        "baseCapabilities": [
+          "agent-management",
+          "config-analysis",
+          "system-diagnosis",
+          "agent-coordination"
+        ],
+        "dependencies": [],
+        "tags": [
+          "agents",
+          "ecosystem",
+          "management"
+        ]
+      }
+    },
+    "capabilityGroups": {
+      "high-level": [
+        "environment-configuration",
+        "system-health",
+        "process-automation",
+        "technical-strategy",
+        "intelligent-assistant",
+        "agent-ecosystem-management"
+      ],
+      "base": [
+        "git-ssh-config",
+        "tool-installation",
+        "cross-dialog-sync",
+        "file-encoding-fix",
+        "build-deployment",
+        "agent-creation",
+        "task-management",
+        "tech-stack-evaluation",
+        "hot-info-cache",
+        "agent-management",
+        "config-analysis",
+        "system-diagnosis",
+        "agent-coordination"
+      ]
+    },
+    "stats": {
+      "totalCapabilities": 19,
+      "highLevelCapabilities": 6,
+      "baseCapabilities": 13,
+      "activeCapabilities": 19,
+      "totalUsageCount": 82,
+      "averageSuccessRate": 0.94
+    },
+    "evolutionHistory": [
+      {
+        "timestamp": 1771902647356,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771902972389,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771903119353,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771903419399,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771903688382,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771903720344,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771904008909,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771904099025,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771904399067,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771904699056,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771904763867,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906300000,
+        "type": "new-feature",
+        "message": "Created new feature: 智能体启动与管理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906301000,
+        "type": "new-feature",
+        "message": "Created new feature: 配置文件分析能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906302000,
+        "type": "new-feature",
+        "message": "Created new feature: 系统状态诊断能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906303000,
+        "type": "new-feature",
+        "message": "Created new feature: 多智能体协调能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906304000,
+        "type": "new-feature",
+        "message": "Created new feature: 智能体生态管理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771905558753,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771905566634,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771905866704,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906166667,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906466669,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771906766701,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771907066712,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771907366727,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771907535929,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771907666732,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771907966740,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771908266763,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771908566764,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771908866741,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771909166785,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771909466772,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771909766794,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771910066763,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771910366795,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771910696089,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771915408874,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771915654006,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771915831237,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771916011489,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771916311535,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771916611557,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771917465733,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771917649401,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771917811659,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771917949498,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918062071,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918249511,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918283436,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918549455,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918583594,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918849470,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      },
+      {
+        "timestamp": 1771918883526,
+        "type": "new-feature",
+        "message": "Created new feature: 文件处理能力 - 实现了智能文件格式检测和处理能力",
+        "success": true
+      }
+    ]
+  },
+  "files": {
+    "status": "C:\\Users\\10919\\Desktop\\AI\\skills\\capability-evolver\\data\\pcec-status.json",
+    "registry": "C:\\Users\\10919\\Desktop\\AI\\skills\\capability-evolver\\data\\capability-registry.json"
+  }
+}

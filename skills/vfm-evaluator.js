@@ -6,7 +6,7 @@
 
 class VFMEvaluator {
   constructor() {
-    this.version = '1.0.0';
+    this.version = '2.0.0';
     this.threshold = 50; // 总分阈值
     this.dimensions = {
       highFrequency: {
@@ -28,6 +28,27 @@ class VFMEvaluator {
         name: '降低自身成本',
         weight: 2,
         description: '我是不是少思考500个Token就能做完?'
+      },
+      // 新增价值维度
+      strategicValue: {
+        name: '战略价值',
+        weight: 3,
+        description: '这个能力是否对系统长期发展有战略意义?'
+      },
+      scalability: {
+        name: '可扩展性',
+        weight: 2,
+        description: '这个能力是否容易扩展到其他场景?'
+      },
+      integrationValue: {
+        name: '集成价值',
+        weight: 2,
+        description: '这个能力是否能与其他系统或工具良好集成?'
+      },
+      innovationPotential: {
+        name: '创新潜力',
+        weight: 2,
+        description: '这个能力是否具有创新性和前瞻性?'
       }
     };
     this.lowValuePatterns = [
@@ -35,6 +56,34 @@ class VFMEvaluator {
       /文字颜色.*七彩/,  // 把文字颜色变成七彩的
       /5个工具.*组合.*小事/  // 用5个工具组合做一件小事
     ];
+    // 动态调整机制
+    this.dynamicAdjustment = {
+      enabled: true,
+      learningRate: 0.1,
+      adjustmentHistory: [],
+      contextFactors: {
+        timeOfDay: null,
+        systemLoad: null,
+        recentFailures: 0,
+        usagePatterns: {}
+      }
+    };
+    // 人生决策系统集成
+    this.lifeDecisionIntegration = {
+      enabled: true,
+      lifeValues: {
+        growth: 0.8,
+        balance: 0.6,
+        purpose: 0.9,
+        relationships: 0.7,
+        contribution: 0.8
+      }
+    };
+    // 评估历史
+    this.evaluationHistory = [];
+    // 缓存
+    this.cache = new Map();
+    this.cacheSize = 100;
   }
 
   // 评估能力候选者
@@ -46,6 +95,19 @@ class VFMEvaluator {
     if (!capability.name || typeof capability.name !== 'string') {
       throw new Error('能力候选者必须有名称');
     }
+
+    // 检查缓存
+    const cacheKey = JSON.stringify({ name: capability.name, type: capability.type });
+    if (this.cache.has(cacheKey)) {
+      const cachedResult = this.cache.get(cacheKey);
+      if (Date.now() - cachedResult.timestamp < 3600000) { // 1小时缓存
+        return cachedResult;
+      }
+      this.cache.delete(cacheKey);
+    }
+
+    // 更新上下文因素
+    this._updateContextFactors();
 
     // 评估各价值维度
     const dimensionScores = {};
@@ -63,22 +125,37 @@ class VFMEvaluator {
     // 评估降低自身成本
     dimensionScores.selfCost = this._evaluateSelfCost(capability);
 
+    // 评估新增价值维度
+    dimensionScores.strategicValue = this._evaluateStrategicValue(capability);
+    dimensionScores.scalability = this._evaluateScalability(capability);
+    dimensionScores.integrationValue = this._evaluateIntegrationValue(capability);
+    dimensionScores.innovationPotential = this._evaluateInnovationPotential(capability);
+
+    // 应用动态调整
+    const adjustedScores = this._applyDynamicAdjustment(dimensionScores, capability);
+
     // 计算加权总分
-    for (const [key, score] of Object.entries(dimensionScores)) {
+    for (const [key, score] of Object.entries(adjustedScores)) {
       totalScore += score * this.dimensions[key].weight;
     }
 
     // 检查是否为低价值能力
     const isLowValue = this._isLowValueCapability(capability);
 
+    // 应用人生决策系统集成
+    const lifeDecisionScore = this._evaluateLifeDecisionValue(capability);
+    if (this.lifeDecisionIntegration.enabled && lifeDecisionScore > 0) {
+      totalScore = totalScore * 0.8 + lifeDecisionScore * 0.2;
+    }
+
     // 判断是否应该立项
     const shouldProceed = totalScore >= this.threshold && !isLowValue;
 
-    return {
+    const result = {
       id: `vfm_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       capability,
       timestamp: Date.now(),
-      dimensionScores,
+      dimensionScores: adjustedScores,
       totalScore,
       threshold: this.threshold,
       isLowValue,
@@ -86,9 +163,287 @@ class VFMEvaluator {
       // 详细评估信息
       details: {
         dimensions: this.dimensions,
-        reasoning: this._generateReasoning(capability, dimensionScores, totalScore, isLowValue)
+        reasoning: this._generateReasoning(capability, adjustedScores, totalScore, isLowValue),
+        contextFactors: this.dynamicAdjustment.contextFactors,
+        lifeDecisionScore: lifeDecisionScore,
+        dynamicAdjustments: this.dynamicAdjustment.adjustmentHistory.slice(-5)
       }
     };
+
+    // 缓存结果
+    this._cacheResult(cacheKey, result);
+
+    // 记录评估历史
+    this._recordEvaluation(result);
+
+    return result;
+  }
+  
+  // 更新上下文因素
+  _updateContextFactors() {
+    const now = new Date();
+    this.dynamicAdjustment.contextFactors.timeOfDay = now.getHours();
+    // 模拟系统负载
+    this.dynamicAdjustment.contextFactors.systemLoad = Math.random();
+    // 其他上下文因素可以根据实际情况更新
+  }
+  
+  // 应用动态调整
+  _applyDynamicAdjustment(scores, capability) {
+    if (!this.dynamicAdjustment.enabled) {
+      return scores;
+    }
+
+    const adjustedScores = { ...scores };
+    const adjustments = {};
+
+    // 基于时间的调整
+    const hour = this.dynamicAdjustment.contextFactors.timeOfDay;
+    if (hour >= 9 && hour <= 18) { // 工作时间
+      adjustedScores.highFrequency *= 1.1;
+      adjustedScores.strategicValue *= 1.1;
+      adjustments.timeBased = '工作时间调整';
+    }
+
+    // 基于系统负载的调整
+    const load = this.dynamicAdjustment.contextFactors.systemLoad;
+    if (load > 0.7) { // 高负载
+      adjustedScores.selfCost *= 1.2;
+      adjustments.loadBased = '高负载调整';
+    }
+
+    // 基于最近失败的调整
+    if (this.dynamicAdjustment.contextFactors.recentFailures > 3) {
+      adjustedScores.failureReduction *= 1.2;
+      adjustments.failureBased = '失败率调整';
+    }
+
+    // 确保分数在合理范围内
+    for (const key in adjustedScores) {
+      adjustedScores[key] = Math.max(0, Math.min(10, adjustedScores[key]));
+    }
+
+    // 记录调整
+    if (Object.keys(adjustments).length > 0) {
+      this.dynamicAdjustment.adjustmentHistory.push({
+        timestamp: Date.now(),
+        adjustments,
+        capability: capability.name
+      });
+
+      // 限制调整历史长度
+      if (this.dynamicAdjustment.adjustmentHistory.length > 100) {
+        this.dynamicAdjustment.adjustmentHistory = this.dynamicAdjustment.adjustmentHistory.slice(-100);
+      }
+    }
+
+    return adjustedScores;
+  }
+  
+  // 评估战略价值
+  _evaluateStrategicValue(capability) {
+    const name = capability.name.toLowerCase();
+    const description = (capability.description || '').toLowerCase();
+
+    // 战略价值关键词
+    const strategicKeywords = [
+      '战略', '长期', '发展', '未来', '核心',
+      'strategy', 'long-term', 'development', 'future', 'core'
+    ];
+
+    // 基础分
+    let score = 5;
+
+    // 检查战略价值关键词
+    for (const keyword of strategicKeywords) {
+      if (name.includes(keyword) || description.includes(keyword)) {
+        score += 2;
+      }
+    }
+
+    // 检查能力类型
+    if (capability.type === 'core' || capability.type === 'fundamental') {
+      score += 3;
+    }
+
+    // 检查是否有长期规划
+    if (capability.longTerm || capability.strategic) {
+      score += 2;
+    }
+
+    // 限制分数范围
+    return Math.max(0, Math.min(10, score));
+  }
+  
+  // 评估可扩展性
+  _evaluateScalability(capability) {
+    const name = capability.name.toLowerCase();
+    const description = (capability.description || '').toLowerCase();
+
+    // 可扩展性关键词
+    const scalabilityKeywords = [
+      '扩展', '通用', '灵活', '适应', '多场景',
+      'scale', 'general', 'flexible', 'adapt', 'multi-scenario'
+    ];
+
+    // 基础分
+    let score = 5;
+
+    // 检查可扩展性关键词
+    for (const keyword of scalabilityKeywords) {
+      if (name.includes(keyword) || description.includes(keyword)) {
+        score += 2;
+      }
+    }
+
+    // 检查是否支持配置
+    if (capability.configurable || capability.customizable) {
+      score += 2;
+    }
+
+    // 检查是否有多个场景
+    if (capability.scenarios && Array.isArray(capability.scenarios) && capability.scenarios.length > 1) {
+      score += 3;
+    }
+
+    // 限制分数范围
+    return Math.max(0, Math.min(10, score));
+  }
+  
+  // 评估集成价值
+  _evaluateIntegrationValue(capability) {
+    const name = capability.name.toLowerCase();
+    const description = (capability.description || '').toLowerCase();
+
+    // 集成价值关键词
+    const integrationKeywords = [
+      '集成', '接口', '兼容', '连接', '协作',
+      'integrate', 'interface', 'compatible', 'connect', 'collaborate'
+    ];
+
+    // 基础分
+    let score = 5;
+
+    // 检查集成价值关键词
+    for (const keyword of integrationKeywords) {
+      if (name.includes(keyword) || description.includes(keyword)) {
+        score += 2;
+      }
+    }
+
+    // 检查工具集成
+    if (capability.tools && Array.isArray(capability.tools) && capability.tools.length > 0) {
+      score += 2;
+    }
+
+    // 检查API支持
+    if (capability.api || capability.interface) {
+      score += 3;
+    }
+
+    // 限制分数范围
+    return Math.max(0, Math.min(10, score));
+  }
+  
+  // 评估创新潜力
+  _evaluateInnovationPotential(capability) {
+    const name = capability.name.toLowerCase();
+    const description = (capability.description || '').toLowerCase();
+
+    // 创新潜力关键词
+    const innovationKeywords = [
+      '创新', '新颖', '突破', '前沿', '创意',
+      'innovate', 'novel', 'breakthrough', 'cutting-edge', 'creative'
+    ];
+
+    // 基础分
+    let score = 5;
+
+    // 检查创新潜力关键词
+    for (const keyword of innovationKeywords) {
+      if (name.includes(keyword) || description.includes(keyword)) {
+        score += 2;
+      }
+    }
+
+    // 检查是否有新技术
+    if (capability.technology && capability.technology.includes('new')) {
+      score += 3;
+    }
+
+    // 检查是否有专利或独特性
+    if (capability.unique || capability.patent) {
+      score += 3;
+    }
+
+    // 限制分数范围
+    return Math.max(0, Math.min(10, score));
+  }
+  
+  // 评估人生决策价值
+  _evaluateLifeDecisionValue(capability) {
+    if (!this.lifeDecisionIntegration.enabled) {
+      return 0;
+    }
+
+    const name = capability.name.toLowerCase();
+    const description = (capability.description || '').toLowerCase();
+
+    // 人生价值映射
+    const lifeValueMapping = {
+      growth: ['成长', '学习', '发展', '进步', 'growth', 'learn', 'develop', 'progress'],
+      balance: ['平衡', '和谐', '均衡', '协调', 'balance', 'harmony', 'equilibrium', 'coordinate'],
+      purpose: ['目标', '意义', '使命', '目的', 'goal', 'meaning', 'mission', 'purpose'],
+      relationships: ['关系', '沟通', '协作', '连接', 'relationship', 'communicate', 'collaborate', 'connect'],
+      contribution: ['贡献', '帮助', '服务', '价值', 'contribute', 'help', 'serve', 'value']
+    };
+
+    let lifeScore = 0;
+
+    // 评估各人生价值维度
+    for (const [value, keywords] of Object.entries(lifeValueMapping)) {
+      const weight = this.lifeDecisionIntegration.lifeValues[value] || 0;
+      let valueScore = 0;
+
+      for (const keyword of keywords) {
+        if (name.includes(keyword) || description.includes(keyword)) {
+          valueScore = 10;
+          break;
+        }
+      }
+
+      lifeScore += valueScore * weight;
+    }
+
+    // 归一化分数
+    const maxPossibleScore = Object.values(this.lifeDecisionIntegration.lifeValues).reduce((sum, weight) => sum + weight * 10, 0);
+    return maxPossibleScore > 0 ? (lifeScore / maxPossibleScore) * 100 : 0;
+  }
+  
+  // 缓存结果
+  _cacheResult(key, result) {
+    if (this.cache.size >= this.cacheSize) {
+      // 移除最早的缓存项
+      const firstKey = this.cache.keys().next().value;
+      this.cache.delete(firstKey);
+    }
+    this.cache.set(key, result);
+  }
+  
+  // 记录评估
+  _recordEvaluation(result) {
+    this.evaluationHistory.push({
+      id: result.id,
+      timestamp: result.timestamp,
+      capabilityName: result.capability.name,
+      totalScore: result.totalScore,
+      shouldProceed: result.shouldProceed
+    });
+
+    // 限制历史记录长度
+    if (this.evaluationHistory.length > 1000) {
+      this.evaluationHistory = this.evaluationHistory.slice(-1000);
+    }
   }
 
   // 批量评估能力候选者
@@ -352,19 +707,39 @@ class VFMEvaluator {
     const reasoning = [];
 
     // 高频复用
-    reasoning.push(`高频复用 (${dimensionScores.highFrequency}/10): ${this.dimensions.highFrequency.description}`);
+    reasoning.push(`高频复用 (${dimensionScores.highFrequency.toFixed(1)}/10): ${this.dimensions.highFrequency.description}`);
 
     // 降低失败
-    reasoning.push(`降低失败 (${dimensionScores.failureReduction}/10): ${this.dimensions.failureReduction.description}`);
+    reasoning.push(`降低失败 (${dimensionScores.failureReduction.toFixed(1)}/10): ${this.dimensions.failureReduction.description}`);
 
     // 降低心智负担
-    reasoning.push(`降低心智负担 (${dimensionScores.userBurden}/10): ${this.dimensions.userBurden.description}`);
+    reasoning.push(`降低心智负担 (${dimensionScores.userBurden.toFixed(1)}/10): ${this.dimensions.userBurden.description}`);
 
     // 降低自身成本
-    reasoning.push(`降低自身成本 (${dimensionScores.selfCost}/10): ${this.dimensions.selfCost.description}`);
+    reasoning.push(`降低自身成本 (${dimensionScores.selfCost.toFixed(1)}/10): ${this.dimensions.selfCost.description}`);
+
+    // 战略价值
+    if (dimensionScores.strategicValue !== undefined) {
+      reasoning.push(`战略价值 (${dimensionScores.strategicValue.toFixed(1)}/10): ${this.dimensions.strategicValue.description}`);
+    }
+
+    // 可扩展性
+    if (dimensionScores.scalability !== undefined) {
+      reasoning.push(`可扩展性 (${dimensionScores.scalability.toFixed(1)}/10): ${this.dimensions.scalability.description}`);
+    }
+
+    // 集成价值
+    if (dimensionScores.integrationValue !== undefined) {
+      reasoning.push(`集成价值 (${dimensionScores.integrationValue.toFixed(1)}/10): ${this.dimensions.integrationValue.description}`);
+    }
+
+    // 创新潜力
+    if (dimensionScores.innovationPotential !== undefined) {
+      reasoning.push(`创新潜力 (${dimensionScores.innovationPotential.toFixed(1)}/10): ${this.dimensions.innovationPotential.description}`);
+    }
 
     // 总分
-    reasoning.push(`加权总分: ${totalScore} (阈值: ${this.threshold})`);
+    reasoning.push(`加权总分: ${totalScore.toFixed(2)} (阈值: ${this.threshold})`);
 
     // 低价值判断
     if (isLowValue) {
@@ -378,6 +753,9 @@ class VFMEvaluator {
     // 终极判断
     reasoning.push('终极判断: 它是否让未来的我，用更少代价，解决更多问题?');
 
+    // 战略建议
+    reasoning.push('战略建议: 基于评估结果，建议优先发展高战略价值和高可扩展性的能力');
+
     return reasoning;
   }
 
@@ -387,7 +765,18 @@ class VFMEvaluator {
       version: this.version,
       threshold: this.threshold,
       dimensions: this.dimensions,
-      lowValuePatterns: this.lowValuePatterns.map(p => p.source)
+      lowValuePatterns: this.lowValuePatterns.map(p => p.source),
+      dynamicAdjustment: {
+        enabled: this.dynamicAdjustment.enabled,
+        learningRate: this.dynamicAdjustment.learningRate,
+        contextFactors: this.dynamicAdjustment.contextFactors
+      },
+      lifeDecisionIntegration: {
+        enabled: this.lifeDecisionIntegration.enabled,
+        lifeValues: this.lifeDecisionIntegration.lifeValues
+      },
+      cacheSize: this.cacheSize,
+      evaluationHistorySize: this.evaluationHistory.length
     };
   }
 
@@ -405,6 +794,24 @@ class VFMEvaluator {
       this.lowValuePatterns = config.lowValuePatterns.map(p => new RegExp(p));
     }
 
+    if (config.dynamicAdjustment) {
+      this.dynamicAdjustment = { 
+        ...this.dynamicAdjustment, 
+        ...config.dynamicAdjustment 
+      };
+    }
+
+    if (config.lifeDecisionIntegration) {
+      this.lifeDecisionIntegration = { 
+        ...this.lifeDecisionIntegration, 
+        ...config.lifeDecisionIntegration 
+      };
+    }
+
+    if (config.cacheSize !== undefined) {
+      this.cacheSize = config.cacheSize;
+    }
+
     return this.getConfig();
   }
 
@@ -414,26 +821,84 @@ class VFMEvaluator {
       evaluations = [evaluations];
     }
 
+    // 计算各价值维度的平均分数
+    const dimensionAverages = {};
+    const validEvaluations = evaluations.filter(e => !e.error);
+
+    if (validEvaluations.length > 0) {
+      const dimensions = Object.keys(this.dimensions);
+      dimensions.forEach(dimension => {
+        const sum = validEvaluations.reduce((acc, e) => {
+          return acc + (e.dimensionScores[dimension] || 0);
+        }, 0);
+        dimensionAverages[dimension] = sum / validEvaluations.length;
+      });
+    }
+
+    // 计算人生决策分数的平均值
+    const averageLifeDecisionScore = validEvaluations.length > 0
+      ? validEvaluations.reduce((sum, e) => sum + (e.details?.lifeDecisionScore || 0), 0) / validEvaluations.length
+      : 0;
+
     const report = {
       id: `report_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       timestamp: Date.now(),
       totalEvaluations: evaluations.length,
-      highValueCount: evaluations.filter(e => e.shouldProceed).length,
-      lowValueCount: evaluations.filter(e => e.isLowValue).length,
-      thresholdMissCount: evaluations.filter(e => e.totalScore < this.threshold).length,
-      averageScore: evaluations.length > 0 
-        ? evaluations.reduce((sum, e) => sum + e.totalScore, 0) / evaluations.length 
+      validEvaluations: validEvaluations.length,
+      highValueCount: validEvaluations.filter(e => e.shouldProceed).length,
+      lowValueCount: validEvaluations.filter(e => e.isLowValue).length,
+      thresholdMissCount: validEvaluations.filter(e => e.totalScore < this.threshold).length,
+      averageScore: validEvaluations.length > 0 
+        ? validEvaluations.reduce((sum, e) => sum + e.totalScore, 0) / validEvaluations.length 
         : 0,
-      evaluations: evaluations.map(e => ({
+      averageLifeDecisionScore: averageLifeDecisionScore,
+      dimensionAverages: dimensionAverages,
+      evaluations: validEvaluations.map(e => ({
         capabilityName: e.capability.name,
         totalScore: e.totalScore,
         shouldProceed: e.shouldProceed,
-        isLowValue: e.isLowValue
+        isLowValue: e.isLowValue,
+        dimensionScores: e.dimensionScores,
+        lifeDecisionScore: e.details?.lifeDecisionScore || 0,
+        timestamp: e.timestamp
       })),
-      config: this.getConfig()
+      config: this.getConfig(),
+      insights: this._generateReportInsights(validEvaluations, dimensionAverages, averageLifeDecisionScore)
     };
 
     return report;
+  }
+  
+  // 生成报告洞察
+  _generateReportInsights(evaluations, dimensionAverages, averageLifeDecisionScore) {
+    const insights = [];
+
+    // 高价值能力分析
+    const highValueCapabilities = evaluations.filter(e => e.shouldProceed);
+    if (highValueCapabilities.length > 0) {
+      insights.push(`发现 ${highValueCapabilities.length} 个高价值能力，占比 ${(highValueCapabilities.length / evaluations.length * 100).toFixed(1)}%`);
+    }
+
+    // 价值维度分析
+    const sortedDimensions = Object.entries(dimensionAverages)
+      .sort(([,a], [,b]) => b - a);
+    
+    if (sortedDimensions.length > 0) {
+      const topDimension = sortedDimensions[0];
+      insights.push(`表现最佳的价值维度: ${this.dimensions[topDimension[0]].name} (${topDimension[1].toFixed(2)}/10)`);
+    }
+
+    // 人生决策系统分析
+    if (averageLifeDecisionScore > 0) {
+      insights.push(`人生决策系统集成得分: ${averageLifeDecisionScore.toFixed(2)}`);
+    }
+
+    // 战略建议
+    if (evaluations.length > 0) {
+      insights.push('战略建议: 优先发展高战略价值和高可扩展性的能力，同时注重与人生决策系统的集成');
+    }
+
+    return insights;
   }
 }
 

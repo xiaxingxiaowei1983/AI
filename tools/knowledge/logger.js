@@ -9,18 +9,31 @@ const path = require('path');
 class ContextLogger {
   constructor() {
     this.logDir = path.join(__dirname, '../../logs');
+    this.archiveDir = path.join(__dirname, '../../logs/archive');
     this.personaMap = {
       'zhy': 'Catgirl',
       'fmw': 'Big Brother',
       'Imx': 'Mesugaki'
     };
     this._initialize();
+    // 初始化缓存
+    this.cache = new Map();
+    this.cacheSize = 1000;
+    // 初始化统计信息
+    this.stats = {
+      logCount: 0,
+      lastCleanup: Date.now()
+    };
   }
 
   // 初始化日志目录
   _initialize() {
     if (!fs.existsSync(this.logDir)) {
       fs.mkdirSync(this.logDir, { recursive: true });
+    }
+
+    if (!fs.existsSync(this.archiveDir)) {
+      fs.mkdirSync(this.archiveDir, { recursive: true });
     }
 
     // 为每个人格创建日志目录
@@ -85,9 +98,16 @@ class ContextLogger {
       ...interaction,
       metadata: {
         timestamp: new Date().toISOString(),
-        version: '1.0.0'
+        version: '2.0.0',
+        // 自动分类
+        category: this._categorizeInteraction(interaction),
+        // 情绪分析（简单实现）
+        sentiment: this._analyzeSentiment(interaction)
       }
     };
+
+    // 缓存日志条目
+    this._cacheLog(logEntry);
 
     // 读取现有日志
     const existingLogs = this._readLogs(personaKey);
@@ -99,15 +119,113 @@ class ContextLogger {
     const maxLogs = 1000;
     const logsToKeep = existingLogs.slice(-maxLogs);
 
+    // 检查是否需要归档
+    if (existingLogs.length > maxLogs) {
+      this._archiveOldLogs(personaKey, existingLogs.slice(0, existingLogs.length - maxLogs));
+    }
+
     // 写入日志
     const success = this._writeLogs(personaKey, logsToKeep);
+
+    // 更新统计信息
+    this.stats.logCount++;
+
+    // 定期清理
+    this._checkCleanup();
 
     return {
       success,
       logId: logEntry.id,
       timestamp: logEntry.timestamp,
-      persona: logEntry.persona
+      persona: logEntry.persona,
+      category: logEntry.metadata.category,
+      sentiment: logEntry.metadata.sentiment
     };
+  }
+  
+  // 缓存日志
+  _cacheLog(logEntry) {
+    const cacheKey = logEntry.id;
+    if (this.cache.size >= this.cacheSize) {
+      // 移除最早的缓存项
+      const firstKey = this.cache.keys().next().value;
+      this.cache.delete(firstKey);
+    }
+    this.cache.set(cacheKey, logEntry);
+  }
+  
+  // 自动分类交互
+  _categorizeInteraction(interaction) {
+    const categories = [
+      { name: '日常对话', keywords: ['你好', '谢谢', '再见', '天气', '时间'] },
+      { name: '技术讨论', keywords: ['代码', '编程', '技术', '系统', '架构'] },
+      { name: '业务分析', keywords: ['市场', '销售', '业务', '客户', '分析'] },
+      { name: '个人成长', keywords: ['学习', '成长', '目标', '计划', '发展'] },
+      { name: '系统管理', keywords: ['配置', '管理', '设置', '优化', '监控'] },
+      { name: '知识管理', keywords: ['记忆', '搜索', '信息', '数据', '存储'] }
+    ];
+
+    const text = JSON.stringify(interaction).toLowerCase();
+    
+    for (const category of categories) {
+      for (const keyword of category.keywords) {
+        if (text.includes(keyword.toLowerCase())) {
+          return category.name;
+        }
+      }
+    }
+
+    return '未分类';
+  }
+  
+  // 简单情绪分析
+  _analyzeSentiment(interaction) {
+    const positiveKeywords = ['好', '棒', '优秀', '谢谢', '喜欢', '开心', '高兴'];
+    const negativeKeywords = ['不好', '差', '失败', '错误', '讨厌', '难过', '生气'];
+
+    const text = JSON.stringify(interaction).toLowerCase();
+    let positiveCount = 0;
+    let negativeCount = 0;
+
+    for (const keyword of positiveKeywords) {
+      if (text.includes(keyword)) positiveCount++;
+    }
+
+    for (const keyword of negativeKeywords) {
+      if (text.includes(keyword)) negativeCount++;
+    }
+
+    if (positiveCount > negativeCount) return 'positive';
+    if (negativeCount > positiveCount) return 'negative';
+    return 'neutral';
+  }
+  
+  // 归档旧日志
+  _archiveOldLogs(personaKey, oldLogs) {
+    try {
+      const archivePath = path.join(this.archiveDir, personaKey);
+      if (!fs.existsSync(archivePath)) {
+        fs.mkdirSync(archivePath, { recursive: true });
+      }
+
+      const archiveFile = path.join(archivePath, `archive_${Date.now()}.json`);
+      fs.writeFileSync(archiveFile, JSON.stringify(oldLogs, null, 2), 'utf8');
+      
+      console.log(`已归档 ${oldLogs.length} 条旧日志到 ${archiveFile}`);
+    } catch (error) {
+      console.error('归档旧日志失败:', error);
+    }
+  }
+  
+  // 检查清理
+  _checkCleanup() {
+    const now = Date.now();
+    const cleanupInterval = 24 * 60 * 60 * 1000; // 24小时
+
+    if (now - this.stats.lastCleanup > cleanupInterval) {
+      this.cleanupOldLogs();
+      this.stats.lastCleanup = now;
+    }
   }
 
   // 批量记录交互

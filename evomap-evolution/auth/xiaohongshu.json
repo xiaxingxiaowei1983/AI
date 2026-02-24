@@ -1,0 +1,14 @@
+{
+  "accountId": "251940568",
+  "appKey": "YOUR_APP_KEY",
+  "appSecret": "YOUR_APP_SECRET",
+  "accessToken": "YOUR_ACCESS_TOKEN",
+  "refreshToken": "YOUR_REFRESH_TOKEN",
+  "mockMode": true,
+  "apiEndpoint": "https://open.xiaohongshu.com",
+  "scopes": ["content:publish", "content:read", "user:info"],
+  "lastUpdated": "2026-02-24T11:30:00Z",
+  "expiresAt": "2026-03-24T11:30:00Z",
+  "status": "active",
+  "deploymentNotes": "使用模拟模式，等待真实API接入"
+}

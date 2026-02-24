@@ -42,6 +42,7 @@ export default function LoadingPage() {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isWaitingLong, setIsWaitingLong] = useState(false);
   const progressRef = useRef(0);
 
   useEffect(() => {
@@ -51,6 +52,11 @@ export default function LoadingPage() {
     const messageInterval = setInterval(() => {
       setCurrentMessageIndex(prev => (prev + 1) % loadingMessages.length);
     }, 2000);
+    
+    // 60秒后显示排队提示
+    const waitingTimer = setTimeout(() => {
+      setIsWaitingLong(true);
+    }, 60000);
 
     // 进度条动画 - 更加平滑和真实
         const progressInterval = setInterval(() => {
@@ -87,6 +93,7 @@ export default function LoadingPage() {
     return () => {
       clearInterval(messageInterval);
       clearInterval(progressInterval);
+      clearTimeout(waitingTimer);
     };
   }, [goToResult, goToRiskResult, setAnalysisResult, userDrawing, analyzeUserDrawing, isAnalyzing]);
 
@@ -163,8 +170,8 @@ export default function LoadingPage() {
         </div>
         
         {/* 装饰丝带 */}
-        <div className="mt-10 ribbon">
-          请稍候，美好的事物值得等待
+        <div className={`mt-10 ribbon ${isWaitingLong ? 'text-rose-500 font-medium' : ''}`}>
+          {isWaitingLong ? '⚠️ 正在排队请等待，不要刷新页面' : '请稍候，美好的事物值得等待'}
         </div>
       </div>
       

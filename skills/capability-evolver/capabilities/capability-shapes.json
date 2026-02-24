@@ -1,0 +1,124 @@
+{
+  "capabilities": [
+    {
+      "id": "hot-info-cache",
+      "name": "热点信息缓存层",
+      "description": "用于快速响应主人的查询请求，减少重复计算和工具调用",
+      "shape": {
+        "inputs": ["查询请求", "缓存键", "缓存策略"],
+        "outputs": ["缓存结果", "响应状态", "执行时间"],
+        "invariants": ["缓存键唯一性", "响应时间<1秒", "缓存数据完整性"],
+        "variables": ["缓存过期时间", "缓存容量", "缓存策略"],
+        "failurePoints": ["缓存未命中", "缓存过期", "内存不足", "缓存一致性问题"]
+      },
+      "level": 2,
+      "domain": "知识记忆",
+      "priority": "high"
+    },
+    {
+      "id": "file-handling",
+      "name": "文件处理能力",
+      "description": "处理文件的读取、写入、分析和管理",
+      "shape": {
+        "inputs": ["文件路径", "文件操作", "操作参数"],
+        "outputs": ["操作结果", "文件状态", "执行时间"],
+        "invariants": ["文件路径有效性", "操作权限", "文件格式兼容性"],
+        "variables": ["文件类型", "操作类型", "参数配置"],
+        "failurePoints": ["文件不存在", "权限不足", "文件格式错误", "磁盘空间不足"]
+      },
+      "level": 1,
+      "domain": "知识记忆",
+      "priority": "medium"
+    },
+    {
+      "id": "capability-assessment",
+      "name": "能力评估与验证",
+      "description": "评估新能力的价值和可行性，确保符合进化标准",
+      "shape": {
+        "inputs": ["能力描述", "评估标准", "上下文信息"],
+        "outputs": ["评估结果", "可行性分析", "改进建议"],
+        "invariants": ["评估标准一致性", "分析客观性", "结果可重复性"],
+        "variables": ["能力类型", "评估维度", "权重配置"],
+        "failurePoints": ["评估标准不明确", "上下文信息不足", "分析逻辑错误"]
+      },
+      "level": 2,
+      "domain": "系统进化",
+      "priority": "high"
+    },
+    {
+      "id": "pcec-scheduler",
+      "name": "周期性进化调度",
+      "description": "每1小时执行一次进化任务，确保系统持续进化",
+      "shape": {
+        "inputs": ["调度配置", "进化目标", "系统状态"],
+        "outputs": ["调度结果", "进化状态", "执行日志"],
+        "invariants": ["调度时间准确性", "进化任务执行", "状态记录完整性"],
+        "variables": ["执行间隔", "进化策略", "资源限制"],
+        "failurePoints": ["调度失败", "进化任务异常", "状态记录错误"]
+      },
+      "level": 2,
+      "domain": "系统进化",
+      "priority": "high"
+    },
+    {
+      "id": "mind-explosion",
+      "name": "思维爆炸模式",
+      "description": "通过颠覆性问题触发创新思维，打破常规限制",
+      "shape": {
+        "inputs": ["当前问题", "约束条件", "爆炸类型"],
+        "outputs": ["创新思路", "问题重构", "突破方案"],
+        "invariants": ["问题颠覆性", "思维开放性", "方案可行性"],
+        "variables": ["爆炸强度", "问题类型", "约束程度"],
+        "failurePoints": ["思维固化", "方案不可行", "突破方向错误"]
+      },
+      "level": 3,
+      "domain": "智能分析",
+      "priority": "medium"
+    },
+    {
+      "id": "anti-degeneration-lock",
+      "name": "反进化锁定",
+      "description": "防止系统退化，确保进化方向正确",
+      "shape": {
+        "inputs": ["进化方案", "验证标准", "系统状态"],
+        "outputs": ["验证结果", "锁定状态", "改进建议"],
+        "invariants": ["锁定优先级最高", "验证标准一致性", "回滚机制可用性"],
+        "variables": ["锁定策略", "验证维度", "警告阈值"],
+        "failurePoints": ["锁定失效", "验证错误", "回滚失败"]
+      },
+      "level": 2,
+      "domain": "系统进化",
+      "priority": "high"
+    },
+    {
+      "id": "capability-tree",
+      "name": "能力树管理",
+      "description": "管理系统能力的层级结构，支持能力的添加、删除、更新和查询",
+      "shape": {
+        "inputs": ["能力操作", "操作参数", "上下文信息"],
+        "outputs": ["操作结果", "能力状态", "树结构"],
+        "invariants": ["树结构完整性", "能力唯一性", "操作原子性"],
+        "variables": ["能力级别", "父节点ID", "能力属性"],
+        "failurePoints": ["树结构损坏", "能力冲突", "操作权限不足"]
+      },
+      "level": 2,
+      "domain": "系统进化",
+      "priority": "high"
+    },
+    {
+      "id": "rollback-mechanism",
+      "name": "回滚机制",
+      "description": "在进化失败时回滚到之前的稳定状态，确保系统可靠性",
+      "shape": {
+        "inputs": ["回滚点", "回滚策略", "系统状态"],
+        "outputs": ["回滚结果", "系统状态", "执行日志"],
+        "invariants": ["回滚点有效性", "回滚操作原子性", "数据一致性"],
+        "variables": ["回滚范围", "回滚策略", "回滚超时"],
+        "failurePoints": ["回滚点损坏", "回滚操作失败", "数据不一致"]
+      },
+      "level": 2,
+      "domain": "系统进化",
+      "priority": "high"
+    }
+  ]
+}

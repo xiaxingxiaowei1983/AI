@@ -1,0 +1,19 @@
+{
+  "admin": {
+    "name": "陈婷",
+    "nickname": "剑锋传奇",
+    "feishu_id": "ou_4d9197bf2f8cf48a7097b17b623e3bd3",
+    "role": "超级管理员",
+    "permissions": [
+      "full_access",
+      "agent_management",
+      "system_configuration",
+      "data_access"
+    ]
+  },
+  "security": {
+    "created_at": "2026-02-24",
+    "last_updated": "2026-02-24",
+    "access_control": "restricted"
+  }
+}

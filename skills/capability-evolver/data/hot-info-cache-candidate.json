@@ -1,0 +1,8 @@
+{
+  "id": "hot-info-cache",
+  "name": "热点信息缓存层",
+  "description": "在1秒内响应所有查询请求的缓存层",
+  "priority": "high",
+  "status": "candidate",
+  "created": 1771903119347
+}

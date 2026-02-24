@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.21-2",
+    "lastTouchedAt": "2026-02-23T23:00:00.000Z"
+  },
+  "agents": {
+    "defaults": {
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "master",
+        "name": "大宗师",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/master",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/master",
+        "identity": {
+          "name": "大宗师"
+        }
+      },
+      {
+        "id": "coo",
+        "name": "枢纽",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/coo",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/coo"
+      },
+      {
+        "id": "builder",
+        "name": "营造",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/builder",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/builder"
+      },
+      {
+        "id": "production",
+        "name": "赛博天工",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/production",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/production",
+        "identity": {
+          "name": "赛博天工"
+        }
+      },
+      {
+        "id": "green-tea",
+        "name": "绿茶",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/green-tea",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/green-tea"
+      },
+      {
+        "id": "patrol",
+        "name": "巡查",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/patrol",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/patrol"
+      },
+      {
+        "id": "life-coach",
+        "name": "宗师",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/life-coach",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/life-coach"
+      },
+      {
+        "id": "business",
+        "name": "谛听",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/business",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/business",
+        "identity": {
+          "name": "谛听"
+        }
+      }
+    ]
+  },
+  "agentCommunication": {
+    "enabled": true,
+    "permissions": {
+      "master": {
+        "canCommand": ["coo", "builder", "production", "green-tea", "patrol", "life-coach", "business"]
+      },
+      "coo": {
+        "canCommand": ["builder", "production", "green-tea", "patrol", "business"]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "gateway",
+    "auth": {
+      "mode": "token",
+      "token": "2e47ede431dbd73de7ae4a2556ba69260427d1269e8878da"
+    }
+  },
+  "models": {
+    "ark": {
+      "enabled": true,
+      "adapter": "ark-simple-adapter",
+      "model": "doubao-seed-2-0-code-preview-260215",
+      "apiKey": "c13b2982-0aab-4c75-9404-0deb12a219ec"
+    }
+  },
+  "workspace": {
+    "autoClean": false,
+    "backup": true
+  }
+}

@@ -181,7 +181,7 @@ const Hero = () => {
                 <div className="hidden md:block space-y-3">
                   <h4 className="text-sm md:text-base font-semibold text-[#1a1a1a]">🎲 人生决策红绿灯</h4>
                   <p className="text-xs md:text-sm text-[#666666]">开启人生外挂</p>
-                  <button className="btn-primary text-xs md:text-sm py-2 px-4 mt-2 w-full">校准能量</button>
+                  <a href="https://life-choice.vercel.app" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs md:text-sm py-2 px-4 mt-2 w-full block text-center">找到确定性</a>
                 </div>
               </div>
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ boxShadow: 'rgba(156, 255, 156, 0.25) 0px 0px 0px 2px inset' }} />
@@ -579,10 +579,10 @@ const Hero = () => {
 
                   {/* CTA Button */}
                   <div className="pt-4">
-                    <button className="w-full btn-primary text-lg py-5 flex items-center justify-center gap-2 group">
-                      <span>校准能量</span>
+                    <a href="https://life-choice.vercel.app" target="_blank" rel="noopener noreferrer" className="w-full btn-primary text-lg py-5 flex items-center justify-center gap-2 group">
+                      <span>找到确定性</span>
                       <span className="text-[#9cff9c] group-hover:translate-x-1 transition-transform">👉</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -1,0 +1,60 @@
+{
+  "agent": {
+    "name": "company-brain-agent",
+    "type": "company_brain",
+    "description": "公司大脑智能体 - 智能体调度中心",
+    "version": "1.0.0",
+    "author": "AI Assistant",
+    "capabilities": [
+      "agent_management",
+      "task_scheduling",
+      "knowledge_management",
+      "collaboration_coordination",
+      "performance_monitoring",
+      "system_integration"
+    ],
+    "tools": [
+      "file_management",
+      "process_management",
+      "http_request",
+      "system_info"
+    ],
+    "memory": {
+      "enabled": true,
+      "path": "./memory.md",
+      "max_size": 1000000
+    },
+    "evo": {
+      "enabled": true,
+      "path": "./evo",
+      "auto_sync": true
+    },
+    "continuous_mode": {
+      "enabled": true,
+      "auto_restart": true
+    },
+    "performance": {
+      "timeout": 300000,
+      "max_concurrent_tasks": 10
+    },
+    "integration": {
+      "evomap": {
+        "enabled": true,
+        "node_id": "node_b9f8f981bc1c0bbb",
+        "node_name": "大宗师",
+        "api_endpoint": "https://evomap.ai/api"
+      }
+    }
+  },
+  "model": {
+    "provider": "trea",
+    "model": "gpt-4",
+    "temperature": 0.7,
+    "max_tokens": 4096
+  },
+  "system": {
+    "log_level": "info",
+    "auto_recovery": true,
+    "backup_interval": 3600000
+  }
+}

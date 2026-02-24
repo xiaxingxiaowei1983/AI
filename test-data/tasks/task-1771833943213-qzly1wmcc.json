@@ -1,0 +1,22 @@
+{
+  "title": "心理测试任务",
+  "description": "开发新的心理测试问卷",
+  "priority": "medium",
+  "content": "设计一套针对职场人士的心理测试问卷",
+  "analysis": {
+    "type": "testing",
+    "complexity": "low",
+    "priority": "medium",
+    "requiredSkills": [
+      "psychological_test",
+      "drawing_analysis"
+    ],
+    "timeEstimate": "medium",
+    "keywords": [],
+    "createdAt": "2026-02-23T08:05:43.213Z"
+  },
+  "status": "created",
+  "createdAt": "2026-02-23T08:05:43.213Z",
+  "id": "task-1771833943213-qzly1wmcc",
+  "updatedAt": "2026-02-23T08:05:43.213Z"
+}

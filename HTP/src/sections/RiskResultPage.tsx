@@ -54,10 +54,8 @@ export default function RiskResultPage() {
 
   // 使用分析结果或默认数据
   const result = analysisResult || {
-    section_see: '在你的画作中，我注意到一些需要关注的元素...',
-    section_understand: '这些画面特征可能反映出你当前正经历着一段情绪艰难的时期...',
-    section_grow: '请相信，感到困难并不意味着你软弱...',
-    risk_level: 'high',
+    clientInsightReport: '在你的画作中，我注意到一些需要关注的元素。画面的整体色调偏暗，线条较为凌乱，房子显得孤立无援，树的枝叶稀疏，人物的姿态呈现出一种蜷缩的状态。\n\n这些画面特征可能反映出你当前正经历着一段情绪艰难的时期。孤立的房子暗示着你可能感到孤独或缺乏支持，稀疏的树枝显示出内在能量的低落，而蜷缩的人物姿态则表明你可能在保护自己，或是感到某种程度的无助。\n\n请相信，感到困难并不意味着你软弱。此刻，最重要的是寻求专业的支持。心理咨询师能够提供更为专业和深入的陪伴，帮助你度过这段时期。你不必独自面对这一切。',
+    risk_level: 'high'
   };
 
   return (
@@ -191,32 +189,10 @@ export default function RiskResultPage() {
           <div className="gold-card p-5 space-y-4">
             <div>
               <h5 className="text-sm font-medium text-muted-foreground mb-2">
-                画面描述
+                专业解读
               </h5>
               <p className="text-sm text-foreground leading-relaxed">
-                {result.section_see}
-              </p>
-            </div>
-            
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-            
-            <div>
-              <h5 className="text-sm font-medium text-muted-foreground mb-2">
-                可能的含义
-              </h5>
-              <p className="text-sm text-foreground leading-relaxed">
-                {result.section_understand}
-              </p>
-            </div>
-            
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-            
-            <div>
-              <h5 className="text-sm font-medium text-muted-foreground mb-2">
-                建议
-              </h5>
-              <p className="text-sm text-foreground leading-relaxed">
-                {result.section_grow}
+                {result.clientInsightReport}
               </p>
             </div>
           </div>

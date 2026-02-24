@@ -38,46 +38,30 @@ function LoginModalContent({ isOpen, onClose, defaultTab = 'login' }: LoginModal
 
     try {
       if (activeTab === 'login') {
-        // 调用后端登录API
-        const response = await fetch('http://localhost:4000/api/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: formData.email,
-            password: formData.password,
-          }),
-        });
-
-        const data = await response.json();
+        // 模拟登录（本地环境）
+        // 实际部署时，这里会调用真实的后端API
+        localStorage.setItem('userRole', formData.email === ADMIN_EMAIL ? 'admin' : 'user');
+        localStorage.setItem('userEmail', formData.email);
         
-        if (data.success) {
-          localStorage.setItem('userRole', formData.email === ADMIN_EMAIL ? 'admin' : 'user');
-          localStorage.setItem('userEmail', formData.email);
-          
-          if (formData.email === ADMIN_EMAIL) {
-            // 初始化管理员积分
-            initializeAdminPoints();
-          }
-          
-          // 检查每日登录奖励
-          const loginReward = checkDailyLoginReward();
-          
-          const pointsAfterReward = getPointsData().balance;
-          
-          if (formData.email === ADMIN_EMAIL) {
-            alert(`管理员登录成功！欢迎回来，院长LAY。\n\n🎁 每日登录奖励：+${loginReward.points} 积分\n\n当前积分：${formatPoints(pointsAfterReward)}\n\n管理员拥有高级权限，可优先体验新功能。`);
-          } else {
-            alert(`登录成功！欢迎加入AWKN LAB。\n\n🎁 每日登录奖励：+${loginReward.points} 积分\n\n当前积分：${formatPoints(pointsAfterReward)}\n\n使用积分可以：\n• 与院长LAY对话（100积分/次）\n• 其他会员权益功能`);
-          }
-          
-          setPointsInfo(getPointsData());
-          setIsLoggedIn(true);
-          onClose();
-        } else {
-          setError(data.message || '登录失败');
+        if (formData.email === ADMIN_EMAIL) {
+          // 初始化管理员积分
+          initializeAdminPoints();
         }
+        
+        // 检查每日登录奖励
+        const loginReward = checkDailyLoginReward();
+        
+        const pointsAfterReward = getPointsData().balance;
+        
+        if (formData.email === ADMIN_EMAIL) {
+          alert(`管理员登录成功！欢迎回来，院长LAY。\n\n🎁 每日登录奖励：+${loginReward.points} 积分\n\n当前积分：${formatPoints(pointsAfterReward)}\n\n管理员拥有高级权限，可优先体验新功能。`);
+        } else {
+          alert(`登录成功！欢迎加入AWKN LAB。\n\n🎁 每日登录奖励：+${loginReward.points} 积分\n\n当前积分：${formatPoints(pointsAfterReward)}\n\n使用积分可以：\n• 与院长LAY对话（100积分/次）\n• 其他会员权益功能`);
+        }
+        
+        setPointsInfo(getPointsData());
+        setIsLoggedIn(true);
+        onClose();
       } else {
         // 注册验证
         if (formData.password.length < 6) {
@@ -90,38 +74,21 @@ function LoginModalContent({ isOpen, onClose, defaultTab = 'login' }: LoginModal
           return;
         }
         
-        // 调用后端注册API
-        const response = await fetch('http://localhost:4000/api/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username: formData.email.split('@')[0],
-            email: formData.email,
-            password: formData.password,
-          }),
-        });
-
-        const data = await response.json();
+        // 模拟注册（本地环境）
+        // 实际部署时，这里会调用真实的后端API
+        localStorage.setItem('userRole', 'user');
+        localStorage.setItem('userEmail', formData.email);
         
-        if (data.success) {
-          localStorage.setItem('userRole', 'user');
-          localStorage.setItem('userEmail', formData.email);
-          
-          addPoints(1000, 'register', 3, '注册赠送');
-          const pointsAfterReward = getPointsData().balance;
-          alert(`注册成功！欢迎加入AWKN LAB。\n\n🎁 新人礼包已发放：\n• 积分 +1000\n• 每日签到 +100 积分\n• 充值 1元 = 500 积分\n\n当前积分：${formatPoints(pointsAfterReward)}\n\n使用积分可以：\n• 与院长LAY对话（100积分/次）\n• 其他会员权益功能`);
-          setPointsInfo(getPointsData());
-          setIsLoggedIn(true);
-          onClose();
-        } else {
-          setError(data.message || '注册失败');
-        }
+        addPoints(1000, 'register', 3, '注册赠送');
+        const pointsAfterReward = getPointsData().balance;
+        alert(`注册成功！欢迎加入AWKN LAB。\n\n🎁 新人礼包已发放：\n• 积分 +1000\n• 每日签到 +100 积分\n• 充值 1元 = 500 积分\n\n当前积分：${formatPoints(pointsAfterReward)}\n\n使用积分可以：\n• 与院长LAY对话（100积分/次）\n• 其他会员权益功能`);
+        setPointsInfo(getPointsData());
+        setIsLoggedIn(true);
+        onClose();
       }
     } catch (error) {
-      console.error('网络错误:', error);
-      setError('网络错误，请稍后重试');
+      console.error('登录/注册错误:', error);
+      setError('系统暂时不可用，请稍后重试');
     } finally {
       setIsLoading(false);
     }

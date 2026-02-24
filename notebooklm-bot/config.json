@@ -1,0 +1,25 @@
+{
+  "openclawApiUrl": "http://127.0.0.1:18789/api/v1",
+  "notebooklmUrl": "https://notebooklm.google.com",
+  "watchFolder": "./watch",
+  "downloadFolder": "./downloads",
+  "historyFile": "./history.json",
+  "maxFileSize": 50,
+  "allowedFileTypes": [".txt", ".md", ".docx", ".pdf", ".doc"],
+  "watchInterval": 1000,
+  "timeoutSettings": {
+    "browserInit": 30000,
+    "pageLoad": 60000,
+    "fileUpload": 120000,
+    "contentGeneration": 180000,
+    "download": 60000
+  },
+  "retrySettings": {
+    "maxRetries": 3,
+    "retryDelay": 5000
+  },
+  "logging": {
+    "level": "info",
+    "logFile": "./logs/app.log"
+  }
+}

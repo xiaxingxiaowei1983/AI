@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.21-2",
+    "lastTouchedAt": "2026-02-25T00:00:00.000Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-25T00:00:00.000Z",
+    "lastRunVersion": "2026.2.21-2",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "volcengine-plan/ark-code-latest"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "master",
+        "name": "master",
+        "workspace": "C:\\Users\\10919\\.openclaw\\workspace-master",
+        "agentDir": "C:\\Users\\10919\\.openclaw\\agents\\master\\agent",
+        "identity": {
+          "name": "大宗师"
+        }
+      },
+      {
+        "id": "green-tea",
+        "name": "green-tea",
+        "workspace": "C:\\Users\\10919\\Desktop\\AI\\agents\\green-tea",
+        "agentDir": "C:\\Users\\10919\\Desktop\\AI\\agents\\green-tea"
+      },
+      {
+        "id": "coo",
+        "name": "coo",
+        "workspace": "C:\\Users\\10919\\Desktop\\AI\\agents\\coo",
+        "agentDir": "C:\\Users\\10919\\.openclaw\\agents\\coo\\agent"
+      },
+      {
+        "id": "business",
+        "name": "business",
+        "workspace": "C:\\Users\\10919\\Desktop\\AI\\agents\\business",
+        "agentDir": "C:\\Users\\10919\\Desktop\\AI\\agents\\business"
+      }
+    ]
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_a91012cd0ab89bc9",
+      "appSecret": "W2dl8mRwy7ArghhqZSp9heG8i3I2FVP5",
+      "domain": "feishu",
+      "groupPolicy": "allowlist"
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "2e47ede431dbd73de7ae4a2556ba69260427d1269e8878da"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    }
+  }
+}

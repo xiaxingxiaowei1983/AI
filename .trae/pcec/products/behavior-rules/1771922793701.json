@@ -1,0 +1,7 @@
+{
+  "type": "behaviorRule",
+  "condition": "遇到系统集成问题时",
+  "action": "首先检查连接性，然后验证认证，最后分析数据格式",
+  "rationale": "按照从简单到复杂的顺序排查，提高解决效率",
+  "exceptions": "紧急情况需要快速响应时"
+}

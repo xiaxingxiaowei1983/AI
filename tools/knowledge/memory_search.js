@@ -10,7 +10,13 @@ class MemorySearch {
   constructor() {
     this.memoryDir = path.join(__dirname, '../../memory');
     this.indexDir = path.join(__dirname, '../../memory/indexes');
+    this.cacheDir = path.join(__dirname, '../../memory/cache');
     this._initialize();
+    // 初始化缓存
+    this.cache = new Map();
+    this.cacheSize = 500;
+    // 分类模型
+    this.categoryModel = this._initializeCategoryModel();
   }
 
   // 初始化内存和索引目录
@@ -22,6 +28,32 @@ class MemorySearch {
     if (!fs.existsSync(this.indexDir)) {
       fs.mkdirSync(this.indexDir, { recursive: true });
     }
+
+    if (!fs.existsSync(this.cacheDir)) {
+      fs.mkdirSync(this.cacheDir, { recursive: true });
+    }
+  }
+  
+  // 初始化分类模型
+  _initializeCategoryModel() {
+    return {
+      categories: {
+        '日常对话': ['你好', '谢谢', '再见', '天气', '时间'],
+        '技术讨论': ['代码', '编程', '技术', '系统', '架构'],
+        '业务分析': ['市场', '销售', '业务', '客户', '分析'],
+        '个人成长': ['学习', '成长', '目标', '计划', '发展'],
+        '系统管理': ['配置', '管理', '设置', '优化', '监控'],
+        '知识管理': ['记忆', '搜索', '信息', '数据', '存储']
+      },
+      // 分类规则
+      rules: [
+        { pattern: /代码|编程|技术|系统|架构/, category: '技术讨论' },
+        { pattern: /市场|销售|业务|客户|分析/, category: '业务分析' },
+        { pattern: /学习|成长|目标|计划|发展/, category: '个人成长' },
+        { pattern: /配置|管理|设置|优化|监控/, category: '系统管理' },
+        { pattern: /记忆|搜索|信息|数据|存储/, category: '知识管理' }
+      ]
+    };
   }
 
   // 搜索内存中的知识
@@ -31,7 +63,9 @@ class MemorySearch {
       limit = 10,    // 返回结果数量
       threshold = 0.3, // 相关性阈值
       sortBy = 'relevance', // 排序方式: relevance, timestamp, name
-      filters = {}   // 过滤条件
+      filters = {},   // 过滤条件
+      useCache = true, // 是否使用缓存
+      autoCategory = true // 是否自动分类
     } = options;
 
     // 验证参数
@@ -40,6 +74,82 @@ class MemorySearch {
     }
 
     const normalizedQuery = query.toLowerCase().trim();
+    const cacheKey = JSON.stringify({ query: normalizedQuery, options });
+
+    // 检查缓存
+    if (useCache && this.cache.has(cacheKey)) {
+      const cachedResult = this.cache.get(cacheKey);
+      if (Date.now() - cachedResult.timestamp < 3600000) { // 1小时缓存
+        return cachedResult.results;
+      }
+      this.cache.delete(cacheKey);
+    }
+
+    // 尝试从索引搜索
+    let results = [];
+    try {
+      results = this.searchFromIndex(normalizedQuery, options);
+      if (results.length > 0) {
+        // 从索引搜索成功，补充详细信息
+        results = results.map(result => {
+          try {
+            const content = fs.readFileSync(result.path, 'utf8');
+            return {
+              ...result,
+              summary: this._extractSummary(content, 200),
+              snippets: this._extractSnippets(content, normalizedQuery, 3)
+            };
+          } catch (error) {
+            return result;
+          }
+        });
+      } else {
+        // 索引搜索失败，回退到常规搜索
+        results = this._searchFiles(normalizedQuery, options);
+      }
+    } catch (error) {
+      // 搜索失败，回退到常规搜索
+      results = this._searchFiles(normalizedQuery, options);
+    }
+
+    // 自动分类
+    if (autoCategory) {
+      results = results.map(result => {
+        try {
+          const content = fs.readFileSync(result.path, 'utf8');
+          const categories = this._categorizeContent(content);
+          return {
+            ...result,
+            categories
+          };
+        } catch (error) {
+          return result;
+        }
+      });
+    }
+
+    // 排序结果
+    this._sortResults(results, sortBy);
+
+    // 限制返回数量
+    const limitedResults = results.slice(0, limit);
+
+    // 缓存结果
+    if (useCache) {
+      this._cacheResult(cacheKey, limitedResults);
+    }
+
+    return limitedResults;
+  }
+  
+  // 从文件搜索
+  _searchFiles(query, options = {}) {
+    const {
+      scope = 'all',
+      threshold = 0.3,
+      filters = {}
+    } = options;
+
     const results = [];
 
     // 搜索内存目录
@@ -50,8 +160,8 @@ class MemorySearch {
         const content = fs.readFileSync(filePath, 'utf8');
         const fileStats = fs.statSync(filePath);
         
-        // 计算相关性
-        const relevance = this._calculateRelevance(content, normalizedQuery);
+        // 计算相关性（增强版）
+        const relevance = this._calculateRelevanceEnhanced(content, filePath, query);
         
         // 检查相关性阈值
         if (relevance >= threshold) {
@@ -67,7 +177,7 @@ class MemorySearch {
               // 提取摘要
               summary: this._extractSummary(content, 200),
               // 提取匹配的片段
-              snippets: this._extractSnippets(content, normalizedQuery, 3)
+              snippets: this._extractSnippets(content, query, 3)
             });
           }
         }
@@ -76,11 +186,110 @@ class MemorySearch {
       }
     }
 
-    // 排序结果
-    this._sortResults(results, sortBy);
+    return results;
+  }
+  
+  // 增强版相关性计算
+  _calculateRelevanceEnhanced(content, filePath, query) {
+    const contentLower = content.toLowerCase();
+    const queryWords = query.split(/\s+/).filter(word => word.length > 1);
+    const fileName = path.basename(filePath).toLowerCase();
+    
+    if (queryWords.length === 0) {
+      return 0;
+    }
 
-    // 限制返回数量
-    return results.slice(0, limit);
+    let totalScore = 0;
+    let wordScores = [];
+
+    // 计算每个查询词的得分
+    for (const word of queryWords) {
+      let wordScore = 0;
+      
+      // 内容匹配得分
+      if (contentLower.includes(word)) {
+        // 计算词频
+        const wordCount = (contentLower.match(new RegExp(word, 'g')) || []).length;
+        const contentLength = contentLower.split(/\s+/).length;
+        const frequencyScore = Math.min(wordCount / contentLength * 10, 5);
+        wordScore += frequencyScore;
+      }
+      
+      // 文件名匹配得分
+      if (fileName.includes(word)) {
+        wordScore += 3;
+      }
+      
+      // 标题匹配得分
+      const firstLine = content.split('\n')[0].toLowerCase();
+      if (firstLine.includes(word)) {
+        wordScore += 2;
+      }
+      
+      wordScores.push(wordScore);
+      totalScore += wordScore;
+    }
+
+    // 计算平均得分
+    const averageScore = totalScore / queryWords.length;
+    
+    // 调整：完全匹配给予更高分数
+    if (contentLower === query) {
+      return 1.0;
+    }
+    
+    // 调整：标题完全匹配给予更高分数
+    if (firstLine === query) {
+      return Math.min(1.0, averageScore * 1.5);
+    }
+
+    // 归一化到 0-1 范围
+    return Math.min(1.0, averageScore / 10);
+  }
+  
+  // 缓存结果
+  _cacheResult(key, results) {
+    if (this.cache.size >= this.cacheSize) {
+      // 移除最早的缓存项
+      const firstKey = this.cache.keys().next().value;
+      this.cache.delete(firstKey);
+    }
+    this.cache.set(key, {
+      results,
+      timestamp: Date.now()
+    });
+  }
+  
+  // 自动分类内容
+  _categorizeContent(content) {
+    const categories = [];
+    const contentLower = content.toLowerCase();
+    
+    // 应用分类规则
+    for (const rule of this.categoryModel.rules) {
+      if (rule.pattern.test(contentLower)) {
+        categories.push(rule.category);
+      }
+    }
+    
+    // 基于关键词分类
+    for (const [category, keywords] of Object.entries(this.categoryModel.categories)) {
+      if (!categories.includes(category)) {
+        for (const keyword of keywords) {
+          if (contentLower.includes(keyword.toLowerCase())) {
+            categories.push(category);
+            break;
+          }
+        }
+      }
+    }
+    
+    // 默认分类
+    if (categories.length === 0) {
+      categories.push('未分类');
+    }
+    
+    return categories;
   }
 
   // 获取内存文件列表
@@ -263,6 +472,9 @@ class MemorySearch {
   searchAndSummarize(query, options = {}) {
     const results = this.search(query, options);
     
+    // 分析搜索结果
+    const analysis = this._analyzeSearchResults(results);
+    
     const summary = {
       query,
       totalResults: results.length,
@@ -270,10 +482,169 @@ class MemorySearch {
       averageRelevance: results.length > 0 
         ? results.reduce((sum, r) => sum + r.relevance, 0) / results.length 
         : 0,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      // 新增分析信息
+      analysis,
+      // 分类统计
+      categoryStats: this._getCategoryStats(results),
+      // 时间分布
+      timeDistribution: this._getTimeDistribution(results),
+      // 搜索建议
+      suggestions: this._generateSearchSuggestions(query, results)
     };
 
     return summary;
+  }
+
+  // 分析搜索结果
+  _analyzeSearchResults(results) {
+    if (results.length === 0) {
+      return {
+        insights: ['无搜索结果'],
+        recommendations: ['尝试使用更通用的关键词'],
+        patterns: []
+      };
+    }
+
+    const insights = [];
+    const recommendations = [];
+    const patterns = [];
+
+    // 分析相关性分布
+    const highRelevance = results.filter(r => r.relevance >= 0.7).length;
+    const mediumRelevance = results.filter(r => r.relevance >= 0.4 && r.relevance < 0.7).length;
+    const lowRelevance = results.filter(r => r.relevance < 0.4).length;
+
+    if (highRelevance > 0) {
+      insights.push(`发现 ${highRelevance} 个高相关性结果`);
+    }
+
+    if (lowRelevance > highRelevance + mediumRelevance) {
+      insights.push('大部分结果相关性较低');
+      recommendations.push('尝试使用更具体的关键词');
+    }
+
+    // 分析文件类型分布
+    const fileTypes = {};
+    results.forEach(r => {
+      const ext = path.extname(r.path).toLowerCase();
+      fileTypes[ext] = (fileTypes[ext] || 0) + 1;
+    });
+
+    const topFileType = Object.entries(fileTypes)
+      .sort((a, b) => b[1] - a[1])[0];
+
+    if (topFileType) {
+      patterns.push(`主要文件类型: ${topFileType[0]} (${topFileType[1]}个)`);
+    }
+
+    return {
+      insights,
+      recommendations,
+      patterns
+    };
+  }
+
+  // 获取分类统计
+  _getCategoryStats(results) {
+    const categories = {};
+    results.forEach(r => {
+      if (r.categories) {
+        r.categories.forEach(category => {
+          categories[category] = (categories[category] || 0) + 1;
+        });
+      }
+    });
+    return categories;
+  }
+
+  // 获取时间分布
+  _getTimeDistribution(results) {
+    const distribution = {
+      recent: 0, // 最近7天
+      medium: 0, // 7-30天
+      old: 0 // 30天以上
+    };
+
+    const now = Date.now();
+    const sevenDaysAgo = now - (7 * 24 * 60 * 60 * 1000);
+    const thirtyDaysAgo = now - (30 * 24 * 60 * 60 * 1000);
+
+    results.forEach(r => {
+      if (r.timestamp >= sevenDaysAgo) {
+        distribution.recent++;
+      } else if (r.timestamp >= thirtyDaysAgo) {
+        distribution.medium++;
+      } else {
+        distribution.old++;
+      }
+    });
+
+    return distribution;
+  }
+
+  // 生成搜索建议
+  _generateSearchSuggestions(query, results) {
+    const suggestions = [];
+    
+    // 基于结果生成建议
+    const keywords = new Set();
+    results.forEach(r => {
+      if (r.keywords) {
+        r.keywords.slice(0, 5).forEach(keyword => {
+          keywords.add(keyword);
+        });
+      }
+    });
+
+    // 生成相关搜索建议
+    keywords.forEach(keyword => {
+      if (keyword !== query.toLowerCase() && !query.toLowerCase().includes(keyword)) {
+        suggestions.push(keyword);
+      }
+    });
+
+    return suggestions.slice(0, 5);
+  }
+
+  // 增强版搜索（支持多语言和语义理解）
+  enhancedSearch(query, options = {}) {
+    // 这里可以实现更高级的搜索功能
+    // 例如：多语言支持、语义理解、跨文档搜索等
+    
+    // 暂时调用基础搜索
+    return this.search(query, options);
+  }
+
+  // 搜索结果聚类
+  clusterSearchResults(query, options = {}) {
+    const results = this.search(query, options);
+    
+    // 简单聚类实现
+    const clusters = {};
+    
+    results.forEach(result => {
+      // 基于分类聚类
+      if (result.categories && result.categories.length > 0) {
+        const mainCategory = result.categories[0];
+        if (!clusters[mainCategory]) {
+          clusters[mainCategory] = [];
+        }
+        clusters[mainCategory].push(result);
+      } else {
+        if (!clusters['未分类']) {
+          clusters['未分类'] = [];
+        }
+        clusters['未分类'].push(result);
+      }
+    });
+    
+    return {
+      query,
+      totalClusters: Object.keys(clusters).length,
+      clusters,
+      timestamp: Date.now()
+    };
   }
 
   // 创建搜索索引（可选）

@@ -1,0 +1,22 @@
+{
+  "admin": {
+    "name": "陈婷（剑锋传奇）",
+    "feishu_id": "ou_4d9197bf2f8cf48a7097b17b623e3bd3",
+    "role": "管理员",
+    "status": "active",
+    "last_updated": "2026-02-24T11:50:00Z",
+    "note": "系统管理员，所有管理操作需经过此账号授权"
+  },
+  "system": {
+    "admin_required_operations": [
+      "系统配置修改",
+      "用户权限管理",
+      "数据备份恢复",
+      "安全设置调整"
+    ],
+    "admin_contact_channels": [
+      "飞书",
+      "系统内部通知"
+    ]
+  }
+}

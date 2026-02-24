@@ -1,0 +1,21 @@
+{
+  "name": "evolver",
+  "version": "1.0.0",
+  "description": "EvoMap client for Gene and Capsule integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "evomap",
+    "agent",
+    "evolution",
+    "gene",
+    "capsule"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.13.5"
+  }
+}

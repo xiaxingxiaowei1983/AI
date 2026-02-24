@@ -1,0 +1,235 @@
+[
+  {
+    "taskId": "test_xhs_1",
+    "taskTitle": "如何在小红书上创作爆款内容",
+    "platform": "xiaohongshu",
+    "platformName": "小红书",
+    "publishResult": {
+      "id": "xhs_1771900607120_7092",
+      "platform": "xiaohongshu",
+      "title": "如何在小红书上创作爆款内容 ✨",
+      "status": "published",
+      "url": "https://www.xiaohongshu.com/discovery/item/xhs_1771900605116",
+      "timestamp": "2026-02-24T02:36:47.120Z"
+    },
+    "timestamp": "2026-02-24T02:36:47.123Z"
+  },
+  {
+    "taskId": "test_video_1",
+    "taskTitle": "30秒学会视频号爆款创作技巧",
+    "platform": "wechatVideo",
+    "platformName": "微信视频号",
+    "publishResult": {
+      "id": "wxv_1771900610138_7231",
+      "platform": "wechatVideo",
+      "title": "30秒学会视频号爆款创作技巧",
+      "status": "published",
+      "url": "https://channels.weixin.qq.com/web/pages/detail?item_id=wxv_1771900607126",
+      "timestamp": "2026-02-24T02:36:50.138Z"
+    },
+    "timestamp": "2026-02-24T02:36:50.142Z"
+  },
+  {
+    "taskId": "test_article_1",
+    "taskTitle": "深度解析：如何打造微信公众号爆款文章",
+    "platform": "wechatArticle",
+    "platformName": "微信公众号",
+    "publishResult": {
+      "id": "wx_1771900612655_2693",
+      "platform": "wechatArticle",
+      "title": "深度解析：如何打造微信公众号爆款文章",
+      "status": "published",
+      "url": "https://mp.weixin.qq.com/s/wx_1771900610144",
+      "timestamp": "2026-02-24T02:36:52.656Z"
+    },
+    "timestamp": "2026-02-24T02:36:52.665Z"
+  },
+  {
+    "taskId": "test_xhs_1",
+    "taskTitle": "如何在小红书上创作爆款内容",
+    "platform": "xiaohongshu",
+    "platformName": "小红书",
+    "publishResult": {
+      "id": "xhs_1771902303072_2862",
+      "platform": "xiaohongshu",
+      "title": "如何在小红书上创作爆款内容 ✨",
+      "status": "published",
+      "url": "https://www.xiaohongshu.com/discovery/item/xhs_1771902301068",
+      "timestamp": "2026-02-24T03:05:03.072Z"
+    },
+    "timestamp": "2026-02-24T03:05:03.075Z"
+  },
+  {
+    "taskId": "test_video_1",
+    "taskTitle": "30秒学会视频号爆款创作技巧",
+    "platform": "wechatVideo",
+    "platformName": "微信视频号",
+    "publishResult": {
+      "id": "wxv_1771902306081_2270",
+      "platform": "wechatVideo",
+      "title": "30秒学会视频号爆款创作技巧",
+      "status": "published",
+      "url": "https://channels.weixin.qq.com/web/pages/detail?item_id=wxv_1771902303078",
+      "timestamp": "2026-02-24T03:05:06.081Z"
+    },
+    "timestamp": "2026-02-24T03:05:06.090Z"
+  },
+  {
+    "taskId": "test_article_1",
+    "taskTitle": "深度解析：如何打造微信公众号爆款文章",
+    "platform": "wechatArticle",
+    "platformName": "微信公众号",
+    "publishResult": {
+      "id": "wx_1771902308602_3139",
+      "platform": "wechatArticle",
+      "title": "深度解析：如何打造微信公众号爆款文章",
+      "status": "published",
+      "url": "https://mp.weixin.qq.com/s/wx_1771902306098",
+      "timestamp": "2026-02-24T03:05:08.602Z"
+    },
+    "timestamp": "2026-02-24T03:05:08.612Z"
+  },
+  {
+    "taskId": "test_xhs_1",
+    "taskTitle": "如何在小红书上创作爆款内容",
+    "platform": "xiaohongshu",
+    "platformName": "小红书",
+    "publishResult": {
+      "id": "error_1771903907369",
+      "platform": "xiaohongshu",
+      "title": "如何在小红书上创作爆款内容",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "timestamp": "2026-02-24T03:31:47.369Z"
+    },
+    "timestamp": "2026-02-24T03:31:47.371Z"
+  },
+  {
+    "taskId": "test_video_1",
+    "taskTitle": "30秒学会视频号爆款创作技巧",
+    "platform": "wechatVideo",
+    "platformName": "微信视频号",
+    "publishResult": {
+      "id": "wxv_1771903909382_1851",
+      "platform": "wechatVideo",
+      "title": "30秒学会视频号爆款创作技巧",
+      "status": "published",
+      "url": "https://channels.weixin.qq.com/web/pages/detail?item_id=wxv_1771903907374",
+      "timestamp": "2026-02-24T03:31:49.383Z",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:31:49.387Z"
+  },
+  {
+    "taskId": "test_article_1",
+    "taskTitle": "深度解析：如何打造微信公众号爆款文章",
+    "platform": "wechatArticle",
+    "platformName": "微信公众号",
+    "publishResult": {
+      "id": "wx_1771903910895_9440",
+      "platform": "wechatArticle",
+      "title": "深度解析：如何打造微信公众号爆款文章",
+      "status": "published",
+      "url": "https://mp.weixin.qq.com/s/wx_1771903909390",
+      "timestamp": "2026-02-24T03:31:50.895Z",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:31:50.899Z"
+  },
+  {
+    "taskId": "test_xhs_1",
+    "taskTitle": "如何在小红书上创作爆款内容",
+    "platform": "xiaohongshu",
+    "platformName": "小红书",
+    "publishResult": {
+      "id": "error_1771903947277",
+      "platform": "xiaohongshu",
+      "title": "如何在小红书上创作爆款内容",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "timestamp": "2026-02-24T03:32:27.277Z"
+    },
+    "timestamp": "2026-02-24T03:32:27.279Z"
+  },
+  {
+    "taskId": "test_video_1",
+    "taskTitle": "30秒学会视频号爆款创作技巧",
+    "platform": "wechatVideo",
+    "platformName": "微信视频号",
+    "publishResult": {
+      "id": "wxv_1771903949284_8291",
+      "platform": "wechatVideo",
+      "title": "30秒学会视频号爆款创作技巧",
+      "status": "published",
+      "url": "https://channels.weixin.qq.com/web/pages/detail?item_id=wxv_1771903947281",
+      "timestamp": "2026-02-24T03:32:29.284Z",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:32:29.288Z"
+  },
+  {
+    "taskId": "test_article_1",
+    "taskTitle": "深度解析：如何打造微信公众号爆款文章",
+    "platform": "wechatArticle",
+    "platformName": "微信公众号",
+    "publishResult": {
+      "id": "wx_1771903950807_6937",
+      "platform": "wechatArticle",
+      "title": "深度解析：如何打造微信公众号爆款文章",
+      "status": "published",
+      "url": "https://mp.weixin.qq.com/s/wx_1771903949292",
+      "timestamp": "2026-02-24T03:32:30.807Z",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:32:30.810Z"
+  },
+  {
+    "taskId": "test_xhs_1",
+    "taskTitle": "如何在小红书上创作爆款内容",
+    "platform": "xiaohongshu",
+    "platformName": "小红书",
+    "publishResult": {
+      "id": "xhs_1771904003380_1418",
+      "platform": "xiaohongshu",
+      "title": "如何在小红书上创作爆款内容 ✨",
+      "status": "published",
+      "url": "https://www.xiaohongshu.com/discovery/item/xhs_1771904003380",
+      "timestamp": "2026-02-24T03:33:23.380Z",
+      "accountId": "251940568",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:33:23.384Z"
+  },
+  {
+    "taskId": "test_video_1",
+    "taskTitle": "30秒学会视频号爆款创作技巧",
+    "platform": "wechatVideo",
+    "platformName": "微信视频号",
+    "publishResult": {
+      "id": "wxv_1771904005394_5728",
+      "platform": "wechatVideo",
+      "title": "30秒学会视频号爆款创作技巧",
+      "status": "published",
+      "url": "https://channels.weixin.qq.com/web/pages/detail?item_id=wxv_1771904003388",
+      "timestamp": "2026-02-24T03:33:25.394Z",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:33:25.398Z"
+  },
+  {
+    "taskId": "test_article_1",
+    "taskTitle": "深度解析：如何打造微信公众号爆款文章",
+    "platform": "wechatArticle",
+    "platformName": "微信公众号",
+    "publishResult": {
+      "id": "wx_1771904006907_6041",
+      "platform": "wechatArticle",
+      "title": "深度解析：如何打造微信公众号爆款文章",
+      "status": "published",
+      "url": "https://mp.weixin.qq.com/s/wx_1771904005400",
+      "timestamp": "2026-02-24T03:33:26.907Z",
+      "mockMode": true
+    },
+    "timestamp": "2026-02-24T03:33:26.910Z"
+  }
+]

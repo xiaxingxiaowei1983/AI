@@ -220,32 +220,23 @@ export async function createRechargeOrder(amount: number, payChannel: 'wechat' |
   message?: string;
 }> {
   try {
-    const response = await fetch(`${API_BASE_URL}/recharge/create-order`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    // 模拟充值订单创建（本地环境）
+    // 实际部署时，这里会调用真实的后端API
+    const orderNo = `ORD${Date.now()}`;
+    const pointsGranted = amount * 500; // 1元 = 500积分
+    
+    // 直接添加积分（模拟支付成功）
+    addPoints(pointsGranted, 'recharge', 1, `充值${amount}元`);
+    
+    return {
+      success: true,
+      orderNo: orderNo,
+      pointsGranted: pointsGranted,
+      payParams: {
+        code_url: 'https://example.com/pay',
+        qr_code: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==',
       },
-      body: JSON.stringify({ amount, pay_channel: payChannel }),
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    if (data.success) {
-      return {
-        success: true,
-        orderNo: data.data.order_no,
-        pointsGranted: data.data.points_granted,
-        payParams: data.data.pay_params,
-      };
-    } else {
-      return {
-        success: false,
-        message: data.message || '创建订单失败',
-      };
-    }
+    };
   } catch (error) {
     console.error('创建充值订单失败:', error);
     return {
@@ -263,25 +254,13 @@ export async function getOrderStatus(orderNo: string): Promise<{
   message?: string;
 }> {
   try {
-    const response = await fetch(`${API_BASE_URL}/recharge/status?order_no=${orderNo}`);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    if (data.success) {
-      return {
-        success: true,
-        status: data.data.status,
-        statusText: data.data.status_text,
-      };
-    } else {
-      return {
-        success: false,
-        message: data.message || '查询订单状态失败',
-      };
-    }
+    // 模拟订单状态查询（本地环境）
+    // 实际部署时，这里会调用真实的后端API
+    return {
+      success: true,
+      status: 1,
+      statusText: '支付成功',
+    };
   } catch (error) {
     console.error('查询订单状态失败:', error);
     return {

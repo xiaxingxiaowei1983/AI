@@ -1,0 +1,8 @@
+{
+  "provider": "local",
+  "model_name": "none",
+  "api_key": "none",
+  "api_base": "none",
+  "require_api_key": false,
+  "skip_auth": true
+}

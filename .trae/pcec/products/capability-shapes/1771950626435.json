@@ -1,0 +1,9 @@
+{
+  "type": "capabilityShape",
+  "name": "系统集成能力",
+  "input": "集成需求、系统状态、外部服务信息",
+  "output": "集成方案、执行步骤、验证结果",
+  "invariants": "集成必须不影响现有功能",
+  "variables": "集成复杂度、外部服务可靠性、系统资源",
+  "failurePoints": "连接失败、认证错误、数据格式不匹配"
+}

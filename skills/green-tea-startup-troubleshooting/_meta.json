@@ -1,0 +1,26 @@
+{
+  "name": "green-tea-startup-troubleshooting",
+  "version": "1.0.0",
+  "description": "绿茶智能体启动故障排除指南，记录启动过程中遇到的问题及解决方案",
+  "author": "系统管理员",
+  "created": "2026-02-23",
+  "category": "系统运维",
+  "tags": ["绿茶智能体", "OpenClaw", "故障排除", "启动问题", "系统运维"],
+  "requires": [],
+  "provides": [
+    "绿茶智能体启动故障排除",
+    "OpenClaw 网关管理",
+    "端口占用解决方案",
+    "智能体启动流程优化"
+  ],
+  "usage": "在绿茶智能体启动失败时参考本技能文档进行故障排除",
+  "priority": "medium",
+  "related_skills": [
+    "system-tools",
+    "openclaw-deployer"
+  ],
+  "compatibility": {
+    "openclaw": "2026.2.22-2",
+    "nodejs": ">=18.0.0"
+  }
+}

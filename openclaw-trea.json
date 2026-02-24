@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.21-2",
+    "lastTouchedAt": "2026-02-24T14:30:00.000Z"
+  },
+  "agents": {
+    "defaults": {
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "master",
+        "name": "大宗师",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/master",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/master",
+        "identity": {
+          "name": "大宗师"
+        }
+      },
+      {
+        "id": "coo",
+        "name": "枢纽",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/coo",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/coo"
+      },
+      {
+        "id": "business",
+        "name": "谛听",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/business",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/business",
+        "identity": {
+          "name": "谛听"
+        }
+      }
+    ]
+  },
+  "agentCommunication": {
+    "enabled": true,
+    "permissions": {
+      "master": {
+        "canCommand": ["coo", "business"]
+      },
+      "coo": {
+        "canCommand": ["business"]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "gateway",
+    "auth": {
+      "mode": "token",
+      "token": "2e47ede431dbd73de7ae4a2556ba69260427d1269e8878da"
+    }
+  },
+  "models": {
+    "trea": {
+      "enabled": true,
+      "useInternalModel": true
+    }
+  },
+  "workspace": {
+    "autoClean": false,
+    "backup": true
+  },
+  "evo": {
+    "enable": true,
+    "review": true,
+    "autoImprove": false
+  },
+  "agent": {
+    "autoRun": true
+  }
+}

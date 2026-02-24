@@ -1,0 +1,2403 @@
+{
+  "testSummary": {
+    "totalTests": 15,
+    "passedTests": 14,
+    "failedTests": 1,
+    "successRate": 93,
+    "timestamp": "2026-02-23T09:35:12.340Z"
+  },
+  "performanceSummary": {
+    "averageMemoryUsage": 87,
+    "averageCpuUsage": 29,
+    "maximumMemoryUsage": 88,
+    "maximumCpuUsage": 39,
+    "testDuration": 60000,
+    "performanceThresholds": {
+      "memoryUsage": 80,
+      "cpuUsage": 80,
+      "responseTime": 1000
+    }
+  },
+  "testResults": [
+    {
+      "name": "公司大脑状态测试",
+      "success": true,
+      "data": {
+        "isRunning": true,
+        "companyBrain": {
+          "isRunning": true,
+          "systems": {
+            "memory": {
+              "ruleCount": 0,
+              "knowledgeCount": 0,
+              "documentCount": 0,
+              "status": "active"
+            },
+            "scheduler": {
+              "totalAgents": 4,
+              "activeAgents": 4,
+              "inactiveAgents": 0,
+              "averageWorkload": 0,
+              "averageSuccessRate": 1,
+              "totalTasks": 0,
+              "pendingTasks": 0,
+              "completedTasks": 0,
+              "failedTasks": 0,
+              "statusCounts": {},
+              "averageExecutionTime": 0,
+              "status": "active"
+            },
+            "communication": {
+              "messageBus": {
+                "messageCount": 0,
+                "subscriberCount": 0,
+                "status": "active"
+              },
+              "protocolAdapter": {
+                "supportedProtocols": [
+                  "json",
+                  "xml",
+                  "yaml",
+                  "custom"
+                ],
+                "status": "active"
+              },
+              "securityGateway": {
+                "blockedAgents": [],
+                "allowedAgents": [],
+                "allowedMessageTypes": [
+                  "task_assignment",
+                  "task_confirmation",
+                  "status_update",
+                  "task_result",
+                  "agent_registration",
+                  "agent_status",
+                  "system_message"
+                ],
+                "maxMessageSize": 1048576,
+                "rateLimits": [],
+                "status": "active"
+              },
+              "status": "active"
+            },
+            "monitoring": {
+              "status": "healthy",
+              "message": "监控系统运行正常"
+            }
+          },
+          "timestamp": "2026-02-23T09:33:47.089Z"
+        },
+        "runningAgents": [],
+        "timestamp": "2026-02-23T09:33:47.089Z"
+      },
+      "timestamp": "2026-02-23T09:33:47.089Z"
+    },
+    {
+      "name": "公司大脑健康检查测试",
+      "success": false,
+      "data": {
+        "isHealthy": false,
+        "timestamp": "2026-02-23T09:33:48.092Z",
+        "details": {
+          "integration": {
+            "isRunning": true,
+            "runningAgents": []
+          },
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:33:48.092Z",
+            "memory": {
+              "ruleCount": 0,
+              "knowledgeCount": 0,
+              "documentCount": 0,
+              "status": "active"
+            },
+            "scheduler": {
+              "totalAgents": 4,
+              "activeAgents": 4,
+              "inactiveAgents": 0,
+              "averageWorkload": 0,
+              "averageSuccessRate": 1,
+              "totalTasks": 0,
+              "pendingTasks": 0,
+              "completedTasks": 0,
+              "failedTasks": 0,
+              "statusCounts": {},
+              "averageExecutionTime": 0,
+              "status": "active"
+            },
+            "communication": {
+              "messageBus": {
+                "messageCount": 0,
+                "subscriberCount": 0,
+                "status": "active"
+              },
+              "protocolAdapter": {
+                "supportedProtocols": [
+                  "json",
+                  "xml",
+                  "yaml",
+                  "custom"
+                ],
+                "status": "active"
+              },
+              "securityGateway": {
+                "blockedAgents": [],
+                "allowedAgents": [],
+                "allowedMessageTypes": [
+                  "task_assignment",
+                  "task_confirmation",
+                  "status_update",
+                  "task_result",
+                  "agent_registration",
+                  "agent_status",
+                  "system_message"
+                ],
+                "maxMessageSize": 1048576,
+                "rateLimits": [],
+                "status": "active"
+              },
+              "status": "active"
+            }
+          }
+        }
+      },
+      "timestamp": "2026-02-23T09:33:48.092Z"
+    },
+    {
+      "name": "公司大脑系统信息测试",
+      "success": true,
+      "data": {
+        "version": "1.0.0",
+        "name": "AI公司大脑",
+        "description": "智能体调度中心，管理公司规则、制度和文件，指导所有智能体的工作",
+        "architecture": {
+          "memory": "共享记忆系统",
+          "scheduler": "智能体调度系统",
+          "communication": "智能体通信系统",
+          "monitoring": "系统监控系统"
+        },
+        "dependencies": {
+          "memorySystem": "启用",
+          "schedulerSystem": "启用",
+          "communicationSystem": "启用",
+          "monitoringSystem": "启用"
+        },
+        "timestamp": "2026-02-23T09:33:49.096Z"
+      },
+      "timestamp": "2026-02-23T09:33:49.098Z"
+    },
+    {
+      "name": "目录结构测试",
+      "success": true,
+      "data": {
+        "./shared-memory": true,
+        "./shared-memory/coordination": true,
+        "./shared-memory/user-preferences": true,
+        "./shared-memory/system-config": true,
+        "./shared-memory/archived": true,
+        "./logs": true,
+        "./logs/performance": true,
+        "./logs/agents": true,
+        "./logs/system": true
+      },
+      "timestamp": "2026-02-23T09:33:50.112Z"
+    },
+    {
+      "name": "配置文件测试",
+      "success": true,
+      "data": {
+        "./company-brain/index.js": true,
+        "./start-company-brain-integration.js": true,
+        "./.abstract": true,
+        "./shared-memory/coordination/organization_structure.md": true,
+        "./shared-memory/coordination/task-board.md": true
+      },
+      "timestamp": "2026-02-23T09:33:51.116Z"
+    },
+    {
+      "name": "稳定性测试迭代 1",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:34:52.249Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:34:52.249Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:34:52.249Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:34:52.249Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:34:52.250Z"
+    },
+    {
+      "name": "稳定性测试迭代 2",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:34:54.254Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:34:54.254Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:34:54.255Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:34:54.255Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:34:54.256Z"
+    },
+    {
+      "name": "稳定性测试迭代 3",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:34:56.270Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:34:56.270Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:34:56.271Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:34:56.271Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:34:56.273Z"
+    },
+    {
+      "name": "稳定性测试迭代 4",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:34:58.287Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:34:58.287Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:34:58.287Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:34:58.287Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:34:58.287Z"
+    },
+    {
+      "name": "稳定性测试迭代 5",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:35:00.288Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:35:00.288Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:35:00.288Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:35:00.288Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:35:00.289Z"
+    },
+    {
+      "name": "稳定性测试迭代 6",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:35:02.291Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:35:02.291Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:35:02.292Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:35:02.292Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:35:02.294Z"
+    },
+    {
+      "name": "稳定性测试迭代 7",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:35:04.298Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:35:04.298Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:35:04.298Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:35:04.298Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:35:04.299Z"
+    },
+    {
+      "name": "稳定性测试迭代 8",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:35:06.314Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:35:06.315Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:35:06.315Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:35:06.315Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 1
+      },
+      "timestamp": "2026-02-23T09:35:06.317Z"
+    },
+    {
+      "name": "稳定性测试迭代 9",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:35:08.323Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:35:08.323Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:35:08.324Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:35:08.324Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:35:08.326Z"
+    },
+    {
+      "name": "稳定性测试迭代 10",
+      "success": true,
+      "data": {
+        "status": {
+          "isRunning": true,
+          "companyBrain": {
+            "isRunning": true,
+            "systems": {
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              },
+              "monitoring": {
+                "status": "healthy",
+                "message": "监控系统运行正常"
+              }
+            },
+            "timestamp": "2026-02-23T09:35:10.330Z"
+          },
+          "runningAgents": [],
+          "timestamp": "2026-02-23T09:35:10.330Z"
+        },
+        "healthStatus": {
+          "isHealthy": false,
+          "timestamp": "2026-02-23T09:35:10.331Z",
+          "details": {
+            "integration": {
+              "isRunning": true,
+              "runningAgents": []
+            },
+            "companyBrain": {
+              "isRunning": true,
+              "systems": {
+                "memory": {
+                  "ruleCount": 0,
+                  "knowledgeCount": 0,
+                  "documentCount": 0,
+                  "status": "active"
+                },
+                "scheduler": {
+                  "totalAgents": 4,
+                  "activeAgents": 4,
+                  "inactiveAgents": 0,
+                  "averageWorkload": 0,
+                  "averageSuccessRate": 1,
+                  "totalTasks": 0,
+                  "pendingTasks": 0,
+                  "completedTasks": 0,
+                  "failedTasks": 0,
+                  "statusCounts": {},
+                  "averageExecutionTime": 0,
+                  "status": "active"
+                },
+                "communication": {
+                  "messageBus": {
+                    "messageCount": 0,
+                    "subscriberCount": 0,
+                    "status": "active"
+                  },
+                  "protocolAdapter": {
+                    "supportedProtocols": [
+                      "json",
+                      "xml",
+                      "yaml",
+                      "custom"
+                    ],
+                    "status": "active"
+                  },
+                  "securityGateway": {
+                    "blockedAgents": [],
+                    "allowedAgents": [],
+                    "allowedMessageTypes": [
+                      "task_assignment",
+                      "task_confirmation",
+                      "status_update",
+                      "task_result",
+                      "agent_registration",
+                      "agent_status",
+                      "system_message"
+                    ],
+                    "maxMessageSize": 1048576,
+                    "rateLimits": [],
+                    "status": "active"
+                  },
+                  "status": "active"
+                },
+                "monitoring": {
+                  "status": "healthy",
+                  "message": "监控系统运行正常"
+                }
+              },
+              "timestamp": "2026-02-23T09:35:10.331Z",
+              "memory": {
+                "ruleCount": 0,
+                "knowledgeCount": 0,
+                "documentCount": 0,
+                "status": "active"
+              },
+              "scheduler": {
+                "totalAgents": 4,
+                "activeAgents": 4,
+                "inactiveAgents": 0,
+                "averageWorkload": 0,
+                "averageSuccessRate": 1,
+                "totalTasks": 0,
+                "pendingTasks": 0,
+                "completedTasks": 0,
+                "failedTasks": 0,
+                "statusCounts": {},
+                "averageExecutionTime": 0,
+                "status": "active"
+              },
+              "communication": {
+                "messageBus": {
+                  "messageCount": 0,
+                  "subscriberCount": 0,
+                  "status": "active"
+                },
+                "protocolAdapter": {
+                  "supportedProtocols": [
+                    "json",
+                    "xml",
+                    "yaml",
+                    "custom"
+                  ],
+                  "status": "active"
+                },
+                "securityGateway": {
+                  "blockedAgents": [],
+                  "allowedAgents": [],
+                  "allowedMessageTypes": [
+                    "task_assignment",
+                    "task_confirmation",
+                    "status_update",
+                    "task_result",
+                    "agent_registration",
+                    "agent_status",
+                    "system_message"
+                  ],
+                  "maxMessageSize": 1048576,
+                  "rateLimits": [],
+                  "status": "active"
+                },
+                "status": "active"
+              }
+            }
+          }
+        },
+        "responseTime": 0
+      },
+      "timestamp": "2026-02-23T09:35:10.333Z"
+    }
+  ],
+  "performanceData": [
+    {
+      "timestamp": "2026-02-23T09:33:52.134Z",
+      "memoryUsage": 86,
+      "cpuUsage": 38,
+      "uptime": 10.3230286,
+      "heapUsed": 8.73675537109375,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:33:57.149Z",
+      "memoryUsage": 86,
+      "cpuUsage": 20,
+      "uptime": 15.3370935,
+      "heapUsed": 8.75823974609375,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:02.163Z",
+      "memoryUsage": 86,
+      "cpuUsage": 25,
+      "uptime": 20.3512817,
+      "heapUsed": 8.79034423828125,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:07.178Z",
+      "memoryUsage": 86,
+      "cpuUsage": 28,
+      "uptime": 25.3670772,
+      "heapUsed": 8.803977966308594,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:12.180Z",
+      "memoryUsage": 86,
+      "cpuUsage": 23,
+      "uptime": 30.3682356,
+      "heapUsed": 8.83050537109375,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:17.190Z",
+      "memoryUsage": 87,
+      "cpuUsage": 14,
+      "uptime": 35.3788179,
+      "heapUsed": 8.84381103515625,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:22.193Z",
+      "memoryUsage": 87,
+      "cpuUsage": 38,
+      "uptime": 40.3820646,
+      "heapUsed": 8.875839233398438,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:27.208Z",
+      "memoryUsage": 87,
+      "cpuUsage": 30,
+      "uptime": 45.3961918,
+      "heapUsed": 8.892623901367188,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:32.210Z",
+      "memoryUsage": 87,
+      "cpuUsage": 39,
+      "uptime": 50.3991079,
+      "heapUsed": 8.925811767578125,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:37.226Z",
+      "memoryUsage": 88,
+      "cpuUsage": 38,
+      "uptime": 55.4146764,
+      "heapUsed": 8.9398193359375,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:42.230Z",
+      "memoryUsage": 88,
+      "cpuUsage": 16,
+      "uptime": 60.4179515,
+      "heapUsed": 8.972946166992188,
+      "heapTotal": 10.21484375
+    },
+    {
+      "timestamp": "2026-02-23T09:34:47.239Z",
+      "memoryUsage": 88,
+      "cpuUsage": 36,
+      "uptime": 65.4276377,
+      "heapUsed": 8.986221313476562,
+      "heapTotal": 10.21484375
+    }
+  ],
+  "recommendations": [
+    "修复失败的测试用例，确保所有功能模块正常工作",
+    "优化内存使用，考虑使用内存缓存或减少内存泄漏",
+    "定期运行性能测试，监控系统健康状态",
+    "根据业务需求调整性能阈值",
+    "建立自动化测试流程，确保系统稳定性"
+  ]
+}

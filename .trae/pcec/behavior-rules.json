@@ -1,0 +1,9 @@
+[
+  {
+    "type": "behaviorRule",
+    "condition": "系统负载过高时",
+    "action": "优先处理核心任务，延迟非核心任务，启动资源回收",
+    "rationale": "确保核心功能正常运行，防止系统崩溃",
+    "exceptions": "所有任务都是核心任务"
+  }
+]

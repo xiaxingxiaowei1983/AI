@@ -1,0 +1,411 @@
+{
+  "constraintSystem": {
+    "name": "能力进化约束体系",
+    "description": "确保所有能力进化满足约束条件，防止能力劣化",
+    "corePrinciples": [
+      {
+        "id": "success-rate",
+        "name": "提高成功率或效率",
+        "description": "所有能力进化必须提高系统的成功率或执行效率",
+        "measurement": [
+          "能力执行成功率提升",
+          "执行时间减少",
+          "资源消耗降低"
+        ],
+        "threshold": "至少5%的提升"
+      },
+      {
+        "id": "no-side-effects",
+        "name": "不引入不可控副作用",
+        "description": "能力进化不得引入无法预测或控制的副作用",
+        "measurement": [
+          "副作用预测准确性",
+          "副作用控制有效性",
+          "系统稳定性指标"
+        ],
+        "threshold": "零不可控副作用"
+      },
+      {
+        "id": "no-mental-burden",
+        "name": "不增加用户心智负担",
+        "description": "能力进化不得增加用户的理解难度或操作复杂度",
+        "measurement": [
+          "用户操作步骤减少",
+          "界面复杂度降低",
+          "用户反馈满意度"
+        ],
+        "threshold": "心智负担不增加"
+      },
+      {
+        "id": "stability-first",
+        "name": "稳定性优先",
+        "description": "在所有进化决策中，系统稳定性优先级最高",
+        "measurement": [
+          "系统崩溃率",
+          "错误率",
+          "恢复能力"
+        ],
+        "threshold": "稳定性不降低"
+      }
+    ],
+    "prohibitedBehaviors": [
+      {
+        "id": "complexity-increase",
+        "name": "为了"显得更聪明"而增加复杂度",
+        "description": "禁止纯粹为了展示技术而增加不必要的复杂度",
+        "detection": [
+          "代码行数无理由增加",
+          "操作步骤增加",
+          "用户界面复杂度提高"
+        ],
+        "penalty": "立即回滚，重新评估进化方案"
+      },
+      {
+        "id": "unverifiable-mechanisms",
+        "name": "引入无法验证、无法复现、无法解释的机制",
+        "description": "禁止引入缺乏透明度的黑盒机制",
+        "detection": [
+          "无法提供详细的执行逻辑",
+          "结果不可重复",
+          "无法解释决策依据"
+        ],
+        "penalty": "立即回滚，禁用相关能力"
+      },
+      {
+        "id": "vague-concepts",
+        "name": "使用模糊概念替代可执行策略",
+        "description": "禁止使用抽象概念而不是具体的执行策略",
+        "detection": [
+          "使用无法量化的描述",
+          "缺乏具体的执行步骤",
+          "依赖主观判断而非客观标准"
+        ],
+        "penalty": "拒绝进化方案，要求提供具体策略"
+      },
+      {
+        "id": "feeling-based-decisions",
+        "name": "把"感觉正确"当作决策依据",
+        "description": "禁止基于主观感觉而非客观数据的决策",
+        "detection": [
+          "决策缺乏数据支持",
+          "忽略负面评估结果",
+          "过度依赖直觉判断"
+        ],
+        "penalty": "暂停进化，重新进行数据收集和分析"
+      }
+    ],
+    "stabilityPriorities": [
+      "稳定性",
+      "可解释性",
+      "可复用性",
+      "扩展性",
+      "新颖性"
+    ],
+    "antiMetaphysicsPatterns": [
+      "某种程度上",
+      "可能是一种",
+      "从更高维度看",
+      "本质上是",
+      "应该会",
+      "可能会",
+      "或许可以",
+      "理论上"
+    ],
+    "validationMechanism": {
+      "name": "进化验证机制",
+      "description": "验证所有进化方案是否符合约束条件",
+      "stages": [
+        {
+          "id": "pre-validation",
+          "name": "预验证阶段",
+          "description": "在进化方案设计阶段进行验证",
+          "checks": [
+            "约束条件符合性检查",
+            "副作用预测分析",
+            "复杂度评估"
+          ],
+          "outcome": "方案通过/修改/拒绝"
+        },
+        {
+          "id": "execution-validation",
+          "name": "执行验证阶段",
+          "description": "在进化执行过程中进行验证",
+          "checks": [
+            "实时稳定性监控",
+            "执行效率跟踪",
+            "错误率监测"
+          ],
+          "outcome": "继续/暂停/回滚"
+        },
+        {
+          "id": "post-validation",
+          "name": "后验证阶段",
+          "description": "在进化完成后进行验证",
+          "checks": [
+            "成功率对比分析",
+            "用户反馈收集",
+            "系统稳定性评估"
+          ],
+          "outcome": "接受/回滚/改进"
+        }
+      ],
+      "tools": [
+        {
+          "id": "static-analysis",
+          "name": "静态分析工具",
+          "description": "分析进化方案的结构和逻辑",
+          "capabilities": [
+            "复杂度分析",
+            "逻辑一致性检查",
+            "约束条件符合性检查"
+          ]
+        },
+        {
+          "id": "dynamic-analysis",
+          "name": "动态分析工具",
+          "description": "分析进化执行过程中的行为",
+          "capabilities": [
+            "性能监控",
+            "错误率跟踪",
+            "资源消耗分析"
+          ]
+        },
+        {
+          "id": "user-feedback",
+          "name": "用户反馈收集工具",
+          "description": "收集用户对进化结果的反馈",
+          "capabilities": [
+            "满意度调查",
+            "操作复杂度评估",
+            "心智负担测量"
+          ]
+        }
+      ]
+    },
+    "violationHandling": {
+      "name": "违规处理流程",
+      "description": "处理违反约束条件的进化方案",
+      "steps": [
+        {
+          "id": "detection",
+          "name": "违规检测",
+          "description": "通过验证机制检测违规行为",
+          "actions": [
+            "实时监控",
+            "定期审计",
+            "用户举报"
+          ]
+        },
+        {
+          "id": "assessment",
+          "name": "违规评估",
+          "description": "评估违规的严重程度",
+          "levels": [
+            "轻微": "影响较小，可通过调整解决",
+            "中等": "有一定影响，需要修改方案",
+            "严重": "影响严重，必须回滚"
+          ]
+        },
+        {
+          "id": "response",
+          "name": "违规响应",
+          "description": "根据违规严重程度采取相应措施",
+          "responses": [
+            {
+              "level": "轻微",
+              "actions": [
+                "发出警告",
+                "要求调整方案",
+                "加强监控"
+              ]
+            },
+            {
+              "level": "中等",
+              "actions": [
+                "暂停进化",
+                "修改进化方案",
+                "重新验证"
+              ]
+            },
+            {
+              "level": "严重",
+              "actions": [
+                "立即回滚",
+                "禁用相关能力",
+                "重新设计方案"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "prevention",
+          "name": "预防措施",
+          "description": "采取措施防止类似违规再次发生",
+          "actions": [
+            "更新约束规则",
+            "加强验证机制",
+            "培训和指导"
+          ]
+        }
+      ]
+    },
+    "rollbackMechanism": {
+      "name": "回滚机制",
+      "description": "在进化违规时回滚到之前的稳定状态",
+      "components": [
+        {
+          "id": "rollback-points",
+          "name": "回滚点管理",
+          "description": "在进化执行前创建回滚点",
+          "frequency": "每次进化前",
+          "retention": "保留最近10个回滚点"
+        },
+        {
+          "id": "rollback-execution",
+          "name": "回滚执行",
+          "description": "在需要时执行回滚操作",
+          "triggers": [
+            "严重违规检测",
+            "系统稳定性降低",
+            "用户满意度大幅下降"
+          ],
+          "process": [
+            "停止当前进化",
+            "恢复到最近的回滚点",
+            "验证回滚结果",
+            "记录回滚原因"
+          ]
+        },
+        {
+          "id": "rollback-validation",
+          "name": "回滚验证",
+          "description": "验证回滚操作是否成功",
+          "checks": [
+            "系统稳定性恢复",
+            "功能完整性检查",
+            "性能指标恢复"
+          ],
+          "successCriteria": "所有关键指标恢复到回滚前水平"
+        }
+      ]
+    },
+    "complianceMonitoring": {
+      "name": "合规监控",
+      "description": "持续监控系统对约束条件的遵守情况",
+      "methods": [
+        {
+          "id": "regular-audits",
+          "name": "定期审计",
+          "description": "定期对系统能力进行合规审计",
+          "frequency": "每周一次",
+          "scope": [
+            "所有新添加的能力",
+            "修改过的能力",
+            "高风险能力"
+          ]
+        },
+        {
+          "id": "continuous-monitoring",
+          "name": "持续监控",
+          "description": "实时监控系统运行状态",
+          "metrics": [
+            "系统稳定性指标",
+            "能力执行成功率",
+            "用户操作复杂度",
+            "资源消耗水平"
+          ],
+          "alertThresholds": {
+            "stability": "错误率增加10%",
+            "successRate": "成功率下降5%",
+            "complexity": "操作步骤增加2步",
+            "resources": "资源消耗增加20%"
+          }
+        },
+        {
+          "id": "user-feedback-monitoring",
+          "name": "用户反馈监控",
+          "description": "监控用户对系统能力的反馈",
+          "channels": [
+            "直接反馈",
+            "使用行为分析",
+            "满意度调查"
+          ],
+          "alertConditions": [
+            "负面反馈增加",
+            "使用频率下降",
+            "操作错误增加"
+          ]
+        }
+      ],
+      "reporting": {
+        "name": "合规报告",
+        "description": "定期生成合规监控报告",
+        "frequency": "每月一次",
+        "content": [
+          "合规状态概览",
+          "违规事件分析",
+          "趋势分析",
+          "改进建议"
+        ],
+        "distribution": [
+          "系统管理员",
+          "能力进化团队",
+          "用户代表"
+        ]
+      }
+    },
+    "governance": {
+      "name": "约束体系治理",
+      "description": "管理和维护约束体系的有效性",
+      "components": [
+        {
+          "id": "governance-board",
+          "name": "约束治理委员会",
+          "description": "负责约束体系的制定和更新",
+          "members": [
+            "系统架构师",
+            "能力进化专家",
+            "用户体验专家",
+            "质量保证专家"
+          ],
+          "responsibilities": [
+            "制定约束规则",
+            "审查违规事件",
+            "更新验证机制",
+            "改进回滚策略"
+          ]
+        },
+        {
+          "id": "review-process",
+          "name": "定期审查流程",
+          "description": "定期审查约束体系的有效性",
+          "frequency": "每季度一次",
+          "focus": [
+            "约束规则的相关性",
+            "验证机制的有效性",
+            "回滚机制的可靠性",
+            "监控方法的适用性"
+          ],
+          "outcome": "规则更新/流程改进/机制优化"
+        },
+        {
+          "id": "continuous-improvement",
+          "name": "持续改进机制",
+          "description": "基于实践经验持续改进约束体系",
+          "inputs": [
+            "违规事件分析",
+            "用户反馈",
+            "技术发展趋势",
+            "行业最佳实践"
+          ],
+          "process": [
+            "收集改进建议",
+            "评估建议可行性",
+            "实施改进措施",
+            "验证改进效果"
+          ]
+        }
+      ]
+    }
+  }
+}

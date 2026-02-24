@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file_permission",
+    "description": "配置文件 openclaw.json 权限过于宽松",
+    "severity": "medium",
+    "riskScore": 60,
+    "riskLevel": "high"
+  },
+  {
+    "type": "file_permission",
+    "description": "配置文件 configs/llm_config.json 权限过于宽松",
+    "severity": "medium",
+    "riskScore": 60,
+    "riskLevel": "high"
+  },
+  {
+    "type": "file_permission",
+    "description": "配置文件 configs/settings.json 权限过于宽松",
+    "severity": "medium",
+    "riskScore": 60,
+    "riskLevel": "high"
+  },
+  {
+    "type": "data_protection",
+    "description": "数据目录 agents 权限过于宽松",
+    "severity": "medium",
+    "riskScore": 70,
+    "riskLevel": "high"
+  },
+  {
+    "type": "data_protection",
+    "description": "数据目录 evaluation-reports 权限过于宽松",
+    "severity": "medium",
+    "riskScore": 70,
+    "riskLevel": "high"
+  }
+]

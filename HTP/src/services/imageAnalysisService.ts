@@ -1,5 +1,5 @@
 // HTP图像分析服务 - 基于三个参考文件的真实分析系统
-import type { AnalysisResult, UserDrawing } from '@/types';
+import type { AnalysisResult } from '@/types';
 
 // 图像分析结果
 export interface ImageAnalysis {
@@ -50,7 +50,7 @@ export interface ImageAnalysis {
 }
 
 // 分析用户上传的图片
-export async function analyzeImage(imageData: string): Promise<ImageAnalysis> {
+export async function analyzeImage(_imageData: string): Promise<ImageAnalysis> {
   // 这里应该使用真实的图像识别算法
   // 由于这是一个演示项目，我们使用模拟分析
   // 在实际项目中，应该调用图像识别API或使用计算机视觉库
@@ -114,12 +114,17 @@ export async function generateAnalysisFromImage(imageAnalysis: ImageAnalysis): P
   // 评估风险等级
   const risk_level = assessRiskLevel(imageAnalysis);
   
+  // 构建完整的客户洞察报告
+  const clientInsightReport = `# 你的心灵洞察报告\n\n## 看见你的内在\n${section_see}\n\n## 理解你的内心\n${section_understand}\n\n## 成长的方向\n${section_grow}`;
+  
   return {
-    section_see,
-    section_understand,
-    section_grow,
-    illustrations: [],
-    risk_level
+    clientInsightReport,
+    risk_level,
+    riskAssessment: {
+      level: risk_level,
+      indicators: [],
+      suggestions: risk_level === 'high' ? '立即寻求专业心理咨询师或精神科医生的帮助' : '保持当前的心理状态，继续探索个人成长机会'
+    }
   };
 }
 
@@ -353,7 +358,6 @@ function generateSectionGrow(analysis: ImageAnalysis): string {
   content += `拥抱真实的自己，或许可以试着每天给自己一些独处的时光，倾听内心的声音。`;
   
   if (analysis.hasTree) {
-    const tree = analysis.treeFeatures;
     content += `当你感到疲惫时，不妨像画中的大树一样，扎根于大地，从生活中汲取养分。`;
   }
   

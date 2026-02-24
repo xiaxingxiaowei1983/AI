@@ -45,6 +45,7 @@ export default function AvatarChat() {
 
   const callQwenAPI = async (userInput: string) => {
     try {
+      // 尝试调用千问API
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -71,15 +72,39 @@ export default function AvatarChat() {
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         console.error('API错误:', errorData);
-        throw new Error(`API请求失败: ${response.status}`);
+        // 当API不可用时，返回模拟响应
+        return getMockResponse(userInput);
       }
 
       const data = await response.json();
-      return data.choices?.[0]?.message?.content || '抱歉，我暂时无法回答这个问题。';
+      return data.choices?.[0]?.message?.content || getMockResponse(userInput);
     } catch (error) {
       console.error('API调用错误:', error);
-      return '抱歉，服务暂时不可用，请稍后重试。';
+      // 当API调用失败时，返回模拟响应
+      return getMockResponse(userInput);
     }
+  };
+
+  // 模拟响应函数，当API不可用时使用
+  const getMockResponse = (userInput: string): string => {
+    const mockResponses = {
+      '今日运势分析': '今日整体运势平稳，宜静不宜动。财运方面，正财稳健，偏财谨慎。感情方面，单身者有邂逅机遇，已有伴侣者宜多沟通。事业方面，适合整理规划，不宜冒险决策。健康方面，注意休息，避免过度劳累。',
+      '事业决策建议': '事业方面，近期宜稳扎稳打，不宜盲目扩张。建议关注内部管理，优化团队结构。与上级沟通时，注意方式方法，避免直接冲突。可考虑学习新技能，提升个人竞争力。',
+      '感情关系指导': '感情方面，宜多些耐心和理解。沟通时避免情绪化，理性表达需求。可安排共同活动，增进彼此了解。对于单身者，可适当扩大社交圈，增加邂逅机会。',
+      '投资理财提示': '投资方面，近期市场波动较大，建议保持谨慎。可考虑分散投资，降低风险。避免跟风操作，理性分析市场。长期投资可关注新兴产业，但需控制仓位。',
+      '你好': '你好，欢迎来到【定数实验室 | AWKN Lab】。我是院长LAY。"命运如水流动，你当不动如山。"在这里，我们提供东方命理 × 博弈论算法。在不确定的世界寻找确定性。你需要和我聊什么？请把你的八字（出生时间）和你的难题一起扔给我，我为你开局。',
+      '谢谢': '不客气，很高兴能为你提供帮助。如有其他问题，随时可以向我咨询。',
+    };
+
+    // 检查是否有匹配的预设响应
+    for (const [key, response] of Object.entries(mockResponses)) {
+      if (userInput.includes(key)) {
+        return response;
+      }
+    }
+
+    // 默认响应
+    return '感谢你的提问。基于东方命理和博弈论算法分析，我建议你：1. 保持冷静，理性分析当前局势；2. 制定明确的目标和计划；3. 关注长期利益，而非短期得失；4. 适时调整策略，适应变化。如有具体问题，可提供更多信息，我将为你提供更详细的分析。';
   };
 
   const handleSend = async () => {

@@ -1,0 +1,35 @@
+{
+  "rollbackHistory": [
+    {
+      "version": 1,
+      "timestamp": 1771950437232,
+      "description": "Initial state",
+      "capabilityTree": {
+        "error": "ADL验证失败: 核心原则违反: 可解释性应优先于可复用性",
+        "timestamp": 1771950437250
+      },
+      "timestampStr": "2026-02-24T16:27:17.232Z"
+    },
+    {
+      "version": 2,
+      "timestamp": 1771950437255,
+      "description": "Test rollback point 1",
+      "capabilityTree": {
+        "error": "ADL验证失败: 核心原则违反: 可解释性应优先于可复用性",
+        "timestamp": 1771950437263
+      },
+      "timestampStr": "2026-02-24T16:27:17.255Z"
+    },
+    {
+      "version": 3,
+      "timestamp": 1771950437265,
+      "description": "Test rollback point 2",
+      "capabilityTree": {
+        "error": "ADL验证失败: 核心原则违反: 可解释性应优先于可复用性",
+        "timestamp": 1771950437276
+      },
+      "timestampStr": "2026-02-24T16:27:17.265Z"
+    }
+  ],
+  "currentVersion": 1
+}

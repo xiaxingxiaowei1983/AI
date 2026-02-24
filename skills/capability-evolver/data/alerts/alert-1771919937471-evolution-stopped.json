@@ -1,0 +1,8 @@
+{
+  "id": "alert-1771919937471-evolution-stopped",
+  "type": "evolution",
+  "severity": "medium",
+  "message": "No recent evolutions detected",
+  "timestamp": 1771919937471,
+  "status": "active"
+}

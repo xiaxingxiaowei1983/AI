@@ -1,0 +1,184 @@
+{
+  "id": "dashboard-1771920037035",
+  "timestamp": 1771920037035,
+  "overview": {
+    "totalCycles": 53,
+    "successfulCycles": 0,
+    "failedCycles": 0,
+    "substantialEvolutions": 0,
+    "systemStatus": "healthy",
+    "evolutionStatus": "warning"
+  },
+  "metrics": {
+    "id": "metrics-1771920037008",
+    "timestamp": 1771920037008,
+    "system": {
+      "uptime": 0.3343062,
+      "memory": {
+        "rss": 48189440,
+        "heapTotal": 10285056,
+        "heapUsed": 6054368,
+        "external": 1687151,
+        "arrayBuffers": 10511
+      },
+      "cpu": {
+        "usage": 22.407990921590407,
+        "cores": 12
+      },
+      "disk": {
+        "free": 100000000000,
+        "total": 200000000000,
+        "used": 100000000000
+      }
+    },
+    "pcec": {
+      "cycles": 53,
+      "successfulCycles": 0,
+      "failedCycles": 0,
+      "substantialEvolutions": 0,
+      "nonSubstantialEvolutions": 0,
+      "lastCycle": 0
+    },
+    "capabilities": {
+      "total": 0,
+      "active": 0,
+      "byLevel": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "performance": {
+      "cycleDuration": 0,
+      "evolutionSpeed": 0,
+      "successRate": 0,
+      "resourceUsage": 21.666682760212993
+    },
+    "evolution": {
+      "recentEvolutions": 0,
+      "evolutionTypes": {},
+      "averageEvolutionTime": 0,
+      "evolutionTrend": "stable"
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert-1771919697454-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919697454,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919697460-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919697460,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919757462-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919757462,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919757468-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919757468,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919817469-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919817469,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919817479-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919817479,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919877466-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919877466,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919877484-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919877484,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919937471-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919937471,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919937494-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919937494,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919997496-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919997496,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919997543-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919997543,
+      "status": "active"
+    },
+    {
+      "id": "alert-1771919997609-evolution-stopped",
+      "type": "evolution",
+      "severity": "medium",
+      "message": "No recent evolutions detected",
+      "timestamp": 1771919997609,
+      "status": "active"
+    }
+  ],
+  "trends": {
+    "evolution": "stable",
+    "performance": "stable",
+    "resourceUsage": "stable"
+  },
+  "recommendations": [
+    {
+      "id": "rec-1771920037052-activity",
+      "type": "evolution",
+      "priority": "medium",
+      "message": "No recent evolutions detected",
+      "action": "Check PCEC scheduler and ensure evolution tasks are running"
+    }
+  ]
+}

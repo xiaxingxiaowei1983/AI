@@ -1,0 +1,275 @@
+{
+  "testSummary": {
+    "totalTests": 15,
+    "passedTests": 3,
+    "failedTests": 12,
+    "successRate": 20,
+    "timestamp": "2026-02-23T09:32:51.826Z"
+  },
+  "performanceSummary": {
+    "averageMemoryUsage": 74,
+    "averageCpuUsage": 24,
+    "maximumMemoryUsage": 75,
+    "maximumCpuUsage": 35,
+    "testDuration": 60000,
+    "performanceThresholds": {
+      "memoryUsage": 80,
+      "cpuUsage": 80,
+      "responseTime": 1000
+    }
+  },
+  "testResults": [
+    {
+      "name": "公司大脑状态测试",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:31:26.587Z"
+    },
+    {
+      "name": "公司大脑健康检查测试",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:31:27.597Z"
+    },
+    {
+      "name": "公司大脑系统信息测试",
+      "success": true,
+      "data": {
+        "version": "1.0.0",
+        "name": "AI公司大脑",
+        "description": "智能体调度中心，管理公司规则、制度和文件，指导所有智能体的工作",
+        "architecture": {
+          "memory": "共享记忆系统",
+          "scheduler": "智能体调度系统",
+          "communication": "智能体通信系统",
+          "monitoring": "系统监控系统"
+        },
+        "dependencies": {
+          "memorySystem": "启用",
+          "schedulerSystem": "启用",
+          "communicationSystem": "启用",
+          "monitoringSystem": "启用"
+        },
+        "timestamp": "2026-02-23T09:31:28.604Z"
+      },
+      "timestamp": "2026-02-23T09:31:28.607Z"
+    },
+    {
+      "name": "目录结构测试",
+      "success": true,
+      "data": {
+        "./shared-memory": true,
+        "./shared-memory/coordination": true,
+        "./shared-memory/user-preferences": true,
+        "./shared-memory/system-config": true,
+        "./shared-memory/archived": true,
+        "./logs": true,
+        "./logs/performance": true,
+        "./logs/agents": true,
+        "./logs/system": true
+      },
+      "timestamp": "2026-02-23T09:31:29.626Z"
+    },
+    {
+      "name": "配置文件测试",
+      "success": true,
+      "data": {
+        "./company-brain/index.js": true,
+        "./start-company-brain-integration.js": true,
+        "./.abstract": true,
+        "./shared-memory/coordination/organization_structure.md": true,
+        "./shared-memory/coordination/task-board.md": true
+      },
+      "timestamp": "2026-02-23T09:31:30.635Z"
+    },
+    {
+      "name": "稳定性测试迭代 1",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:31.737Z"
+    },
+    {
+      "name": "稳定性测试迭代 2",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:33.747Z"
+    },
+    {
+      "name": "稳定性测试迭代 3",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:35.755Z"
+    },
+    {
+      "name": "稳定性测试迭代 4",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:37.770Z"
+    },
+    {
+      "name": "稳定性测试迭代 5",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:39.779Z"
+    },
+    {
+      "name": "稳定性测试迭代 6",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:41.790Z"
+    },
+    {
+      "name": "稳定性测试迭代 7",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:43.797Z"
+    },
+    {
+      "name": "稳定性测试迭代 8",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:45.799Z"
+    },
+    {
+      "name": "稳定性测试迭代 9",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:47.810Z"
+    },
+    {
+      "name": "稳定性测试迭代 10",
+      "success": false,
+      "data": {
+        "error": "this.monitoringSystem.getStatus is not a function"
+      },
+      "timestamp": "2026-02-23T09:32:49.816Z"
+    }
+  ],
+  "performanceData": [
+    {
+      "timestamp": "2026-02-23T09:31:31.637Z",
+      "memoryUsage": 74,
+      "cpuUsage": 15,
+      "uptime": 10.1880453,
+      "heapUsed": 5.030921936035156,
+      "heapTotal": 6.80859375
+    },
+    {
+      "timestamp": "2026-02-23T09:31:36.645Z",
+      "memoryUsage": 74,
+      "cpuUsage": 23,
+      "uptime": 15.195824,
+      "heapUsed": 5.050956726074219,
+      "heapTotal": 6.80859375
+    },
+    {
+      "timestamp": "2026-02-23T09:31:41.650Z",
+      "memoryUsage": 75,
+      "cpuUsage": 13,
+      "uptime": 20.2005087,
+      "heapUsed": 5.082633972167969,
+      "heapTotal": 6.80859375
+    },
+    {
+      "timestamp": "2026-02-23T09:31:46.659Z",
+      "memoryUsage": 75,
+      "cpuUsage": 28,
+      "uptime": 25.2092442,
+      "heapUsed": 5.100090026855469,
+      "heapTotal": 6.80859375
+    },
+    {
+      "timestamp": "2026-02-23T09:31:51.666Z",
+      "memoryUsage": 73,
+      "cpuUsage": 23,
+      "uptime": 30.2170922,
+      "heapUsed": 5.163475036621094,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:31:56.677Z",
+      "memoryUsage": 73,
+      "cpuUsage": 25,
+      "uptime": 35.2277299,
+      "heapUsed": 5.175987243652344,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:32:01.685Z",
+      "memoryUsage": 74,
+      "cpuUsage": 35,
+      "uptime": 40.2356317,
+      "heapUsed": 5.2039947509765625,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:32:06.698Z",
+      "memoryUsage": 74,
+      "cpuUsage": 27,
+      "uptime": 45.2490771,
+      "heapUsed": 5.218803405761719,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:32:11.706Z",
+      "memoryUsage": 74,
+      "cpuUsage": 30,
+      "uptime": 50.2565184,
+      "heapUsed": 5.2477569580078125,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:32:16.710Z",
+      "memoryUsage": 75,
+      "cpuUsage": 31,
+      "uptime": 55.2612168,
+      "heapUsed": 5.260597229003906,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:32:21.717Z",
+      "memoryUsage": 75,
+      "cpuUsage": 28,
+      "uptime": 60.2679885,
+      "heapUsed": 5.285652160644531,
+      "heapTotal": 7.05859375
+    },
+    {
+      "timestamp": "2026-02-23T09:32:26.727Z",
+      "memoryUsage": 75,
+      "cpuUsage": 11,
+      "uptime": 65.2781164,
+      "heapUsed": 5.3061981201171875,
+      "heapTotal": 7.05859375
+    }
+  ],
+  "recommendations": [
+    "修复失败的测试用例，确保所有功能模块正常工作",
+    "优化内存使用，考虑使用内存缓存或减少内存泄漏",
+    "定期运行性能测试，监控系统健康状态",
+    "根据业务需求调整性能阈值",
+    "建立自动化测试流程，确保系统稳定性"
+  ]
+}

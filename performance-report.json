@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-02-24T18:29:31.695Z",
+  "tests": {
+    "响应时间测试": {
+      "loadTime": 0.4025999999999996,
+      "processTime": 0.09190000000000254,
+      "totalTime": 0.157199999999996,
+      "lineCount": 631,
+      "sectionCount": 90,
+      "acceptable": true
+    },
+    "内存使用测试": {
+      "before": {
+        "rss": 44462080,
+        "heapTotal": 6352896,
+        "heapUsed": 4911304,
+        "external": 1632251,
+        "arrayBuffers": 10511
+      },
+      "after": {
+        "rss": 46227456,
+        "heapTotal": 7401472,
+        "heapUsed": 5039008,
+        "external": 1632291,
+        "arrayBuffers": 10511
+      },
+      "diff": {
+        "heapTotal": 1,
+        "heapUsed": 0
+      },
+      "acceptable": true
+    },
+    "稳定性测试": {
+      "successCount": 1000,
+      "errorCount": 0,
+      "successRate": 100,
+      "errors": [],
+      "acceptable": true
+    },
+    "核心功能性能测试": {
+      "evaluateCapability": {
+        "time": 0.5495999999999981,
+        "result": {
+          "totalValue": 0.9962500000000001,
+          "dimensions": {
+            "reusePotential": 1,
+            "failureImpact": 0.9849999999999999,
+            "cognitiveBurdenReduction": 1,
+            "reasoningCostReduction": 1,
+            "certaintyImprovement": 1
+          },
+          "isLowValue": false,
+          "isEligible": true,
+          "timestamp": "2026-02-24T18:29:31.693Z"
+        }
+      },
+      "batchEvaluateCapabilities": {
+        "time": 0.24259999999998172,
+        "count": 3
+      },
+      "generateValueReport": {
+        "time": 0.20409999999998263,
+        "capabilities": 3
+      },
+      "acceptable": true
+    }
+  },
+  "summary": {
+    "passedTests": 4,
+    "totalTests": 4,
+    "passRate": 100
+  }
+}

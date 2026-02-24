@@ -1,0 +1,29 @@
+{
+  "model": {
+    "provider": "local",
+    "api_key": "none",
+    "require_api_key": false
+  },
+  "evo": {
+    "enable": true,
+    "review": true,
+    "autoImprove": true
+  },
+  "agent": {
+    "name": "大宗师",
+    "trigger": "@大宗师",
+    "autoRun": true,
+    "continuousMode": true
+  },
+  "workspace": {
+    "autoClean": false,
+    "backup": true
+  },
+  "skills": {
+    "businessModelAnalysis": true,
+    "marketAnalysis": true,
+    "financialAnalysis": true,
+    "strategicPlanning": true,
+    "problemDiagnosis": true
+  }
+}

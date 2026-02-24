@@ -1,0 +1,28 @@
+{
+  "id": "master",
+  "name": "大宗师",
+  "type": "business",
+  "status": "active",
+  "capabilities": [
+    "business_model_analysis",
+    "market_analysis",
+    "financial_analysis",
+    "strategic_planning",
+    "problem_diagnosis"
+  ],
+  "description": "专注于商业分析、战略规划和问题诊断的智能体",
+  "workload": 0,
+  "performance": {
+    "completedTasks": 0,
+    "successRate": 1,
+    "averageResponseTime": 3
+  },
+  "createdAt": "2026-02-23T09:31:21.536Z",
+  "updatedAt": "2026-02-23T09:31:21.536Z",
+  "companyRules": {
+    "enableSharedMemory": true,
+    "enableSharedSkills": true,
+    "memoryCleanup": true,
+    "performanceMonitoring": true
+  }
+}
