@@ -216,8 +216,8 @@ function trimCapabilities() {
   console.log('Checking capabilities for trimming...');
   const trimCandidates = capabilityTree.trimCapabilities();
   console.log(`Found ${trimCandidates.length} candidates for trimming:`);
-  trimCandidates.forEach(node => {
-    console.log(`- ${node.name} (${node.getPath()})`);
+  trimCandidates.forEach(item => {
+    console.log(`- ${item.node.name} (${item.node.getPath()})`);
   });
 }
 
@@ -228,7 +228,7 @@ function displayTreeStatus() {
   console.log(JSON.stringify(status, null, 2));
   
   console.log('\nCapability tree structure:');
-  const treeStructure = capabilityTree.export();
+  const treeStructure = capabilityTree.exportTree();
   console.log(JSON.stringify(treeStructure, null, 2));
 }
 

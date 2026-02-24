@@ -40,15 +40,15 @@ class CapabilityTreeManager {
     console.log(`✏️  编辑能力节点: ${nodeId}`);
     
     try {
-      const node = this.capabilityTree.findNode(nodeId);
+      const node = this.capabilityTree.getNode(nodeId);
       if (!node) {
         console.error('❌ 节点不存在');
         return null;
       }
       
-      node.update(updates);
+      this.capabilityTree.updateNode(nodeId, updates);
       console.log('✅ 能力节点编辑成功:', node.name);
-      return node;
+      return this.capabilityTree.getNode(nodeId);
     } catch (error) {
       console.error('❌ 能力节点编辑失败:', error.message);
       return null;
@@ -60,15 +60,14 @@ class CapabilityTreeManager {
     console.log(`🗑️  删除能力节点: ${nodeId}`);
     
     try {
-      const node = this.capabilityTree.findNode(nodeId);
+      const node = this.capabilityTree.getNode(nodeId);
       if (!node) {
         console.error('❌ 节点不存在');
         return false;
       }
       
       if (node.parent) {
-        node.parent.removeChild(nodeId);
-        this.capabilityTree.nodeMap.delete(nodeId);
+        this.capabilityTree.removeNode(nodeId);
         console.log('✅ 能力节点删除成功:', node.name);
         return true;
       } else {

@@ -58,7 +58,8 @@ function testCapabilityTrimming() {
   
   const trimCandidates = capabilityTree.trimCapabilities();
   console.log(`Found ${trimCandidates.length} candidates for trimming:`);
-  trimCandidates.forEach(node => {
+  trimCandidates.forEach(item => {
+    const node = item.node;
     console.log(`${node.name} (${node.getPath()}) - Usage: ${node.usageCount}, Last used: ${node.lastUsed ? new Date(node.lastUsed).toLocaleString() : 'Never'}`);
   });
 }

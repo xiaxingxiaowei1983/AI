@@ -667,6 +667,45 @@ class CapabilityTree {
     };
   }
 
+  // 兼容测试文件的方法名
+  export() {
+    return this.exportTree();
+  }
+
+  // 生成可视化
+  generateVisualization() {
+    return this.visualizeTree();
+  }
+
+  // 生成文本树
+  generateTextTree() {
+    const buildTextTree = (node, indent = '') => {
+      let text = `${indent}${node.name}`;
+      if (node.usageCount > 0) {
+        text += ` (使用: ${node.usageCount})`;
+      }
+      text += ` [${node.status}]\n`;
+      
+      for (const child of node.children) {
+        text += buildTextTree(child, indent + '  ');
+      }
+      return text;
+    };
+    
+    return buildTextTree(this.root);
+  }
+
+  // 获取指定层级的节点
+  getNodesByLevel(level) {
+    const nodes = [];
+    for (const node of this.nodeMap.values()) {
+      if (node.level === level) {
+        nodes.push(node);
+      }
+    }
+    return nodes;
+  }
+
   // 导入能力树
   importTree(data) {
     if (!data || !data.root) {
