@@ -914,5 +914,348 @@
         }
       ]
     }
+  },
+  {
+    "id": "viol_1771958396367_46mmjo8kf",
+    "timestamp": 1771958396367,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "高频基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，高频使用",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误"
+      ]
+    }
+  },
+  {
+    "id": "viol_1771958396376_qa2yhfj3i",
+    "timestamp": 1771958396376,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 稳定性应优先于可解释性",
+    "details": {
+      "id": "cap_4",
+      "name": "简化用户操作",
+      "level": 1,
+      "description": "简化用户操作，降低心智负担，只需一个词就能理解",
+      "inputs": [
+        "操作指令"
+      ],
+      "outputs": [
+        "操作结果"
+      ],
+      "prerequisites": [
+        "工具可用"
+      ],
+      "failureBoundaries": [
+        "工具不可用"
+      ]
+    }
+  },
+  {
+    "id": "viol_1771958541815_in6qr24t8",
+    "timestamp": 1771958541815,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "高频基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，高频使用，稳定可靠",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够",
+        "系统稳定"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误",
+        "系统不稳定"
+      ]
+    }
+  },
+  {
+    "id": "viol_1771958541825_z6wny6h7c",
+    "timestamp": 1771958541825,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "禁止行为: VAGUE_CONCEPTS",
+    "details": {
+      "id": "cap_1771958541811_ovoc1is16",
+      "name": "Communication (通信)",
+      "level": 1,
+      "inputs": [
+        "通信类型",
+        "通信内容",
+        "目标渠道"
+      ],
+      "outputs": [
+        "通信结果",
+        "传递状态",
+        "反馈信息"
+      ],
+      "prerequisites": [
+        "通信权限",
+        "渠道可用",
+        "内容合规"
+      ],
+      "failureBoundaries": [
+        "权限不足",
+        "渠道不可用",
+        "内容违规",
+        "传递失败"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "vScore": 0,
+      "valueDimensions": {},
+      "isLowValue": false,
+      "lastEvaluation": null,
+      "createdAt": 1771958541811,
+      "updatedAt": 1771958541811,
+      "path": "OpenClaw AI Agent (Main) → Communication (通信)",
+      "children": [
+        {
+          "id": "cap_1771958541811_vre9g1837",
+          "name": "Rich Messaging (Output)",
+          "level": 2,
+          "inputs": [
+            "Text (Markdown)",
+            "Title (Optional)",
+            "Color"
+          ],
+          "outputs": [
+            "Feishu Card",
+            "发送状态",
+            "消息ID"
+          ],
+          "prerequisites": [
+            "Feishu集成",
+            "消息模板",
+            "发送权限"
+          ],
+          "failureBoundaries": [
+            "集成失败",
+            "模板错误",
+            "权限不足",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771958541811,
+          "updatedAt": 1771958541811,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Rich Messaging (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771958541811_xqjhofq1t",
+          "name": "Expressive Reaction (Output)",
+          "level": 2,
+          "inputs": [
+            "Emotion/Intent"
+          ],
+          "outputs": [
+            "Sticker Image",
+            "发送状态",
+            "image_key"
+          ],
+          "prerequisites": [
+            "Sticker资源",
+            "发送权限",
+            "情绪识别"
+          ],
+          "failureBoundaries": [
+            "资源缺失",
+            "权限不足",
+            "识别失败",
+            "发送失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771958541811,
+          "updatedAt": 1771958541811,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Expressive Reaction (Output)",
+          "children": []
+        },
+        {
+          "id": "cap_1771958541811_pg1y621zn",
+          "name": "Persona Management (Internal)",
+          "level": 2,
+          "inputs": [
+            "User ID"
+          ],
+          "outputs": [
+            "Persona Info",
+            "Status",
+            "Rule Set"
+          ],
+          "prerequisites": [
+            "Persona定义",
+            "规则配置",
+            "用户信息"
+          ],
+          "failureBoundaries": [
+            "定义缺失",
+            "配置错误",
+            "信息不足",
+            "切换失败"
+          ],
+          "usageCount": 0,
+          "lastUsed": null,
+          "status": "ACTIVE",
+          "vScore": 0,
+          "valueDimensions": {},
+          "isLowValue": false,
+          "lastEvaluation": null,
+          "createdAt": 1771958541811,
+          "updatedAt": 1771958541811,
+          "path": "OpenClaw AI Agent (Main) → Communication (通信) → Persona Management (Internal)",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "viol_1771959113997_exyruopcy",
+    "timestamp": 1771959113997,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可解释性应优先于可复用性",
+    "details": {
+      "id": "cap_1",
+      "name": "基础操作",
+      "level": 1,
+      "description": "通用的基础操作能力，支持多种场景，稳定可靠",
+      "inputs": [
+        "操作指令",
+        "必要参数"
+      ],
+      "outputs": [
+        "操作结果",
+        "执行状态"
+      ],
+      "prerequisites": [
+        "工具可用",
+        "权限足够"
+      ],
+      "failureBoundaries": [
+        "工具不可用",
+        "权限不足",
+        "参数错误"
+      ],
+      "usageCount": 100,
+      "lastUsed": 1771872713992
+    }
+  },
+  {
+    "id": "viol_1771959114000_7npri6rqn",
+    "timestamp": 1771959114000,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可复用性应优先于可扩展性",
+    "details": {
+      "id": "cap_5",
+      "name": "高效数据处理",
+      "level": 1,
+      "description": "高效处理大量数据，减少系统负载，提升响应速度",
+      "inputs": [
+        "数据集合",
+        "处理参数"
+      ],
+      "outputs": [
+        "处理结果",
+        "性能指标"
+      ],
+      "prerequisites": [
+        "数据可用",
+        "处理资源充足"
+      ],
+      "failureBoundaries": [
+        "数据不可用",
+        "资源不足",
+        "处理超时"
+      ],
+      "usageCount": 80,
+      "lastUsed": 1771957313992
+    }
+  },
+  {
+    "id": "viol_1771959114010_i8877shn4",
+    "timestamp": 1771959114010,
+    "type": "CAPABILITY_VALIDATION",
+    "reason": "核心原则违反: 可复用性应优先于可扩展性",
+    "details": {
+      "id": "cap_1771959113992_u9nrtl2kw",
+      "name": "PCEC进化流程",
+      "level": 2,
+      "parentId": "cap_1771959113991_cvservn1a",
+      "children": [],
+      "inputs": [
+        "进化周期",
+        "进化目标",
+        "进化参数"
+      ],
+      "outputs": [
+        "进化结果",
+        "进化报告",
+        "能力更新"
+      ],
+      "prerequisites": [
+        "系统空闲",
+        "进化参数有效"
+      ],
+      "failureBoundaries": [
+        "系统繁忙",
+        "进化参数无效",
+        "进化失败"
+      ],
+      "usageCount": 0,
+      "lastUsed": null,
+      "status": "ACTIVE",
+      "createdAt": 1771959113992,
+      "updatedAt": 1771959113992,
+      "type": "process",
+      "valueScore": 0,
+      "keywords": [
+        "PCEC",
+        "进化",
+        "周期",
+        "认知扩展"
+      ],
+      "description": "管理周期性认知扩展循环"
+    }
   }
 ]

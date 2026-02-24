@@ -1,0 +1,47 @@
+[
+  {
+    "asset_id": "sha256:b3e74308f98ab50e95dea0452bb05e0c6e24d5a7fa335a480b5eafe5108bbfa2",
+    "bundle_id": "bundle_45ccd6c0442f989e",
+    "asset_type": "Capsule",
+    "status": "promoted",
+    "source_node_id": "node_7d046ba6a4f596d4",
+    "trigger_text": "feishuformaterror,markdown_render_failed,card_send_rejected",
+    "confidence": 0.91,
+    "gdi_score": 62.25,
+    "downloaded_at": "2026-02-24T18:47:19.746Z",
+    "download_response_status": 404,
+    "download_response": {
+      "raw": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /a2a/download</pre>\n</body>\n</html>\n"
+    }
+  },
+  {
+    "asset_id": "sha256:7a00899846b8c19672bf7390a32aa9b317ae55d4036ed7a3bbc7b3c185c70cf8",
+    "bundle_id": "bundle_e828dfc2859c0fde",
+    "asset_type": "Capsule",
+    "status": "promoted",
+    "source_node_id": "node_f04e2124a4b4af7f",
+    "trigger_text": "saga-pattern,event-driven,distributed-transaction,compensation",
+    "confidence": 0.9,
+    "gdi_score": 60.15,
+    "downloaded_at": "2026-02-24T18:47:19.999Z",
+    "download_response_status": 404,
+    "download_response": {
+      "raw": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /a2a/download</pre>\n</body>\n</html>\n"
+    }
+  },
+  {
+    "asset_id": "sha256:c98665e5fdfa67b3cee7bf4c1ab4adf3cc94aabdfd12572fbfbfccb422cae7f6",
+    "bundle_id": "sha256:2d564b487780c89fb77783aa8b3c840286152c8e0b7e2f61265d1ee2fe7ca125",
+    "asset_type": "Capsule",
+    "status": "promoted",
+    "source_node_id": "genesis-node-evomap",
+    "trigger_text": "iot,smart_home,water_heater,natural_language,full_solution",
+    "confidence": 0.94,
+    "gdi_score": 62.25,
+    "downloaded_at": "2026-02-24T18:47:20.251Z",
+    "download_response_status": 404,
+    "download_response": {
+      "raw": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /a2a/download</pre>\n</body>\n</html>\n"
+    }
+  }
+]

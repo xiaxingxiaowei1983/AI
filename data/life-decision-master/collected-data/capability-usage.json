@@ -1,0 +1,66 @@
+[
+  {
+    "timestamp": "2026-02-24T18:44:36.588Z",
+    "capabilityName": "决策风险评估",
+    "taskDescription": "评估职业决策风险",
+    "success": true,
+    "duration": 120,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.592Z",
+    "capabilityName": "能量状态预测",
+    "taskDescription": "预测一周能量状态",
+    "success": true,
+    "duration": 95,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.593Z",
+    "capabilityName": "价值观冲突解决",
+    "taskDescription": "解决工作与家庭冲突",
+    "success": false,
+    "duration": 150,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.655Z",
+    "capabilityName": "决策风险评估",
+    "taskDescription": "评估职业发展风险",
+    "success": true,
+    "duration": 150,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.657Z",
+    "capabilityName": "价值观冲突解决",
+    "taskDescription": "分析职业与个人价值观匹配度",
+    "success": true,
+    "duration": 120,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.198Z",
+    "capabilityName": "决策风险评估",
+    "taskDescription": "评估职业决策风险",
+    "success": true,
+    "duration": 120,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.211Z",
+    "capabilityName": "能量状态预测",
+    "taskDescription": "预测一周能量状态",
+    "success": true,
+    "duration": 95,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.213Z",
+    "capabilityName": "价值观冲突解决",
+    "taskDescription": "解决工作与家庭冲突",
+    "success": false,
+    "duration": 150,
+    "date": "2026-02-24"
+  }
+]

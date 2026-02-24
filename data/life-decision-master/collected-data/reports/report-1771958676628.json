@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-02-24T18:44:36.623Z",
+  "timeRange": "7d",
+  "summary": {
+    "totalCapabilityUsages": 3,
+    "totalUserInteractions": 3,
+    "averageResponseTime": 183.33333333333334,
+    "successRate": 66.66666666666666,
+    "mostUsedCapabilities": [
+      {
+        "name": "决策风险评估",
+        "count": 1
+      },
+      {
+        "name": "能量状态预测",
+        "count": 1
+      },
+      {
+        "name": "价值观冲突解决",
+        "count": 1
+      }
+    ],
+    "userSatisfaction": 4.233333333333333
+  },
+  "details": {
+    "capabilityUsage": [
+      {
+        "timestamp": "2026-02-24T18:44:36.588Z",
+        "capabilityName": "决策风险评估",
+        "taskDescription": "评估职业决策风险",
+        "success": true,
+        "duration": 120,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.592Z",
+        "capabilityName": "能量状态预测",
+        "taskDescription": "预测一周能量状态",
+        "success": true,
+        "duration": 95,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.593Z",
+        "capabilityName": "价值观冲突解决",
+        "taskDescription": "解决工作与家庭冲突",
+        "success": false,
+        "duration": 150,
+        "date": "2026-02-24"
+      }
+    ],
+    "performance": [
+      {
+        "timestamp": "2026-02-24T18:44:36.603Z",
+        "metric": "response_time",
+        "value": 215,
+        "context": "决策分析",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.605Z",
+        "metric": "memory_usage",
+        "value": 12.5,
+        "context": "系统状态",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.607Z",
+        "metric": "cpu_usage",
+        "value": 15.2,
+        "context": "系统状态",
+        "date": "2026-02-24"
+      }
+    ],
+    "userInteraction": [
+      {
+        "timestamp": "2026-02-24T18:44:36.597Z",
+        "userId": "user-123",
+        "interactionType": "decision_request",
+        "content": "我需要职业建议",
+        "responseTime": 250,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.598Z",
+        "userId": "user-123",
+        "interactionType": "follow_up",
+        "content": "请详细解释",
+        "responseTime": 180,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.600Z",
+        "userId": "user-456",
+        "interactionType": "feedback",
+        "content": "非常满意，谢谢",
+        "responseTime": 120,
+        "date": "2026-02-24"
+      }
+    ]
+  }
+}

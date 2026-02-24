@@ -1,0 +1,153 @@
+[
+  {
+    "timestamp": "2026-02-24T18:44:36.610Z",
+    "decisionType": "career",
+    "inputData": {
+      "question": "职业选择",
+      "options": [
+        "内部晋升",
+        "外部机会"
+      ]
+    },
+    "outcome": {
+      "recommendation": "建议内部晋升",
+      "reasoning": "基于职业发展路径和当前公司文化匹配度"
+    },
+    "userSatisfaction": 4.5,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.612Z",
+    "decisionType": "health",
+    "inputData": {
+      "question": "健康管理",
+      "currentStatus": "中等能量水平"
+    },
+    "outcome": {
+      "recommendation": "增加有氧运动",
+      "plan": "每周3次，每次30分钟"
+    },
+    "userSatisfaction": 4,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.613Z",
+    "decisionType": "finance",
+    "inputData": {
+      "question": "投资决策",
+      "amount": "10万元"
+    },
+    "outcome": {
+      "recommendation": "分散投资",
+      "allocation": "股票60%，债券30%，现金10%"
+    },
+    "userSatisfaction": 4.2,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.660Z",
+    "decisionType": "career",
+    "inputData": {
+      "question": "职业发展",
+      "userId": "test-user-1771958676654"
+    },
+    "outcome": {
+      "recommendation": "建议内部晋升并寻求领导机会"
+    },
+    "userSatisfaction": 4.8,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.227Z",
+    "decisionType": "career",
+    "inputData": {
+      "question": "职业选择"
+    },
+    "outcome": {
+      "recommendation": "建议内部晋升"
+    },
+    "userSatisfaction": 4.5,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.388Z",
+    "decisionType": "feedback",
+    "inputData": {
+      "feedbackType": "decision_quality",
+      "context": {
+        "decisionType": "career",
+        "context": "职业发展决策"
+      }
+    },
+    "outcome": {
+      "analysis": {
+        "feedbackId": "feedback-1771959066382-rtk5zph28",
+        "timestamp": "2026-02-24T18:51:06.385Z",
+        "feedbackType": "decision_quality",
+        "sentiment": "positive",
+        "keyIssues": [
+          "features"
+        ],
+        "actionable": true,
+        "severity": "low",
+        "category": "决策质量"
+      }
+    },
+    "userSatisfaction": 5,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.394Z",
+    "decisionType": "feedback",
+    "inputData": {
+      "feedbackType": "response_time",
+      "context": {
+        "operation": "决策分析"
+      }
+    },
+    "outcome": {
+      "analysis": {
+        "feedbackId": "feedback-1771959066390-8omd5plfk",
+        "timestamp": "2026-02-24T18:51:06.392Z",
+        "feedbackType": "response_time",
+        "sentiment": "neutral",
+        "keyIssues": [
+          "performance"
+        ],
+        "actionable": true,
+        "severity": "low",
+        "category": "响应时间"
+      }
+    },
+    "userSatisfaction": 5,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.399Z",
+    "decisionType": "feedback",
+    "inputData": {
+      "feedbackType": "clarity",
+      "context": {
+        "decisionType": "finance",
+        "context": "投资决策"
+      }
+    },
+    "outcome": {
+      "analysis": {
+        "feedbackId": "feedback-1771959066396-2aopg2hue",
+        "timestamp": "2026-02-24T18:51:06.397Z",
+        "feedbackType": "clarity",
+        "sentiment": "negative",
+        "keyIssues": [
+          "clarity",
+          "features"
+        ],
+        "actionable": true,
+        "severity": "medium",
+        "category": "清晰易懂"
+      }
+    },
+    "userSatisfaction": 3,
+    "date": "2026-02-24"
+  }
+]

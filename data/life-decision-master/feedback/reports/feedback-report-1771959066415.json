@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-02-24T18:51:06.414Z",
+  "timeRange": "30d",
+  "summary": {
+    "totalFeedback": 4,
+    "averageRating": 4.333333333333333,
+    "sentimentDistribution": {
+      "positive": 1,
+      "negative": 1,
+      "neutral": 2
+    },
+    "categoryDistribution": {
+      "决策质量": 1,
+      "响应时间": 1,
+      "清晰易懂": 1,
+      "功能请求": 1
+    },
+    "topIssues": [
+      {
+        "issue": "features",
+        "count": 3
+      },
+      {
+        "issue": "performance",
+        "count": 1
+      },
+      {
+        "issue": "clarity",
+        "count": 1
+      }
+    ],
+    "responseRate": 0
+  },
+  "details": {
+    "feedbackData": [
+      {
+        "id": "feedback-1771959066382-rtk5zph28",
+        "timestamp": "2026-02-24T18:51:06.382Z",
+        "userId": "user-123",
+        "feedbackType": "decision_quality",
+        "content": "决策建议非常有用，帮助我理清了职业发展思路",
+        "rating": 5,
+        "context": {
+          "decisionType": "career",
+          "context": "职业发展决策"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      },
+      {
+        "id": "feedback-1771959066390-8omd5plfk",
+        "timestamp": "2026-02-24T18:51:06.390Z",
+        "userId": "user-123",
+        "feedbackType": "response_time",
+        "content": "响应速度很快，几乎没有延迟",
+        "rating": 5,
+        "context": {
+          "operation": "决策分析"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      },
+      {
+        "id": "feedback-1771959066396-2aopg2hue",
+        "timestamp": "2026-02-24T18:51:06.396Z",
+        "userId": "user-456",
+        "feedbackType": "clarity",
+        "content": "建议有些模糊，希望能更具体一些",
+        "rating": 3,
+        "context": {
+          "decisionType": "finance",
+          "context": "投资决策"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      },
+      {
+        "id": "feedback-1771959066401-4gesx08hc",
+        "timestamp": "2026-02-24T18:51:06.401Z",
+        "userId": "user-456",
+        "feedbackType": "feature_request",
+        "content": "希望能添加更多关于健康管理的建议功能",
+        "rating": null,
+        "context": {
+          "feature": "健康管理"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      }
+    ],
+    "actionableItems": [
+      {
+        "id": "feedback-1771959066382-rtk5zph28",
+        "timestamp": "2026-02-24T18:51:06.382Z",
+        "userId": "user-123",
+        "feedbackType": "decision_quality",
+        "content": "决策建议非常有用，帮助我理清了职业发展思路",
+        "rating": 5,
+        "context": {
+          "decisionType": "career",
+          "context": "职业发展决策"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      },
+      {
+        "id": "feedback-1771959066390-8omd5plfk",
+        "timestamp": "2026-02-24T18:51:06.390Z",
+        "userId": "user-123",
+        "feedbackType": "response_time",
+        "content": "响应速度很快，几乎没有延迟",
+        "rating": 5,
+        "context": {
+          "operation": "决策分析"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      },
+      {
+        "id": "feedback-1771959066396-2aopg2hue",
+        "timestamp": "2026-02-24T18:51:06.396Z",
+        "userId": "user-456",
+        "feedbackType": "clarity",
+        "content": "建议有些模糊，希望能更具体一些",
+        "rating": 3,
+        "context": {
+          "decisionType": "finance",
+          "context": "投资决策"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      },
+      {
+        "id": "feedback-1771959066401-4gesx08hc",
+        "timestamp": "2026-02-24T18:51:06.401Z",
+        "userId": "user-456",
+        "feedbackType": "feature_request",
+        "content": "希望能添加更多关于健康管理的建议功能",
+        "rating": null,
+        "context": {
+          "feature": "健康管理"
+        },
+        "processed": false,
+        "date": "2026-02-24"
+      }
+    ],
+    "improvementAreas": [
+      {
+        "area": "清晰易懂",
+        "count": 1
+      }
+    ]
+  }
+}

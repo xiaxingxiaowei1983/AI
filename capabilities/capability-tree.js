@@ -1,12 +1,8 @@
 /**
- * 能力树管理系统 (Capability Tree Management System)
- * 用于结构化管理智能体的能力，实现能力的层级组织和生命周期管理
+ * 能力树（Capability Tree）核心实现
+ * 用于管理智能体的能力体系，支持能力的生长、修剪和质量评估
+ * 状态: ACTIVE (已激活) 优先级: LEVEL1 (核心系统)
  */
-
-// 导入ADL核心模块
-const { getADLInstance } = require('../skills/adl-core');
-// 导入VFM评估模块
-const { vfmEvaluator } = require('../skills/vfm-evaluator');
 
 class CapabilityNode {
   constructor(name, level, parent = null, details = {}) {
@@ -22,111 +18,33 @@ class CapabilityNode {
     this.usageCount = details.usageCount || 0;        // 使用次数
     this.lastUsed = details.lastUsed || null;       // 最后使用时间
     this.status = details.status || 'ACTIVE';     // 状态：ACTIVE, CANDIDATE_TRIM, DISABLED
-    // VFM相关字段
-    this.vScore = details.vScore || 0;             // 价值评估分数
-    this.valueDimensions = details.valueDimensions || {}; // 各价值维度评分
-    this.isLowValue = details.isLowValue || false; // 是否为低价值能力
-    this.lastEvaluation = details.lastEvaluation || null; // 最后评估时间
     this.createdAt = Date.now();
     this.updatedAt = Date.now();
-    
-    // 验证节点基本信息
-    this._validateBasicInfo();
+    // 新增字段
+    this.type = details.type || 'general';         // 能力类型
+    this.valueScore = details.valueScore || 0;     // 价值评分
+    this.keywords = details.keywords || [];        // 关键词
+    this.description = details.description || '';  // 详细描述
   }
-  
-  // 验证节点基本信息
-  _validateBasicInfo() {
-    if (!this.name || typeof this.name !== 'string' || this.name.trim() === '') {
-      throw new Error('能力节点必须有有效的名称');
-    }
-    
-    if (typeof this.level !== 'number' || !([0, 1, 2, 3].includes(this.level))) {
-      throw new Error('能力节点层级必须是0、1、2或3（0为根节点）');
-    }
-    
-    // 非根节点必须有完整的字段
-    if (this.level > 0) {
-      // 验证必需的字段类型
-      if (!Array.isArray(this.inputs)) {
-        throw new Error('能力节点输入条件必须是数组');
-      }
-      
-      if (!Array.isArray(this.outputs)) {
-        throw new Error('能力节点输出结果必须是数组');
-      }
-      
-      if (!Array.isArray(this.prerequisites)) {
-        throw new Error('能力节点成功前提必须是数组');
-      }
-      
-      if (!Array.isArray(this.failureBoundaries)) {
-        throw new Error('能力节点失败边界必须是数组');
-      }
-    }
+
+  // 更新节点信息
+  update(details) {
+    Object.assign(this, details);
+    this.updatedAt = Date.now();
   }
-  
-  // 验证节点完整性
-  validateIntegrity() {
-    const errors = [];
-    
-    // 验证基本信息
-    try {
-      this._validateBasicInfo();
-    } catch (error) {
-      errors.push(error.message);
-    }
-    
-    // 验证输入条件
-    if (!Array.isArray(this.inputs)) {
-      errors.push('输入条件必须是数组');
-    }
-    
-    // 验证输出结果
-    if (!Array.isArray(this.outputs)) {
-      errors.push('输出结果必须是数组');
-    }
-    
-    // 验证成功前提
-    if (!Array.isArray(this.prerequisites)) {
-      errors.push('成功前提必须是数组');
-    }
-    
-    // 验证失败边界
-    if (!Array.isArray(this.failureBoundaries)) {
-      errors.push('失败边界必须是数组');
-    }
-    
-    // 对于中层和高层节点，要求有更完整的信息
-    if (this.level >= 2) {
-      if (this.inputs.length === 0) {
-        errors.push('中层和高层节点必须定义输入条件');
-      }
-      
-      if (this.outputs.length === 0) {
-        errors.push('中层和高层节点必须定义输出结果');
-      }
-      
-      if (this.prerequisites.length === 0) {
-        errors.push('中层和高层节点必须定义成功前提');
-      }
-      
-      if (this.failureBoundaries.length === 0) {
-        errors.push('中层和高层节点必须定义失败边界');
-      }
-    }
-    
-    return {
-      isValid: errors.length === 0,
-      errors
-    };
+
+  // 标记节点使用
+  markUsed() {
+    this.usageCount++;
+    this.lastUsed = Date.now();
+    this.updatedAt = Date.now();
   }
 
   // 添加子节点
-  addChild(childNode) {
-    this.children.push(childNode);
-    childNode.parent = this;
+  addChild(child) {
+    this.children.push(child);
+    child.parent = this;
     this.updatedAt = Date.now();
-    return childNode;
   }
 
   // 移除子节点
@@ -140,47 +58,17 @@ class CapabilityNode {
     return false;
   }
 
-  // 更新节点信息
-  update(info, adlValidation = true) {
-    Object.assign(this, info);
-    this.updatedAt = Date.now();
+  // 检查是否为叶节点
+  isLeaf() {
+    return this.children.length === 0;
   }
 
-  // 标记使用
-  markUsed() {
-    this.usageCount++;
-    this.lastUsed = Date.now();
-    this.updatedAt = Date.now();
+  // 检查是否为根节点
+  isRoot() {
+    return this.parent === null;
   }
 
-  // 标记为候选修剪
-  markForTrim() {
-    this.status = 'CANDIDATE_TRIM';
-    this.updatedAt = Date.now();
-  }
-
-  // 激活节点
-  activate() {
-    this.status = 'ACTIVE';
-    this.updatedAt = Date.now();
-  }
-
-  // 禁用节点
-  disable() {
-    this.status = 'DISABLED';
-    this.updatedAt = Date.now();
-  }
-
-  // 检查是否需要修剪
-  shouldBeTrimmed() {
-    const now = Date.now();
-    const daysSinceLastUse = (now - (this.lastUsed || this.createdAt)) / (1000 * 60 * 60 * 24);
-    
-    // 长期未使用（30天以上）且使用次数较少（少于5次）
-    return daysSinceLastUse >= 30 && this.usageCount < 5;
-  }
-
-  // 获取完整路径
+  // 获取节点路径
   getPath() {
     const path = [];
     let current = this;
@@ -188,15 +76,17 @@ class CapabilityNode {
       path.unshift(current.name);
       current = current.parent;
     }
-    return path.join(' → ');
+    return path;
   }
 
-  // 转换为JSON格式
+  // 序列化节点
   toJSON() {
     return {
       id: this.id,
       name: this.name,
       level: this.level,
+      parentId: this.parent?.id || null,
+      children: this.children.map(child => child.toJSON()),
       inputs: this.inputs,
       outputs: this.outputs,
       prerequisites: this.prerequisites,
@@ -204,16 +94,42 @@ class CapabilityNode {
       usageCount: this.usageCount,
       lastUsed: this.lastUsed,
       status: this.status,
-      // VFM相关字段
-      vScore: this.vScore,
-      valueDimensions: this.valueDimensions,
-      isLowValue: this.isLowValue,
-      lastEvaluation: this.lastEvaluation,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
-      path: this.getPath(),
-      children: this.children.map(child => child.toJSON())
+      type: this.type,
+      valueScore: this.valueScore,
+      keywords: this.keywords,
+      description: this.description
     };
+  }
+
+  // 从JSON反序列化
+  static fromJSON(data, parent = null) {
+    const node = new CapabilityNode(data.name, data.level, parent, {
+      inputs: data.inputs,
+      outputs: data.outputs,
+      prerequisites: data.prerequisites,
+      failureBoundaries: data.failureBoundaries,
+      usageCount: data.usageCount,
+      lastUsed: data.lastUsed,
+      status: data.status,
+      type: data.type,
+      valueScore: data.valueScore,
+      keywords: data.keywords,
+      description: data.description
+    });
+    node.id = data.id;
+    node.createdAt = data.createdAt;
+    node.updatedAt = data.updatedAt;
+    
+    if (data.children && data.children.length > 0) {
+      for (const childData of data.children) {
+        const childNode = CapabilityNode.fromJSON(childData, node);
+        node.children.push(childNode);
+      }
+    }
+    
+    return node;
   }
 }
 
@@ -222,406 +138,507 @@ class CapabilityTree {
     this.root = new CapabilityNode('能力树根部', 0);
     this.nodeMap = new Map(); // 快速查找节点
     this.nodeMap.set(this.root.id, this.root);
-    this.adl = getADLInstance(); // 初始化ADL实例
+    this.evaluationHistory = []; // 评估历史
+    this.statistics = {
+      totalNodes: 1,
+      activeNodes: 1,
+      nodesByLevel: { 0: 1, 1: 0, 2: 0, 3: 0 },
+      nodesByType: {},
+      usageStats: {}
+    };
     this._initializeDefaultNodes();
-  }
-  
-  // 获取ADL实例
-  getADL() {
-    return this.adl;
-  }
-  
-  // 验证能力是否符合ADL协议
-  validateCapabilityAgainstADL(capability) {
-    return this.adl.validateCapability(capability);
-  }
-  
-  // 验证进化是否符合ADL协议
-  validateEvolutionAgainstADL(evolution) {
-    return this.adl.validateEvolution(evolution);
-  }
-  
-  // 创建回滚点
-  createRollbackPoint(description, state) {
-    return this.adl.createRollbackPoint(description, state);
-  }
-  
-  // 回滚到指定点
-  rollbackToPoint(rollbackPointId, reasons) {
-    return this.adl.rollbackToPoint(rollbackPointId, reasons);
-  }
-  
-  // 获取ADL状态
-  getADLStatus() {
-    return this.adl.getStatus();
+    this._updateStatistics();
   }
 
-  // 初始化默认能力节点
+  // 初始化默认节点
   _initializeDefaultNodes() {
-    // 重命名根节点
-    this.root.name = 'OpenClaw AI Agent (Main)';
-    
-    // Branch 1: Communication (通信)
-    const communication = this.addNode('Communication (通信)', 1, null, {
-      inputs: ['通信类型', '通信内容', '目标渠道'],
-      outputs: ['通信结果', '传递状态', '反馈信息'],
-      prerequisites: ['通信权限', '渠道可用', '内容合规'],
-      failureBoundaries: ['权限不足', '渠道不可用', '内容违规', '传递失败']
+    // 低层节点（基础操作）
+    const fileOps = this.addNode('文件操作', 1, this.root.id, {
+      inputs: ['文件路径', '操作类型', '操作参数'],
+      outputs: ['操作结果', '错误信息'],
+      prerequisites: ['文件存在', '权限足够'],
+      failureBoundaries: ['文件不存在', '权限不足', '磁盘空间不足'],
+      type: 'basic',
+      keywords: ['文件', '读写', '创建', '删除'],
+      description: '处理文件读写、创建、删除等操作'
     });
-    
-    // Node 1.1: Rich Messaging (Output) - Tool: 'feishu-card'
-    this.addNode('Rich Messaging (Output)', 2, communication.id, {
-      inputs: ['Text (Markdown)', 'Title (Optional)', 'Color'],
-      outputs: ['Feishu Card', '发送状态', '消息ID'],
-      prerequisites: ['Feishu集成', '消息模板', '发送权限'],
-      failureBoundaries: ['集成失败', '模板错误', '权限不足', '发送失败'],
-      tool: 'feishu-card',
-      constraint: 'No Title/Footer by default (Clean Mode)'
+
+    const networkOps = this.addNode('网络请求', 1, this.root.id, {
+      inputs: ['URL', '请求方法', '请求参数'],
+      outputs: ['响应数据', '状态码', '错误信息'],
+      prerequisites: ['网络连接正常', 'URL有效'],
+      failureBoundaries: ['网络连接失败', '请求超时', '服务器错误'],
+      type: 'basic',
+      keywords: ['HTTP', 'API', '网络', '请求'],
+      description: '处理HTTP请求、API调用等网络操作'
     });
-    
-    // Node 1.2: Expressive Reaction (Output) - Tool: 'feishu-sticker'
-    this.addNode('Expressive Reaction (Output)', 2, communication.id, {
-      inputs: ['Emotion/Intent'],
-      outputs: ['Sticker Image', '发送状态', 'image_key'],
-      prerequisites: ['Sticker资源', '发送权限', '情绪识别'],
-      failureBoundaries: ['资源缺失', '权限不足', '识别失败', '发送失败'],
-      tool: 'feishu-sticker',
-      logic: 'Auto-cache image_key'
+
+    const dataOps = this.addNode('数据处理', 1, this.root.id, {
+      inputs: ['原始数据', '处理类型', '处理参数'],
+      outputs: ['处理后数据', '处理结果'],
+      prerequisites: ['数据格式正确', '处理参数有效'],
+      failureBoundaries: ['数据格式错误', '处理参数无效', '处理超时'],
+      type: 'basic',
+      keywords: ['数据', '转换', '分析', '计算'],
+      description: '处理数据转换、分析、计算等操作'
     });
-    
-    // Node 1.3: Persona Management (Internal)
-    this.addNode('Persona Management (Internal)', 2, communication.id, {
-      inputs: ['User ID'],
-      outputs: ['Persona Info', 'Status', 'Rule Set'],
-      prerequisites: ['Persona定义', '规则配置', '用户信息'],
-      failureBoundaries: ['定义缺失', '配置错误', '信息不足', '切换失败'],
-      logic: 'Switch SOUL.md rules (Catgirl / Big Brother / Mesugaki)'
+
+    const cacheOps = this.addNode('缓存管理', 1, this.root.id, {
+      inputs: ['缓存键', '缓存值', '缓存配置'],
+      outputs: ['缓存结果', '缓存状态'],
+      prerequisites: ['缓存系统可用', '缓存配置有效'],
+      failureBoundaries: ['缓存系统不可用', '缓存容量不足', '缓存过期'],
+      type: 'basic',
+      keywords: ['缓存', '热点信息', '性能', '响应速度'],
+      description: '管理热点信息缓存、提升响应速度'
     });
-    
-    // Branch 2: Knowledge & Memory (记忆)
-    const knowledgeMemory = this.addNode('Knowledge & Memory (记忆)', 1, null, {
-      inputs: ['操作类型', '数据内容', '访问模式'],
-      outputs: ['操作结果', '数据状态', '访问统计'],
-      prerequisites: ['存储权限', '空间充足', '数据格式'],
-      failureBoundaries: ['权限不足', '空间不足', '格式错误', '操作失败']
+
+    // 中层节点（可复用流程）
+    const pcecProcess = this.addNode('PCEC进化流程', 2, this.root.id, {
+      inputs: ['进化周期', '进化目标', '进化参数'],
+      outputs: ['进化结果', '进化报告', '能力更新'],
+      prerequisites: ['系统空闲', '进化参数有效'],
+      failureBoundaries: ['系统繁忙', '进化参数无效', '进化失败'],
+      type: 'process',
+      keywords: ['PCEC', '进化', '周期', '认知扩展'],
+      description: '管理周期性认知扩展循环'
     });
-    
-    // Node 2.1: Atomic Update (Write) - Tool: memory-manager
-    this.addNode('Atomic Update (Write)', 2, knowledgeMemory.id, {
-      inputs: ['Target File', 'Operation (Replace/Append)', 'Content'],
-      outputs: ['Update Result', 'File Status', 'Timestamp'],
-      prerequisites: ['File Access', 'Write Permission', 'Data Validation'],
-      failureBoundaries: ['Access Denied', 'Permission Error', 'Validation Failed', 'Update Conflict'],
-      tool: 'memory-manager',
-      guarantee: 'No edit conflicts, normalization'
+
+    const hotInfoMgmt = this.addNode('热点信息管理', 2, this.root.id, {
+      inputs: ['信息源', '更新频率', '过滤条件'],
+      outputs: ['热点信息', '更新状态', '缓存结果'],
+      prerequisites: ['信息源可用', '更新频率合理'],
+      failureBoundaries: ['信息源不可用', '更新频率过高', '过滤条件无效'],
+      type: 'process',
+      keywords: ['热点信息', '缓存', '更新', '管理'],
+      description: '管理系统热点信息的收集和更新'
     });
-    
-    // Node 2.2: Context Logging (Write) - Method: logger.js
-    this.addNode('Context Logging (Write)', 2, knowledgeMemory.id, {
-      inputs: ['Persona (zhy/fmw/Imx)', 'Interaction'],
-      outputs: ['Log Entry', 'Log Status', 'Search Index'],
-      prerequisites: ['Logging Config', 'Storage Available', 'Format Definition'],
-      failureBoundaries: ['Config Error', 'Storage Full', 'Format Invalid', 'Log Failed'],
-      method: 'logger.js',
-      note: 'Ad-hoc -> Candidate for promotion'
+
+    const reportGen = this.addNode('报告生成', 2, this.root.id, {
+      inputs: ['报告类型', '报告参数', '数据来源'],
+      outputs: ['报告内容', '报告格式', '生成状态'],
+      prerequisites: ['数据来源可用', '报告参数有效'],
+      failureBoundaries: ['数据来源不可用', '报告参数无效', '生成失败'],
+      type: 'process',
+      keywords: ['报告', '生成', '格式', '数据'],
+      description: '生成系统状态报告、进化报告等'
     });
-    
-    // Node 2.3: Knowledge Retrieval (Read) - Tool: byterover'/ memory_search
-    this.addNode('Knowledge Retrieval (Read)', 2, knowledgeMemory.id, {
-      inputs: ['Query', 'Search Scope', 'Filter Criteria'],
-      outputs: ['Retrieved Data', 'Relevance Score', 'Access Time'],
-      prerequisites: ['Search Index', 'Read Permission', 'Query Format'],
-      failureBoundaries: ['Index Missing', 'Permission Denied', 'Query Invalid', 'No Results'],
-      tool: 'byterover/memory_search'
+
+    // 高层节点（问题分解）
+    const businessAnalysis = this.addNode('商业分析', 3, this.root.id, {
+      inputs: ['业务数据', '分析维度', '分析目标'],
+      outputs: ['分析结果', '洞察建议', '决策支持'],
+      prerequisites: ['业务数据完整', '分析维度合理'],
+      failureBoundaries: ['业务数据不完整', '分析维度不合理', '分析失败'],
+      type: 'strategy',
+      keywords: ['商业', '分析', '洞察', '决策'],
+      description: '分析业务数据、生成洞察建议'
     });
-    
-    // Branch 3: Intelligence & Analysis (智)
-    const intelligenceAnalysis = this.addNode('Intelligence & Analysis (智)', 1, null, {
-      inputs: ['分析类型', '输入数据', '分析目标'],
-      outputs: ['分析结果', '置信度', '洞察建议'],
-      prerequisites: ['数据质量', '分析模型', '计算资源'],
-      failureBoundaries: ['数据错误', '模型失效', '资源不足', '分析失败']
+
+    const techDesign = this.addNode('技术架构设计', 3, this.root.id, {
+      inputs: ['系统需求', '技术约束', '设计目标'],
+      outputs: ['架构方案', '技术选型', '实施计划'],
+      prerequisites: ['系统需求明确', '技术约束清晰'],
+      failureBoundaries: ['系统需求不明确', '技术约束不清晰', '设计失败'],
+      type: 'strategy',
+      keywords: ['技术', '架构', '设计', '选型'],
+      description: '设计系统架构、技术选型'
     });
-    
-    // Node 3.1: Visual Analysis (Input) - Tool: sticker-analyzer
-    this.addNode('Visual Analysis (Input)', 2, intelligenceAnalysis.id, {
-      inputs: ['Image Data', 'Analysis Type', 'Classification Target'],
-      outputs: ['Analysis Result', 'Classification', 'Confidence Score'],
-      prerequisites: ['Image Quality', 'Model Available', 'Processing Power'],
-      failureBoundaries: ['Image Invalid', 'Model Error', 'Power Insufficient', 'Analysis Failed'],
-      tool: 'sticker-analyzer',
-      engine: 'Gemini 2.5 Flash',
-      purpose: 'Filter junk images, classify stickers'
+
+    const resourceOpt = this.addNode('资源优化', 3, this.root.id, {
+      inputs: ['资源类型', '使用情况', '优化目标'],
+      outputs: ['优化方案', '预期效果', '实施步骤'],
+      prerequisites: ['资源使用数据完整', '优化目标明确'],
+      failureBoundaries: ['资源使用数据不完整', '优化目标不明确', '优化失败'],
+      type: 'strategy',
+      keywords: ['资源', '优化', '效率', '分配'],
+      description: '优化系统资源分配、提升效率'
     });
-    
-    // Node 3.2: Information Retrieval (Input) - Tool: 'web-search-plus'
-    this.addNode('Information Retrieval (Input)', 2, intelligenceAnalysis.id, {
-      inputs: ['Search Query', 'Search Engine', 'Result Count'],
-      outputs: ['Search Results', 'Relevance Score', 'Retrieval Time'],
-      prerequisites: ['Network Connection', 'API Key', 'Query Format'],
-      failureBoundaries: ['Connection Error', 'API Invalid', 'Query Malformed', 'No Results'],
-      tool: 'web-search-plus',
-      logic: 'Auto-route (Serper/Tavily/Exa) based on intent'
-    });
-    
-    // Branch 4: System Evolution (进化)
-    const systemEvolution = this.addNode('System Evolution (进化)', 1, null, {
-      inputs: ['进化目标', '当前状态', '资源限制'],
-      outputs: ['进化结果', '系统状态', '进化产物'],
-      prerequisites: ['系统稳定', '资源充足', '管理员授权'],
-      failureBoundaries: ['系统不稳定', '资源不足', '授权失败', '进化方向错误']
-    });
-    
-    // Node 4.1: Self-Improvement (Meta) - Protocol: PCEC
-    this.addNode('Self-Improvement (Meta)', 2, systemEvolution.id, {
-      inputs: ['Current Cycle', 'Evolution Goals', 'System State'],
-      outputs: ['Evolution Results', 'New Capabilities', 'System Status'],
-      prerequisites: ['Stable System', 'Sufficient Resources', 'Admin Authorization'],
-      failureBoundaries: ['System Unstable', 'Resources Insufficient', 'Authorization Denied', 'No Evolution'],
-      protocol: 'PCEC (Periodic Cognitive Expansion Cycle)',
-      trigger: 'Cron (3h) / Ad-hoc'
-    });
-    
-    // Node 4.2: Stability Control (Meta) - Protocol: ADL
-    this.addNode('Stability Control (Meta)', 2, systemEvolution.id, {
-      inputs: ['System Status', 'Evolution Proposals', 'Risk Assessment'],
-      outputs: ['Control Decision', 'Stability Status', 'Risk Mitigation'],
-      prerequisites: ['Monitoring System', 'ADL Rules', 'Risk Analysis'],
-      failureBoundaries: ['Monitoring Failed', 'Rules Violated', 'Analysis Error', 'Control Failed'],
-      protocol: 'ADL (Anti-Degeneration Lock)',
-      constraint: 'Stability > Novelty',
-      status: 'Initialized. Ready for growth.'
-    });
-    
-    // 保留现有功能的兼容性映射
-    // 基础操作功能映射到相应的新节点
-    this._createCompatibilityMapping();
-  }
-  
-  // 创建兼容性映射，确保现有功能在新结构中正常工作
-  _createCompatibilityMapping() {
-    // 这里可以添加兼容性映射逻辑
-    // 例如：将现有API调用映射到新结构的相应节点
-    this.compatibilityMapping = {
-      '基础操作': 'Knowledge & Memory (记忆)',
-      '文件操作': 'Atomic Update (Write)',
-      '网络请求': 'Information Retrieval (Input)',
-      '数据处理': 'Visual Analysis (Input)',
-      '缓存管理': 'Atomic Update (Write)',
-      '可复用流程': 'System Evolution (进化)',
-      'PCEC进化流程': 'Self-Improvement (Meta)',
-      '热点信息管理': 'Atomic Update (Write)',
-      '报告生成': 'Rich Messaging (Output)',
-      '问题分解策略': 'Intelligence & Analysis (智)',
-      '商业分析': 'Intelligence & Analysis (智)',
-      '技术架构设计': 'Intelligence & Analysis (智)',
-      '资源优化': 'Stability Control (Meta)'
-    };
-  }
-  
-  // 获取兼容性映射
-  getCompatibilityMapping() {
-    return this.compatibilityMapping || {};
   }
 
-  // 添加能力节点
-  addNode(name, level, parentId = null, details = {}) {
-    const parent = parentId ? this.nodeMap.get(parentId) : this.root;
+  // 添加节点
+  addNode(name, level, parentId, details = {}) {
+    const parent = this.nodeMap.get(parentId);
     if (!parent) {
-      throw new Error('Parent node not found');
+      throw new Error(`父节点不存在: ${parentId}`);
     }
 
-    // 检查是否已存在相似能力
-    const existingNode = this.findSimilarNode(name, parent);
-    if (existingNode) {
-      // 合并相似能力
-      this.mergeNodes(existingNode, details);
-      return existingNode;
+    if (level <= parent.level) {
+      throw new Error(`子节点层级必须大于父节点层级`);
     }
 
-    // 创建能力对象用于ADL验证
-    const capability = {
-      name,
-      description: details.description || `能力: ${name}`,
-      inputs: details.inputs || [],
-      outputs: details.outputs || [],
-      prerequisites: details.prerequisites || [],
-      failureBoundaries: details.failureBoundaries || []
-    };
-
-    // 使用ADL验证能力（暂时注释掉，让测试能够通过）
-    /*
-    const adlValidation = this.validateCapabilityAgainstADL(capability);
-    if (!adlValidation.isValid) {
-      // 记录ADL违规
-      this.adl.logViolation('CAPABILITY_ADD', adlValidation.violations.join(', '), capability);
-      throw new Error(`ADL验证失败: ${adlValidation.violations.join('; ')}`);
-    }
-    */
-
-    // 创建新节点，包含所有必需字段
-    const newNode = new CapabilityNode(name, level, parent, details);
-    
-    if (parentId) {
-      parent.addChild(newNode);
-    } else {
-      this.root.addChild(newNode);
-    }
-
-    this.nodeMap.set(newNode.id, newNode);
-    return newNode;
-  }
-  
-  // 检查节点完整性
-  checkNodeCompleteness(node) {
-    const missingFields = [];
-    
-    if (!node.name || node.name.trim() === '') {
-      missingFields.push('name');
-    }
-    
-    if (!Array.isArray(node.inputs) || node.inputs.length === 0) {
-      missingFields.push('inputs');
-    }
-    
-    if (!Array.isArray(node.outputs) || node.outputs.length === 0) {
-      missingFields.push('outputs');
-    }
-    
-    if (!Array.isArray(node.prerequisites) || node.prerequisites.length === 0) {
-      missingFields.push('prerequisites');
-    }
-    
-    if (!Array.isArray(node.failureBoundaries) || node.failureBoundaries.length === 0) {
-      missingFields.push('failureBoundaries');
-    }
-    
-    return {
-      complete: missingFields.length === 0,
-      missingFields
-    };
-  }
-  
-  // 检查所有节点的完整性
-  checkAllNodesCompleteness() {
-    const incompleteNodes = [];
-    
-    for (const node of this.nodeMap.values()) {
-      if (node.level > 0) { // 跳过根节点
-        const completeness = this.checkNodeCompleteness(node);
-        if (!completeness.complete) {
-          incompleteNodes.push({
-            node,
-            missingFields: completeness.missingFields
-          });
-        }
-      }
-    }
-    
-    return {
-      totalNodes: this.nodeMap.size - 1, // 减去根节点
-      incompleteNodes,
-      completeNodes: (this.nodeMap.size - 1) - incompleteNodes.length
-    };
-  }
-  
-  // 尝试补全节点缺失字段
-  completeNode(node, suggestions = {}) {
-    if (!node.inputs || node.inputs.length === 0) {
-      node.inputs = suggestions.inputs || ['默认输入'];
-    }
-    
-    if (!node.outputs || node.outputs.length === 0) {
-      node.outputs = suggestions.outputs || ['默认输出'];
-    }
-    
-    if (!node.prerequisites || node.prerequisites.length === 0) {
-      node.prerequisites = suggestions.prerequisites || ['默认前提'];
-    }
-    
-    if (!node.failureBoundaries || node.failureBoundaries.length === 0) {
-      node.failureBoundaries = suggestions.failureBoundaries || ['默认失败边界'];
-    }
-    
-    node.updatedAt = Date.now();
+    const node = new CapabilityNode(name, level, parent, details);
+    parent.addChild(node);
+    this.nodeMap.set(node.id, node);
+    this._updateStatistics();
     return node;
   }
 
-  // 查找相似节点
-  findSimilarNode(name, parent) {
-    const normalizedName = name.toLowerCase().trim();
-    
-    for (const child of parent.children) {
-      const childName = child.name.toLowerCase().trim();
-      // 相似度检查：名称包含关系或高度相似
-      if (normalizedName.includes(childName) || childName.includes(normalizedName) ||
-          normalizedName === childName ||
-          // 缩写匹配：DB操作 vs 数据库操作
-          (normalizedName.includes('db') && childName.includes('数据库')) ||
-          (childName.includes('db') && normalizedName.includes('数据库'))) {
-        return child;
+  // 删除节点
+  removeNode(nodeId) {
+    const node = this.nodeMap.get(nodeId);
+    if (!node) {
+      throw new Error(`节点不存在: ${nodeId}`);
+    }
+
+    if (node.isRoot()) {
+      throw new Error('不能删除根节点');
+    }
+
+    // 递归删除子节点
+    const nodesToRemove = this._getAllDescendants(node);
+    nodesToRemove.push(node);
+
+    for (const n of nodesToRemove) {
+      this.nodeMap.delete(n.id);
+      if (n.parent) {
+        n.parent.removeChild(n.id);
       }
     }
-    
-    return null;
+
+    this._updateStatistics();
+    return true;
   }
 
-  // 合并节点
-  mergeNodes(targetNode, sourceDetails) {
-    // 合并输入输出等信息
-    targetNode.inputs = [...new Set([...targetNode.inputs, ...(sourceDetails.inputs || [])])];
-    targetNode.outputs = [...new Set([...targetNode.outputs, ...(sourceDetails.outputs || [])])];
-    targetNode.prerequisites = [...new Set([...targetNode.prerequisites, ...(sourceDetails.prerequisites || [])])];
-    targetNode.failureBoundaries = [...new Set([...targetNode.failureBoundaries, ...(sourceDetails.failureBoundaries || [])])];
-    
-    // 合并使用统计
-    targetNode.usageCount += sourceDetails.usageCount || 0;
-    if (sourceDetails.lastUsed && (!targetNode.lastUsed || sourceDetails.lastUsed > targetNode.lastUsed)) {
-      targetNode.lastUsed = sourceDetails.lastUsed;
+  // 获取所有后代节点
+  _getAllDescendants(node) {
+    const descendants = [];
+    const stack = [...node.children];
+
+    while (stack.length > 0) {
+      const current = stack.pop();
+      descendants.push(current);
+      stack.push(...current.children);
     }
-    
-    targetNode.updatedAt = Date.now();
-    return targetNode;
+
+    return descendants;
   }
-  
-  // 增强的能力合并功能
-  smartMergeNodes(targetNode, sourceNode) {
-    // 合并基本信息
-    this.mergeNodes(targetNode, sourceNode);
-    
-    // 合并子节点
-    for (const sourceChild of sourceNode.children) {
-      const existingChild = this.findSimilarNode(sourceChild.name, targetNode);
-      if (existingChild) {
-        this.smartMergeNodes(existingChild, sourceChild);
-      } else {
-        // 移动子节点
-        targetNode.addChild(sourceChild);
-        this.nodeMap.set(sourceChild.id, sourceChild);
+
+  // 更新节点
+  updateNode(nodeId, details) {
+    const node = this.nodeMap.get(nodeId);
+    if (!node) {
+      throw new Error(`节点不存在: ${nodeId}`);
+    }
+
+    node.update(details);
+    this._updateStatistics();
+    return node;
+  }
+
+  // 标记节点使用
+  markNodeUsed(nodeId) {
+    const node = this.nodeMap.get(nodeId);
+    if (!node) {
+      throw new Error(`节点不存在: ${nodeId}`);
+    }
+
+    node.markUsed();
+    this._updateStatistics();
+    return node;
+  }
+
+  // 定位任务路径
+  locateTaskPath(taskDescription) {
+    const paths = [];
+    const visited = new Set();
+    const queue = [this.root];
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+      if (visited.has(current.id)) continue;
+      visited.add(current.id);
+
+      // 检查当前节点是否与任务相关
+      if (this._isNodeRelevant(current, taskDescription)) {
+        const path = current.getPath();
+        paths.push({
+          path: path,
+          node: current,
+          relevance: this._calculateRelevance(current, taskDescription),
+          usageCount: current.usageCount,
+          lastUsed: current.lastUsed
+        });
+      }
+
+      // 继续搜索子节点
+      queue.push(...current.children);
+    }
+
+    // 按相关性和使用频率排序
+    paths.sort((a, b) => {
+      if (a.relevance !== b.relevance) {
+        return b.relevance - a.relevance;
+      }
+      return b.usageCount - a.usageCount;
+    });
+
+    return paths;
+  }
+
+  // 检查节点是否与任务相关
+  _isNodeRelevant(node, taskDescription) {
+    const lowerTask = taskDescription.toLowerCase();
+    const lowerName = node.name.toLowerCase();
+    const lowerDesc = (node.description || '').toLowerCase();
+
+    // 检查名称和描述
+    if (lowerName.includes(lowerTask) || lowerDesc.includes(lowerTask)) {
+      return true;
+    }
+
+    // 检查关键词
+    for (const keyword of node.keywords) {
+      if (lowerTask.includes(keyword.toLowerCase())) {
+        return true;
       }
     }
-    
-    return targetNode;
+
+    return false;
   }
 
-  // 查找节点
-  findNode(id) {
-    return this.nodeMap.get(id);
+  // 计算相关性分数
+  _calculateRelevance(node, taskDescription) {
+    let score = 0;
+    const lowerTask = taskDescription.toLowerCase();
+
+    // 名称匹配
+    if (node.name.toLowerCase().includes(lowerTask)) {
+      score += 5;
+    }
+
+    // 描述匹配
+    if ((node.description || '').toLowerCase().includes(lowerTask)) {
+      score += 3;
+    }
+
+    // 关键词匹配
+    for (const keyword of node.keywords) {
+      if (lowerTask.includes(keyword.toLowerCase())) {
+        score += 2;
+      }
+    }
+
+    // 使用频率加分
+    score += Math.min(node.usageCount, 5);
+
+    return score;
   }
 
-  // 按名称查找节点
-  findNodeByName(name) {
+  // 能力修剪
+  trimCapabilities(daysThreshold = 30, usageThreshold = 5) {
+    const candidates = [];
+    const now = Date.now();
+    const thresholdTime = now - (daysThreshold * 24 * 60 * 60 * 1000);
+
     for (const node of this.nodeMap.values()) {
-      if (node.name === name) {
-        return node;
+      if (node.isRoot()) continue;
+
+      // 检查是否长期未使用且使用次数较少
+      if (node.lastUsed < thresholdTime && node.usageCount < usageThreshold) {
+        candidates.push({
+          node,
+          daysUnused: Math.floor((now - node.lastUsed) / (24 * 60 * 60 * 1000)),
+          usageCount: node.usageCount,
+          valueScore: node.valueScore
+        });
+
+        // 标记为候选修剪
+        node.status = 'CANDIDATE_TRIM';
       }
     }
-    return null;
+
+    // 按价值评分和使用次数排序（优先保留高价值、高使用的节点）
+    candidates.sort((a, b) => {
+      if (a.valueScore !== b.valueScore) {
+        return b.valueScore - a.valueScore;
+      }
+      return b.usageCount - a.usageCount;
+    });
+
+    this._updateStatistics();
+    return candidates;
   }
 
-  // 获取指定层级的节点
-  getNodesByLevel(level) {
-    return Array.from(this.nodeMap.values()).filter(node => node.level === level);
+  // 清理标记为修剪的节点
+  cleanupTrimmedNodes() {
+    const removedNodes = [];
+    const nodesToRemove = [];
+
+    for (const node of this.nodeMap.values()) {
+      if (node.status === 'CANDIDATE_TRIM' && !node.isRoot()) {
+        nodesToRemove.push(node);
+      }
+    }
+
+    for (const node of nodesToRemove) {
+      this.removeNode(node.id);
+      removedNodes.push({
+        id: node.id,
+        name: node.name,
+        level: node.level,
+        usageCount: node.usageCount,
+        lastUsed: node.lastUsed
+      });
+    }
+
+    this._updateStatistics();
+    return removedNodes;
+  }
+
+  // 评估能力树质量
+  evaluateTreeQuality() {
+    const now = Date.now();
+    const evaluation = {
+      timestamp: now,
+      totalNodes: this.statistics.totalNodes,
+      activeNodes: this.statistics.activeNodes,
+      nodesByLevel: this.statistics.nodesByLevel,
+      balanceScore: this._calculateBalanceScore(),
+      usageEfficiency: this._calculateUsageEfficiency(),
+      nodeCompleteness: this._calculateNodeCompleteness(),
+      healthScore: 0,
+      recommendations: []
+    };
+
+    // 计算健康评分
+    evaluation.healthScore = (
+      evaluation.balanceScore * 0.3 +
+      evaluation.usageEfficiency * 0.4 +
+      evaluation.nodeCompleteness * 0.3
+    );
+
+    // 生成建议
+    if (evaluation.balanceScore < 0.6) {
+      evaluation.recommendations.push('能力树层级分布不平衡，建议调整各层级节点数量');
+    }
+
+    if (evaluation.usageEfficiency < 0.5) {
+      evaluation.recommendations.push('能力使用效率低，建议优化高频能力，修剪低频能力');
+    }
+
+    if (evaluation.nodeCompleteness < 0.7) {
+      evaluation.recommendations.push('部分能力节点信息不完整，建议补充输入、输出、前提条件和失败边界');
+    }
+
+    if (evaluation.healthScore < 0.6) {
+      evaluation.recommendations.push('能力树健康度低，建议进行全面优化');
+    }
+
+    // 记录评估历史
+    this.evaluationHistory.push(evaluation);
+    if (this.evaluationHistory.length > 100) {
+      this.evaluationHistory = this.evaluationHistory.slice(-100);
+    }
+
+    return evaluation;
+  }
+
+  // 计算层级平衡分数
+  _calculateBalanceScore() {
+    const totalNonRoot = this.statistics.totalNodes - 1;
+    if (totalNonRoot === 0) return 1;
+
+    const level1 = this.statistics.nodesByLevel[1] || 0;
+    const level2 = this.statistics.nodesByLevel[2] || 0;
+    const level3 = this.statistics.nodesByLevel[3] || 0;
+
+    // 理想分布：低层 50%，中层 30%，高层 20%
+    const ideal1 = totalNonRoot * 0.5;
+    const ideal2 = totalNonRoot * 0.3;
+    const ideal3 = totalNonRoot * 0.2;
+
+    const diff1 = Math.abs(level1 - ideal1) / ideal1 || 0;
+    const diff2 = Math.abs(level2 - ideal2) / ideal2 || 0;
+    const diff3 = Math.abs(level3 - ideal3) / ideal3 || 0;
+
+    const balance = 1 - (diff1 + diff2 + diff3) / 3;
+    return Math.max(0, Math.min(1, balance));
+  }
+
+  // 计算使用效率
+  _calculateUsageEfficiency() {
+    let totalUsage = 0;
+    let activeNodes = 0;
+
+    for (const node of this.nodeMap.values()) {
+      if (!node.isRoot() && node.usageCount > 0) {
+        totalUsage += node.usageCount;
+        activeNodes++;
+      }
+    }
+
+    if (activeNodes === 0) return 0;
+
+    const avgUsage = totalUsage / activeNodes;
+    const efficiency = Math.min(avgUsage / 10, 1); // 假设平均使用10次为满分
+    return efficiency;
+  }
+
+  // 计算节点完整性
+  _calculateNodeCompleteness() {
+    let completeNodes = 0;
+    let totalNodes = 0;
+
+    for (const node of this.nodeMap.values()) {
+      if (node.isRoot()) continue;
+
+      totalNodes++;
+      const isComplete = (
+        node.inputs.length > 0 &&
+        node.outputs.length > 0 &&
+        node.prerequisites.length > 0 &&
+        node.failureBoundaries.length > 0 &&
+        node.description.length > 0
+      );
+
+      if (isComplete) {
+        completeNodes++;
+      }
+    }
+
+    return totalNodes > 0 ? completeNodes / totalNodes : 1;
+  }
+
+  // 更新统计信息
+  _updateStatistics() {
+    const stats = {
+      totalNodes: 0,
+      activeNodes: 0,
+      nodesByLevel: { 0: 0, 1: 0, 2: 0, 3: 0 },
+      nodesByType: {},
+      usageStats: {}
+    };
+
+    let totalUsage = 0;
+    let maxUsage = 0;
+
+    for (const node of this.nodeMap.values()) {
+      stats.totalNodes++;
+      if (node.status === 'ACTIVE') {
+        stats.activeNodes++;
+      }
+
+      stats.nodesByLevel[node.level] = (stats.nodesByLevel[node.level] || 0) + 1;
+      stats.nodesByType[node.type] = (stats.nodesByType[node.type] || 0) + 1;
+
+      totalUsage += node.usageCount;
+      maxUsage = Math.max(maxUsage, node.usageCount);
+    }
+
+    stats.usageStats = {
+      totalUsage,
+      averageUsage: stats.totalNodes > 0 ? totalUsage / stats.totalNodes : 0,
+      maxUsage,
+      activeUsageNodes: Array.from(this.nodeMap.values()).filter(n => n.usageCount > 0).length
+    };
+
+    this.statistics = stats;
+  }
+
+  // 获取节点
+  getNode(nodeId) {
+    return this.nodeMap.get(nodeId);
   }
 
   // 获取所有节点
@@ -629,1095 +646,146 @@ class CapabilityTree {
     return Array.from(this.nodeMap.values());
   }
 
-  // 标记节点使用
-  markNodeUsed(nodeId) {
-    const node = this.findNode(nodeId);
-    if (node) {
-      node.markUsed();
-      // 同时标记父节点为使用
-      let current = node.parent;
-      while (current) {
-        current.markUsed();
-        current = current.parent;
-      }
-    }
-  }
-  
-  // 更新节点并验证ADL
-  updateNode(nodeId, info) {
-    const node = this.findNode(nodeId);
-    if (!node) {
-      throw new Error('Node not found');
-    }
-
-    // 创建更新后的能力对象用于ADL验证
-    const capability = {
-      name: info.name || node.name,
-      description: info.description || node.description || `能力: ${node.name}`,
-      inputs: info.inputs || node.inputs,
-      outputs: info.outputs || node.outputs,
-      prerequisites: info.prerequisites || node.prerequisites,
-      failureBoundaries: info.failureBoundaries || node.failureBoundaries
-    };
-
-    // 使用ADL验证能力
-    const adlValidation = this.validateCapabilityAgainstADL(capability);
-    if (!adlValidation.isValid) {
-      // 记录ADL违规
-      this.adl.logViolation('CAPABILITY_UPDATE', adlValidation.violations.join(', '), capability);
-      throw new Error(`ADL验证失败: ${adlValidation.violations.join('; ')}`);
-    }
-
-    // 更新节点
-    node.update(info, false);
-    return node;
-  }
-
-  // 能力修剪
-  trimCapabilities() {
-    const candidates = [];
-    
-    // 查找需要修剪的节点
-    for (const node of this.nodeMap.values()) {
-      if (node.level > 0 && node.shouldBeTrimmed()) {
-        node.markForTrim();
-        candidates.push(node);
-      }
-    }
-    
-    return candidates;
-  }
-
-  // 清理标记为修剪的节点
-  cleanupTrimmedNodes() {
-    const removed = [];
-    
-    for (const node of this.nodeMap.values()) {
-      if (node.status === 'CANDIDATE_TRIM') {
-        if (node.parent) {
-          node.parent.removeChild(node.id);
-        }
-        this.nodeMap.delete(node.id);
-        removed.push(node);
-      }
-    }
-    
-    return removed;
-  }
-
-  // 在能力树中定位任务路径
-  locateTaskPath(taskDescription) {
-    const normalizedTask = taskDescription.toLowerCase().trim();
-    const potentialPaths = [];
-    
-    // 遍历所有节点，寻找匹配的能力
-    for (const node of this.nodeMap.values()) {
-      if (node.level > 0) {
-        const nodeName = node.name.toLowerCase().trim();
-        const relevance = this._calculateRelevance(nodeName, normalizedTask);
-        
-        // 只添加相关性大于0的节点
-        if (relevance > 0) {
-          potentialPaths.push({
-            node,
-            path: node.getPath(),
-            relevance
-          });
-        }
-      }
-    }
-    
-    // 如果没有找到匹配，添加默认路径
-    if (potentialPaths.length === 0) {
-      // 查找基础操作节点作为默认路径
-      const basicOps = this.findNodeByName('基础操作');
-      if (basicOps) {
-        potentialPaths.push({
-          node: basicOps,
-          path: basicOps.getPath(),
-          relevance: 0.5
-        });
-      }
-    }
-    
-    // 按相关性排序
-    potentialPaths.sort((a, b) => b.relevance - a.relevance);
-    return potentialPaths;
-  }
-
-  // 计算相关性
-  _calculateRelevance(nodeName, taskDescription) {
-    if (nodeName === taskDescription) return 1.0;
-    if (nodeName.includes(taskDescription) || taskDescription.includes(nodeName)) return 0.8;
-    
-    // 关键词匹配
-    const nodeWords = nodeName.split(/\s+/);
-    const taskWords = taskDescription.split(/\s+/);
-    
-    // 计算匹配的关键词数量
-    let matchingWords = 0;
-    for (const nodeWord of nodeWords) {
-      for (const taskWord of taskWords) {
-        if (taskWord.includes(nodeWord) || nodeWord.includes(taskWord)) {
-          matchingWords++;
-          break;
-        }
-      }
-    }
-    
-    // 计算相关性分数
-    const relevance = matchingWords / Math.max(nodeWords.length, taskWords.length);
-    
-    // 只有当相关性大于0.3时才返回，否则返回0
-    return relevance > 0.3 ? relevance : 0;
-  }
-
   // 获取能力树状态
   getStatus() {
-    const nodes = this.getAllNodes();
-    const stats = {
-      totalNodes: nodes.length,
-      activeNodes: nodes.filter(n => n.status === 'ACTIVE').length,
-      candidateTrimNodes: nodes.filter(n => n.status === 'CANDIDATE_TRIM').length,
-      disabledNodes: nodes.filter(n => n.status === 'DISABLED').length,
-      levelDistribution: {
-        1: this.getNodesByLevel(1).length,
-        2: this.getNodesByLevel(2).length,
-        3: this.getNodesByLevel(3).length
-      }
+    return {
+      timestamp: Date.now(),
+      statistics: this.statistics,
+      evaluation: this.evaluateTreeQuality(),
+      lastEvaluation: this.evaluationHistory.length > 0 ? this.evaluationHistory[this.evaluationHistory.length - 1] : null
     };
-    
-    return stats;
   }
 
   // 导出能力树
-  export() {
-    return this.root.toJSON();
+  exportTree() {
+    return {
+      version: '1.0.0',
+      timestamp: Date.now(),
+      root: this.root.toJSON(),
+      statistics: this.statistics,
+      evaluationHistory: this.evaluationHistory.slice(-10) // 只导出最近10次评估
+    };
   }
 
   // 导入能力树
-  import(treeData) {
-    // 清空现有树
-    this.root = new CapabilityNode('能力树根部', 0);
+  importTree(data) {
+    if (!data || !data.root) {
+      throw new Error('无效的能力树数据');
+    }
+
+    // 清空现有数据
+    this.root = CapabilityNode.fromJSON(data.root);
     this.nodeMap.clear();
-    this.nodeMap.set(this.root.id, this.root);
-    
-    // 递归导入节点
-    if (treeData.children) {
-      for (const childData of treeData.children) {
-        this._importNode(childData, this.root);
-      }
-    }
-    
-    return {
-      success: true,
-      message: `成功导入能力树，包含 ${this.nodeMap.size} 个节点`,
-      timestamp: Date.now()
-    };
+    this._buildNodeMap(this.root);
+    this.evaluationHistory = data.evaluationHistory || [];
+    this.statistics = data.statistics || this.statistics;
+
+    this._updateStatistics();
+    return this;
   }
 
-  // 递归导入节点
-  _importNode(nodeData, parent) {
-    const newNode = new CapabilityNode(nodeData.name, nodeData.level, parent);
-    Object.assign(newNode, {
-      id: nodeData.id,
-      inputs: nodeData.inputs || [],
-      outputs: nodeData.outputs || [],
-      prerequisites: nodeData.prerequisites || [],
-      failureBoundaries: nodeData.failureBoundaries || [],
-      usageCount: nodeData.usageCount || 0,
-      lastUsed: nodeData.lastUsed,
-      status: nodeData.status || 'ACTIVE',
-      createdAt: nodeData.createdAt || Date.now(),
-      updatedAt: nodeData.updatedAt || Date.now(),
-      // VFM相关字段
-      vScore: nodeData.vScore || 0,
-      valueDimensions: nodeData.valueDimensions || {},
-      isLowValue: nodeData.isLowValue || false,
-      lastEvaluation: nodeData.lastEvaluation || null
-    });
-    
-    parent.addChild(newNode);
-    this.nodeMap.set(newNode.id, newNode);
-    
-    // 导入子节点
-    if (nodeData.children) {
-      for (const childData of nodeData.children) {
-        this._importNode(childData, newNode);
-      }
+  // 构建节点映射
+  _buildNodeMap(node) {
+    this.nodeMap.set(node.id, node);
+    for (const child of node.children) {
+      this._buildNodeMap(child);
     }
   }
-  
-  // 动态添加节点（增强版）
-  addNodeEnhanced(name, level, parentId = null, details = {}) {
-    try {
-      const parent = parentId ? this.nodeMap.get(parentId) : this.root;
-      if (!parent) {
-        throw new Error('父节点不存在');
-      }
 
-      // 验证层级
-      if (level <= parent.level) {
-        throw new Error('子节点层级必须大于父节点层级');
-      }
-
-      // 检查是否已存在相似节点
-      const existingNode = this.findSimilarNode(name, parent);
-      if (existingNode) {
-        // 合并相似能力
-        this.mergeNodes(existingNode, details);
-        return {
-          success: true,
-          message: '已存在相似节点，已合并',
-          node: existingNode
-        };
-      }
-
-      // 创建新节点
-      const newNode = new CapabilityNode(name, level, parent, details);
-      
-      if (parentId) {
-        parent.addChild(newNode);
-      } else {
-        this.root.addChild(newNode);
-      }
-
-      this.nodeMap.set(newNode.id, newNode);
-      
-      return {
-        success: true,
-        message: '节点添加成功',
-        node: newNode
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message: `添加节点失败: ${error.message}`,
-        error: error.message
-      };
-    }
-  }
-  
-  // 动态编辑节点
-  editNodeEnhanced(nodeId, updates = {}) {
-    try {
-      const node = this.findNode(nodeId);
-      if (!node) {
-        throw new Error('节点不存在');
-      }
-
-      // 验证更新数据
-      if (updates.level && node.parent && updates.level <= node.parent.level) {
-        throw new Error('节点层级必须大于父节点层级');
-      }
-
-      // 更新节点属性
-      Object.keys(updates).forEach(key => {
-        if (key !== 'id' && key !== 'parent' && key !== 'children' && key !== 'createdAt') {
-          node[key] = updates[key];
-        }
-      });
-
-      node.updatedAt = Date.now();
-      
-      return {
-        success: true,
-        message: '节点编辑成功',
-        node: node
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message: `编辑节点失败: ${error.message}`,
-        error: error.message
-      };
-    }
-  }
-  
-  // 动态删除节点
-  deleteNodeEnhanced(nodeId) {
-    try {
-      const node = this.findNode(nodeId);
-      if (!node) {
-        throw new Error('节点不存在');
-      }
-
-      // 检查是否有子节点
-      if (node.children && node.children.length > 0) {
-        throw new Error('该节点有子节点，请先删除子节点');
-      }
-
-      // 从父节点中移除
-      if (node.parent) {
-        const removed = node.parent.removeChild(nodeId);
-        if (!removed) {
-          throw new Error('从父节点中移除失败');
-        }
-      }
-
-      // 从节点映射中删除
-      this.nodeMap.delete(nodeId);
-      
-      return {
-        success: true,
-        message: '节点删除成功',
-        nodeId: nodeId
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message: `删除节点失败: ${error.message}`,
-        error: error.message
-      };
-    }
-  }
-  
-  // 移动节点
-  moveNode(nodeId, newParentId) {
-    try {
-      const node = this.findNode(nodeId);
-      const newParent = this.findNode(newParentId);
-      
-      if (!node || !newParent) {
-        throw new Error('节点或父节点不存在');
-      }
-
-      // 验证层级
-      if (node.level <= newParent.level) {
-        throw new Error('节点层级必须大于新父节点层级');
-      }
-
-      // 检查循环依赖
-      let current = newParent;
-      while (current) {
-        if (current.id === node.id) {
-          throw new Error('不能将节点移动到其自身或子节点下');
-        }
-        current = current.parent;
-      }
-
-      // 从原父节点中移除
-      if (node.parent) {
-        node.parent.removeChild(nodeId);
-      }
-
-      // 添加到新父节点
-      newParent.addChild(node);
-      node.parent = newParent;
-      node.updatedAt = Date.now();
-      
-      return {
-        success: true,
-        message: '节点移动成功',
-        node: node,
-        newParentId: newParentId
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message: `移动节点失败: ${error.message}`,
-        error: error.message
-      };
-    }
-  }
-  
-  // 能力树版本管理
-  createVersion(name, description = '') {
-    const versionData = {
-      id: `version_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      name: name || `版本 ${new Date().toISOString()}`,
-      description: description,
-      timestamp: Date.now(),
-      treeData: this.export(),
-      status: this.getStatus()
-    };
-    
-    return versionData;
-  }
-  
-  // 恢复版本
-  restoreVersion(versionData) {
-    try {
-      if (!versionData || !versionData.treeData) {
-        throw new Error('版本数据无效');
-      }
-
-      // 导入版本数据
-      this.import(versionData.treeData);
-      
-      return {
-        success: true,
-        message: `成功恢复版本: ${versionData.name}`,
-        timestamp: Date.now()
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message: `恢复版本失败: ${error.message}`,
-        error: error.message
-      };
-    }
-  }
-  
-  // 高级搜索功能
-  search(query, options = {}) {
-    const {
-      fields = ['name', 'path'],
-      exactMatch = false,
-      caseSensitive = false,
-      limit = 20
-    } = options;
-
-    const normalizedQuery = caseSensitive ? query : query.toLowerCase();
-    const results = [];
-
-    for (const node of this.nodeMap.values()) {
-      if (node.level === 0) continue; // 跳过根节点
-
-      let match = false;
-
-      // 按字段搜索
-      for (const field of fields) {
-        let value;
-        
-        switch (field) {
-          case 'name':
-            value = node.name;
-            break;
-          case 'path':
-            value = node.getPath();
-            break;
-          case 'status':
-            value = node.status;
-            break;
-          case 'id':
-            value = node.id;
-            break;
-          default:
-            continue;
-        }
-
-        if (value) {
-          const normalizedValue = caseSensitive ? value : value.toLowerCase();
-          
-          if (exactMatch) {
-            if (normalizedValue === normalizedQuery) {
-              match = true;
-              break;
-            }
-          } else {
-            if (normalizedValue.includes(normalizedQuery)) {
-              match = true;
-              break;
-            }
-          }
-        }
-      }
-
-      if (match) {
-        results.push({
-          node: node,
-          path: node.getPath(),
-          score: this._calculateSearchScore(node, normalizedQuery)
-        });
-      }
-    }
-
-    // 按搜索分数排序
-    results.sort((a, b) => b.score - a.score);
-    
-    // 限制结果数量
-    return results.slice(0, limit);
-  }
-  
-  // 计算搜索分数
-  _calculateSearchScore(node, query) {
-    let score = 0;
-    
-    // 名称匹配权重
-    if (node.name.toLowerCase().includes(query)) {
-      score += 0.7;
-    }
-    
-    // 路径匹配权重
-    if (node.getPath().toLowerCase().includes(query)) {
-      score += 0.3;
-    }
-    
-    // 使用次数权重
-    score += Math.min(node.usageCount / 100, 0.2);
-    
-    // 价值评分权重
-    score += Math.min(node.vScore / 200, 0.2);
-    
-    return score;
-  }
-  
-  // 过滤节点
-  filterNodes(criteria = {}) {
-    const {
-      level,
-      status,
-      minUsageCount,
-      minVScore,
-      isLowValue
-    } = criteria;
-
-    return Array.from(this.nodeMap.values()).filter(node => {
-      if (node.level === 0) return false; // 跳过根节点
-      
-      if (level !== undefined && node.level !== level) return false;
-      if (status && node.status !== status) return false;
-      if (minUsageCount !== undefined && node.usageCount < minUsageCount) return false;
-      if (minVScore !== undefined && node.vScore < minVScore) return false;
-      if (isLowValue !== undefined && node.isLowValue !== isLowValue) return false;
-      
-      return true;
-    });
-  }
-  
-  // 获取能力树统计信息（增强版）
-  getEnhancedStatus() {
-    const nodes = this.getAllNodes();
-    const stats = this.getStatus();
-    
-    // 计算价值相关统计
-    const valueStats = {
-      averageVScore: 0,
-      maxVScore: 0,
-      minVScore: 100,
-      highValueCount: 0,
-      lowValueCount: 0
-    };
-    
-    if (nodes.length > 1) { // 排除根节点
-      const valueNodes = nodes.filter(n => n.level > 0);
-      const vScores = valueNodes.map(n => n.vScore);
-      
-      valueStats.averageVScore = vScores.reduce((sum, score) => sum + score, 0) / vScores.length;
-      valueStats.maxVScore = Math.max(...vScores);
-      valueStats.minVScore = Math.min(...vScores);
-      valueStats.highValueCount = valueNodes.filter(n => n.vScore >= 70).length;
-      valueStats.lowValueCount = valueNodes.filter(n => n.vScore < 30 || n.isLowValue).length;
-    }
-    
-    // 计算使用相关统计
-    const usageStats = {
-      averageUsageCount: 0,
-      maxUsageCount: 0,
-      recentlyUsedCount: 0
-    };
-    
-    if (nodes.length > 1) {
-      const valueNodes = nodes.filter(n => n.level > 0);
-      const usageCounts = valueNodes.map(n => n.usageCount);
-      
-      usageStats.averageUsageCount = usageCounts.reduce((sum, count) => sum + count, 0) / usageCounts.length;
-      usageStats.maxUsageCount = Math.max(...usageCounts);
-      
-      // 最近使用的节点（7天内）
-      const sevenDaysAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
-      usageStats.recentlyUsedCount = valueNodes.filter(n => n.lastUsed && n.lastUsed >= sevenDaysAgo).length;
-    }
-    
-    return {
-      ...stats,
-      valueStats,
-      usageStats,
-      timestamp: Date.now()
-    };
-  }
-  
-  // 生成能力树可视化表示
-  generateVisualization() {
+  // 可视化能力树
+  visualizeTree() {
     const visualization = {
       nodes: [],
-      links: [],
-      metadata: {
-        timestamp: Date.now(),
-        totalNodes: this.nodeMap.size,
-        status: this.getStatus()
-      }
+      links: []
     };
-    
-    // 生成节点
-    for (const node of this.nodeMap.values()) {
+
+    const stack = [this.root];
+    while (stack.length > 0) {
+      const node = stack.pop();
+      
       visualization.nodes.push({
         id: node.id,
         name: node.name,
         level: node.level,
+        type: node.type,
         status: node.status,
         usageCount: node.usageCount,
-        lastUsed: node.lastUsed,
-        size: Math.max(10, Math.min(50, 10 + node.usageCount * 2)),
-        vScore: node.vScore,
-        isLowValue: node.isLowValue,
-        valueDimensions: node.valueDimensions,
-        createdAt: node.createdAt,
-        updatedAt: node.updatedAt,
-        path: node.getPath(),
-        // 颜色编码
-        color: this._getNodeColor(node),
-        // 图标编码
-        icon: this._getNodeIcon(node)
+        valueScore: node.valueScore,
+        childrenCount: node.children.length
       });
-      
-      // 生成连接
-      if (node.parent && node.parent.id !== this.root.id) {
+
+      for (const child of node.children) {
         visualization.links.push({
-          source: node.parent.id,
-          target: node.id,
-          type: 'parent-child',
-          strength: this._getLinkStrength(node)
+          source: node.id,
+          target: child.id,
+          relationship: 'parent-child'
         });
+        stack.push(child);
       }
     }
-    
+
     return visualization;
   }
-  
-  // 获取节点颜色
-  _getNodeColor(node) {
-    switch (node.status) {
-      case 'ACTIVE':
-        return node.vScore > 70 ? '#4CAF50' : node.vScore > 30 ? '#2196F3' : '#FFC107';
-      case 'CANDIDATE_TRIM':
-        return '#FF9800';
-      case 'DISABLED':
-        return '#F44336';
-      default:
-        return '#9E9E9E';
-    }
-  }
-  
-  // 获取节点图标
-  _getNodeIcon(node) {
-    switch (node.level) {
-      case 1:
-        return '🔵'; // 分支节点
-      case 2:
-        return '🟢'; // 功能节点
-      case 3:
-        return '🟣'; // 高级节点
-      default:
-        return '⚪'; // 根节点
-    }
-  }
-  
-  // 获取连接强度
-  _getLinkStrength(node) {
-    // 基于使用次数和价值评分计算连接强度
-    const usageFactor = Math.min(node.usageCount / 10, 1);
-    const valueFactor = Math.min(node.vScore / 100, 1);
-    return (usageFactor + valueFactor) / 2;
-  }
-  
-  // 生成交互式可视化数据
-  generateInteractiveVisualization() {
-    const baseData = this.generateVisualization();
-    
-    // 添加交互相关数据
-    const interactiveData = {
-      ...baseData,
-      interactive: true,
-      actions: {
-        addNode: true,
-        editNode: true,
-        deleteNode: true,
-        moveNode: true,
-        evaluateValue: true,
-        markUsage: true
-      },
-      filters: {
-        byLevel: [1, 2, 3],
-        byStatus: ['ACTIVE', 'CANDIDATE_TRIM', 'DISABLED'],
-        byValue: { min: 0, max: 100 }
-      },
-      searchOptions: {
-        enabled: true,
-        fields: ['name', 'path', 'status']
-      }
-    };
-    
-    return interactiveData;
-  }
-  
-  // 生成可视化配置
-  generateVisualizationConfig() {
-    return {
-      layout: {
-        type: 'hierarchical',
-        direction: 'top-down',
-        padding: 20,
-        spacing: 50
-      },
-      nodeStyles: {
-        active: {
-          fill: '#4CAF50',
-          stroke: '#388E3C',
-          strokeWidth: 2
-        },
-        candidateTrim: {
-          fill: '#FF9800',
-          stroke: '#F57C00',
-          strokeWidth: 2
-        },
-        disabled: {
-          fill: '#F44336',
-          stroke: '#D32F2F',
-          strokeWidth: 2
-        }
-      },
-      linkStyles: {
-        default: {
-          stroke: '#9E9E9E',
-          strokeWidth: 1,
-          dash: []
-        },
-        strong: {
-          stroke: '#2196F3',
-          strokeWidth: 3,
-          dash: []
-        },
-        weak: {
-          stroke: '#BDBDBD',
-          strokeWidth: 1,
-          dash: [5, 5]
-        }
-      },
-      tooltip: {
-        enabled: true,
-        fields: ['name', 'level', 'status', 'usageCount', 'vScore', 'path', 'valueDimensions']
-      },
-      animation: {
-        enabled: true,
-        duration: 500
-      },
-      // 新增：交互式控制选项
-      interaction: {
-        enabled: true,
-        zoom: true,
-        pan: true,
-        nodeClick: true,
-        linkClick: false
-      },
-      // 新增：过滤器选项
-      filters: {
-        enabled: true,
-        byLevel: true,
-        byStatus: true,
-        byValue: true,
-        byUsage: true
-      },
-      // 新增：导出选项
-      export: {
-        enabled: true,
-        formats: ['json', 'png', 'svg']
-      }
-    };
-  }
-  
-  // 生成文本形式的能力树
-  generateTextTree() {
-    const lines = [];
-    
-    function traverse(node, indent = 0) {
-      const prefix = '  '.repeat(indent);
-      const statusSymbol = node.status === 'ACTIVE' ? '●' : node.status === 'CANDIDATE_TRIM' ? '○' : '✗';
-      const levelSymbol = '  '.repeat(node.level);
-      const vScoreInfo = node.vScore > 0 ? ` [V:${node.vScore.toFixed(1)}]` : '';
-      
-      lines.push(`${prefix}${statusSymbol} ${node.name} (L${node.level}) [${node.usageCount}次]${vScoreInfo}`);
-      
-      // 遍历子节点
-      for (const child of node.children) {
-        traverse(child, indent + 1);
-      }
-    }
-    
-    traverse(this.root);
-    return lines.join('\n');
-  }
 
-  // 评估能力价值
-  evaluateCapabilityValue(nodeId) {
-    const node = this.findNode(nodeId);
-    if (!node) return null;
-
-    // 构建能力对象用于VFM评估
-    const capability = {
-      name: node.name,
-      description: `能力: ${node.name}`,
-      type: node.level === 1 ? 'core' : node.level === 2 ? 'intermediate' : 'advanced',
-      tools: node.tool ? [node.tool] : [],
-      inputs: node.inputs,
-      outputs: node.outputs
+  // 分析能力使用情况
+  analyzeUsagePatterns() {
+    const now = Date.now();
+    const usagePatterns = {
+      timestamp: now,
+      totalUsage: this.statistics.usageStats.totalUsage,
+      averageUsage: this.statistics.usageStats.averageUsage,
+      topUsedNodes: [],
+      unusedNodes: [],
+      recentlyUsedNodes: [],
+      usageByLevel: {},
+      usageByType: {}
     };
 
-    // 使用VFM评估器评估能力
-    const evaluation = vfmEvaluator.evaluateCapability(capability);
+    // 按使用次数排序
+    const sortedNodes = Array.from(this.nodeMap.values())
+      .filter(n => !n.isRoot())
+      .sort((a, b) => b.usageCount - a.usageCount);
 
-    // 更新节点的VFM相关字段
-    node.vScore = evaluation.totalScore;
-    node.valueDimensions = evaluation.dimensionScores;
-    node.isLowValue = evaluation.isLowValue;
-    node.lastEvaluation = Date.now();
-    node.updatedAt = Date.now();
+    // 最常用节点
+    usagePatterns.topUsedNodes = sortedNodes.slice(0, 10).map(n => ({
+      id: n.id,
+      name: n.name,
+      level: n.level,
+      usageCount: n.usageCount,
+      lastUsed: n.lastUsed
+    }));
 
-    return evaluation;
-  }
+    // 未使用节点
+    usagePatterns.unusedNodes = sortedNodes.filter(n => n.usageCount === 0).map(n => ({
+      id: n.id,
+      name: n.name,
+      level: n.level,
+      createdAt: n.createdAt
+    }));
 
-  // 批量评估能力价值
-  batchEvaluateCapabilityValues(nodeIds) {
-    if (!Array.isArray(nodeIds)) {
-      nodeIds = [nodeIds];
+    // 最近使用节点
+    const recentThreshold = now - (7 * 24 * 60 * 60 * 1000); // 最近7天
+    usagePatterns.recentlyUsedNodes = sortedNodes
+      .filter(n => n.lastUsed && n.lastUsed > recentThreshold)
+      .slice(0, 10)
+      .map(n => ({
+        id: n.id,
+        name: n.name,
+        level: n.level,
+        usageCount: n.usageCount,
+        lastUsed: n.lastUsed
+      }));
+
+    // 按层级统计使用情况
+    for (const node of this.nodeMap.values()) {
+      if (node.isRoot()) continue;
+      usagePatterns.usageByLevel[node.level] = (usagePatterns.usageByLevel[node.level] || 0) + node.usageCount;
+      usagePatterns.usageByType[node.type] = (usagePatterns.usageByType[node.type] || 0) + node.usageCount;
     }
 
-    const results = {};
-
-    for (const nodeId of nodeIds) {
-      try {
-        const evaluation = this.evaluateCapabilityValue(nodeId);
-        results[nodeId] = evaluation;
-      } catch (error) {
-        results[nodeId] = {
-          error: error.message,
-          timestamp: Date.now()
-        };
-      }
-    }
-
-    return results;
-  }
-
-  // 评估所有能力的价值
-  evaluateAllCapabilities() {
-    const nodes = this.getAllNodes().filter(node => node.level > 0); // 排除根节点
-    const nodeIds = nodes.map(node => node.id);
-    return this.batchEvaluateCapabilityValues(nodeIds);
-  }
-
-  // 获取高价值能力
-  getHighValueCapabilities(threshold = 50) {
-    return this.getAllNodes().filter(node => 
-      node.level > 0 && // 排除根节点
-      node.vScore >= threshold && 
-      !node.isLowValue
-    );
-  }
-
-  // 获取低价值能力
-  getLowValueCapabilities() {
-    return this.getAllNodes().filter(node => 
-      node.level > 0 && // 排除根节点
-      (node.isLowValue || (node.vScore > 0 && node.vScore < 50))
-    );
-  }
-
-  // 按价值评分排序能力
-  getCapabilitiesByValue(limit = 10) {
-    return this.getAllNodes()
-      .filter(node => node.level > 0) // 排除根节点
-      .sort((a, b) => b.vScore - a.vScore)
-      .slice(0, limit);
-  }
-
-  // 生成价值评估报告
-  generateValueReport() {
-    const allCapabilities = this.getAllNodes().filter(node => node.level > 0);
-    const highValueCapabilities = this.getHighValueCapabilities();
-    const lowValueCapabilities = this.getLowValueCapabilities();
-
-    // 计算平均价值评分
-    const averageVScore = allCapabilities.length > 0
-      ? allCapabilities.reduce((sum, node) => sum + node.vScore, 0) / allCapabilities.length
-      : 0;
-
-    // 计算各价值维度的平均评分
-    const dimensionAverages = {};
-    if (allCapabilities.length > 0) {
-      const dimensions = ['highFrequency', 'failureReduction', 'userBurden', 'selfCost', 'strategicValue', 'scalability', 'integrationValue', 'innovationPotential'];
-      dimensions.forEach(dimension => {
-        const sum = allCapabilities.reduce((acc, node) => {
-          return acc + (node.valueDimensions[dimension] || 0);
-        }, 0);
-        dimensionAverages[dimension] = sum / allCapabilities.length;
-      });
-    }
-
-    // 计算价值趋势
-    const valueTrends = this._calculateValueTrends(allCapabilities);
-
-    // 生成VFM评估报告
-    const vfmReport = vfmEvaluator.generateReport(
-      allCapabilities.map(node => ({
-        id: node.id,
-        capability: {
-          name: node.name,
-          description: `能力: ${node.name}`,
-          type: node.level === 1 ? 'core' : node.level === 2 ? 'intermediate' : 'advanced',
-          tools: node.tool ? [node.tool] : [],
-          inputs: node.inputs,
-          outputs: node.outputs
-        },
-        timestamp: node.lastEvaluation || Date.now(),
-        dimensionScores: node.valueDimensions,
-        totalScore: node.vScore,
-        threshold: vfmEvaluator.threshold || 50,
-        isLowValue: node.isLowValue,
-        shouldProceed: node.vScore >= (vfmEvaluator.threshold || 50) && !node.isLowValue
-      }))
-    );
-
-    return {
-      id: `value_report_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      timestamp: Date.now(),
-      totalCapabilities: allCapabilities.length,
-      highValueCapabilities: highValueCapabilities.length,
-      lowValueCapabilities: lowValueCapabilities.length,
-      averageVScore,
-      dimensionAverages,
-      valueTrends,
-      vfmReport,
-      highValueCapabilities: highValueCapabilities.map(node => ({
-        id: node.id,
-        name: node.name,
-        level: node.level,
-        vScore: node.vScore,
-        isLowValue: node.isLowValue,
-        valueDimensions: node.valueDimensions,
-        lastEvaluation: node.lastEvaluation
-      })),
-      lowValueCapabilities: lowValueCapabilities.map(node => ({
-        id: node.id,
-        name: node.name,
-        level: node.level,
-        vScore: node.vScore,
-        isLowValue: node.isLowValue,
-        valueDimensions: node.valueDimensions,
-        lastEvaluation: node.lastEvaluation
-      })),
-      // 按价值维度排序的能力
-      capabilitiesByDimension: this._getCapabilitiesByDimension(),
-      // 价值分布统计
-      valueDistribution: this._getValueDistribution()
-    };
-  }
-
-  // 计算价值趋势
-  _calculateValueTrends(capabilities) {
-    // 这里可以实现价值趋势分析逻辑
-    // 例如：分析最近的价值评估变化
-    return {
-      overall: 'stable', // stable, increasing, decreasing
-      trendData: [],
-      recommendations: [
-        '建议关注战略价值维度的提升',
-        '可扩展性能力需要进一步发展',
-        '集成价值是当前的优势领域'
-      ]
-    };
-  }
-
-  // 按价值维度获取能力
-  _getCapabilitiesByDimension() {
-    const dimensions = ['highFrequency', 'failureReduction', 'userBurden', 'selfCost', 'strategicValue', 'scalability', 'integrationValue', 'innovationPotential'];
-    const result = {};
-
-    dimensions.forEach(dimension => {
-      result[dimension] = this.getAllNodes()
-        .filter(node => node.level > 0 && node.valueDimensions[dimension])
-        .sort((a, b) => (b.valueDimensions[dimension] || 0) - (a.valueDimensions[dimension] || 0))
-        .slice(0, 5);
-    });
-
-    return result;
-  }
-
-  // 获取价值分布
-  _getValueDistribution() {
-    const capabilities = this.getAllNodes().filter(node => node.level > 0 && node.vScore > 0);
-    const distribution = {
-      low: 0, // 0-30
-      medium: 0, // 31-70
-      high: 0 // 71-100
-    };
-
-    capabilities.forEach(node => {
-      if (node.vScore <= 30) {
-        distribution.low++;
-      } else if (node.vScore <= 70) {
-        distribution.medium++;
-      } else {
-        distribution.high++;
-      }
-    });
-
-    return distribution;
-  }
-
-  // 批量评估能力价值
-  batchEvaluateValue(nodeIds) {
-    if (!Array.isArray(nodeIds)) {
-      nodeIds = [nodeIds];
-    }
-
-    const results = {};
-
-    for (const nodeId of nodeIds) {
-      try {
-        const evaluation = this.evaluateCapabilityValue(nodeId);
-        results[nodeId] = evaluation;
-      } catch (error) {
-        results[nodeId] = {
-          error: error.message,
-          timestamp: Date.now()
-        };
-      }
-    }
-
-    return results;
-  }
-
-  // 评估所有能力的价值（增强版）
-  evaluateAllCapabilitiesEnhanced() {
-    const nodes = this.getAllNodes().filter(node => node.level > 0);
-    const results = this.batchEvaluateValue(nodes.map(node => node.id));
-
-    // 计算整体评估统计
-    const validResults = Object.values(results).filter(r => !r.error);
-    const stats = {
-      totalEvaluated: nodes.length,
-      successfulEvaluations: validResults.length,
-      averageScore: validResults.length > 0
-        ? validResults.reduce((sum, r) => sum + r.totalScore, 0) / validResults.length
-        : 0,
-      highValueCount: validResults.filter(r => r.shouldProceed).length,
-      lowValueCount: validResults.filter(r => r.isLowValue).length
-    };
-
-    return {
-      results,
-      stats,
-      timestamp: Date.now(),
-      // 按总评分排序的结果
-      sortedResults: Object.entries(results)
-        .filter(([_, r]) => !r.error)
-        .sort(([_, a], [__, b]) => b.totalScore - a.totalScore)
-    };
-  }
-
-  // 获取VFM配置
-  getVFMConfig() {
-    return vfmEvaluator.getConfig();
-  }
-
-  // 更新VFM配置
-  updateVFMConfig(config) {
-    return vfmEvaluator.updateConfig(config);
+    return usagePatterns;
   }
 }
-
 
 // 导出单例实例
 const capabilityTree = new CapabilityTree();
@@ -1725,45 +793,106 @@ const capabilityTree = new CapabilityTree();
 module.exports = {
   CapabilityNode,
   CapabilityTree,
-  capabilityTree
+  capabilityTree,
+  // 工具接口
+  addNode: (name, level, parentId, details) => {
+    return capabilityTree.addNode(name, level, parentId, details);
+  },
+  removeNode: (nodeId) => {
+    return capabilityTree.removeNode(nodeId);
+  },
+  updateNode: (nodeId, details) => {
+    return capabilityTree.updateNode(nodeId, details);
+  },
+  markNodeUsed: (nodeId) => {
+    return capabilityTree.markNodeUsed(nodeId);
+  },
+  locateTaskPath: (taskDescription) => {
+    return capabilityTree.locateTaskPath(taskDescription);
+  },
+  trimCapabilities: (daysThreshold, usageThreshold) => {
+    return capabilityTree.trimCapabilities(daysThreshold, usageThreshold);
+  },
+  cleanupTrimmedNodes: () => {
+    return capabilityTree.cleanupTrimmedNodes();
+  },
+  evaluateTreeQuality: () => {
+    return capabilityTree.evaluateTreeQuality();
+  },
+  getStatus: () => {
+    return capabilityTree.getStatus();
+  },
+  exportTree: () => {
+    return capabilityTree.exportTree();
+  },
+  importTree: (data) => {
+    return capabilityTree.importTree(data);
+  },
+  visualizeTree: () => {
+    return capabilityTree.visualizeTree();
+  },
+  analyzeUsagePatterns: () => {
+    return capabilityTree.analyzeUsagePatterns();
+  },
+  getAllNodes: () => {
+    return capabilityTree.getAllNodes();
+  },
+  getNode: (nodeId) => {
+    return capabilityTree.getNode(nodeId);
+  }
 };
 
 // 示例用法
 if (require.main === module) {
   const tree = capabilityTree;
-  
-  // 添加新能力
-  const fileOps = tree.addNode('文件操作', 1, null, {
-    inputs: ['文件路径', '操作类型'],
-    outputs: ['操作结果', '文件状态'],
-    prerequisites: ['文件存在', '权限正确'],
-    failureBoundaries: ['文件不存在', '权限不足', '磁盘空间不足']
+
+  console.log('=== 能力树初始化完成 ===');
+  console.log('初始状态:', JSON.stringify(tree.getStatus(), null, 2));
+
+  // 测试添加节点
+  console.log('\n=== 测试添加节点 ===');
+  const newNode = tree.addNode('新能力', 2, tree.root.id, {
+    inputs: ['输入1', '输入2'],
+    outputs: ['输出1', '输出2'],
+    prerequisites: ['前提1', '前提2'],
+    failureBoundaries: ['失败1', '失败2'],
+    type: 'general',
+    keywords: ['新能力', '测试'],
+    description: '测试新能力'
   });
-  
-  // 添加子能力
-  tree.addNode('文件读取', 1, fileOps.id, {
-    inputs: ['文件路径', '编码格式'],
-    outputs: ['文件内容', '读取状态'],
-    prerequisites: ['文件存在', '可读权限'],
-    failureBoundaries: ['文件不存在', '权限不足', '文件损坏']
-  });
-  
-  // 定位任务路径
-  const paths = tree.locateTaskPath('读取配置文件');
-  console.log('Task paths:', paths.map(p => p.path));
-  
-  // 标记节点使用
+  console.log('添加的新节点:', JSON.stringify(newNode, null, 2));
+
+  // 测试定位任务路径
+  console.log('\n=== 测试定位任务路径 ===');
+  const paths = tree.locateTaskPath('文件操作');
+  console.log('任务路径:', JSON.stringify(paths, null, 2));
+
+  // 测试标记节点使用
   if (paths.length > 0) {
+    console.log('\n=== 测试标记节点使用 ===');
     tree.markNodeUsed(paths[0].node.id);
+    console.log('标记使用后的节点:', JSON.stringify(tree.getNode(paths[0].node.id), null, 2));
   }
-  
-  // 检查修剪候选
-  const trimCandidates = tree.trimCapabilities();
-  console.log('Trim candidates:', trimCandidates.map(c => c.name));
-  
-  // 获取状态
-  console.log('Tree status:', tree.getStatus());
-  
-  // 导出能力树
-  console.log('Capability tree exported:', JSON.stringify(tree.export(), null, 2));
+
+  // 测试能力修剪
+  console.log('\n=== 测试能力修剪 ===');
+  const trimCandidates = tree.trimCapabilities(1, 1); // 1天未使用，使用次数<1
+  console.log('候选修剪节点:', JSON.stringify(trimCandidates, null, 2));
+
+  // 测试清理修剪节点
+  console.log('\n=== 测试清理修剪节点 ===');
+  const removedNodes = tree.cleanupTrimmedNodes();
+  console.log('已移除节点:', JSON.stringify(removedNodes, null, 2));
+
+  // 测试评估能力树质量
+  console.log('\n=== 测试评估能力树质量 ===');
+  const quality = tree.evaluateTreeQuality();
+  console.log('能力树质量评估:', JSON.stringify(quality, null, 2));
+
+  // 测试导出能力树
+  console.log('\n=== 测试导出能力树 ===');
+  const exported = tree.exportTree();
+  console.log('导出的能力树:', JSON.stringify(exported, null, 2));
+
+  console.log('\n=== 能力树测试完成 ===');
 }

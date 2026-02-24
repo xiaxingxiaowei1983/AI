@@ -15,12 +15,12 @@ try {
 
 class ValueFunction {
   constructor() {
-    // 核心价值维度权重 (新VFM协议)
+    // 核心价值维度权重 (新VFM协议 - 基于数据优化)
     this.weights = {
-      HighFrequency: 3,      // 高频复用 (权重: 3x)
-      FailureReduction: 3,    // 降低失败 (权重: 3x)
-      UserBurden: 2,          // 降低心智负担 (权重: 2x)
-      SelfCost: 2             // 降低自身成本 (权重: 2x)
+      HighFrequency: 3,      // 高频复用 (权重: 3x) - 保持不变，数据显示高频能力使用最多
+      FailureReduction: 4,    // 降低失败 (权重: 4x) - 增加，因为成功率需要提高
+      UserBurden: 3,          // 降低心智负担 (权重: 3x) - 增加，因为清晰度是优先改进领域
+      SelfCost: 1             // 降低自身成本 (权重: 1x) - 降低，因为响应时间表现良好
     };
     
     // 低价值能力类型

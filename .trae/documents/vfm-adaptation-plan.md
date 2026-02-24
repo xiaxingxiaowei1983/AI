@@ -15,7 +15,7 @@
   - `human-judgement` TR-1.2: Ensure analysis is comprehensive and covers all aspects of both protocols
 - **Notes**: Pay special attention to the weight changes and scoring scale differences
 
-## [/] Task 2: Update Value Function Core Implementation
+## [x] Task 2: Update Value Function Core Implementation
 - **Priority**: P0
 - **Depends On**: Task 1
 - **Description**:
@@ -32,7 +32,7 @@
   - `human-judgement` TR-2.3: Code changes are clear and maintainable
 - **Notes**: Ensure backward compatibility or add migration path if needed
 
-## [ ] Task 3: Update Evolution Queue Manager
+## [x] Task 3: Update Evolution Queue Manager
 - **Priority**: P1
 - **Depends On**: Task 2
 - **Description**:
@@ -47,7 +47,7 @@
   - `programmatic` TR-3.2: Queue prioritization matches expected order
 - **Notes**: Test with both high and low value capabilities to ensure proper filtering
 
-## [ ] Task 4: Update Capability Tree Structure
+## [x] Task 4: Update Capability Tree Structure
 - **Priority**: P1
 - **Depends On**: Task 1
 - **Description**:
@@ -62,7 +62,7 @@
   - `human-judgement` TR-4.2: Capability tree structure matches the provided specification
 - **Notes**: Pay attention to the specific tool names and node hierarchies
 
-## [ ] Task 5: Create Integration Test for New VFM Protocol
+## [x] Task 5: Create Integration Test for New VFM Protocol
 - **Priority**: P1
 - **Depends On**: Tasks 2, 3, 4
 - **Description**:

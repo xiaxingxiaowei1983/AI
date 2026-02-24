@@ -33,7 +33,7 @@ class EvolutionQueueManager {
     const evaluation = valueFunction.evaluateCapability(capability);
 
     // 检查是否为低价值能力
-    if (evaluation.isLowValue || evaluation.score < 0.3) {
+    if (evaluation.isLowValue || !evaluation.meetsThreshold) {
       return {
         success: false,
         error: '低价值能力，不加入进化队列',
@@ -137,7 +137,7 @@ class EvolutionQueueManager {
     for (const capability of capabilities) {
       const evaluation = valueFunction.evaluateCapability(capability);
       
-      if (evaluation.isLowValue || evaluation.score < 0.3) {
+      if (evaluation.isLowValue || !evaluation.meetsThreshold) {
         lowValueCapabilities.push({
           capability: capability,
           evaluation: evaluation,
@@ -171,9 +171,9 @@ class EvolutionQueueManager {
 
   // 获取队列状态
   getStatus() {
-    const highValueCount = this.queue.filter(item => item.evaluation.score >= 0.6).length;
-    const mediumValueCount = this.queue.filter(item => item.evaluation.score >= 0.3 && item.evaluation.score < 0.6).length;
-    const lowValueCount = this.queue.filter(item => item.evaluation.score < 0.3).length;
+    const highValueCount = this.queue.filter(item => item.evaluation.score >= 70).length;
+    const mediumValueCount = this.queue.filter(item => item.evaluation.score >= 50 && item.evaluation.score < 70).length;
+    const lowValueCount = this.queue.filter(item => item.evaluation.score < 50).length;
 
     return {
       totalItems: this.queue.length,

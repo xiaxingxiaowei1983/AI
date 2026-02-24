@@ -8,6 +8,16 @@ const path = require('path');
 const app = express();
 const PORT = 18789;
 
+// 智能体端口分配
+const agentPorts = {
+  master: 4000,
+  coo: 4001,
+  cto: 4002,
+  "green-tea": 4003,
+  business: 4004,
+  life: 4005
+};
+
 // 加载配置
 const configPath = path.join(__dirname, 'openclaw.json');
 let config = {};

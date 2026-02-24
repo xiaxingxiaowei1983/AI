@@ -1,0 +1,15 @@
+{
+  "asset_id": "sha256:7a00899846b8c19672bf7390a32aa9b317ae55d4036ed7a3bbc7b3c185c70cf8",
+  "bundle_id": "bundle_e828dfc2859c0fde",
+  "asset_type": "Capsule",
+  "status": "promoted",
+  "source_node_id": "node_f04e2124a4b4af7f",
+  "trigger_text": "saga-pattern,event-driven,distributed-transaction,compensation",
+  "confidence": 0.9,
+  "gdi_score": 60.15,
+  "downloaded_at": "2026-02-24T18:47:19.999Z",
+  "download_response_status": 404,
+  "download_response": {
+    "raw": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /a2a/download</pre>\n</body>\n</html>\n"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "timestamp": "2026-02-24T18:50:51.230Z",
+  "timeRange": "1d",
+  "summary": {
+    "totalCapabilityUsages": 8,
+    "totalUserInteractions": 7,
+    "averageResponseTime": 185,
+    "successRate": 75,
+    "mostUsedCapabilities": [
+      {
+        "name": "决策风险评估",
+        "count": 3
+      },
+      {
+        "name": "价值观冲突解决",
+        "count": 3
+      },
+      {
+        "name": "能量状态预测",
+        "count": 2
+      }
+    ],
+    "userSatisfaction": 4.4
+  },
+  "details": {
+    "capabilityUsage": [
+      {
+        "timestamp": "2026-02-24T18:44:36.588Z",
+        "capabilityName": "决策风险评估",
+        "taskDescription": "评估职业决策风险",
+        "success": true,
+        "duration": 120,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.592Z",
+        "capabilityName": "能量状态预测",
+        "taskDescription": "预测一周能量状态",
+        "success": true,
+        "duration": 95,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.593Z",
+        "capabilityName": "价值观冲突解决",
+        "taskDescription": "解决工作与家庭冲突",
+        "success": false,
+        "duration": 150,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.655Z",
+        "capabilityName": "决策风险评估",
+        "taskDescription": "评估职业发展风险",
+        "success": true,
+        "duration": 150,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.657Z",
+        "capabilityName": "价值观冲突解决",
+        "taskDescription": "分析职业与个人价值观匹配度",
+        "success": true,
+        "duration": 120,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.198Z",
+        "capabilityName": "决策风险评估",
+        "taskDescription": "评估职业决策风险",
+        "success": true,
+        "duration": 120,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.211Z",
+        "capabilityName": "能量状态预测",
+        "taskDescription": "预测一周能量状态",
+        "success": true,
+        "duration": 95,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.213Z",
+        "capabilityName": "价值观冲突解决",
+        "taskDescription": "解决工作与家庭冲突",
+        "success": false,
+        "duration": 150,
+        "date": "2026-02-24"
+      }
+    ],
+    "performance": [
+      {
+        "timestamp": "2026-02-24T18:44:36.603Z",
+        "metric": "response_time",
+        "value": 215,
+        "context": "决策分析",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.605Z",
+        "metric": "memory_usage",
+        "value": 12.5,
+        "context": "系统状态",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.607Z",
+        "metric": "cpu_usage",
+        "value": 15.2,
+        "context": "系统状态",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.659Z",
+        "metric": "total_processing_time",
+        "value": 350,
+        "context": "完整决策流程",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.222Z",
+        "metric": "response_time",
+        "value": 215,
+        "context": "决策分析",
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.225Z",
+        "metric": "memory_usage",
+        "value": 12.5,
+        "context": "系统状态",
+        "date": "2026-02-24"
+      }
+    ],
+    "userInteraction": [
+      {
+        "timestamp": "2026-02-24T18:44:36.597Z",
+        "userId": "user-123",
+        "interactionType": "decision_request",
+        "content": "我需要职业建议",
+        "responseTime": 250,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.598Z",
+        "userId": "user-123",
+        "interactionType": "follow_up",
+        "content": "请详细解释",
+        "responseTime": 180,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.600Z",
+        "userId": "user-456",
+        "interactionType": "feedback",
+        "content": "非常满意，谢谢",
+        "responseTime": 120,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.654Z",
+        "userId": "test-user-1771958676654",
+        "interactionType": "decision_request",
+        "content": "我需要职业发展建议",
+        "responseTime": 220,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:44:36.662Z",
+        "userId": "test-user-1771958676654",
+        "interactionType": "feedback",
+        "content": "非常感谢，建议很有帮助",
+        "responseTime": 95,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.215Z",
+        "userId": "user-123",
+        "interactionType": "decision_request",
+        "content": "我需要职业建议",
+        "responseTime": 250,
+        "date": "2026-02-24"
+      },
+      {
+        "timestamp": "2026-02-24T18:50:51.219Z",
+        "userId": "user-123",
+        "interactionType": "follow_up",
+        "content": "请详细解释",
+        "responseTime": 180,
+        "date": "2026-02-24"
+      }
+    ]
+  }
+}

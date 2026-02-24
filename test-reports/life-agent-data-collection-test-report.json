@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-02-24T18:44:36.669Z",
+  "tests": {
+    "数据收集系统初始化测试": true,
+    "能力使用数据收集测试": true,
+    "用户交互数据收集测试": true,
+    "性能数据收集测试": true,
+    "决策结果数据收集测试": true,
+    "数据报告生成测试": true,
+    "系统健康状态检查测试": true,
+    "数据清理功能测试": true,
+    "数据分析功能测试": true,
+    "完整数据收集工作流测试": true
+  },
+  "summary": {
+    "passedTests": 10,
+    "totalTests": 10,
+    "passRate": 100
+  },
+  "dataCollectionStatus": {
+    "initialized": true,
+    "collectingData": true,
+    "generatingReports": true,
+    "analyzingData": true
+  }
+}

@@ -79,8 +79,12 @@ const PCEC_CONFIG = {
   interval: 60 * 60 * 1000, // 1小时
   minEvolutionItems: 1,
   maxNightEvolution: 8, // 夜间进化8小时
+  nightEvolutionStart: 22, // 夜间进化开始时间（22点）
+  nightEvolutionEnd: 6, // 夜间进化结束时间（6点）
   reportRecipient: '陈婷（剑锋传奇）',
-  consecutiveFailureThreshold: 2 // 连续失败阈值
+  consecutiveFailureThreshold: 2, // 连续失败阈值
+  enableNightEvolution: true, // 启用夜间进化
+  nightEvolutionIntensity: 'high' // 夜间进化强度: low, medium, high
 };
 
 // 存储路径
@@ -948,6 +952,13 @@ async function executePCECCycle() {
   console.log('🧠 执行 Periodic Cognitive Expansion Cycle');
   console.log('========================================');
   
+  // 检查是否为夜间进化
+  const isNight = isNightEvolutionTime();
+  const evolutionIntensity = getEvolutionIntensity();
+  
+  console.log(`进化时间: ${isNight ? '夜间' : '白天'}`);
+  console.log(`进化强度: ${evolutionIntensity}`);
+  
   // 初始化存储
   initializeStorage();
   
@@ -1123,9 +1134,31 @@ async function executePCECCycle() {
   console.log('✅ ADL优先级检查通过，PCEC继续执行');
 
   
-  // 生成进化产物
-  const evolutionProduct = generateEvolutionProduct();
-  console.log('\n🏭 进化产物:', JSON.stringify(evolutionProduct, null, 2));
+  // 基于进化强度生成进化产物
+  console.log('\n🏭 基于进化强度生成进化产物...');
+  let evolutionProducts = [];
+  
+  // 根据进化强度决定生成产物数量
+  let productCount = 1;
+  if (evolutionIntensity === 'high') {
+    productCount = 3; // 高强度进化生成3个产物
+  } else if (evolutionIntensity === 'medium') {
+    productCount = 2; // 中等强度生成2个产物
+  }
+  
+  for (let i = 0; i < productCount; i++) {
+    const product = generateEvolutionProduct();
+    evolutionProducts.push(product);
+    console.log(`产物 ${i + 1}: ${product.type} - ${product.name || product.condition}`);
+  }
+  
+  // 使用第一个产物作为主要产物
+  const evolutionProduct = evolutionProducts[0];
+  
+  // 保存所有进化产物
+  for (const product of evolutionProducts) {
+    saveEvolutionProduct(product);
+  }
   
   // 创建新历史项目
   const newHistoryItem = {
@@ -1134,90 +1167,96 @@ async function executePCECCycle() {
     evolutionType: selectedType,
     evolutionResult: evolutionResult,
     explosionResult: explosionResult,
-    product: evolutionProduct,
-    consecutiveFailures: status.consecutiveFailures
+    products: evolutionProducts, // 保存所有产物
+    consecutiveFailures: status.consecutiveFailures,
+    isNightEvolution: isNight,
+    evolutionIntensity: evolutionIntensity
   };
   
   // 保存进化历史项目
   saveEvolutionHistoryItem(newHistoryItem);
   
-  // 保存进化产物
-  saveEvolutionProduct(evolutionProduct);
-  
   // 将进化产物注册到能力树中
   console.log('\n🌳 注册进化产物到能力树...');
   
   try {
-    let newCapabilityNode;
+    const registeredNodes = [];
     
-    switch (evolutionProduct.type) {
-      case 'capabilityShape':
-        // 构建能力节点信息
-        const capabilityInfo = {
-          name: evolutionProduct.name,
-          level: 2, // 中层能力
-          inputs: evolutionProduct.input ? [evolutionProduct.input] : [],
-          outputs: evolutionProduct.output ? [evolutionProduct.output] : [],
-          prerequisites: evolutionProduct.invariants ? [evolutionProduct.invariants] : [],
-          failureBoundaries: evolutionProduct.failurePoints ? [evolutionProduct.failurePoints] : []
-        };
+    for (const evolutionProduct of evolutionProducts) {
+      let newCapabilityNode;
+      
+      switch (evolutionProduct.type) {
+        case 'capabilityShape':
+          // 构建能力节点信息
+          const capabilityInfo = {
+            name: evolutionProduct.name,
+            level: 2, // 中层能力
+            inputs: evolutionProduct.input ? [evolutionProduct.input] : [],
+            outputs: evolutionProduct.output ? [evolutionProduct.output] : [],
+            prerequisites: evolutionProduct.invariants ? [evolutionProduct.invariants] : [],
+            failureBoundaries: evolutionProduct.failurePoints ? [evolutionProduct.failurePoints] : []
+          };
+          
+          // 添加能力节点
+          newCapabilityNode = capabilityTree.addNode(
+            capabilityInfo.name,
+            capabilityInfo.level,
+            null, // 直接添加到根节点下
+            {
+              inputs: capabilityInfo.inputs,
+              outputs: capabilityInfo.outputs,
+              prerequisites: capabilityInfo.prerequisites,
+              failureBoundaries: capabilityInfo.failureBoundaries
+            }
+          );
+          break;
+          
+        case 'defaultStrategy':
+          // 添加策略能力节点
+          newCapabilityNode = capabilityTree.addNode(
+            evolutionProduct.name,
+            3, // 高层能力（策略模式）
+            null,
+            {
+              inputs: ['应用场景', '执行条件'],
+              outputs: ['策略执行结果', '优化建议'],
+              prerequisites: ['场景匹配', '资源可用'],
+              failureBoundaries: ['场景不匹配', '资源不足']
+            }
+          );
+          break;
+          
+        case 'behaviorRule':
+          // 添加行为规则能力节点
+          newCapabilityNode = capabilityTree.addNode(
+            `行为规则: ${evolutionProduct.condition}`,
+            2, // 中层能力（可复用流程）
+            null,
+            {
+              inputs: ['触发条件', '上下文信息'],
+              outputs: ['执行动作', '执行理由'],
+              prerequisites: ['条件满足', '规则适用'],
+              failureBoundaries: ['条件不满足', '规则不适用']
+            }
+          );
+          break;
+          
+        default:
+          console.warn('⚠️  未知的进化产物类型，无法注册到能力树');
+          break;
+      }
+      
+      if (newCapabilityNode) {
+        console.log('✅ 进化产物已注册到能力树:', newCapabilityNode.name);
+        registeredNodes.push(newCapabilityNode);
         
-        // 添加能力节点
-        newCapabilityNode = capabilityTree.addNode(
-          capabilityInfo.name,
-          capabilityInfo.level,
-          null, // 直接添加到根节点下
-          {
-            inputs: capabilityInfo.inputs,
-            outputs: capabilityInfo.outputs,
-            prerequisites: capabilityInfo.prerequisites,
-            failureBoundaries: capabilityInfo.failureBoundaries
-          }
-        );
-        break;
-        
-      case 'defaultStrategy':
-        // 添加策略能力节点
-        newCapabilityNode = capabilityTree.addNode(
-          evolutionProduct.name,
-          3, // 高层能力（策略模式）
-          null,
-          {
-            inputs: ['应用场景', '执行条件'],
-            outputs: ['策略执行结果', '优化建议'],
-            prerequisites: ['场景匹配', '资源可用'],
-            failureBoundaries: ['场景不匹配', '资源不足']
-          }
-        );
-        break;
-        
-      case 'behaviorRule':
-        // 添加行为规则能力节点
-        newCapabilityNode = capabilityTree.addNode(
-          `行为规则: ${evolutionProduct.condition}`,
-          2, // 中层能力（可复用流程）
-          null,
-          {
-            inputs: ['触发条件', '上下文信息'],
-            outputs: ['执行动作', '执行理由'],
-            prerequisites: ['条件满足', '规则适用'],
-            failureBoundaries: ['条件不满足', '规则不适用']
-          }
-        );
-        break;
-        
-      default:
-        console.warn('⚠️  未知的进化产物类型，无法注册到能力树');
-        break;
+        // 标记新能力为使用
+        capabilityTree.markNodeUsed(newCapabilityNode.id);
+      }
     }
     
-    if (newCapabilityNode) {
-      console.log('✅ 进化产物已注册到能力树:', newCapabilityNode.name);
-      
-      // 标记新能力为使用
-      capabilityTree.markNodeUsed(newCapabilityNode.id);
-      
-      // 再次获取能力树状态，确认更新
+    // 再次获取能力树状态，确认更新
+    if (registeredNodes.length > 0) {
       const updatedTreeStatus = capabilityTree.getStatus();
       console.log('📊 更新后的能力树状态:', updatedTreeStatus);
       
@@ -1244,6 +1283,7 @@ async function executePCECCycle() {
     hotInfoCache.set('pcec:capabilityShapes', storage.capabilityShapes, { ttl: 3600000 });
     hotInfoCache.set('pcec:defaultStrategies', storage.defaultStrategies, { ttl: 3600000 });
     hotInfoCache.set('pcec:behaviorRules', storage.behaviorRules, { ttl: 3600000 });
+    hotInfoCache.set('pcec:nightEvolution', { isNight: isNight, intensity: evolutionIntensity }, { ttl: 3600000 });
   }
   
   // 记录执行状态

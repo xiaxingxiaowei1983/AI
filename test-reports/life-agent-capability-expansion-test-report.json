@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-02-24T18:41:34.985Z",
+  "tests": {
+    "新能力节点添加测试": true,
+    "新能力任务分析测试": true,
+    "能力价值评估测试": true,
+    "完整能力工作流测试": true,
+    "能力树完整性测试": true
+  },
+  "summary": {
+    "passedTests": 5,
+    "totalTests": 5,
+    "passRate": 100
+  },
+  "newCapabilities": [
+    {
+      "name": "决策风险评估",
+      "description": "评估决策风险的高价值操作",
+      "category": "高价值能力"
+    },
+    {
+      "name": "能量状态预测",
+      "description": "预测能量状态变化的高价值操作",
+      "category": "高价值能力"
+    },
+    {
+      "name": "价值观冲突解决",
+      "description": "解决价值观冲突的高价值操作",
+      "category": "高价值能力"
+    }
+  ]
+}

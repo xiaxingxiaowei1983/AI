@@ -235,6 +235,34 @@ class LifeDecisionMasterCapabilityTree {
       prerequisites: ['内容完整', 'URL有效', '网络可用'],
       failureBoundaries: ['内容为空', 'URL无效', '网络不可用']
     });
+
+    // 高价值能力节点
+    // 1. 决策风险评估
+    this.decisionRiskAssessment = this.tree.addNode('决策风险评估', 1, this.decisionAnalysisProcess.id, {
+      description: '评估决策风险的高价值操作',
+      inputs: ['决策方案', '不确定因素', '影响范围'],
+      outputs: ['风险等级评估', '风险缓解策略', '最坏情况分析'],
+      prerequisites: ['方案明确', '因素可识别', '方法适用'],
+      failureBoundaries: ['方案模糊', '因素不可控', '方法不适用']
+    });
+
+    // 2. 能量状态预测
+    this.energyStatePrediction = this.tree.addNode('能量状态预测', 1, this.energyAssessmentProcess.id, {
+      description: '预测能量状态变化的高价值操作',
+      inputs: ['当前状态', '未来活动', '环境因素'],
+      outputs: ['能量趋势预测', '峰值/低谷识别', '优化建议'],
+      prerequisites: ['状态可测量', '活动可预测', '数据充分'],
+      failureBoundaries: ['状态不稳定', '活动不确定', '数据不足']
+    });
+
+    // 3. 价值观冲突解决
+    this.valuesConflictResolution = this.tree.addNode('价值观冲突解决', 1, this.logicCalibrationProcess.id, {
+      description: '解决价值观冲突的高价值操作',
+      inputs: ['冲突的价值观', '决策情境', '个人优先级'],
+      outputs: ['冲突分析', '优先级调整方案', '整合策略'],
+      prerequisites: ['价值观明确', '情境清晰', '意愿强烈'],
+      failureBoundaries: ['价值观模糊', '情境复杂', '意愿不足']
+    });
   }
 
   // 为特定决策场景添加能力路径

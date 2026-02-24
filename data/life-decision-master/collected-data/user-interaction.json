@@ -1,0 +1,90 @@
+[
+  {
+    "timestamp": "2026-02-24T18:44:36.597Z",
+    "userId": "user-123",
+    "interactionType": "decision_request",
+    "content": "我需要职业建议",
+    "responseTime": 250,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.598Z",
+    "userId": "user-123",
+    "interactionType": "follow_up",
+    "content": "请详细解释",
+    "responseTime": 180,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.600Z",
+    "userId": "user-456",
+    "interactionType": "feedback",
+    "content": "非常满意，谢谢",
+    "responseTime": 120,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.654Z",
+    "userId": "test-user-1771958676654",
+    "interactionType": "decision_request",
+    "content": "我需要职业发展建议",
+    "responseTime": 220,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.662Z",
+    "userId": "test-user-1771958676654",
+    "interactionType": "feedback",
+    "content": "非常感谢，建议很有帮助",
+    "responseTime": 95,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.215Z",
+    "userId": "user-123",
+    "interactionType": "decision_request",
+    "content": "我需要职业建议",
+    "responseTime": 250,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.219Z",
+    "userId": "user-123",
+    "interactionType": "follow_up",
+    "content": "请详细解释",
+    "responseTime": 180,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.386Z",
+    "userId": "user-123",
+    "interactionType": "feedback",
+    "content": "决策建议非常有用，帮助我理清了职业发展思路",
+    "responseTime": 0,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.392Z",
+    "userId": "user-123",
+    "interactionType": "feedback",
+    "content": "响应速度很快，几乎没有延迟",
+    "responseTime": 0,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.398Z",
+    "userId": "user-456",
+    "interactionType": "feedback",
+    "content": "建议有些模糊，希望能更具体一些",
+    "responseTime": 0,
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:51:06.403Z",
+    "userId": "user-456",
+    "interactionType": "feedback",
+    "content": "希望能添加更多关于健康管理的建议功能",
+    "responseTime": 0,
+    "date": "2026-02-24"
+  }
+]

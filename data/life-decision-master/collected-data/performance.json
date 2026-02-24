@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2026-02-24T18:44:36.603Z",
+    "metric": "response_time",
+    "value": 215,
+    "context": "决策分析",
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.605Z",
+    "metric": "memory_usage",
+    "value": 12.5,
+    "context": "系统状态",
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.607Z",
+    "metric": "cpu_usage",
+    "value": 15.2,
+    "context": "系统状态",
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:44:36.659Z",
+    "metric": "total_processing_time",
+    "value": 350,
+    "context": "完整决策流程",
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.222Z",
+    "metric": "response_time",
+    "value": 215,
+    "context": "决策分析",
+    "date": "2026-02-24"
+  },
+  {
+    "timestamp": "2026-02-24T18:50:51.225Z",
+    "metric": "memory_usage",
+    "value": 12.5,
+    "context": "系统状态",
+    "date": "2026-02-24"
+  }
+]
