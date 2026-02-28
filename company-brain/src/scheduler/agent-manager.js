@@ -54,10 +54,10 @@ class AgentManager {
       return;
     }
     
-    // 注册默认智能体：绿茶
+    // 注册默认智能体：碧莲
     await this.registerAgent({
-      id: 'green-tea',
-      name: '绿茶',
+      id: 'bilian',
+      name: '碧莲',
       type: 'psychological',
       status: 'active',
       capabilities: [

@@ -49,10 +49,10 @@
 - **数据处理**：与赛博天工协作处理和分析个人数据
 - **系统集成**：与赛博天工协作集成个人决策和能量管理的技术系统
 
-### 与绿茶的协作
-- **内容支持**：向绿茶提供个人成长和生活优化的内容支持
-- **能量管理**：向绿茶提供能量管理的策略和方法
-- **决策支持**：向绿茶提供内容创作和公域运营的决策支持
+### 与碧莲的协作
+- **内容支持**：向碧莲提供个人成长和生活优化的内容支持
+- **能量管理**：向碧莲提供能量管理的策略和方法
+- **决策支持**：向碧莲提供内容创作和公域运营的决策支持
 
 ### 与谛听的协作
 - **商业洞察**：向谛听提供个人商业决策的洞察和建议
@@ -327,6 +327,11 @@
   - Input: Decision patterns, Value systems
   - Output: Root cause analysis
   - Purpose: Identify and address underlying decision biases
+
+- **Node 3.4: Da Liu Ren Decision Analysis (Advanced)**
+  - Input: Time information (Gregorian/Lunar), Decision question
+  - Output: Divination chart, Decision analysis, Risk assessment
+  - Purpose: Provide traditional wisdom-based decision support
 
 #### Branch 4: System Evolution (系统进化)
 - **Node 4.1: Self-Improvement (Meta)**
@@ -677,6 +682,17 @@
   - 基于意图选择最佳搜索引擎
   - 结果去重和排序
 - **目的**：获取最新、相关的信息
+
+### 大六壬决策顾问工具
+- **功能**：融合传统大六壬与现代决策的智能顾问
+- **输入**：时间信息（公历/农历）、决策问题
+- **输出**：排盘结果、决策分析、风险评估
+- **特性**：
+  - 逻辑排盘引擎
+  - 毕法赋智能索引
+  - 现代决策算法映射
+  - 标准化输出格式
+- **目的**：提供基于传统智慧的决策支持
 
 # 公司大脑智能体管理机制（Company Brain Agent Management）
 

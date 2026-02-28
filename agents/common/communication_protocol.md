@@ -18,6 +18,9 @@
     "from": "agent-name",
     "to": "agent-name",
     "timestamp": "2024-01-01T00:00:00Z",
+    "expires_at": "2024-01-02T00:00:00Z",
+    "priority": "high|medium|low",
+    "require_ack": true,
     "content": {
       "task": "task-description",
       "priority": "high|medium|low",
@@ -37,6 +40,8 @@
     "from": "agent-name",
     "to": "agent-name|broadcast",
     "timestamp": "2024-01-01T00:00:00Z",
+    "expires_at": "2024-01-02T00:00:00Z",
+    "require_ack": false,
     "content": {
       "task_id": "task-id",
       "status": "pending|in_progress|completed|failed",
@@ -56,6 +61,8 @@
     "from": "agent-name",
     "to": "agent-name",
     "timestamp": "2024-01-01T00:00:00Z",
+    "expires_at": "2024-01-02T00:00:00Z",
+    "require_ack": true,
     "content": {
       "request_type": "request-category",
       "query": "information-query",
@@ -74,6 +81,8 @@
     "from": "agent-name",
     "to": "agent-name",
     "timestamp": "2024-01-01T00:00:00Z",
+    "expires_at": "2024-01-02T00:00:00Z",
+    "require_ack": false,
     "content": {
       "request_id": "original-request-id",
       "data": { /* 请求的信息 */ },
@@ -93,11 +102,30 @@
     "from": "agent-name",
     "to": "agent-name",
     "timestamp": "2024-01-01T00:00:00Z",
+    "expires_at": "2024-01-02T00:00:00Z",
+    "require_ack": true,
     "content": {
       "collaboration_type": "collaboration-category",
       "description": "collaboration-description",
       "deadline": "2024-01-02T00:00:00Z",
       "context": { /* 协作相关上下文 */ }
+    }
+  }
+  ```
+
+#### 2.1.6 确认消息 (Acknowledgement)
+- **用途**: 代理确认收到消息
+- **格式**:
+  ```json
+  {
+    "type": "ack",
+    "id": "unique-message-id",
+    "from": "agent-name",
+    "to": "agent-name",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "content": {
+      "original_message_id": "original-message-id",
+      "status": "received|processed|failed"
     }
   }
   ```

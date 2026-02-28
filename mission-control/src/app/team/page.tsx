@@ -30,7 +30,7 @@ const teamData = {
       status: 'working'
     },
     {
-      name: '营造 (Production)',
+      name: '天火 (Production)',
       role: '生产引擎与技术骨干 (CTO)',
       responsibilities: [
         '代码编写',

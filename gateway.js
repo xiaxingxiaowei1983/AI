@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 18789;
+const PORT = 3000;
 
 // 智能体端口分配
 const agentPorts = {
@@ -23,8 +23,28 @@ const configPath = path.join(__dirname, 'openclaw.json');
 let config = {};
 try {
   config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+  console.log('✅ 配置文件加载成功');
+  console.log('📡 网关配置:', config.gateway);
+  console.log('🧠 模型配置:', Object.keys(config.models || {}));
 } catch (error) {
-  console.warn('无法加载配置文件:', error.message);
+  console.error('❌ 无法加载配置文件:', error.message);
+  // 使用默认配置
+  config = {
+    gateway: {
+      auth: {
+        token: '2e47ede431dbd73de7ae4a2556ba69260427d1269e8878da'
+      }
+    },
+    models: {
+      doubao: {
+        enabled: true,
+        apiKey: 'c13b2982-0aab-4c75-9404-0deb12a219ec',
+        endpoint: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+        modelName: 'doubao-seed-2-0-code-preview-260215'
+      }
+    }
+  };
+  console.log('⚠️ 使用默认配置');
 }
 
 // 获取token
@@ -350,17 +370,60 @@ app.get('/health', (req, res) => {
 });
 
 // 启动服务器
-app.listen(PORT, () => {
-    console.log('🚀 智能体网关服务已启动');
-    console.log(`📡 监听地址: http://localhost:${PORT}`);
-    console.log('📋 可用路由:');
-    console.log('   GET  /              - 网关信息');
-    console.log('   POST /api/agent/:agentId - 智能体请求转发');
-    console.log('   GET  /health        - 健康检查');
-    console.log('\n智能体端口分配:');
-    Object.entries(agentPorts).forEach(([agent, port]) => {
-        console.log(`   ${agent}: ${port}`);
+console.log('🔍 网关服务启动中...');
+try {
+    const server = app.listen(PORT, () => {
+        console.log('🚀 智能体网关服务已启动');
+        console.log(`📡 监听地址: http://localhost:${PORT}`);
+        console.log('📋 可用路由:');
+        console.log('   GET  /              - 网关信息');
+        console.log('   POST /api/agent/:agentId - 智能体请求转发');
+        console.log('   GET  /health        - 健康检查');
+        console.log('\n智能体端口分配:');
+        Object.entries(agentPorts).forEach(([agent, port]) => {
+            console.log(`   ${agent}: ${port}`);
+        });
+        console.log('✅ 网关服务启动成功，正在监听请求...');
     });
-});
+    
+    server.on('error', (error) => {
+        console.error('❌ 服务器启动失败:', error);
+        console.error('错误堆栈:', error.stack);
+        process.exit(1);
+    });
+    
+    server.on('listening', () => {
+        console.log('📡 服务器正在监听端口:', PORT);
+    });
+    
+    process.on('uncaughtException', (error) => {
+        console.error('❌ 未捕获的异常:', error);
+        console.error('错误堆栈:', error.stack);
+    });
+    
+    process.on('unhandledRejection', (reason, promise) => {
+        console.error('❌ 未处理的Promise拒绝:', reason);
+        if (reason instanceof Error) {
+            console.error('错误堆栈:', reason.stack);
+        }
+    });
+    
+    process.on('SIGINT', () => {
+        console.log('\n📡 正在关闭服务器...');
+        server.close(() => {
+            console.log('✅ 服务器已关闭');
+            process.exit(0);
+        });
+    });
+    
+    // 定期检查服务器状态
+    setInterval(() => {
+        console.log('📡 服务器状态: 运行中');
+    }, 60000); // 每分钟检查一次
+} catch (error) {
+    console.error('❌ 启动服务器时发生错误:', error);
+    console.error('错误堆栈:', error.stack);
+    process.exit(1);
+}
 
 module.exports = app;

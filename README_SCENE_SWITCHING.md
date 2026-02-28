@@ -1,61 +1,32 @@
-# OpenClaw 场景化智能切换模型
+# OpenClaw 场景化智能切换模型使用指南
 
-## 功能介绍
+## 功能概述
 
-OpenClaw 场景化智能切换模型是一个智能系统，能够根据当前使用场景自动切换不同的AI模型：
+OpenClaw 现在支持**场景化智能切换模型**功能，能够根据不同场景自动选择合适的 AI 模型：
 
-- **外部集成场景**（飞书/微信机器人）：自动使用豆包 API 模型
-- **多智能体对话场景**：自动使用豆包 API 模型
-- **单智能体深度思考场景**：自动使用 Trae 内置模型
-- **默认场景**：自动使用 Trae 内置模型
+- **外部集成场景**（飞书/微信机器人）→ 自动使用豆包 API
+- **多智能体对话场景**（团队/智能体互聊）→ 自动使用豆包 API
+- **单智能体本地场景** → 自动使用 Trae 内置模型
+- **深度思考场景** → 自动使用 Trae 内置模型
 
-同时保留手动切换能力，确保系统的灵活性和可靠性。
+## 核心文件
+
+- **scene-detector.js** - 场景检测核心模块
+- **start-auto.js** - 自动切换启动脚本
+- **openclaw-doubao.json** - 豆包 API 配置
+- **openclaw-trea.json** - Trae 内置模型配置
 
 ## 快速开始
 
-### 1. 安装依赖
+### 1. 启动自动切换模式
 
 ```bash
-# 确保已安装 Node.js
-# 安装 OpenClaw（如果尚未安装）
-npm install -g openclaw
-```
-
-### 2. 配置文件
-
-系统包含两个配置文件：
-
-- `openclaw-trea.json`：用于 Trae 内置模型
-- `openclaw-doubao.json`：用于豆包 API 模型
-
-#### 配置豆包 API Key
-
-推荐使用环境变量管理豆包 API Key：
-
-**Windows（命令提示符）：**
-```cmd
-setx DOUBAO_API_KEY "你的豆包API密钥"
-```
-
-**Windows（PowerShell）：**
-```powershell
-[Environment]::SetEnvironmentVariable("DOUBAO_API_KEY", "你的豆包API密钥", "User")
-```
-
-**macOS/Linux：**
-```bash
-echo 'export DOUBAO_API_KEY="你的豆包API密钥"' >> ~/.bashrc
-source ~/.bashrc
-```
-
-### 3. 启动系统
-
-**一键启动（自动识别场景）：**
-```bash
+# 启动 OpenClaw，系统会自动识别场景并切换模型
 node start-auto.js
 ```
 
-**手动切换模式：**
+### 2. 手动指定模型（兜底机制）
+
 ```bash
 # 强制使用 Trae 内置模型
 node start-auto.js trea
@@ -64,132 +35,120 @@ node start-auto.js trea
 node start-auto.js doubao
 ```
 
-**飞书/微信机器人场景：**
-```bash
-# Windows
-set EXTERNAL_BOT=feishu && node start-auto.js
-
-# macOS/Linux
-export EXTERNAL_BOT=wechat && node start-auto.js
-```
-
 ## 场景识别规则
 
 ### 1. 外部集成场景
 
-识别方式：
-- 检测 `EXTERNAL_BOT` 环境变量（值为 `feishu` 或 `wechat`）
-- 检测 `.external-trigger` 临时文件是否存在
+- **识别方式**：设置环境变量 `EXTERNAL_BOT`
+- **示例**：
+  ```bash
+  # 飞书机器人场景
+  set EXTERNAL_BOT=feishu && node start-auto.js
+  
+  # 微信机器人场景
+  set EXTERNAL_BOT=wechat && node start-auto.js
+  ```
 
 ### 2. 多智能体对话场景
 
-识别方式：检测 `agent.prompt` 文件中是否包含以下关键词：
-- 团队、对话、协作、多智能体、互相、沟通、讨论
+- **识别方式**：检测 `agent.prompt` 文件中的关键词
+- **触发关键词**：团队、对话、协作、多智能体、互相、沟通、讨论
+- **示例**：在 `agent.prompt` 文件中包含 "这是一个团队协作场景"
 
 ### 3. 深度思考场景
 
-识别方式：检测 `agent.prompt` 文件中是否包含以下关键词：
-- 深度思考、分析、设计、重构、优化、详细、拆解、规划
+- **识别方式**：检测 `agent.prompt` 文件中的关键词
+- **触发关键词**：深度思考、分析、设计、重构、优化、详细、拆解、规划
+- **示例**：在 `agent.prompt` 文件中包含 "请对这个问题进行深度思考"
 
 ### 4. 默认场景
 
-如果以上场景都不匹配，默认使用 Trae 内置模型。
+- **识别方式**：无特殊触发条件
+- **默认模型**：Trae 内置模型
 
-## 扩展识别规则
+## 配置文件说明
 
-### 修改场景识别规则
+### 豆包 API 配置（openclaw-doubao.json）
 
-编辑 `scene-detector.js` 文件，可以：
+- 使用环境变量 `DOUBAO_API_KEY` 作为 API 密钥
+- 模型：doubao-pro
+- 适合外部集成和多智能体对话场景
 
-1. **新增场景**：添加新的场景识别函数
-2. **调整关键词**：修改现有关键词列表
-3. **自定义触发条件**：添加新的触发方式
+### Trae 内置模型配置（openclaw-trea.json）
 
-### 示例：新增批量处理场景
+- 使用 Trae 内置模型
+- 适合单智能体本地调用和深度思考场景
 
-```javascript
-// 在 scene-detector.js 中添加
-function checkBatchTask() {
-  if (!fs.existsSync("./agent.prompt")) return false;
-  const promptContent = fs.readFileSync("./agent.prompt", "utf8");
-  const batchKeywords = ["批量", "批量处理", "批量生成", "批量执行"];
-  return batchKeywords.some(keyword => promptContent.includes(keyword));
-}
+## 环境变量
 
-// 在 detectScene 函数中添加
-function detectScene() {
-  // 现有规则...
-  
-  // 新增批量处理场景
-  const isBatchTask = checkBatchTask();
-  if (isBatchTask) {
-    console.log("🔍 识别到批量处理场景 → 切换到豆包API模型");
-    return "doubao";
-  }
-  
-  // 默认场景...
-}
-```
+| 环境变量 | 说明 | 示例值 |
+|---------|------|--------|
+| DOUBAO_API_KEY | 豆包 API 密钥 | sk-xxxxxxxxxxxxxxxx |
+| EXTERNAL_BOT | 外部机器人类型 | feishu / wechat |
 
-## 访问地址
+## 测试验证
 
-系统启动后，可以通过以下地址访问：
-
-- **Web 界面**：http://localhost:18789/chat?session=main
-- **WebSocket 接口**：ws://localhost:18789
-
-## 故障排除
-
-### 常见问题
-
-| 问题 | 原因 | 解决方案 |
-|------|------|----------|
-| 豆包 API 调用失败 | 未设置 DOUBAO_API_KEY 环境变量 | 设置环境变量或在配置文件中直接填写 API Key |
-| 场景识别错误 | 关键词匹配不准确 | 修改 scene-detector.js 中的关键词列表 |
-| 网关启动失败 | 端口被占用 | 检查端口 18789 是否被其他进程占用 |
-| 配置文件不存在 | 文件路径错误 | 确保 openclaw-trea.json 和 openclaw-doubao.json 文件存在 |
-
-### 查看日志
+### 运行场景检测测试
 
 ```bash
-# 查看 OpenClaw 日志
-npx openclaw logs --follow
-
-# 查看启动脚本日志
-node start-auto.js > start.log 2>&1
+node test-scene-detector.js
 ```
 
-## 系统架构
+### 运行完整功能测试
 
-### 核心模块
+```bash
+node test-scene-switching.js
+```
 
-1. **scene-detector.js**：场景识别核心模块，负责识别当前使用场景
-2. **start-auto.js**：自动切换启动脚本，整合场景识别、配置加载和网关启动
-3. **配置文件**：管理不同模型的配置信息
+## 常见问题
 
-### 工作流程
+### Q: 如何确认当前使用的是哪个模型？
+A: 启动时控制台会显示当前使用的模型模式，例如：
+```
+🔍 识别到外部触发（飞书/微信机器人）→ 切换到豆包API模型
+🚀 正在启动OpenClaw网关（doubao模式）...
+```
 
-1. 启动 `start-auto.js` 脚本
-2. 脚本调用 `scene-detector.js` 识别当前场景
-3. 根据识别结果加载对应配置文件
-4. 启动 OpenClaw 网关服务
-5. 提供 Web 界面和 WebSocket 接口
+### Q: 豆包 API 密钥如何设置？
+A: 设置环境变量 `DOUBAO_API_KEY`，例如：
+```bash
+set DOUBAO_API_KEY=sk-xxxxxxxxxxxxxxxx
+```
 
-## 性能优化
+### Q: 场景识别失败怎么办？
+A: 使用手动指定模式作为兜底机制，例如：
+```bash
+node start-auto.js trea  # 强制使用 Trae 内置模型
+```
 
-- **快速识别**：场景识别过程在毫秒级完成，不影响系统启动速度
-- **资源节省**：根据场景选择合适的模型，避免不必要的 API 调用
-- **稳定性**：保留手动切换能力，确保系统在特殊情况下仍能正常工作
+## 最佳实践
 
-## 版本信息
+1. **外部集成**：设置 `EXTERNAL_BOT` 环境变量，自动使用豆包 API
+2. **团队协作**：在 `agent.prompt` 中包含团队协作相关关键词
+3. **深度分析**：在 `agent.prompt` 中包含深度思考相关关键词
+4. **本地开发**：默认使用 Trae 内置模型，无需特殊配置
 
-- **OpenClaw 版本**：2026.2.21-2 或更高
-- **Node.js 版本**：16.0.0 或更高
+## 技术原理
 
-## 贡献指南
+1. **场景检测**：通过 `scene-detector.js` 分析环境变量和 prompt 内容
+2. **配置切换**：根据检测结果复制对应配置文件到默认位置
+3. **网关启动**：使用切换后的配置启动 OpenClaw 网关
+4. **兜底机制**：保留手动指定模式的入口
 
-欢迎提交 Issue 和 Pull Request 来改进这个系统！
+## 未来扩展
 
-## 许可证
+- 支持更多场景类型的识别
+- 增加模型性能评估和自动调优
+- 支持自定义场景识别规则
+- 集成更多 AI 模型选项
 
-MIT License
+## 故障排查
+
+1. **场景识别错误**：检查 `agent.prompt` 文件内容和环境变量设置
+2. **配置文件问题**：确保 `openclaw-doubao.json` 和 `openclaw-trea.json` 存在且格式正确
+3. **API 密钥问题**：确保 `DOUBAO_API_KEY` 环境变量已正确设置
+4. **端口冲突**：使用 `npx openclaw gateway stop` 停止现有网关进程
+
+---
+
+**提示**：场景化智能切换模型功能让你无需手动指定模型参数，系统会根据实际场景自动选择最合适的模型，提供更智能、更便捷的使用体验。

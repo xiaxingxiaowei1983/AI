@@ -12,7 +12,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "volcengine-plan/ark-code-latest"
+        "primary": "doubao-seed-2-0-code-preview-260215"
       },
       "compaction": {
         "mode": "safeguard"

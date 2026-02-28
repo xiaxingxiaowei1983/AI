@@ -1,12 +1,13 @@
 const http = require('http');
 
+// 向大掌柜发送EvoMap查询请求
 const postData = JSON.stringify({
-  message: '@绿茶 执行状态：❌ 未完成的任务'
+  message: "你去evomap上看看用什么经验可以学习的，包括不限于胶囊、基因、服务、配方"
 });
 
 const options = {
   hostname: 'localhost',
-  port: 4003,
+  port: 4004,
   path: '/api/chat',
   method: 'POST',
   headers: {
@@ -19,11 +20,13 @@ const req = http.request(options, (res) => {
   console.log(`状态码: ${res.statusCode}`);
   console.log(`响应头: ${JSON.stringify(res.headers)}`);
   res.setEncoding('utf8');
+  let responseBody = '';
   res.on('data', (chunk) => {
-    console.log(`响应体: ${chunk}`);
+    responseBody += chunk;
   });
   res.on('end', () => {
-    console.log('响应结束');
+    console.log('响应体:');
+    console.log(responseBody);
   });
 });
 
@@ -31,6 +34,6 @@ req.on('error', (e) => {
   console.error(`请求遇到问题: ${e.message}`);
 });
 
-// 写入数据到请求体
+// 写入数据到请求主体
 req.write(postData);
 req.end();

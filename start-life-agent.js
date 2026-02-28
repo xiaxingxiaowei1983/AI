@@ -5,7 +5,7 @@
 
 const express = require('express');
 const app = express();
-const port = 4005;
+const port = 8081;
 
 // 加载智能体配置
 const config = require('./agents/life/config.json');
@@ -49,8 +49,8 @@ app.post('/chat', (req, res) => {
   const { message, context } = req.body;
   
   // 检查是否触发智能体
-  const trigger = config.agent.trigger;
-  const isTriggered = message.includes(trigger);
+  const triggers = Array.isArray(config.agent.trigger) ? config.agent.trigger : [config.agent.trigger];
+  const isTriggered = triggers.some(trigger => message.includes(trigger));
   
   if (isTriggered) {
     // 处理触发消息

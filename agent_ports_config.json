@@ -45,6 +45,10 @@
     "trea_proxy": {
       "port": 4010,
       "description": "Trea模型代理服务"
+    },
+    "mission-control": {
+      "port": 3110,
+      "description": "任务管理和日历工具服务"
     }
   },
   "notes": "所有智能体端口从4000开始分配，确保与现有服务不冲突"

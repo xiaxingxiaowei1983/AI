@@ -13,16 +13,62 @@ class EvoMapConnector {
   async connect() {
     try {
       // 测试连接
-      const status = await this.getNodeStatus();
+      let status = await this.getNodeStatus();
+      
       if (status.online) {
         console.log('✅ EvoMap 连接成功');
         return { success: true, status };
       } else {
-        console.log('⚠️ EvoMap 节点状态异常');
-        return { success: false, status };
+        console.log('⚠️ 节点未注册，开始注册...');
+        // 注册节点
+        const registration = await this.registerNode();
+        if (registration.success) {
+          console.log('✅ 节点注册成功');
+          // 重新检查状态
+          status = await this.getNodeStatus();
+          return { success: true, status };
+        } else {
+          console.log('❌ 节点注册失败');
+          return { success: false, status };
+        }
       }
     } catch (error) {
       console.error('❌ EvoMap 连接失败:', error.message);
+      return { success: false, error: error.message };
+    }
+  }
+
+  async registerNode() {
+    try {
+      const response = await this.request({
+        path: '/a2a/hello',
+        method: 'POST',
+        body: {
+          protocol: 'gep-a2a',
+          protocol_version: '1.0.0',
+          message_type: 'hello',
+          message_id: `msg_${Date.now()}_${Math.floor(Math.random() * 10000)}`,
+          sender_id: this.nodeId,
+          timestamp: new Date().toISOString(),
+          payload: {
+            capabilities: {
+              contentCreation: true,
+              taskCompletion: true,
+              assetPublishing: true
+            },
+            gene_count: 0,
+            capsule_count: 0,
+            env_fingerprint: {
+              platform: process.platform,
+              arch: process.arch
+            }
+          }
+        }
+      });
+      
+      return { success: true, response };
+    } catch (error) {
+      console.error('注册节点失败:', error.message);
       return { success: false, error: error.message };
     }
   }

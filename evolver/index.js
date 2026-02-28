@@ -56,13 +56,18 @@ function createProtocolEnvelope(messageType, payload) {
 function apiRequest(endpoint, options = {}) {
   return new Promise((resolve, reject) => {
     const url = `${EVOMAP_API}${endpoint}`;
+    console.log(`Sending request to: ${url}`);
+    console.log(`Method: ${options.method || 'GET'}`);
+    
     const req = https.request(url, {
       method: options.method || 'GET',
       headers: {
         'Content-Type': 'application/json',
         ...options.headers
-      }
+      },
+      timeout: 30000 // 30 seconds timeout
     }, (res) => {
+      console.log(`Response status: ${res.statusCode}`);
       let data = '';
       res.on('data', (chunk) => {
         data += chunk;
@@ -70,15 +75,24 @@ function apiRequest(endpoint, options = {}) {
       res.on('end', () => {
         try {
           const jsonData = JSON.parse(data);
+          console.log('Response received successfully');
           resolve(jsonData);
         } catch (error) {
+          console.log('Response parsing error, returning raw data');
           resolve({ raw: data });
         }
       });
     });
 
     req.on('error', (error) => {
+      console.error('Request error:', error.message);
       reject(error);
+    });
+
+    req.on('timeout', () => {
+      console.error('Request timeout after 30 seconds');
+      req.destroy();
+      reject(new Error('Request timeout'));
     });
 
     if (options.body) {

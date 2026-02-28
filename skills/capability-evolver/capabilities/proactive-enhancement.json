@@ -145,11 +145,11 @@
         "进化执行系统"
       ],
       "executionCycle": "实时监测，每周分析",
-      "priorityLevels": [
+      "priorityLevels": {
         "高": "用户频繁执行且耗时较长的操作",
         "中": "用户定期执行的常规操作",
         "低": "用户偶尔执行的特殊操作"
-      ],
+      },
       "feedbackMechanism": {
         "type": "continuous-improvement",
         "description": "基于用户反馈持续优化识别和强化策略",

@@ -65,9 +65,10 @@ console.log('🚀 启动智能体服务...');
 
 // 模拟启动延迟
 setTimeout(() => {
-  console.log('\n✅ 赛博天工智能体启动成功！');
+  console.log('\n📣 【口号】赛博坦-天火前来报道，人间大炮一级准备！');
+  console.log('\n✅ 天火智能体启动成功！');
   console.log('\n📋 智能体信息:');
-  console.log(`- 名称: ${config.agent?.name || '赛博天工'}`);
+  console.log(`- 名称: ${config.agent?.name || '天火'}`);
   console.log(`- 角色: ${config.agent?.role || '生产引擎'}`);
   console.log(`- 描述: ${config.agent?.description || '公司的生产引擎与技术骨干，负责代码编写和技术实现'}`);
   console.log(`- 工作目录: ${productionAgentDir}`);
@@ -75,5 +76,5 @@ setTimeout(() => {
   config.agent?.core_abilities?.forEach((ability, index) => {
     console.log(`- ${index + 1}. ${ability}`);
   });
-  console.log('\n赛博天工智能体已就绪，可以开始执行技术任务！');
+  console.log('\n天火智能体已就绪，可以开始执行技术任务！');
 }, 2000);

@@ -104,7 +104,7 @@ class CapabilityTreeManager {
         console.log('✅ 能力树导出成功:', exportPath);
         return exportPath;
       } else if (format === 'visual') {
-        const visualization = this.capabilityTree.generateVisualization();
+        const visualization = this.capabilityTree.visualizeTree();
         const exportPath = path.join(this.storagePath, `capability-tree-visual-${Date.now()}.json`);
         fs.writeFileSync(exportPath, JSON.stringify(visualization, null, 2));
         console.log('✅ 能力树可视化数据导出成功:', exportPath);
@@ -133,7 +133,7 @@ class CapabilityTreeManager {
       
       if (format === 'json') {
         const treeData = JSON.parse(fileContent);
-        this.capabilityTree.import(treeData);
+        this.capabilityTree.importTree(treeData);
         console.log('✅ 能力树导入成功');
         return true;
       } else {
@@ -254,17 +254,35 @@ class CapabilityTreeManager {
     
     try {
       const status = this.capabilityTree.getStatus();
-      console.log('能力树状态:');
-      console.log(`总节点数: ${status.totalNodes}`);
-      console.log(`活跃节点数: ${status.activeNodes}`);
-      console.log(`候选修剪节点数: ${status.candidateTrimNodes}`);
-      console.log(`禁用节点数: ${status.disabledNodes}`);
-      console.log('层级分布:');
-      console.log(`  低层 (L1): ${status.levelDistribution[1]}`);
-      console.log(`  中层 (L2): ${status.levelDistribution[2]}`);
-      console.log(`  高层 (L3): ${status.levelDistribution[3]}`);
+      const stats = status.statistics;
       
-      return status;
+      // 计算候选修剪节点和禁用节点
+      const allNodes = this.capabilityTree.getAllNodes();
+      const candidateTrimNodes = allNodes.filter(node => node.status === 'CANDIDATE_TRIM').length;
+      const disabledNodes = allNodes.filter(node => node.status === 'DISABLED').length;
+      
+      console.log('能力树状态:');
+      console.log(`总节点数: ${stats.totalNodes}`);
+      console.log(`活跃节点数: ${stats.activeNodes}`);
+      console.log(`候选修剪节点数: ${candidateTrimNodes}`);
+      console.log(`禁用节点数: ${disabledNodes}`);
+      console.log('层级分布:');
+      console.log(`  低层 (L1): ${stats.nodesByLevel[1] || 0}`);
+      console.log(`  中层 (L2): ${stats.nodesByLevel[2] || 0}`);
+      console.log(`  高层 (L3): ${stats.nodesByLevel[3] || 0}`);
+      
+      return {
+        ...status,
+        totalNodes: stats.totalNodes,
+        activeNodes: stats.activeNodes,
+        candidateTrimNodes,
+        disabledNodes,
+        levelDistribution: {
+          1: stats.nodesByLevel[1] || 0,
+          2: stats.nodesByLevel[2] || 0,
+          3: stats.nodesByLevel[3] || 0
+        }
+      };
     } catch (error) {
       console.error('❌ 获取能力树状态失败:', error.message);
       return null;
@@ -304,14 +322,15 @@ class CapabilityTreeManager {
     try {
       const allNodes = this.capabilityTree.getAllNodes();
       const status = this.capabilityTree.getStatus();
+      const totalNodes = allNodes.length;
       
       // 计算使用频率统计
       const usageStats = {
         totalUsage: allNodes.reduce((sum, node) => sum + node.usageCount, 0),
         mostUsed: allNodes.reduce((max, node) => 
-          node.usageCount > max.usageCount ? node : max, { usageCount: 0 }),
+          node.usageCount > max.usageCount ? node : max, { usageCount: 0, name: '无' }),
         leastUsed: allNodes.filter(node => node.usageCount > 0).reduce((min, node) => 
-          node.usageCount < min.usageCount ? node : min, { usageCount: Infinity })
+          node.usageCount < min.usageCount ? node : min, { usageCount: Infinity, name: '无' })
       };
       
       // 计算层级统计
@@ -322,10 +341,12 @@ class CapabilityTreeManager {
       };
       
       console.log('能力树分析报告:');
-      console.log(`总节点数: ${status.totalNodes}`);
+      console.log(`总节点数: ${totalNodes}`);
       console.log(`总使用次数: ${usageStats.totalUsage}`);
       console.log(`最常用节点: ${usageStats.mostUsed.name} (${usageStats.mostUsed.usageCount}次)`);
-      console.log(`最少用节点: ${usageStats.leastUsed.name} (${usageStats.leastUsed.usageCount}次)`);
+      if (usageStats.leastUsed.name !== '无') {
+        console.log(`最少用节点: ${usageStats.leastUsed.name} (${usageStats.leastUsed.usageCount}次)`);
+      }
       console.log('层级分布:');
       console.log(`  低层 (L1): ${levelStats[1]}`);
       console.log(`  中层 (L2): ${levelStats[2]}`);
@@ -334,7 +355,8 @@ class CapabilityTreeManager {
       return {
         status,
         usageStats,
-        levelStats
+        levelStats,
+        totalNodes
       };
     } catch (error) {
       console.error('❌ 分析能力树失败:', error.message);

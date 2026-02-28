@@ -51,7 +51,7 @@
     "prohibitedBehaviors": [
       {
         "id": "complexity-increase",
-        "name": "为了"显得更聪明"而增加复杂度",
+        "name": "为了\"显得更聪明\"而增加复杂度",
         "description": "禁止纯粹为了展示技术而增加不必要的复杂度",
         "detection": [
           "代码行数无理由增加",
@@ -84,7 +84,7 @@
       },
       {
         "id": "feeling-based-decisions",
-        "name": "把"感觉正确"当作决策依据",
+        "name": "把\"感觉正确\"当作决策依据",
         "description": "禁止基于主观感觉而非客观数据的决策",
         "detection": [
           "决策缺乏数据支持",
@@ -200,11 +200,11 @@
           "id": "assessment",
           "name": "违规评估",
           "description": "评估违规的严重程度",
-          "levels": [
+          "levels": {
             "轻微": "影响较小，可通过调整解决",
             "中等": "有一定影响，需要修改方案",
             "严重": "影响严重，必须回滚"
-          ]
+          }
         },
         {
           "id": "response",

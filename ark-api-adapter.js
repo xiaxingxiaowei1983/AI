@@ -34,7 +34,7 @@ class ArkApiAdapter {
       const requestOptions = {
         hostname: 'ark.cn-beijing.volces.com',
         port: 443,
-        path: '/api/v3/responses',
+        path: '/api/v3/chat/completions',
         method: options.method || 'POST',
         timeout: this.options.timeout,
         headers: {
@@ -224,8 +224,8 @@ class ArkApiAdapter {
   }
 
   // 生成图像描述
-  async describeImage(imageUrl, prompt = '你看见了什么？') {
-    return this.generateText('doubao-seed-2-0-lite-260215', [{
+  async describeImage(imageUrl, prompt = '你看见了什么？', model = 'Doubao-Seed-2.0-Code') {
+    return this.generateText(model, [{
       role: 'user',
       content: [
         {

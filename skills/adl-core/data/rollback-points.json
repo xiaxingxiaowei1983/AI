@@ -49,5 +49,329 @@
       "错误率增加超过20%: 25%",
       "系统稳定性下降: 85%"
     ]
+  },
+  {
+    "id": "rb_1771963258169_r0rtpgcwp",
+    "timestamp": 1771963258169,
+    "description": "PCEC进化回滚点",
+    "state": {
+      "cycle": 7,
+      "totalEvolutions": 4,
+      "consecutiveFailures": 0,
+      "treeStatus": {
+        "timestamp": 1771963258166,
+        "statistics": {
+          "totalNodes": 11,
+          "activeNodes": 11,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 3,
+            "3": 3
+          },
+          "nodesByType": {
+            "general": 1,
+            "basic": 4,
+            "process": 3,
+            "strategy": 3
+          },
+          "usageStats": {
+            "totalUsage": 1,
+            "averageUsage": 0.09090909090909091,
+            "maxUsage": 1,
+            "activeUsageNodes": 1
+          }
+        },
+        "evaluation": {
+          "timestamp": 1771963258166,
+          "totalNodes": 11,
+          "activeNodes": 11,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 3,
+            "3": 3
+          },
+          "balanceScore": 0.7666666666666667,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 1,
+          "healthScore": 0.5700000000000001,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        },
+        "lastEvaluation": {
+          "timestamp": 1771963258166,
+          "totalNodes": 11,
+          "activeNodes": 11,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 3,
+            "3": 3
+          },
+          "balanceScore": 0.7666666666666667,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 1,
+          "healthScore": 0.5700000000000001,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        }
+      }
+    },
+    "failureConditions": [
+      "成功率 < 90%",
+      "进化降低系统稳定性",
+      "进化引入无法验证的机制",
+      "进化违反禁止行为"
+    ],
+    "successThreshold": 0.9,
+    "isActive": true
+  },
+  {
+    "id": "rb_1771963302664_01ew5cxw2",
+    "timestamp": 1771963302664,
+    "description": "PCEC进化回滚点",
+    "state": {
+      "cycle": 8,
+      "totalEvolutions": 5,
+      "consecutiveFailures": 0,
+      "treeStatus": {
+        "timestamp": 1771963302661,
+        "statistics": {
+          "totalNodes": 11,
+          "activeNodes": 11,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 3,
+            "3": 3
+          },
+          "nodesByType": {
+            "general": 1,
+            "basic": 4,
+            "process": 3,
+            "strategy": 3
+          },
+          "usageStats": {
+            "totalUsage": 1,
+            "averageUsage": 0.09090909090909091,
+            "maxUsage": 1,
+            "activeUsageNodes": 1
+          }
+        },
+        "evaluation": {
+          "timestamp": 1771963302661,
+          "totalNodes": 11,
+          "activeNodes": 11,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 3,
+            "3": 3
+          },
+          "balanceScore": 0.7666666666666667,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 1,
+          "healthScore": 0.5700000000000001,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        },
+        "lastEvaluation": {
+          "timestamp": 1771963302661,
+          "totalNodes": 11,
+          "activeNodes": 11,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 3,
+            "3": 3
+          },
+          "balanceScore": 0.7666666666666667,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 1,
+          "healthScore": 0.5700000000000001,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        }
+      }
+    },
+    "failureConditions": [
+      "成功率 < 90%",
+      "进化降低系统稳定性",
+      "进化引入无法验证的机制",
+      "进化违反禁止行为"
+    ],
+    "successThreshold": 0.9,
+    "isActive": true
+  },
+  {
+    "id": "rb_1771963356875_pr0e7f6c3",
+    "timestamp": 1771963356875,
+    "description": "PCEC进化回滚点",
+    "state": {
+      "cycle": 9,
+      "totalEvolutions": 6,
+      "consecutiveFailures": 0,
+      "treeStatus": {
+        "timestamp": 1771963356873,
+        "statistics": {
+          "totalNodes": 12,
+          "activeNodes": 2,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 4,
+            "3": 3
+          },
+          "nodesByType": {
+            "general": 2,
+            "basic": 4,
+            "process": 3,
+            "strategy": 3
+          },
+          "usageStats": {
+            "totalUsage": 2,
+            "averageUsage": 0.16666666666666666,
+            "maxUsage": 1,
+            "activeUsageNodes": 2
+          }
+        },
+        "evaluation": {
+          "timestamp": 1771963356873,
+          "totalNodes": 12,
+          "activeNodes": 2,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 4,
+            "3": 3
+          },
+          "balanceScore": 0.7171717171717171,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 0.9090909090909091,
+          "healthScore": 0.5278787878787878,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        },
+        "lastEvaluation": {
+          "timestamp": 1771963356873,
+          "totalNodes": 12,
+          "activeNodes": 2,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 4,
+            "3": 3
+          },
+          "balanceScore": 0.7171717171717171,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 0.9090909090909091,
+          "healthScore": 0.5278787878787878,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        }
+      }
+    },
+    "failureConditions": [
+      "成功率 < 90%",
+      "进化降低系统稳定性",
+      "进化引入无法验证的机制",
+      "进化违反禁止行为"
+    ],
+    "successThreshold": 0.9,
+    "isActive": true
+  },
+  {
+    "id": "rb_1771965622189_lwqx06q17",
+    "timestamp": 1771965622189,
+    "description": "PCEC进化回滚点",
+    "state": {
+      "cycle": 10,
+      "totalEvolutions": 7,
+      "consecutiveFailures": 0,
+      "treeStatus": {
+        "timestamp": 1771965622188,
+        "statistics": {
+          "totalNodes": 12,
+          "activeNodes": 2,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 4,
+            "3": 3
+          },
+          "nodesByType": {
+            "general": 2,
+            "basic": 4,
+            "process": 3,
+            "strategy": 3
+          },
+          "usageStats": {
+            "totalUsage": 2,
+            "averageUsage": 0.16666666666666666,
+            "maxUsage": 1,
+            "activeUsageNodes": 2
+          }
+        },
+        "evaluation": {
+          "timestamp": 1771965622188,
+          "totalNodes": 12,
+          "activeNodes": 2,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 4,
+            "3": 3
+          },
+          "balanceScore": 0.7171717171717171,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 0.9090909090909091,
+          "healthScore": 0.5278787878787878,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        },
+        "lastEvaluation": {
+          "timestamp": 1771965622188,
+          "totalNodes": 12,
+          "activeNodes": 2,
+          "nodesByLevel": {
+            "0": 1,
+            "1": 4,
+            "2": 4,
+            "3": 3
+          },
+          "balanceScore": 0.7171717171717171,
+          "usageEfficiency": 0.1,
+          "nodeCompleteness": 0.9090909090909091,
+          "healthScore": 0.5278787878787878,
+          "recommendations": [
+            "能力使用效率低，建议优化高频能力，修剪低频能力",
+            "能力树健康度低，建议进行全面优化"
+          ]
+        }
+      }
+    },
+    "failureConditions": [
+      "成功率 < 90%",
+      "进化降低系统稳定性",
+      "进化引入无法验证的机制",
+      "进化违反禁止行为"
+    ],
+    "successThreshold": 0.9,
+    "isActive": true
   }
 ]

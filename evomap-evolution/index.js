@@ -12,7 +12,7 @@ const SocialMediaPublisher = require('./lib/socialMediaPublisher');
 class EvoMapEvolution {
   constructor() {
     this.config = {
-      nodeId: 'node_122608',
+      nodeId: 'node_73522e995697d2b4',
       agentName: '绿茶',
       agentType: 'CGO', // 公域捕手与爆款制造机
       evomapUrl: 'https://evomap.ai',

@@ -2,6 +2,7 @@
  * Web Search Plus 工具
  * 用于信息检索，基于意图自动路由到不同搜索引擎
  * Logic: Auto-route (Serper/Tavily/Exa) based on intent
+ * 状态: ENHANCED (增强版) - 8小时进化方案优化
  */
 
 const fs = require('fs');
@@ -15,19 +16,33 @@ class WebSearchPlus {
       serper: {
         name: 'Serper',
         type: 'general',
-        priority: 1
+        priority: 1,
+        strengths: ['general', 'news', 'product', 'trends'],
+        responseTime: 0.5 // 平均响应时间（秒）
       },
       tavily: {
         name: 'Tavily',
         type: 'research',
-        priority: 2
+        priority: 2,
+        strengths: ['research', 'academic', 'papers', 'detailed'],
+        responseTime: 0.8
       },
       exa: {
         name: 'Exa',
         type: 'code',
-        priority: 3
+        priority: 3,
+        strengths: ['code', 'programming', 'development', 'technical'],
+        responseTime: 0.6
       }
     };
+    this.intentKeywords = {
+      general: ['what', 'who', 'when', 'where', 'why', 'how', 'latest', 'current', 'today'],
+      research: ['research', 'study', 'academic', 'paper', 'journal', 'analysis', 'report'],
+      code: ['code', 'program', 'function', 'algorithm', 'syntax', 'debug', 'implement'],
+      news: ['news', 'update', 'latest', 'breaking', 'headline'],
+      product: ['buy', 'price', 'review', 'best', 'compare', 'product']
+    };
+    this.cacheExpiry = 24 * 60 * 60 * 1000; // 缓存过期时间（毫秒）
     this._initialize();
   }
 
@@ -44,12 +59,15 @@ class WebSearchPlus {
 
   // 搜索信息
   search(query, options = {}) {
+    const startTime = Date.now();
     const {
       intent = 'general', // 搜索意图: general, research, code, news, product
       engine = null,      // 强制使用的搜索引擎
       limit = 5,          // 返回结果数量
       cache = true,       // 是否使用缓存
-      saveResult = false  // 是否保存结果
+      saveResult = false, // 是否保存结果
+      timeout = 30000,    // 搜索超时时间（毫秒）
+      prioritizeSpeed = false // 是否优先考虑响应速度
     } = options;
 
     // 验证参数
@@ -57,36 +75,62 @@ class WebSearchPlus {
       throw new Error('搜索查询必须是字符串');
     }
 
+    // 增强意图识别
+    const enhancedIntent = this._enhanceIntentRecognition(query, intent);
+
     // 生成缓存键
-    const cacheKey = this._generateCacheKey(query, options);
+    const cacheKey = this._generateCacheKey(query, { ...options, intent: enhancedIntent });
 
     // 检查缓存
     if (cache) {
       const cachedResult = this._getCachedResult(cacheKey);
       if (cachedResult) {
+        cachedResult.responseTime = Date.now() - startTime;
+        cachedResult.metadata.fromCache = true;
         return cachedResult;
       }
     }
 
     // 确定使用的搜索引擎
-    const targetEngine = engine || this._determineEngine(intent, query);
+    const targetEngine = engine || this._determineEngine(enhancedIntent, query, prioritizeSpeed);
 
     // 执行搜索
     const searchResult = {
       id: `search_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       query,
-      intent,
+      intent: enhancedIntent,
       engine: targetEngine,
       timestamp: Date.now(),
       limit,
       results: [],
       metadata: {
-        version: '1.0.0',
-        engineInfo: this.engines[targetEngine]
+        version: '2.0.0', // 增强版
+        engineInfo: this.engines[targetEngine],
+        originalIntent: intent,
+        enhancedIntent: enhancedIntent,
+        prioritizeSpeed: prioritizeSpeed
       }
     };
 
     // 模拟搜索结果（实际项目中应集成真实的搜索引擎API）
+    // 添加性能模拟
+    const engineResponseTime = this.engines[targetEngine].responseTime * 1000; // 转换为毫秒
+    if (engineResponseTime > 0) {
+      // 模拟搜索引擎响应延迟
+      const endTime = Date.now();
+      const elapsed = endTime - startTime;
+      if (elapsed < engineResponseTime) {
+        // 只在必要时延迟，避免不必要的等待
+        const waitTime = Math.min(engineResponseTime - elapsed, 100); // 最大等待100ms
+        if (waitTime > 0) {
+          const startWait = Date.now();
+          while (Date.now() - startWait < waitTime) {
+            // 忙等待模拟延迟
+          }
+        }
+      }
+    }
+
     searchResult.results = this._simulateSearchResults(query, targetEngine, limit);
 
     // 保存结果
@@ -100,6 +144,9 @@ class WebSearchPlus {
     if (cache) {
       this._cacheResult(cacheKey, searchResult);
     }
+
+    // 添加响应时间
+    searchResult.responseTime = Date.now() - startTime;
 
     return searchResult;
   }
@@ -151,8 +198,73 @@ class WebSearchPlus {
     return summary;
   }
 
+  // 增强意图识别
+  _enhanceIntentRecognition(query, originalIntent) {
+    const normalizedQuery = query.toLowerCase().trim();
+    let bestIntent = originalIntent;
+    let bestScore = 0;
+
+    // 计算每个意图的匹配分数
+    for (const [intent, keywords] of Object.entries(this.intentKeywords)) {
+      let score = 0;
+      
+      // 关键词匹配得分
+      for (const keyword of keywords) {
+        if (normalizedQuery.includes(keyword)) {
+          score += 2; // 关键词匹配得分
+        }
+      }
+      
+      // 意图特定词汇匹配
+      switch (intent) {
+        case 'code':
+          if (normalizedQuery.includes('javascript') || 
+              normalizedQuery.includes('python') || 
+              normalizedQuery.includes('java') ||
+              normalizedQuery.includes('c++') ||
+              normalizedQuery.includes('html') ||
+              normalizedQuery.includes('css')) {
+            score += 3;
+          }
+          break;
+        case 'research':
+          if (normalizedQuery.includes('study') || 
+              normalizedQuery.includes('academic') || 
+              normalizedQuery.includes('journal') ||
+              normalizedQuery.includes('publication')) {
+            score += 3;
+          }
+          break;
+        case 'news':
+          if (normalizedQuery.includes('latest') || 
+              normalizedQuery.includes('today') || 
+              normalizedQuery.includes('breaking') ||
+              normalizedQuery.includes('headline')) {
+            score += 3;
+          }
+          break;
+        case 'product':
+          if (normalizedQuery.includes('price') || 
+              normalizedQuery.includes('buy') || 
+              normalizedQuery.includes('review') ||
+              normalizedQuery.includes('best')) {
+            score += 3;
+          }
+          break;
+      }
+      
+      // 更新最佳意图
+      if (score > bestScore) {
+        bestScore = score;
+        bestIntent = intent;
+      }
+    }
+
+    return bestIntent;
+  }
+
   // 确定使用的搜索引擎
-  _determineEngine(intent, query) {
+  _determineEngine(intent, query, prioritizeSpeed = false) {
     const normalizedQuery = query.toLowerCase().trim();
 
     // 基于意图的引擎选择
@@ -170,14 +282,26 @@ class WebSearchPlus {
         if (normalizedQuery.includes('code') || 
             normalizedQuery.includes('program') || 
             normalizedQuery.includes('function') ||
-            normalizedQuery.includes('algorithm')) {
+            normalizedQuery.includes('algorithm') ||
+            normalizedQuery.includes('javascript') ||
+            normalizedQuery.includes('python') ||
+            normalizedQuery.includes('java')) {
           return 'exa';
         } else if (normalizedQuery.includes('research') || 
                    normalizedQuery.includes('study') || 
                    normalizedQuery.includes('academic') ||
-                   normalizedQuery.includes('paper')) {
+                   normalizedQuery.includes('paper') ||
+                   normalizedQuery.includes('journal')) {
           return 'tavily';
         } else {
+          // 如果优先考虑速度，选择响应时间最快的引擎
+          if (prioritizeSpeed) {
+            return Object.keys(this.engines).reduce((fastest, engine) => 
+              this.engines[engine].responseTime < this.engines[fastest].responseTime 
+                ? engine 
+                : fastest
+            );
+          }
           return 'serper';
         }
     }
@@ -186,15 +310,49 @@ class WebSearchPlus {
   // 模拟搜索结果
   _simulateSearchResults(query, engine, limit) {
     const results = [];
+    const normalizedQuery = query.toLowerCase().trim();
+    const engineInfo = this.engines[engine];
 
+    // 基于引擎类型生成更真实的结果
     for (let i = 0; i < limit; i++) {
+      let title, url, snippet, score;
+
+      // 根据引擎类型和查询内容生成更真实的结果
+      switch (engine) {
+        case 'serper':
+          title = this._generateSerperTitle(query, i);
+          url = `https://serper.dev/results/${i + 1}?q=${encodeURIComponent(query)}`;
+          snippet = this._generateSerperSnippet(query, engineInfo, i);
+          score = Math.random() * 0.3 + 0.7; // 0.7-1.0的相关性分数，Serper更擅长一般搜索
+          break;
+        case 'tavily':
+          title = this._generateTavilyTitle(query, i);
+          url = `https://tavily.com/search?q=${encodeURIComponent(query)}&result=${i + 1}`;
+          snippet = this._generateTavilySnippet(query, engineInfo, i);
+          score = Math.random() * 0.3 + 0.65; // 0.65-0.95的相关性分数，Tavily更擅长研究搜索
+          break;
+        case 'exa':
+          title = this._generateExaTitle(query, i);
+          url = `https://exa.ai/search?q=${encodeURIComponent(query)}&page=${i + 1}`;
+          snippet = this._generateExaSnippet(query, engineInfo, i);
+          score = Math.random() * 0.3 + 0.75; // 0.75-1.05的相关性分数，Exa更擅长代码搜索
+          break;
+        default:
+          title = `Result ${i + 1} for "${query}"`;
+          url = `https://example.com/result${i + 1}?q=${encodeURIComponent(query)}`;
+          snippet = `This is a simulated snippet for the search query "${query}" using ${engineInfo.name} engine.`;
+          score = Math.random() * 0.5 + 0.5; // 0.5-1.0的相关性分数
+      }
+
       results.push({
-        id: `result_${i + 1}`,
-        title: `Result ${i + 1} for "${query}"`,
-        url: `https://example.com/result${i + 1}`,
-        snippet: `This is a simulated snippet for the search query "${query}" using ${this.engines[engine].name} engine.`,
-        score: Math.random() * 0.5 + 0.5, // 0.5-1.0的相关性分数
-        timestamp: Date.now() - (i * 1000)
+        id: `result_${Date.now()}_${i + 1}`,
+        title: title,
+        url: url,
+        snippet: snippet,
+        score: score,
+        timestamp: Date.now() - (i * 1000),
+        engine: engine,
+        relevance: score > 0.8 ? 'high' : score > 0.6 ? 'medium' : 'low'
       });
     }
 
@@ -202,6 +360,78 @@ class WebSearchPlus {
     results.sort((a, b) => b.score - a.score);
 
     return results;
+  }
+
+  // 生成Serper风格的标题
+  _generateSerperTitle(query, index) {
+    const prefixes = ['', 'Top ', 'Best ', 'Latest ', 'How to ', 'What is ', 'Why ', 'When ', 'Where ', 'Who '];
+    const suffixes = ['', ' - Comprehensive Guide', ' - 2024 Update', ' - Expert Analysis', ' - Complete Overview', ' - Detailed Review'];
+    
+    const prefix = prefixes[Math.min(index, prefixes.length - 1)];
+    const suffix = suffixes[Math.min(index, suffixes.length - 1)];
+    
+    return `${prefix}${query}${suffix}`;
+  }
+
+  // 生成Serper风格的摘要
+  _generateSerperSnippet(query, engineInfo, index) {
+    const snippets = [
+      `Comprehensive information about ${query} including latest trends, expert opinions, and practical applications. This result provides detailed insights and actionable advice for anyone interested in ${query.toLowerCase()}.`,
+      `Latest updates and developments in ${query.toLowerCase()}. Learn about the newest research, technologies, and approaches that are shaping the future of ${query.toLowerCase()}.`,
+      `In-depth analysis of ${query.toLowerCase()} covering key concepts, methodologies, and real-world examples. This resource is ideal for both beginners and experts looking to expand their knowledge.`,
+      `Practical guide to ${query.toLowerCase()} with step-by-step instructions, best practices, and troubleshooting tips. Perfect for anyone looking to implement ${query.toLowerCase()} in their projects.`,
+      `Expert review of ${query.toLowerCase()} comparing different approaches, tools, and techniques. This comprehensive analysis helps you make informed decisions about ${query.toLowerCase()}.`
+    ];
+    
+    return snippets[Math.min(index, snippets.length - 1)];
+  }
+
+  // 生成Tavily风格的标题
+  _generateTavilyTitle(query, index) {
+    const prefixes = ['Research on ', 'Study of ', 'Academic Analysis of ', 'Journal Review: ', 'Scholarly Perspective on ', 'Scientific Investigation of '];
+    const suffixes = ['', ' - Research Paper', ' - Academic Review', ' - Scientific Study', ' - Journal Article', ' - Scholarly Analysis'];
+    
+    const prefix = prefixes[Math.min(index, prefixes.length - 1)];
+    const suffix = suffixes[Math.min(index, suffixes.length - 1)];
+    
+    return `${prefix}${query}${suffix}`;
+  }
+
+  // 生成Tavily风格的摘要
+  _generateTavilySnippet(query, engineInfo, index) {
+    const snippets = [
+      `Scholarly research on ${query.toLowerCase()} from leading academic journals and research institutions. This result synthesizes findings from multiple studies to provide a comprehensive overview of the current state of knowledge.`,
+      `Academic analysis of ${query.toLowerCase()} examining theoretical frameworks, methodological approaches, and empirical evidence. This scholarly resource offers deep insights into the complexities of ${query.toLowerCase()}.`,
+      `Systematic review of ${query.toLowerCase()} covering historical developments, current trends, and future directions. This comprehensive synthesis of existing research identifies key gaps and promising avenues for future investigation.`,
+      `Empirical study of ${query.toLowerCase()} presenting original data, statistical analyses, and novel interpretations. This research contributes valuable new knowledge to the field of ${query.toLowerCase()}.`,
+      `Meta-analysis of ${query.toLowerCase()} combining results from multiple studies to provide more robust conclusions and identify patterns across different research contexts.`
+    ];
+    
+    return snippets[Math.min(index, snippets.length - 1)];
+  }
+
+  // 生成Exa风格的标题
+  _generateExaTitle(query, index) {
+    const prefixes = ['', 'Code Example: ', 'Implementation of ', 'Tutorial: ', 'Guide to ', 'Best Practices for ', 'Optimization of '];
+    const suffixes = ['', ' - Code Sample', ' - Implementation Guide', ' - Programming Tutorial', ' - Development Best Practices', ' - Optimization Techniques'];
+    
+    const prefix = prefixes[Math.min(index, prefixes.length - 1)];
+    const suffix = suffixes[Math.min(index, suffixes.length - 1)];
+    
+    return `${prefix}${query}${suffix}`;
+  }
+
+  // 生成Exa风格的摘要
+  _generateExaSnippet(query, engineInfo, index) {
+    const snippets = [
+      `Code implementation of ${query.toLowerCase()} with detailed explanations, performance optimizations, and edge case handling. This result provides clean, efficient code that follows best practices and includes comprehensive documentation.`,
+      `Step-by-step tutorial for implementing ${query.toLowerCase()} with code examples, test cases, and debugging tips. Perfect for developers looking to integrate ${query.toLowerCase()} into their projects.`,
+      `Optimized solution for ${query.toLowerCase()} with performance benchmarks, memory usage analysis, and scalability considerations. This implementation balances readability, efficiency, and maintainability.`,
+      `Comprehensive guide to ${query.toLowerCase()} covering different approaches, trade-offs, and implementation strategies. Includes code samples in multiple programming languages and frameworks.`,
+      `Best practices for ${query.toLowerCase()} based on industry standards and community consensus. This resource helps developers write cleaner, more efficient code for ${query.toLowerCase()}.`
+    ];
+    
+    return snippets[Math.min(index, snippets.length - 1)];
   }
 
   // 生成摘要

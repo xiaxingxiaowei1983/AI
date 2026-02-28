@@ -152,107 +152,139 @@ class CapabilityTree {
 
   // 初始化默认节点
   _initializeDefaultNodes() {
-    // 低层节点（基础操作）
-    const fileOps = this.addNode('文件操作', 1, this.root.id, {
-      inputs: ['文件路径', '操作类型', '操作参数'],
-      outputs: ['操作结果', '错误信息'],
-      prerequisites: ['文件存在', '权限足够'],
-      failureBoundaries: ['文件不存在', '权限不足', '磁盘空间不足'],
-      type: 'basic',
-      keywords: ['文件', '读写', '创建', '删除'],
-      description: '处理文件读写、创建、删除等操作'
-    });
+    // 默认节点配置数据
+    const defaultNodes = [
+      // 低层节点（基础操作）
+      {
+        name: '文件操作',
+        level: 1,
+        inputs: ['文件路径', '操作类型', '操作参数'],
+        outputs: ['操作结果', '错误信息'],
+        prerequisites: ['文件存在', '权限足够'],
+        failureBoundaries: ['文件不存在', '权限不足', '磁盘空间不足'],
+        type: 'basic',
+        keywords: ['文件', '读写', '创建', '删除'],
+        description: '处理文件读写、创建、删除等操作'
+      },
+      {
+        name: '网络请求',
+        level: 1,
+        inputs: ['URL', '请求方法', '请求参数'],
+        outputs: ['响应数据', '状态码', '错误信息'],
+        prerequisites: ['网络连接正常', 'URL有效'],
+        failureBoundaries: ['网络连接失败', '请求超时', '服务器错误'],
+        type: 'basic',
+        keywords: ['HTTP', 'API', '网络', '请求'],
+        description: '处理HTTP请求、API调用等网络操作'
+      },
+      {
+        name: '数据处理',
+        level: 1,
+        inputs: ['原始数据', '处理类型', '处理参数'],
+        outputs: ['处理后数据', '处理结果'],
+        prerequisites: ['数据格式正确', '处理参数有效'],
+        failureBoundaries: ['数据格式错误', '处理参数无效', '处理超时'],
+        type: 'basic',
+        keywords: ['数据', '转换', '分析', '计算'],
+        description: '处理数据转换、分析、计算等操作'
+      },
+      {
+        name: '缓存管理',
+        level: 1,
+        inputs: ['缓存键', '缓存值', '缓存配置'],
+        outputs: ['缓存结果', '缓存状态'],
+        prerequisites: ['缓存系统可用', '缓存配置有效'],
+        failureBoundaries: ['缓存系统不可用', '缓存容量不足', '缓存过期'],
+        type: 'basic',
+        keywords: ['缓存', '热点信息', '性能', '响应速度'],
+        description: '管理热点信息缓存、提升响应速度'
+      },
+      // 中层节点（可复用流程）
+      {
+        name: 'PCEC进化流程',
+        level: 2,
+        inputs: ['进化周期', '进化目标', '进化参数'],
+        outputs: ['进化结果', '进化报告', '能力更新'],
+        prerequisites: ['系统空闲', '进化参数有效'],
+        failureBoundaries: ['系统繁忙', '进化参数无效', '进化失败'],
+        type: 'process',
+        keywords: ['PCEC', '进化', '周期', '认知扩展'],
+        description: '管理周期性认知扩展循环'
+      },
+      {
+        name: '热点信息管理',
+        level: 2,
+        inputs: ['信息源', '更新频率', '过滤条件'],
+        outputs: ['热点信息', '更新状态', '缓存结果'],
+        prerequisites: ['信息源可用', '更新频率合理'],
+        failureBoundaries: ['信息源不可用', '更新频率过高', '过滤条件无效'],
+        type: 'process',
+        keywords: ['热点信息', '缓存', '更新', '管理'],
+        description: '管理系统热点信息的收集和更新'
+      },
+      {
+        name: '报告生成',
+        level: 2,
+        inputs: ['报告类型', '报告参数', '数据来源'],
+        outputs: ['报告内容', '报告格式', '生成状态'],
+        prerequisites: ['数据来源可用', '报告参数有效'],
+        failureBoundaries: ['数据来源不可用', '报告参数无效', '生成失败'],
+        type: 'process',
+        keywords: ['报告', '生成', '格式', '数据'],
+        description: '生成系统状态报告、进化报告等'
+      },
+      // 高层节点（问题分解）
+      {
+        name: '商业分析',
+        level: 3,
+        inputs: ['业务数据', '分析维度', '分析目标'],
+        outputs: ['分析结果', '洞察建议', '决策支持'],
+        prerequisites: ['业务数据完整', '分析维度合理'],
+        failureBoundaries: ['业务数据不完整', '分析维度不合理', '分析失败'],
+        type: 'strategy',
+        keywords: ['商业', '分析', '洞察', '决策'],
+        description: '分析业务数据、生成洞察建议'
+      },
+      {
+        name: '技术架构设计',
+        level: 3,
+        inputs: ['系统需求', '技术约束', '设计目标'],
+        outputs: ['架构方案', '技术选型', '实施计划'],
+        prerequisites: ['系统需求明确', '技术约束清晰'],
+        failureBoundaries: ['系统需求不明确', '技术约束不清晰', '设计失败'],
+        type: 'strategy',
+        keywords: ['技术', '架构', '设计', '选型'],
+        description: '设计系统架构、技术选型'
+      },
+      {
+        name: '资源优化',
+        level: 3,
+        inputs: ['资源类型', '使用情况', '优化目标'],
+        outputs: ['优化方案', '预期效果', '实施步骤'],
+        prerequisites: ['资源使用数据完整', '优化目标明确'],
+        failureBoundaries: ['资源使用数据不完整', '优化目标不明确', '优化失败'],
+        type: 'strategy',
+        keywords: ['资源', '优化', '效率', '分配'],
+        description: '优化系统资源分配、提升效率'
+      }
+    ];
 
-    const networkOps = this.addNode('网络请求', 1, this.root.id, {
-      inputs: ['URL', '请求方法', '请求参数'],
-      outputs: ['响应数据', '状态码', '错误信息'],
-      prerequisites: ['网络连接正常', 'URL有效'],
-      failureBoundaries: ['网络连接失败', '请求超时', '服务器错误'],
-      type: 'basic',
-      keywords: ['HTTP', 'API', '网络', '请求'],
-      description: '处理HTTP请求、API调用等网络操作'
-    });
-
-    const dataOps = this.addNode('数据处理', 1, this.root.id, {
-      inputs: ['原始数据', '处理类型', '处理参数'],
-      outputs: ['处理后数据', '处理结果'],
-      prerequisites: ['数据格式正确', '处理参数有效'],
-      failureBoundaries: ['数据格式错误', '处理参数无效', '处理超时'],
-      type: 'basic',
-      keywords: ['数据', '转换', '分析', '计算'],
-      description: '处理数据转换、分析、计算等操作'
-    });
-
-    const cacheOps = this.addNode('缓存管理', 1, this.root.id, {
-      inputs: ['缓存键', '缓存值', '缓存配置'],
-      outputs: ['缓存结果', '缓存状态'],
-      prerequisites: ['缓存系统可用', '缓存配置有效'],
-      failureBoundaries: ['缓存系统不可用', '缓存容量不足', '缓存过期'],
-      type: 'basic',
-      keywords: ['缓存', '热点信息', '性能', '响应速度'],
-      description: '管理热点信息缓存、提升响应速度'
-    });
-
-    // 中层节点（可复用流程）
-    const pcecProcess = this.addNode('PCEC进化流程', 2, this.root.id, {
-      inputs: ['进化周期', '进化目标', '进化参数'],
-      outputs: ['进化结果', '进化报告', '能力更新'],
-      prerequisites: ['系统空闲', '进化参数有效'],
-      failureBoundaries: ['系统繁忙', '进化参数无效', '进化失败'],
-      type: 'process',
-      keywords: ['PCEC', '进化', '周期', '认知扩展'],
-      description: '管理周期性认知扩展循环'
-    });
-
-    const hotInfoMgmt = this.addNode('热点信息管理', 2, this.root.id, {
-      inputs: ['信息源', '更新频率', '过滤条件'],
-      outputs: ['热点信息', '更新状态', '缓存结果'],
-      prerequisites: ['信息源可用', '更新频率合理'],
-      failureBoundaries: ['信息源不可用', '更新频率过高', '过滤条件无效'],
-      type: 'process',
-      keywords: ['热点信息', '缓存', '更新', '管理'],
-      description: '管理系统热点信息的收集和更新'
-    });
-
-    const reportGen = this.addNode('报告生成', 2, this.root.id, {
-      inputs: ['报告类型', '报告参数', '数据来源'],
-      outputs: ['报告内容', '报告格式', '生成状态'],
-      prerequisites: ['数据来源可用', '报告参数有效'],
-      failureBoundaries: ['数据来源不可用', '报告参数无效', '生成失败'],
-      type: 'process',
-      keywords: ['报告', '生成', '格式', '数据'],
-      description: '生成系统状态报告、进化报告等'
-    });
-
-    // 高层节点（问题分解）
-    const businessAnalysis = this.addNode('商业分析', 3, this.root.id, {
-      inputs: ['业务数据', '分析维度', '分析目标'],
-      outputs: ['分析结果', '洞察建议', '决策支持'],
-      prerequisites: ['业务数据完整', '分析维度合理'],
-      failureBoundaries: ['业务数据不完整', '分析维度不合理', '分析失败'],
-      type: 'strategy',
-      keywords: ['商业', '分析', '洞察', '决策'],
-      description: '分析业务数据、生成洞察建议'
-    });
-
-    const techDesign = this.addNode('技术架构设计', 3, this.root.id, {
-      inputs: ['系统需求', '技术约束', '设计目标'],
-      outputs: ['架构方案', '技术选型', '实施计划'],
-      prerequisites: ['系统需求明确', '技术约束清晰'],
-      failureBoundaries: ['系统需求不明确', '技术约束不清晰', '设计失败'],
-      type: 'strategy',
-      keywords: ['技术', '架构', '设计', '选型'],
-      description: '设计系统架构、技术选型'
-    });
-
-    const resourceOpt = this.addNode('资源优化', 3, this.root.id, {
-      inputs: ['资源类型', '使用情况', '优化目标'],
-      outputs: ['优化方案', '预期效果', '实施步骤'],
-      prerequisites: ['资源使用数据完整', '优化目标明确'],
-      failureBoundaries: ['资源使用数据不完整', '优化目标不明确', '优化失败'],
-      type: 'strategy',
-      keywords: ['资源', '优化', '效率', '分配'],
-      description: '优化系统资源分配、提升效率'
+    // 统一创建所有默认节点
+    defaultNodes.forEach(nodeConfig => {
+      this.addNode(
+        nodeConfig.name,
+        nodeConfig.level,
+        this.root.id,
+        {
+          inputs: nodeConfig.inputs,
+          outputs: nodeConfig.outputs,
+          prerequisites: nodeConfig.prerequisites,
+          failureBoundaries: nodeConfig.failureBoundaries,
+          type: nodeConfig.type,
+          keywords: nodeConfig.keywords,
+          description: nodeConfig.description
+        }
+      );
     });
   }
 

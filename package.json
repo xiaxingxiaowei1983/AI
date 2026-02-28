@@ -7,7 +7,11 @@
     "start": "node start.js",
     "start-master": "node start-master.js",
     "start-company-brain": "node company-brain-core.js",
-    "start-brain-agent": "node start-brain-agent.js"
+    "start-brain-agent": "node start-brain-agent.js",
+    "pm2-start": "pm2 start ecosystem.config.js",
+    "pm2-save": "pm2 save",
+    "pm2-status": "pm2 status",
+    "pm2-logs": "pm2 logs pcec-system"
   },
   "dependencies": {
     "axios": "^1.13.5",
@@ -17,6 +21,7 @@
     "fs-extra": "^11.3.3",
     "http-proxy": "^1.18.1",
     "mammoth": "^1.11.0",
+    "openclaw": "^2026.2.26",
     "pdf-parse": "^2.4.5"
   }
 }

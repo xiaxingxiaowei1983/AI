@@ -2,10 +2,11 @@
   "name": "temp-calendar",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3110",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3110",
     "lint": "eslint"
   },
   "dependencies": {

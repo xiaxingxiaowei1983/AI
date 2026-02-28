@@ -1,472 +1,544 @@
-/**
- * Git集成管理工具
- * 用于管理OpenClaw系统的进化过程，实现可追踪、可回滚的版本控制
- * 状态: ACTIVE (已激活) 优先级: LEVEL1 (核心系统)
- */
-
-const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 class GitIntegration {
-  constructor(baseDir = process.cwd()) {
-    this.baseDir = baseDir;
+  constructor(repoPath = process.cwd()) {
+    this.repoPath = repoPath;
     this.config = {
+      autoCommit: true,
+      autoTag: true,
       branchPrefix: 'evolution/',
-      mainBranch: 'main',
-      devBranch: 'evolution-management',
       tagPrefix: 'v',
-      commitMessagePrefix: '🧬 ',
-      maxRollbackPoints: 10,
-      autoCommitInterval: 3600000, // 1小时
-      autoPush: false
+      commitMessageTemplate: '[Evolution] {message}',
+      maxCommitFiles: 100,
+      ignorePatterns: [
+        'node_modules/',
+        '.git/',
+        '*.log',
+        '*.tmp',
+        '*.temp',
+        '.env',
+        '.venv/',
+        'dist/',
+        'build/',
+        '*.zip',
+        '*.tar.gz'
+      ]
     };
-    this.rollbackPoints = [];
-    this.lastCommitTime = null;
-    this._loadRollbackPoints();
   }
 
   // 执行Git命令
-  _execGitCommand(command, options = {}) {
+  execGitCommand(command) {
     try {
-      const defaultOptions = {
-        cwd: this.baseDir,
+      const result = execSync(`git ${command}`, {
+        cwd: this.repoPath,
         encoding: 'utf8',
         stdio: 'pipe'
-      };
-      const result = execSync(`git ${command}`, { ...defaultOptions, ...options });
+      });
       return result.trim();
     } catch (error) {
-      console.error(`Git命令执行失败: ${command}`);
-      console.error(`错误信息: ${error.message}`);
+      console.error(`Git command failed: ${command}`);
+      console.error(`Error: ${error.message}`);
       return null;
     }
   }
 
   // 获取当前分支
   getCurrentBranch() {
-    return this._execGitCommand('branch --show-current');
+    return this.execGitCommand('rev-parse --abbrev-ref HEAD');
   }
 
   // 获取当前提交
   getCurrentCommit() {
-    return this._execGitCommand('rev-parse HEAD');
-  }
-
-  // 获取仓库状态
-  getStatus() {
-    return this._execGitCommand('status --porcelain');
+    return this.execGitCommand('rev-parse HEAD');
   }
 
   // 检查是否有未提交的更改
   hasUncommittedChanges() {
-    const status = this.getStatus();
-    return status && status.length > 0;
+    const status = this.execGitCommand('status --porcelain');
+    return status !== null && status.length > 0;
   }
 
-  // 检查是否为Git仓库
-  isGitRepository() {
-    return this._execGitCommand('rev-parse --is-inside-work-tree') === 'true';
-  }
+  // 自动提交更改
+  autoCommit(message = 'System evolution update') {
+    try {
+      // 检查是否有更改
+      if (!this.hasUncommittedChanges()) {
+        console.log('No changes to commit');
+        return null;
+      }
 
-  // 初始化Git仓库
-  initRepository() {
-    if (!this.isGitRepository()) {
-      console.log('初始化Git仓库...');
-      this._execGitCommand('init');
-      this._execGitCommand('config user.name "OpenClaw Evolution System"');
-      this._execGitCommand('config user.email "evolution@openclaw.ai"');
-      return true;
+      // 添加更改
+      console.log('Adding changes...');
+      this.execGitCommand('add .');
+
+      // 提交更改
+      const commitMessage = this.config.commitMessageTemplate.replace('{message}', message);
+      console.log(`Committing changes with message: ${commitMessage}`);
+      const result = this.execGitCommand(`commit -m "${commitMessage}"`);
+
+      if (result) {
+        console.log('Auto commit successful');
+        const commitHash = this.getCurrentCommit();
+        return commitHash;
+      } else {
+        console.log('Auto commit failed');
+        return null;
+      }
+    } catch (error) {
+      console.error('Auto commit error:', error);
+      return null;
     }
-    return false;
   }
 
-  // 创建分支
+  // 创建版本标签
+  createVersionTag(version = null) {
+    try {
+      // 如果没有指定版本，生成基于时间的版本
+      if (!version) {
+        const now = new Date();
+        const versionStr = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}.${String(now.getTime()).slice(-6)}`;
+        version = versionStr;
+      }
+
+      const tagName = `${this.config.tagPrefix}${version}`;
+      console.log(`Creating version tag: ${tagName}`);
+      
+      const result = this.execGitCommand(`tag -a ${tagName} -m "Version ${version}"`);
+      
+      if (result === null) {
+        console.log('Tag creation failed');
+        return null;
+      }
+
+      console.log('Version tag created successfully');
+      return tagName;
+    } catch (error) {
+      console.error('Create version tag error:', error);
+      return null;
+    }
+  }
+
+  // 获取所有标签
+  getTags() {
+    const tags = this.execGitCommand('tag -l');
+    if (tags) {
+      return tags.split('\n').filter(tag => tag.length > 0);
+    }
+    return [];
+  }
+
+  // 回滚到指定标签或提交
+  rollbackTo(identifier) {
+    try {
+      console.log(`Rolling back to: ${identifier}`);
+      
+      // 检查identifier是否存在
+      const exists = this.execGitCommand(`rev-parse --verify ${identifier}`);
+      if (!exists) {
+        console.error(`Identifier ${identifier} does not exist`);
+        return false;
+      }
+
+      // 执行回滚
+      this.execGitCommand(`reset --hard ${identifier}`);
+      
+      console.log('Rollback successful');
+      return true;
+    } catch (error) {
+      console.error('Rollback error:', error);
+      return false;
+    }
+  }
+
+  // 创建新分支
   createBranch(branchName) {
-    const fullBranchName = `${this.config.branchPrefix}${branchName}`;
-    console.log(`创建分支: ${fullBranchName}`);
-    this._execGitCommand(`checkout -b ${fullBranchName}`);
-    return fullBranchName;
+    try {
+      const fullBranchName = `${this.config.branchPrefix}${branchName}`;
+      console.log(`Creating branch: ${fullBranchName}`);
+      
+      const result = this.execGitCommand(`checkout -b ${fullBranchName}`);
+      
+      if (result === null) {
+        console.log('Branch creation failed');
+        return null;
+      }
+
+      console.log('Branch created successfully');
+      return fullBranchName;
+    } catch (error) {
+      console.error('Create branch error:', error);
+      return null;
+    }
   }
 
   // 切换分支
   checkoutBranch(branchName) {
-    console.log(`切换到分支: ${branchName}`);
-    this._execGitCommand(`checkout ${branchName}`);
-    return branchName;
-  }
-
-  // 合并分支
-  mergeBranch(sourceBranch, targetBranch = null) {
-    if (targetBranch) {
-      this.checkoutBranch(targetBranch);
-    }
-    console.log(`合并分支: ${sourceBranch}`);
-    this._execGitCommand(`merge ${sourceBranch}`);
-    return true;
-  }
-
-  // 添加文件
-  addFiles(patterns = '.') {
-    console.log(`添加文件: ${patterns}`);
-    this._execGitCommand(`add ${patterns}`);
-    return true;
-  }
-
-  // 提交更改
-  commit(message, options = {}) {
-    const fullMessage = `${this.config.commitMessagePrefix}${message}`;
-    console.log(`提交更改: ${fullMessage}`);
-    
-    // 添加所有更改
-    if (options.addAll) {
-      this._execGitCommand('add .');
-    }
-    
-    const result = this._execGitCommand(`commit -m "${fullMessage}"`);
-    if (result) {
-      this.lastCommitTime = Date.now();
-      // 记录回滚点
-      if (options.createRollbackPoint) {
-        this.createRollbackPoint(message);
+    try {
+      console.log(`Switching to branch: ${branchName}`);
+      
+      const result = this.execGitCommand(`checkout ${branchName}`);
+      
+      if (result === null) {
+        console.log('Branch checkout failed');
+        return false;
       }
-      // 自动推送
-      if (this.config.autoPush) {
-        this.push();
-      }
+
+      console.log('Branch switched successfully');
+      return true;
+    } catch (error) {
+      console.error('Checkout branch error:', error);
+      return false;
     }
-    return result;
+  }
+
+  // 获取分支列表
+  getBranches() {
+    const branches = this.execGitCommand('branch -a');
+    if (branches) {
+      return branches.split('\n').map(branch => branch.trim()).filter(branch => branch.length > 0);
+    }
+    return [];
+  }
+
+  // 获取提交历史
+  getCommitHistory(limit = 10) {
+    const history = this.execGitCommand(`log --oneline -n ${limit}`);
+    if (history) {
+      return history.split('\n').filter(line => line.length > 0);
+    }
+    return [];
+  }
+
+  // 获取差异
+  getDiff(path = '.') {
+    return this.execGitCommand(`diff ${path}`);
+  }
+
+  // 自动提交并创建版本标签
+  autoCommitAndTag(message = 'System evolution update') {
+    try {
+      // 自动提交
+      const commitHash = this.autoCommit(message);
+      if (!commitHash) {
+        console.log('Auto commit failed, skipping tag creation');
+        return null;
+      }
+
+      // 创建版本标签
+      const tagName = this.createVersionTag();
+      if (!tagName) {
+        console.log('Tag creation failed');
+        return null;
+      }
+
+      console.log('Auto commit and tag successful');
+      return {
+        commitHash,
+        tagName
+      };
+    } catch (error) {
+      console.error('Auto commit and tag error:', error);
+      return null;
+    }
+  }
+
+  // 获取Git状态
+  getStatus() {
+    return this.execGitCommand('status');
+  }
+
+  // 清理未跟踪文件
+  cleanupUntrackedFiles() {
+    try {
+      console.log('Cleaning up untracked files...');
+      const result = this.execGitCommand('clean -f -d');
+      console.log('Cleanup successful');
+      return result;
+    } catch (error) {
+      console.error('Cleanup error:', error);
+      return null;
+    }
+  }
+
+  // 拉取最新更改
+  pull() {
+    try {
+      console.log('Pulling latest changes...');
+      const result = this.execGitCommand('pull');
+      console.log('Pull successful');
+      return result;
+    } catch (error) {
+      console.error('Pull error:', error);
+      return null;
+    }
   }
 
   // 推送更改
-  push(remote = 'origin', branch = null) {
-    const targetBranch = branch || this.getCurrentBranch();
-    console.log(`推送到远程: ${remote}/${targetBranch}`);
-    this._execGitCommand(`push ${remote} ${targetBranch}`);
-    return true;
-  }
-
-  // 拉取更改
-  pull(remote = 'origin', branch = null) {
-    const targetBranch = branch || this.getCurrentBranch();
-    console.log(`从远程拉取: ${remote}/${targetBranch}`);
-    this._execGitCommand(`pull ${remote} ${targetBranch}`);
-    return true;
-  }
-
-  // 创建标签
-  createTag(tagName, message = null) {
-    const fullTagName = `${this.config.tagPrefix}${tagName}`;
-    console.log(`创建标签: ${fullTagName}`);
-    if (message) {
-      this._execGitCommand(`tag -a ${fullTagName} -m "${message}"`);
-    } else {
-      this._execGitCommand(`tag ${fullTagName}`);
-    }
-    if (this.config.autoPush) {
-      this.pushTag(fullTagName);
-    }
-    return fullTagName;
-  }
-
-  // 推送标签
-  pushTag(tagName) {
-    console.log(`推送标签: ${tagName}`);
-    this._execGitCommand(`push origin ${tagName}`);
-    return true;
-  }
-
-  // 创建回滚点
-  createRollbackPoint(message) {
-    const commitHash = this.getCurrentCommit();
-    const timestamp = Date.now();
-    const rollbackPoint = {
-      id: `rollback_${timestamp}`,
-      commitHash,
-      timestamp,
-      message,
-      branch: this.getCurrentBranch(),
-      author: this._execGitCommand('config user.name')
-    };
-    
-    this.rollbackPoints.push(rollbackPoint);
-    // 限制回滚点数量
-    if (this.rollbackPoints.length > this.config.maxRollbackPoints) {
-      this.rollbackPoints = this.rollbackPoints.slice(-this.config.maxRollbackPoints);
-    }
-    
-    this._saveRollbackPoints();
-    console.log(`创建回滚点: ${rollbackPoint.id}`);
-    return rollbackPoint;
-  }
-
-  // 回滚到指定点
-  rollbackTo(rollbackPointId) {
-    const rollbackPoint = this.rollbackPoints.find(p => p.id === rollbackPointId);
-    if (!rollbackPoint) {
-      console.error('回滚点不存在');
-      return false;
-    }
-    
-    console.log(`回滚到: ${rollbackPoint.id}`);
-    console.log(`提交: ${rollbackPoint.commitHash}`);
-    console.log(`分支: ${rollbackPoint.branch}`);
-    console.log(`时间: ${new Date(rollbackPoint.timestamp).toISOString()}`);
-    
-    // 切换到指定分支
-    this.checkoutBranch(rollbackPoint.branch);
-    // 重置到指定提交
-    this._execGitCommand(`reset --hard ${rollbackPoint.commitHash}`);
-    
-    console.log('回滚完成');
-    return true;
-  }
-
-  // 回滚到最近的回滚点
-  rollbackToLatest() {
-    if (this.rollbackPoints.length === 0) {
-      console.error('没有回滚点');
-      return false;
-    }
-    const latestPoint = this.rollbackPoints[this.rollbackPoints.length - 1];
-    return this.rollbackTo(latestPoint.id);
-  }
-
-  // 获取回滚点列表
-  getRollbackPoints() {
-    return this.rollbackPoints;
-  }
-
-  // 加载回滚点
-  _loadRollbackPoints() {
-    const rollbackFile = path.join(this.baseDir, '.trae', 'git', 'rollback-points.json');
-    if (fs.existsSync(rollbackFile)) {
-      try {
-        const data = fs.readFileSync(rollbackFile, 'utf8');
-        this.rollbackPoints = JSON.parse(data);
-      } catch (error) {
-        console.error('加载回滚点失败:', error.message);
-        this.rollbackPoints = [];
+  push(includeTags = true) {
+    try {
+      console.log('Pushing changes...');
+      let command = 'push';
+      if (includeTags) {
+        command += ' --tags';
       }
+      const result = this.execGitCommand(command);
+      console.log('Push successful');
+      return result;
+    } catch (error) {
+      console.error('Push error:', error);
+      return null;
     }
   }
 
-  // 保存回滚点
-  _saveRollbackPoints() {
-    const rollbackDir = path.join(this.baseDir, '.trae', 'git');
-    if (!fs.existsSync(rollbackDir)) {
-      fs.mkdirSync(rollbackDir, { recursive: true });
+  // 推送分支
+  pushBranch(branchName) {
+    try {
+      console.log(`Pushing branch: ${branchName}`);
+      const result = this.execGitCommand(`push -u origin ${branchName}`);
+      console.log('Branch push successful');
+      return result;
+    } catch (error) {
+      console.error('Push branch error:', error);
+      return null;
     }
-    const rollbackFile = path.join(rollbackDir, 'rollback-points.json');
-    fs.writeFileSync(rollbackFile, JSON.stringify(this.rollbackPoints, null, 2));
   }
 
-  // 自动提交
-  autoCommit() {
-    if (this.hasUncommittedChanges()) {
-      const message = `自动提交 - ${new Date().toISOString()}`;
-      this.commit(message, { addAll: true, createRollbackPoint: true });
-      return true;
+  // 合并分支
+  mergeBranch(branchName) {
+    try {
+      console.log(`Merging branch: ${branchName}`);
+      const result = this.execGitCommand(`merge ${branchName}`);
+      console.log('Branch merge successful');
+      return result;
+    } catch (error) {
+      console.error('Merge branch error:', error);
+      return null;
     }
-    return false;
   }
 
-  // 启动自动提交定时器
-  startAutoCommit() {
-    console.log(`启动自动提交，间隔: ${this.config.autoCommitInterval / 1000 / 60}分钟`);
-    setInterval(() => {
-      this.autoCommit();
-    }, this.config.autoCommitInterval);
-  }
+  // 生成回滚计划
+  generateRollbackPlan() {
+    try {
+      const tags = this.getTags();
+      const branches = this.getBranches();
+      const currentCommit = this.getCurrentCommit();
+      const currentBranch = this.getCurrentBranch();
+      const commitHistory = this.getCommitHistory(20);
 
-  // 生成版本报告
-  generateVersionReport() {
-    const currentBranch = this.getCurrentBranch();
-    const currentCommit = this.getCurrentCommit();
-    const status = this.getStatus();
-    const tags = this._execGitCommand('tag -l');
-    
-    return {
-      timestamp: Date.now(),
-      currentBranch,
-      currentCommit,
-      hasUncommittedChanges: this.hasUncommittedChanges(),
-      status,
-      tags: tags ? tags.split('\n') : [],
-      rollbackPoints: this.rollbackPoints,
-      config: this.config
-    };
-  }
+      const rollbackPlan = {
+        currentState: {
+          branch: currentBranch,
+          commit: currentCommit
+        },
+        availableRollbackPoints: {
+          tags: tags.slice(-10), // 最近10个标签
+          branches: branches.filter(branch => branch !== currentBranch),
+          recentCommits: commitHistory.slice(1, 10) // 最近10个提交（排除当前）
+        },
+        recommendedRollbackPoints: [],
+        timestamp: new Date().toISOString()
+      };
 
-  // 检查分支策略
-  checkBranchStrategy() {
-    const currentBranch = this.getCurrentBranch();
-    const branches = this._execGitCommand('branch -a');
-    
-    return {
-      currentBranch,
-      branches: branches ? branches.split('\n') : [],
-      followsStrategy: currentBranch === this.config.devBranch || 
-                       currentBranch.startsWith(this.config.branchPrefix),
-      recommendations: this._getBranchStrategyRecommendations(currentBranch)
-    };
-  }
-
-  // 获取分支策略建议
-  _getBranchStrategyRecommendations(currentBranch) {
-    const recommendations = [];
-    
-    if (currentBranch === this.config.mainBranch) {
-      recommendations.push('主分支应该保持稳定，建议在开发分支上进行进化');
-      recommendations.push(`建议切换到 ${this.config.devBranch} 分支`);
-    }
-    
-    if (!currentBranch.startsWith(this.config.branchPrefix) && 
-        currentBranch !== this.config.mainBranch && 
-        currentBranch !== this.config.devBranch) {
-      recommendations.push('当前分支不符合进化分支策略');
-      recommendations.push(`建议使用 ${this.config.branchPrefix} 前缀创建分支`);
-    }
-    
-    return recommendations;
-  }
-
-  // 清理旧分支
-  cleanupOldBranches(daysOld = 30) {
-    const cutoffDate = new Date();
-    cutoffDate.setDate(cutoffDate.getDate() - daysOld);
-    
-    console.log(`清理 ${daysOld} 天前的分支...`);
-    
-    // 获取所有本地分支
-    const branches = this._execGitCommand('branch --format="%(refname:short) %(committerdate:iso)"');
-    if (!branches) return [];
-    
-    const branchesToDelete = [];
-    const lines = branches.split('\n');
-    
-    for (const line of lines) {
-      const [branch, dateStr] = line.split(' ');
-      if (!branch || branch === this.config.mainBranch || branch === this.config.devBranch) {
-        continue;
+      // 推荐回滚点
+      if (tags.length > 0) {
+        rollbackPlan.recommendedRollbackPoints.push({
+          type: 'tag',
+          name: tags[tags.length - 1],
+          reason: 'Most recent version tag'
+        });
       }
-      
-      const commitDate = new Date(dateStr);
-      if (commitDate < cutoffDate) {
-        branchesToDelete.push(branch);
+
+      if (commitHistory.length > 1) {
+        rollbackPlan.recommendedRollbackPoints.push({
+          type: 'commit',
+          name: commitHistory[1].split(' ')[0],
+          reason: 'Previous commit'
+        });
       }
+
+      return rollbackPlan;
+    } catch (error) {
+      console.error('Generate rollback plan error:', error);
+      return null;
     }
-    
-    for (const branch of branchesToDelete) {
-      console.log(`删除分支: ${branch}`);
-      this._execGitCommand(`branch -D ${branch}`);
+  }
+
+  // 保存回滚计划
+  saveRollbackPlan() {
+    try {
+      const rollbackPlan = this.generateRollbackPlan();
+      if (!rollbackPlan) {
+        return null;
+      }
+
+      const rollbackDir = path.join(this.repoPath, '.trae', 'git', 'rollback-plans');
+      if (!fs.existsSync(rollbackDir)) {
+        fs.mkdirSync(rollbackDir, { recursive: true });
+      }
+
+      const planPath = path.join(rollbackDir, `rollback-plan-${Date.now()}.json`);
+      fs.writeFileSync(planPath, JSON.stringify(rollbackPlan, null, 2));
+
+      console.log(`Rollback plan saved to: ${planPath}`);
+      return planPath;
+    } catch (error) {
+      console.error('Save rollback plan error:', error);
+      return null;
     }
-    
-    return branchesToDelete;
   }
 
-  // 同步远程分支
-  syncRemote() {
-    console.log('同步远程分支...');
-    this._execGitCommand('fetch --all');
-    this._execGitCommand('prune');
-    return true;
-  }
+  // 执行完整的进化周期Git操作
+  executeEvolutionGitCycle(message = 'System evolution cycle completed') {
+    try {
+      console.log('Starting evolution Git cycle...');
 
-  // 检查Git状态
-  checkGitStatus() {
-    const status = this.getStatus();
-    const branch = this.getCurrentBranch();
-    const commit = this.getCurrentCommit();
-    
-    return {
-      branch,
-      commit,
-      hasChanges: this.hasUncommittedChanges(),
-      status
-    };
-  }
+      // 保存回滚计划
+      this.saveRollbackPlan();
 
-  // 配置Git集成
-  configure(config) {
-    this.config = { ...this.config, ...config };
-    return this.config;
-  }
+      // 自动提交
+      const commitResult = this.autoCommit(message);
+      if (!commitResult) {
+        console.log('Auto commit failed, aborting cycle');
+        return null;
+      }
 
-  // 获取配置
-  getConfig() {
-    return this.config;
+      // 创建版本标签
+      const tagResult = this.createVersionTag();
+      if (!tagResult) {
+        console.log('Tag creation failed, continuing without tag');
+      }
+
+      // 推送更改
+      this.push(true);
+
+      console.log('Evolution Git cycle completed successfully');
+      return {
+        commit: commitResult,
+        tag: tagResult
+      };
+    } catch (error) {
+      console.error('Execute evolution Git cycle error:', error);
+      return null;
+    }
   }
 }
 
-// 导出单例实例
+// 导出Git集成工具
 const gitIntegration = new GitIntegration();
+
+// 命令行接口
+function runCommand(args) {
+  const command = args[0];
+  const params = args.slice(1);
+
+  switch (command) {
+    case 'status':
+      console.log(gitIntegration.getStatus());
+      break;
+
+    case 'commit':
+      const commitMessage = params.join(' ') || 'System update';
+      gitIntegration.autoCommit(commitMessage);
+      break;
+
+    case 'tag':
+      const tagVersion = params[0];
+      gitIntegration.createVersionTag(tagVersion);
+      break;
+
+    case 'rollback':
+      const rollbackPoint = params[0];
+      gitIntegration.rollbackTo(rollbackPoint);
+      break;
+
+    case 'branch':
+      if (params.length > 0) {
+        gitIntegration.createBranch(params.join('-'));
+      } else {
+        console.log('Branches:');
+        gitIntegration.getBranches().forEach(branch => console.log(`- ${branch}`));
+      }
+      break;
+
+    case 'checkout':
+      const branchToCheckout = params[0];
+      gitIntegration.checkoutBranch(branchToCheckout);
+      break;
+
+    case 'history':
+      const limit = params[0] || 10;
+      console.log('Commit history:');
+      gitIntegration.getCommitHistory(limit).forEach(commit => console.log(`- ${commit}`));
+      break;
+
+    case 'tags':
+      console.log('Tags:');
+      gitIntegration.getTags().forEach(tag => console.log(`- ${tag}`));
+      break;
+
+    case 'rollback-plan':
+      const plan = gitIntegration.generateRollbackPlan();
+      console.log(JSON.stringify(plan, null, 2));
+      break;
+
+    case 'save-plan':
+      gitIntegration.saveRollbackPlan();
+      break;
+
+    case 'cycle':
+      const cycleMessage = params.join(' ') || 'Evolution cycle completed';
+      gitIntegration.executeEvolutionGitCycle(cycleMessage);
+      break;
+
+    case 'push':
+      gitIntegration.push(true);
+      break;
+
+    case 'pull':
+      gitIntegration.pull();
+      break;
+
+    case 'cleanup':
+      gitIntegration.cleanupUntrackedFiles();
+      break;
+
+    case 'diff':
+      const diffPath = params[0] || '.';
+      console.log(gitIntegration.getDiff(diffPath));
+      break;
+
+    case 'help':
+    default:
+      console.log('Git Integration Tool Commands:');
+      console.log('  status - Get current Git status');
+      console.log('  commit [message] - Auto commit changes');
+      console.log('  tag [version] - Create version tag');
+      console.log('  rollback <point> - Rollback to specified point');
+      console.log('  branch [name] - List branches or create new branch');
+      console.log('  checkout <branch> - Switch to specified branch');
+      console.log('  history [limit] - Get commit history');
+      console.log('  tags - List all tags');
+      console.log('  rollback-plan - Generate rollback plan');
+      console.log('  save-plan - Save rollback plan');
+      console.log('  cycle [message] - Execute complete evolution Git cycle');
+      console.log('  push - Push changes and tags');
+      console.log('  pull - Pull latest changes');
+      console.log('  cleanup - Clean up untracked files');
+      console.log('  diff [path] - Get diff for specified path');
+      console.log('  help - Show this help message');
+      break;
+  }
+}
+
+// 执行命令
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  runCommand(args);
+}
 
 module.exports = {
   GitIntegration,
-  gitIntegration,
-  // 工具接口
-  initRepository: () => gitIntegration.initRepository(),
-  getCurrentBranch: () => gitIntegration.getCurrentBranch(),
-  getCurrentCommit: () => gitIntegration.getCurrentCommit(),
-  hasUncommittedChanges: () => gitIntegration.hasUncommittedChanges(),
-  createBranch: (branchName) => gitIntegration.createBranch(branchName),
-  checkoutBranch: (branchName) => gitIntegration.checkoutBranch(branchName),
-  mergeBranch: (sourceBranch, targetBranch) => gitIntegration.mergeBranch(sourceBranch, targetBranch),
-  addFiles: (patterns) => gitIntegration.addFiles(patterns),
-  commit: (message, options) => gitIntegration.commit(message, options),
-  push: (remote, branch) => gitIntegration.push(remote, branch),
-  pull: (remote, branch) => gitIntegration.pull(remote, branch),
-  createTag: (tagName, message) => gitIntegration.createTag(tagName, message),
-  pushTag: (tagName) => gitIntegration.pushTag(tagName),
-  createRollbackPoint: (message) => gitIntegration.createRollbackPoint(message),
-  rollbackTo: (rollbackPointId) => gitIntegration.rollbackTo(rollbackPointId),
-  rollbackToLatest: () => gitIntegration.rollbackToLatest(),
-  getRollbackPoints: () => gitIntegration.getRollbackPoints(),
-  autoCommit: () => gitIntegration.autoCommit(),
-  startAutoCommit: () => gitIntegration.startAutoCommit(),
-  generateVersionReport: () => gitIntegration.generateVersionReport(),
-  checkBranchStrategy: () => gitIntegration.checkBranchStrategy(),
-  cleanupOldBranches: (daysOld) => gitIntegration.cleanupOldBranches(daysOld),
-  syncRemote: () => gitIntegration.syncRemote(),
-  checkGitStatus: () => gitIntegration.checkGitStatus(),
-  configure: (config) => gitIntegration.configure(config),
-  getConfig: () => gitIntegration.getConfig()
+  gitIntegration
 };
-
-// 示例用法
-if (require.main === module) {
-  const git = gitIntegration;
-
-  console.log('=== Git集成测试 ===');
-  
-  // 初始化仓库
-  git.initRepository();
-  
-  // 检查状态
-  console.log('\n=== 检查Git状态 ===');
-  const status = git.checkGitStatus();
-  console.log('状态:', status);
-  
-  // 检查分支策略
-  console.log('\n=== 检查分支策略 ===');
-  const branchStrategy = git.checkBranchStrategy();
-  console.log('分支策略:', branchStrategy);
-  
-  // 生成版本报告
-  console.log('\n=== 生成版本报告 ===');
-  const versionReport = git.generateVersionReport();
-  console.log('版本报告:', JSON.stringify(versionReport, null, 2));
-  
-  // 创建回滚点
-  console.log('\n=== 创建回滚点 ===');
-  const rollbackPoint = git.createRollbackPoint('测试回滚点');
-  console.log('回滚点:', rollbackPoint);
-  
-  // 获取回滚点列表
-  console.log('\n=== 获取回滚点列表 ===');
-  const rollbackPoints = git.getRollbackPoints();
-  console.log('回滚点列表:', rollbackPoints);
-  
-  console.log('\n=== Git集成测试完成 ===');
-}

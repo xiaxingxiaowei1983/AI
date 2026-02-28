@@ -1,8 +1,6 @@
 /**
  * PCEC 监控系统
- * 跟踪进化进度和效果
- * 实现进化指标收集、实时监控和异常检测
- */
+ * 跟踪进化进度和效�? * 实现进化指标收集、实时监控和异常检�? */
 
 const fs = require('fs');
 const path = require('path');
@@ -15,9 +13,7 @@ class PCECMonitoringSystem {
       dashboardDir: config.dashboardDir || path.join(__dirname, '..', 'data', 'dashboard'),
       alertsDir: config.alertsDir || path.join(__dirname, '..', 'data', 'alerts'),
       logFile: config.logFile || path.join(__dirname, '..', '..', '..', 'logs', 'pcec-monitoring.log'),
-      metricsInterval: config.metricsInterval || 5 * 60 * 1000, // 5分钟收集一次指标
-      alertCheckInterval: config.alertCheckInterval || 1 * 60 * 1000, // 1分钟检查一次警报
-      dashboardUpdateInterval: config.dashboardUpdateInterval || 15 * 60 * 1000, // 15分钟更新一次仪表板
+      metricsInterval: config.metricsInterval || 5 * 60 * 1000, // 5分钟收集一次指�?      alertCheckInterval: config.alertCheckInterval || 1 * 60 * 1000, // 1分钟检查一次警�?      dashboardUpdateInterval: config.dashboardUpdateInterval || 15 * 60 * 1000, // 15分钟更新一次仪表板
       ...config
     };
     
@@ -54,10 +50,8 @@ class PCECMonitoringSystem {
     fs.appendFileSync(this.config.logFile, logMessage + '\n', { flag: 'a' });
   }
   
-  // 启动监控调度器
-  startMonitoringSchedulers() {
-    // 指标收集调度器
-    setInterval(() => {
+  // 启动监控调度�?  startMonitoringSchedulers() {
+    // 指标收集调度�?    setInterval(() => {
       this.collectMetrics();
     }, this.config.metricsInterval);
     
@@ -74,8 +68,7 @@ class PCECMonitoringSystem {
     this.log(`Monitoring schedulers started: metrics=${this.config.metricsInterval}ms, alerts=${this.config.alertCheckInterval}ms, dashboard=${this.config.dashboardUpdateInterval}ms`);
   }
   
-  // 初始化指标
-  initializeMetrics() {
+  // 初始化指�?  initializeMetrics() {
     try {
       const metricsPath = path.join(this.config.metricsDir, 'initial-metrics.json');
       if (!fs.existsSync(metricsPath)) {
@@ -115,10 +108,8 @@ class PCECMonitoringSystem {
   
   // 获取 CPU 使用率（简化实现）
   getCPUUsage() {
-    // 在实际环境中，应该使用更准确的 CPU 使用率计算方法
-    return {
-      usage: Math.random() * 30 + 5, // 模拟 5-35% 的 CPU 使用率
-      cores: require('os').cpus().length
+    // 在实际环境中，应该使用更准确�?CPU 使用率计算方�?    return {
+      usage: Math.random() * 30 + 5, // 模拟 5-35% �?CPU 使用�?      cores: require('os').cpus().length
     };
   }
   
@@ -157,8 +148,7 @@ class PCECMonitoringSystem {
       const stats = fs.statSync(__dirname);
       return {
         free: 100000000000, // 模拟 100GB 可用空间
-        total: 200000000000, // 模拟 200GB 总空间
-        used: 100000000000 // 模拟 100GB 使用空间
+        total: 200000000000, // 模拟 200GB 总空�?        used: 100000000000 // 模拟 100GB 使用空间
       };
     } catch (error) {
       return {
@@ -172,8 +162,7 @@ class PCECMonitoringSystem {
   // 收集 PCEC 指标
   collectPCECMetrics() {
     try {
-      // 读取 PCEC 状态文件
-      const statusPath = path.join(__dirname, '..', '..', '..', 'skills', 'capability-evolver', 'data', 'pcec-status.json');
+      // 读取 PCEC 状态文�?      const statusPath = path.join(__dirname, '..', '..', '..', 'skills', 'capability-evolver', 'data', 'pcec-status.json');
       let status = { currentCycle: 0, evolutionCount: 0, consecutiveNonSubstantialCycles: 0 };
       
       if (fs.existsSync(statusPath)) {
@@ -201,8 +190,7 @@ class PCECMonitoringSystem {
     }
   }
   
-  // 统计实质性进化数量
-  countSubstantialEvolutions() {
+  // 统计实质性进化数�?  countSubstantialEvolutions() {
     try {
       const tasksPath = path.join(__dirname, '..', '..', '..', 'skills', 'capability-evolver', 'data', 'pcec-status.json');
       if (fs.existsSync(tasksPath)) {
@@ -240,8 +228,7 @@ class PCECMonitoringSystem {
                 byLevel[capability.level] = (byLevel[capability.level] || 0) + 1;
               }
             } catch (error) {
-              // 忽略错误的能力文件
-            }
+              // 忽略错误的能力文�?            }
           }
         });
       }
@@ -272,13 +259,11 @@ class PCECMonitoringSystem {
           try {
             const metricPath = path.join(this.config.metricsDir, file);
             const metric = JSON.parse(fs.readFileSync(metricPath, 'utf8'));
-            // 只考虑最近1小时的指标
-            if (Date.now() - metric.timestamp < 60 * 60 * 1000) {
+            // 只考虑最�?小时的指�?            if (Date.now() - metric.timestamp < 60 * 60 * 1000) {
               recentMetrics.push(metric);
             }
           } catch (error) {
-            // 忽略错误的指标文件
-          }
+            // 忽略错误的指标文�?          }
         }
       });
       
@@ -325,7 +310,7 @@ class PCECMonitoringSystem {
       }
       
       const recentEvolutions = evolutionHistory.filter(e => 
-        Date.now() - e.timestamp < 24 * 60 * 60 * 1000 // 最近24小时
+        Date.now() - e.timestamp < 24 * 60 * 60 * 1000 // 最�?4小时
       );
       
       const evolutionTypes = {};
@@ -370,14 +355,12 @@ class PCECMonitoringSystem {
     return 'stable';
   }
   
-  // 检查警报
-  checkAlerts() {
+  // 检查警�?  checkAlerts() {
     try {
       const metrics = this.collectMetrics();
       const alerts = [];
       
-      // 检查系统资源警报
-      if (metrics.system.cpu.usage > 80) {
+      // 检查系统资源警�?      if (metrics.system.cpu.usage > 80) {
         alerts.push({
           id: `alert-${Date.now()}-cpu`,
           type: 'system',
@@ -399,7 +382,7 @@ class PCECMonitoringSystem {
         });
       }
       
-      // 检查 PCEC 警报
+      // 检�?PCEC 警报
       if (metrics.pcec.failedCycles > 3) {
         alerts.push({
           id: `alert-${Date.now()}-pcec-failures`,
@@ -422,8 +405,7 @@ class PCECMonitoringSystem {
         });
       }
       
-      // 检查进化警报
-      if (metrics.evolution.recentEvolutions === 0 && metrics.pcec.cycles > 0) {
+      // 检查进化警�?      if (metrics.evolution.recentEvolutions === 0 && metrics.pcec.cycles > 0) {
         alerts.push({
           id: `alert-${Date.now()}-evolution-stopped`,
           type: 'evolution',
@@ -480,8 +462,7 @@ class PCECMonitoringSystem {
               cleanedCount++;
             }
           } catch (error) {
-            // 忽略错误的警报文件
-          }
+            // 忽略错误的警报文�?          }
         }
       });
       
@@ -493,8 +474,7 @@ class PCECMonitoringSystem {
     }
   }
   
-  // 更新仪表板
-  updateDashboard() {
+  // 更新仪表�?  updateDashboard() {
     try {
       const metrics = this.collectMetrics();
       const alerts = this.getCurrentAlerts();
@@ -550,13 +530,11 @@ class PCECMonitoringSystem {
               alerts.push(alert);
             }
           } catch (error) {
-            // 忽略错误的警报文件
-          }
+            // 忽略错误的警报文�?          }
         }
       });
       
-      // 按严重程度排序
-      alerts.sort((a, b) => {
+      // 按严重程度排�?      alerts.sort((a, b) => {
         const severityOrder = { low: 1, medium: 2, high: 3 };
         return severityOrder[b.severity] - severityOrder[a.severity];
       });
@@ -567,16 +545,14 @@ class PCECMonitoringSystem {
     }
   }
   
-  // 获取系统状态
-  getSystemStatus(systemMetrics) {
+  // 获取系统状�?  getSystemStatus(systemMetrics) {
     if (systemMetrics.cpu.usage > 80) return 'critical';
     if (systemMetrics.cpu.usage > 60) return 'warning';
     if (systemMetrics.memory.heapUsed / systemMetrics.memory.heapTotal > 0.9) return 'warning';
     return 'healthy';
   }
   
-  // 获取进化状态
-  getEvolutionStatus(evolutionMetrics) {
+  // 获取进化状�?  getEvolutionStatus(evolutionMetrics) {
     if (evolutionMetrics.evolutionTrend === 'declining') return 'critical';
     if (evolutionMetrics.recentEvolutions === 0) return 'warning';
     if (evolutionMetrics.evolutionTrend === 'improving') return 'excellent';
@@ -596,15 +572,13 @@ class PCECMonitoringSystem {
             const metric = JSON.parse(fs.readFileSync(metricPath, 'utf8'));
             metrics.push(metric);
           } catch (error) {
-            // 忽略错误的指标文件
-          }
+            // 忽略错误的指标文�?          }
         }
       });
       
       if (metrics.length < 5) return 'insufficient_data';
       
-      // 按时间排序
-      metrics.sort((a, b) => a.timestamp - b.timestamp);
+      // 按时间排�?      metrics.sort((a, b) => a.timestamp - b.timestamp);
       
       // 计算性能趋势
       const recent = metrics.slice(-3);
@@ -634,15 +608,13 @@ class PCECMonitoringSystem {
             const metric = JSON.parse(fs.readFileSync(metricPath, 'utf8'));
             metrics.push(metric);
           } catch (error) {
-            // 忽略错误的指标文件
-          }
+            // 忽略错误的指标文�?          }
         }
       });
       
       if (metrics.length < 5) return 'insufficient_data';
       
-      // 按时间排序
-      metrics.sort((a, b) => a.timestamp - b.timestamp);
+      // 按时间排�?      metrics.sort((a, b) => a.timestamp - b.timestamp);
       
       // 计算资源使用趋势
       const recent = metrics.slice(-3);
@@ -729,8 +701,7 @@ class PCECMonitoringSystem {
     return recommendations;
   }
   
-  // 获取监控状态
-  getStatus() {
+  // 获取监控状�?  getStatus() {
     try {
       const metrics = this.collectMetrics();
       const alerts = this.getCurrentAlerts();
@@ -773,8 +744,7 @@ class PCECMonitoringSystem {
     }
   }
   
-  // 清理旧指标
-  cleanupOldMetrics(daysToKeep = 7) {
+  // 清理旧指�?  cleanupOldMetrics(daysToKeep = 7) {
     try {
       const cutoffTime = Date.now() - (daysToKeep * 24 * 60 * 60 * 1000);
       const files = fs.readdirSync(this.config.metricsDir);
@@ -790,8 +760,7 @@ class PCECMonitoringSystem {
               deletedCount++;
             }
           } catch (error) {
-            // 忽略错误的指标文件
-          }
+            // 忽略错误的指标文�?          }
         }
       });
       

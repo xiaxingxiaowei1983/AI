@@ -26,9 +26,12 @@ if (mode === 'doubao' && !process.env.DOUBAO_API_KEY) {
 
 // 第四步：自动启动对应网关（无需手动敲网关命令）
 console.log(`🚀 正在启动OpenClaw网关（${mode}模式）...`);
-const gatewayCommand = mode === "trea"  
-  ? "npx openclaw gateway --port 18789"  
-  : "npx openclaw gateway --port 18789";
+// 复制对应配置文件到默认位置
+const defaultConfigPath = path.join(__dirname, './openclaw.json');
+fs.copyFileSync(configMap[mode], defaultConfigPath);
+console.log(`📄 已复制配置文件到默认位置: ${defaultConfigPath}`);
+
+const gatewayCommand = "npx openclaw gateway --port 18789";
 
 // 执行网关启动命令
 const gatewayProcess = exec(gatewayCommand);

@@ -43,14 +43,15 @@ class CapabilityTreeTestSuite {
     // 测试1: 验证能力树初始化
     try {
       const status = capabilityTree.getStatus();
-      this.recordTestResult('能力树初始化验证', status.totalNodes > 0, `总节点数: ${status.totalNodes}`);
+      this.recordTestResult('能力树初始化验证', status.statistics.totalNodes > 0, `总节点数: ${status.statistics.totalNodes}`);
     } catch (error) {
       this.recordTestResult('能力树初始化验证', false, error.message);
     }
 
     // 测试2: 测试添加能力节点
     try {
-      const newNode = capabilityTree.addNode('测试能力', 2, null, {
+      const rootNode = capabilityTree.getAllNodes()[0];
+      const newNode = capabilityTree.addNode('测试能力', 2, rootNode.id, {
         inputs: ['测试输入'],
         outputs: ['测试输出'],
         prerequisites: ['测试前提'],
@@ -63,7 +64,7 @@ class CapabilityTreeTestSuite {
 
     // 测试3: 测试定位任务路径
     try {
-      const paths = capabilityTree.locateTaskPath('测试能力');
+      const paths = capabilityTree.locateTaskPath('文件操作');
       this.recordTestResult('定位任务路径测试', paths.length > 0, `找到 ${paths.length} 个路径`);
     } catch (error) {
       this.recordTestResult('定位任务路径测试', false, error.message);

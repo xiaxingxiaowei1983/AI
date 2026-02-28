@@ -24,7 +24,7 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: '营造 (Production)',
+    name: '天火 (Production)',
     role: '生产引擎与技术骨干 (CTO)',
     status: 'working',
     currentTask: '开发记忆库与Convex数据库集成',

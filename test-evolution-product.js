@@ -1,45 +1,49 @@
 // Test evolution product generation functionality
 const fs = require('fs');
 const path = require('path');
+const { PCECSystem } = require('./pcec-cycle.js');
 
-// Read pcec-cycle.js file content
-const pcecCycleContent = fs.readFileSync(path.join(__dirname, 'pcec-cycle.js'), 'utf8');
-
-// Extract generateEvolutionProduct function
-const functionMatch = pcecCycleContent.match(/function generateEvolutionProduct\(\) \{[\s\S]*?\}/);
-
-if (functionMatch) {
-  // Create a temporary test file
-  const testContent = `
-${functionMatch[0]}
-
-// Test generating evolution products
+// Create a test for evolution product generation
 console.log('=== Testing Evolution Product Generation ===');
-for (let i = 0; i < 5; i++) {
-  const product = generateEvolutionProduct();
-  console.log(`Product ${i + 1}: ${product.type} - ${product.name || product.condition}`);
-  console.log('  Details:', JSON.stringify(product, null, 2));
-  console.log('---');
-}
-console.log('=== Test Completed ===');
-`;
 
-  fs.writeFileSync(path.join(__dirname, 'temp-test-product.js'), testContent);
-
-  // Run test
-  console.log('Running evolution product generation test...');
-  const { execSync } = require('child_process');
+// Test the evolution system by executing a single evolution cycle
+function testEvolutionProducts() {
   try {
-    const output = execSync('node temp-test-product.js', { encoding: 'utf8' });
-    console.log(output);
+    // Create a new PCEC system instance
+    const testSystem = new PCECSystem();
+    
+    console.log('Testing PCECSystem evolution product generation...');
+    
+    // Check system status
+    const systemStatus = testSystem._checkSystemStatus();
+    console.log('System Status:', systemStatus.healthy ? 'Healthy' : 'Unhealthy');
+    
+    // Analyze capability tree
+    const treeAnalysis = testSystem._analyzeCapabilityTree();
+    console.log('Capability Tree Analysis:', treeAnalysis);
+    
+    // Identify evolution opportunities
+    const opportunities = testSystem._identifyEvolutionOpportunities(treeAnalysis);
+    console.log('Evolution Opportunities:', opportunities.length);
+    
+    // Execute evolution opportunities
+    const products = testSystem._executeEvolutionOpportunities(opportunities);
+    console.log('Evolution Products Generated:', products.length);
+    
+    // Display products
+    products.forEach((product, index) => {
+      console.log('\nProduct ' + (index + 1) + ':');
+      console.log('  Type:', product.type);
+      console.log('  Description:', product.description);
+      if (product.details) {
+        console.log('  Details:', product.details);
+      }
+    });
+    
+    console.log('\n=== Test Completed Successfully ===');
   } catch (error) {
     console.error('Test failed:', error.message);
-  } finally {
-    // Clean up temporary file
-    if (fs.existsSync(path.join(__dirname, 'temp-test-product.js'))) {
-      fs.unlinkSync(path.join(__dirname, 'temp-test-product.js'));
-    }
   }
-} else {
-  console.error('Could not find generateEvolutionProduct function');
 }
+
+testEvolutionProducts();

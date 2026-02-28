@@ -20,6 +20,9 @@ class KnowledgeBase {
     this.knowledgeItems = [];
     this.index = {};
     this.initialized = false;
+    this.contextHistory = []; // 上下文历史记录
+    this.usageHistory = []; // 使用历史记录
+    this.relationships = {}; // 知识关联
   }
 
   /**
@@ -195,6 +198,18 @@ class KnowledgeBase {
     const indexPath = path.join(KNOWLEDGE_BASE_DIR, 'index.json');
     fs.writeFileSync(indexPath, JSON.stringify(this.index, null, 2));
 
+    // 保存上下文历史
+    const contextPath = path.join(KNOWLEDGE_BASE_DIR, 'context-history.json');
+    fs.writeFileSync(contextPath, JSON.stringify(this.contextHistory, null, 2));
+
+    // 保存使用历史
+    const usagePath = path.join(KNOWLEDGE_BASE_DIR, 'usage-history.json');
+    fs.writeFileSync(usagePath, JSON.stringify(this.usageHistory, null, 2));
+
+    // 保存知识关联
+    const relationshipsPath = path.join(KNOWLEDGE_BASE_DIR, 'relationships.json');
+    fs.writeFileSync(relationshipsPath, JSON.stringify(this.relationships, null, 2));
+
     console.log(`知识库已保存到: ${KNOWLEDGE_BASE_DIR}`);
   }
 
@@ -204,6 +219,9 @@ class KnowledgeBase {
   loadKnowledgeBase() {
     const knowledgePath = path.join(KNOWLEDGE_BASE_DIR, 'knowledge-items.json');
     const indexPath = path.join(KNOWLEDGE_BASE_DIR, 'index.json');
+    const contextPath = path.join(KNOWLEDGE_BASE_DIR, 'context-history.json');
+    const usagePath = path.join(KNOWLEDGE_BASE_DIR, 'usage-history.json');
+    const relationshipsPath = path.join(KNOWLEDGE_BASE_DIR, 'relationships.json');
 
     if (fs.existsSync(knowledgePath)) {
       this.knowledgeItems = JSON.parse(fs.readFileSync(knowledgePath, 'utf8'));
@@ -213,8 +231,23 @@ class KnowledgeBase {
       this.index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
     }
 
+    if (fs.existsSync(contextPath)) {
+      this.contextHistory = JSON.parse(fs.readFileSync(contextPath, 'utf8'));
+    }
+
+    if (fs.existsSync(usagePath)) {
+      this.usageHistory = JSON.parse(fs.readFileSync(usagePath, 'utf8'));
+    }
+
+    if (fs.existsSync(relationshipsPath)) {
+      this.relationships = JSON.parse(fs.readFileSync(relationshipsPath, 'utf8'));
+    }
+
     this.initialized = true;
     console.log(`从磁盘加载知识库，包含 ${this.knowledgeItems.length} 个知识条目`);
+    console.log(`包含 ${this.contextHistory.length} 条上下文记录`);
+    console.log(`包含 ${this.usageHistory.length} 条使用记录`);
+    console.log(`包含 ${Object.keys(this.relationships).length} 个知识关联`);
   }
 
   /**
@@ -526,6 +559,204 @@ class KnowledgeBase {
   }
 
   /**
+   * 记录上下文
+   */
+  recordContext(context) {
+    if (!this.initialized) {
+      console.error('知识库未初始化，请先调用 initialize()');
+      return null;
+    }
+
+    const contextRecord = {
+      id: `context_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      ...context,
+      timestamp: new Date().toISOString()
+    };
+
+    this.contextHistory.push(contextRecord);
+
+    // 限制上下文历史长度
+    if (this.contextHistory.length > 1000) {
+      this.contextHistory = this.contextHistory.slice(-1000);
+    }
+
+    // 保存知识库
+    this.saveKnowledgeBase();
+
+    return contextRecord;
+  }
+
+  /**
+   * 记录知识使用
+   */
+  recordKnowledgeUsage(knowledgeId, usageContext) {
+    if (!this.initialized) {
+      console.error('知识库未初始化，请先调用 initialize()');
+      return null;
+    }
+
+    const usageRecord = {
+      id: `usage_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      knowledgeId,
+      ...usageContext,
+      timestamp: new Date().toISOString()
+    };
+
+    this.usageHistory.push(usageRecord);
+
+    // 限制使用历史长度
+    if (this.usageHistory.length > 1000) {
+      this.usageHistory = this.usageHistory.slice(-1000);
+    }
+
+    // 保存知识库
+    this.saveKnowledgeBase();
+
+    return usageRecord;
+  }
+
+  /**
+   * 添加知识关联
+   */
+  addRelationship(sourceId, targetId, relationshipType) {
+    if (!this.initialized) {
+      console.error('知识库未初始化，请先调用 initialize()');
+      return false;
+    }
+
+    if (!this.relationships[sourceId]) {
+      this.relationships[sourceId] = [];
+    }
+
+    const relationship = {
+      targetId,
+      type: relationshipType,
+      createdAt: new Date().toISOString()
+    };
+
+    this.relationships[sourceId].push(relationship);
+
+    // 保存知识库
+    this.saveKnowledgeBase();
+
+    return true;
+  }
+
+  /**
+   * 获取相关知识
+   */
+  getRelatedKnowledge(knowledgeId, limit = 5) {
+    if (!this.initialized) {
+      console.error('知识库未初始化，请先调用 initialize()');
+      return [];
+    }
+
+    const relatedIds = new Set();
+
+    // 从关联中获取相关知识
+    if (this.relationships[knowledgeId]) {
+      this.relationships[knowledgeId].forEach(rel => {
+        relatedIds.add(rel.targetId);
+      });
+    }
+
+    // 获取相关知识条目
+    const relatedKnowledge = Array.from(relatedIds).map(id => {
+      return this.knowledgeItems.find(item => item.id === id);
+    }).filter(item => item !== undefined);
+
+    return relatedKnowledge.slice(0, limit);
+  }
+
+  /**
+   * 推荐知识
+   */
+  recommendKnowledge(context, limit = 5) {
+    if (!this.initialized) {
+      console.error('知识库未初始化，请先调用 initialize()');
+      return [];
+    }
+
+    const { query, userContext, recentKnowledge } = context;
+
+    // 基于查询的推荐
+    let recommendations = [];
+
+    if (query) {
+      recommendations = this.search(query, { limit: limit * 2 });
+    }
+
+    // 基于上下文的推荐
+    if (userContext) {
+      const contextTerms = this.extractKeywords(userContext);
+      contextTerms.forEach(term => {
+        const contextResults = this.search(term, { limit: 3 });
+        contextResults.forEach(result => {
+          if (!recommendations.find(r => r.id === result.id)) {
+            recommendations.push(result);
+          }
+        });
+      });
+    }
+
+    // 基于最近使用的推荐
+    if (recentKnowledge && recentKnowledge.length > 0) {
+      recentKnowledge.forEach(knowledgeId => {
+        const related = this.getRelatedKnowledge(knowledgeId, 2);
+        related.forEach(result => {
+          if (!recommendations.find(r => r.id === result.id)) {
+            recommendations.push(result);
+          }
+        });
+      });
+    }
+
+    // 排序和去重
+    recommendations = [...new Map(recommendations.map(item => [item.id, item])).values()];
+    recommendations.sort((a, b) => {
+      const scoreA = this.calculateRelevanceScore(a, query ? this.extractKeywords(query) : []);
+      const scoreB = this.calculateRelevanceScore(b, query ? this.extractKeywords(query) : []);
+      return scoreB - scoreA;
+    });
+
+    return recommendations.slice(0, limit);
+  }
+
+  /**
+   * 增强搜索，考虑上下文
+   */
+  enhancedSearch(query, options = {}) {
+    if (!this.initialized) {
+      console.error('知识库未初始化，请先调用 initialize()');
+      return [];
+    }
+
+    const { context, limit = 10 } = options;
+
+    // 基础搜索
+    let results = this.search(query, options);
+
+    // 基于上下文的增强
+    if (context) {
+      const contextResults = this.recommendKnowledge({ query, ...context }, limit);
+      contextResults.forEach(result => {
+        if (!results.find(r => r.id === result.id)) {
+          results.push(result);
+        }
+      });
+    }
+
+    // 重新排序
+    results.sort((a, b) => {
+      const scoreA = this.calculateRelevanceScore(a, this.extractKeywords(query));
+      const scoreB = this.calculateRelevanceScore(b, this.extractKeywords(query));
+      return scoreB - scoreA;
+    });
+
+    return results.slice(0, limit);
+  }
+
+  /**
    * 与AI代理系统集成
    */
   integrateWithAgentSystem(agentManager) {
@@ -539,6 +770,11 @@ class KnowledgeBase {
     // 为代理系统添加知识库访问方法
     agentManager.getKnowledgeBase = () => this;
     agentManager.searchKnowledge = (query, options) => this.search(query, options);
+    agentManager.enhancedSearchKnowledge = (query, options) => this.enhancedSearch(query, options);
+    agentManager.recommendKnowledge = (context, limit) => this.recommendKnowledge(context, limit);
+    agentManager.recordKnowledgeContext = (context) => this.recordContext(context);
+    agentManager.recordKnowledgeUsage = (knowledgeId, usageContext) => this.recordKnowledgeUsage(knowledgeId, usageContext);
+    agentManager.getRelatedKnowledge = (knowledgeId, limit) => this.getRelatedKnowledge(knowledgeId, limit);
     agentManager.getKnowledgeStatistics = () => this.getStatistics();
 
     console.log('知识库与AI代理系统集成成功');

@@ -72,5 +72,9 @@ def create_bot(bot_type):
         from bot.modelscope.modelscope_bot import ModelScopeBot
         return ModelScopeBot()
 
+    elif bot_type == const.VOLCENGINE:
+        from bot.volcengine.volcengine_bot import VolcengineBot
+        return VolcengineBot()
+
 
     raise RuntimeError
