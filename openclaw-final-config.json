@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.24",
+    "lastTouchedAt": "2026-02-27T08:08:58.215Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-27T07:44:51.636Z",
+    "lastRunVersion": "2026.2.24",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "trea": {
+      "enabled": true,
+      "useInternalModel": true
+    },
+    "providers": {
+      "custom-doubao": {
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+        "apiKey": "c13b2982-0aab-4c75-9404-0deb12a219ec",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "ep-20260225031720-mp6fh",
+            "name": "Doubao-Seed-Code"
+          },
+          {
+            "id": "ep-20260225031321-nvprc",
+            "name": "Doubao Pro Custom"
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": "trea-internal"
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "大宗师",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/master",
+        "model": "custom-doubao/ep-20260225031720-mp6fh"
+      },
+      {
+        "id": "coo",
+        "name": "大掌柜",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/coo",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/coo"
+      },
+      {
+        "id": "green-tea",
+        "name": "碧莲",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/bilian",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/bilian"
+      },
+      {
+        "id": "business",
+        "name": "谛听",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/business",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/business"
+      },
+      {
+        "id": "life",
+        "name": "人生决策宗师",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/life",
+        "agentDir": "C:/Users/10919/Desktop/AI/agents/life"
+      }
+    ]
+  },
+  "agentCommunication": {
+    "enabled": true,
+    "permissions": {
+      "main": {
+        "canCommand": ["coo", "green-tea", "business", "life"],
+        "canForwardTo": ["feishu:核心管理群", "discord:大宗师频道"]
+      },
+      "coo": {
+        "canCommand": ["green-tea", "business", "life"],
+        "canForwardTo": ["feishu:大掌柜频道", "discord:运营频道"]
+      }
+    }
+  },
+  "bindings": [
+    {
+      "match": {
+        "channel": "feishu",
+        "chatType": "group",
+        "groupName": "大宗师群"
+      },
+      "route": {
+        "agent": "main"
+      }
+    },
+    {
+      "match": {
+        "channel": "feishu",
+        "chatType": "group",
+        "groupName": "大掌柜群"
+      },
+      "route": {
+        "agent": "coo"
+      }
+    },
+    {
+      "match": {
+        "channel": "discord",
+        "channelName": "大宗师频道"
+      },
+      "route": {
+        "agent": "main"
+      }
+    },
+    {
+      "match": {
+        "channel": "discord",
+        "channelId": "1234567890"
+      },
+      "route": {
+        "agent": "coo"
+      }
+    },
+    {
+      "match": {
+        "channel": "discord",
+        "channelId": "0987654321"
+      },
+      "route": {
+        "agent": "business"
+      }
+    }
+  ],
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "mode": "websocket",
+      "dmPolicy": "open",
+      "allowFrom": [
+        "*"
+      ],
+      "accounts": {
+        "main": {
+          "appId": "cli_a91012cd0ab89bc9",
+          "appSecret": "W2dl8mRwy7ArghhqZSp9heG8i3I2FVP5"
+        }
+      }
+    },
+    "discord": {
+      "enabled": true,
+      "botToken": "${DISCORD_BOT_TOKEN}",
+      "guildId": "${DISCORD_GUILD_ID}",
+      "channels": {
+        "大宗师频道": "大宗师频道-ID",
+        "运营频道": "1234567890",
+        "技术频道": "0987654321"
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "2e47ede43dbd73de7ae4a2556ba69260427d1269e8878da"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "discord": {
+        "enabled": true
+      }
+    }
+  }
+}

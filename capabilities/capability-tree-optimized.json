@@ -1,0 +1,186 @@
+{
+  "version": "1.0.0",
+  "timestamp": 1771967642121,
+  "root": {
+    "id": "cap_1771967642107_lsqeevttu",
+    "name": "能力树根部",
+    "level": 0,
+    "parentId": null,
+    "children": [
+      {
+        "id": "cap_1771967642118_6kogio69q",
+        "name": "智能错误恢复",
+        "level": 2,
+        "parentId": "cap_1771967642107_lsqeevttu",
+        "children": [],
+        "inputs": [
+          "错误信息",
+          "错误类型",
+          "上下文信息"
+        ],
+        "outputs": [
+          "错误分析",
+          "修复建议",
+          "自动修复结果"
+        ],
+        "prerequisites": [
+          "错误信息完整",
+          "上下文信息可用"
+        ],
+        "failureBoundaries": [
+          "错误信息不完整",
+          "无法识别的错误类型",
+          "修复失败"
+        ],
+        "usageCount": 0,
+        "lastUsed": null,
+        "status": "ACTIVE",
+        "createdAt": 1771967642119,
+        "updatedAt": 1771967642119,
+        "type": "process",
+        "valueScore": 0,
+        "keywords": [
+          "错误",
+          "恢复",
+          "修复",
+          "诊断"
+        ],
+        "description": "智能检测和恢复系统错误，提高系统稳定性和可靠性"
+      },
+      {
+        "id": "cap_1771967642119_r4827632o",
+        "name": "资源管理",
+        "level": 2,
+        "parentId": "cap_1771967642107_lsqeevttu",
+        "children": [],
+        "inputs": [
+          "资源类型",
+          "使用情况",
+          "优化目标"
+        ],
+        "outputs": [
+          "资源分析",
+          "优化方案",
+          "实施结果"
+        ],
+        "prerequisites": [
+          "资源使用数据完整",
+          "优化目标明确"
+        ],
+        "failureBoundaries": [
+          "资源使用数据不完整",
+          "优化目标不明确",
+          "优化失败"
+        ],
+        "usageCount": 0,
+        "lastUsed": null,
+        "status": "ACTIVE",
+        "createdAt": 1771967642119,
+        "updatedAt": 1771967642119,
+        "type": "process",
+        "valueScore": 0,
+        "keywords": [
+          "资源",
+          "优化",
+          "管理",
+          "分配"
+        ],
+        "description": "智能管理系统资源，优化资源分配和使用"
+      },
+      {
+        "id": "cap_1771967642120_qd623cgxm",
+        "name": "系统集成",
+        "level": 2,
+        "parentId": "cap_1771967642107_lsqeevttu",
+        "children": [],
+        "inputs": [
+          "系统组件",
+          "集成目标",
+          "约束条件"
+        ],
+        "outputs": [
+          "集成方案",
+          "实施步骤",
+          "测试结果"
+        ],
+        "prerequisites": [
+          "系统组件可用",
+          "集成目标明确"
+        ],
+        "failureBoundaries": [
+          "系统组件不可用",
+          "集成目标不明确",
+          "集成失败"
+        ],
+        "usageCount": 0,
+        "lastUsed": null,
+        "status": "ACTIVE",
+        "createdAt": 1771967642120,
+        "updatedAt": 1771967642120,
+        "type": "process",
+        "valueScore": 0,
+        "keywords": [
+          "系统",
+          "集成",
+          "组件",
+          "接口"
+        ],
+        "description": "优化系统组件集成，提高系统整体效率"
+      }
+    ],
+    "inputs": [],
+    "outputs": [],
+    "prerequisites": [],
+    "failureBoundaries": [],
+    "usageCount": 0,
+    "lastUsed": null,
+    "status": "ACTIVE",
+    "createdAt": 1771967642107,
+    "updatedAt": 1771967642120,
+    "type": "general",
+    "valueScore": 0,
+    "keywords": [],
+    "description": ""
+  },
+  "statistics": {
+    "totalNodes": 4,
+    "activeNodes": 4,
+    "nodesByLevel": {
+      "0": 1,
+      "1": 0,
+      "2": 3,
+      "3": 0
+    },
+    "nodesByType": {
+      "general": 1,
+      "process": 3
+    },
+    "usageStats": {
+      "totalUsage": 0,
+      "averageUsage": 0,
+      "maxUsage": 0,
+      "activeUsageNodes": 0
+    }
+  },
+  "evaluationHistory": [
+    {
+      "timestamp": 1771967642113,
+      "totalNodes": 11,
+      "activeNodes": 11,
+      "nodesByLevel": {
+        "0": 1,
+        "1": 4,
+        "2": 3,
+        "3": 3
+      },
+      "balanceScore": 0.7666666666666667,
+      "usageEfficiency": 0,
+      "nodeCompleteness": 1,
+      "healthScore": 0.53,
+      "recommendations": [
+        "能力使用效率低，建议优化高频能力，修剪低频能力",
+        "能力树健康度低，建议进行全面优化"
+      ]
+    }
+  ]
+}

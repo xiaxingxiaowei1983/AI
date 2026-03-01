@@ -1,0 +1,4989 @@
+{
+  "summary": {
+    "totalTests": 200,
+    "passed": 200,
+    "failed": 0,
+    "errors": 0,
+    "successRate": "100.00%",
+    "testDate": "2026-02-25T14:58:05.333Z",
+    "timeRange": "1950-2050"
+  },
+  "typeStats": {
+    "年代覆盖": {
+      "total": 110,
+      "passed": 110,
+      "failed": 0,
+      "errors": 0
+    },
+    "特殊日期": {
+      "total": 28,
+      "passed": 28,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 子时开始": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 子时结束": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 丑时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 丑时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 寅时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 寅时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 卯时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 卯时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 辰时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 辰时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 巳时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 巳时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 午时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 午时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 未时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 未时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 申时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 申时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 酉时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 酉时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 戌时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 戌时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 亥时开始": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "时辰边界 - 亥时结束": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日子时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日丑时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日寅时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日卯时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日辰时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日巳时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日午时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日未时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日申时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日酉时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日戌时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 甲日亥时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日子时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日丑时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日寅时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日卯时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日辰时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日巳时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日午时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日未时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日申时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日酉时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日戌时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 乙日亥时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日子时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日丑时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日寅时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日卯时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日辰时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日巳时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日午时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日未时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日申时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日酉时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日戌时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "五鼠遁规则 - 丙日亥时": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    }
+  },
+  "details": [
+    {
+      "testIndex": 1,
+      "date": "1958-09-04 14:14",
+      "type": "年代覆盖",
+      "year": "戊戌",
+      "month": "庚申",
+      "day": "甲申",
+      "time": "辛未",
+      "baZi": "戊戌庚申甲申辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 2,
+      "date": "1955-12-27 02:50",
+      "type": "年代覆盖",
+      "year": "乙未",
+      "month": "丁亥",
+      "day": "壬戌",
+      "time": "辛丑",
+      "baZi": "乙未丁亥壬戌辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 3,
+      "date": "1952-11-03 23:57",
+      "type": "年代覆盖",
+      "year": "壬辰",
+      "month": "庚戌",
+      "day": "甲寅",
+      "time": "甲子",
+      "baZi": "壬辰庚戌甲寅甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 4,
+      "date": "1957-01-18 17:59",
+      "type": "年代覆盖",
+      "year": "丁酉",
+      "month": "壬子",
+      "day": "庚寅",
+      "time": "乙酉",
+      "baZi": "丁酉壬子庚寅乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 5,
+      "date": "1957-04-07 22:52",
+      "type": "年代覆盖",
+      "year": "丁酉",
+      "month": "癸卯",
+      "day": "己酉",
+      "time": "乙亥",
+      "baZi": "丁酉癸卯己酉乙亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 6,
+      "date": "1959-06-09 02:39",
+      "type": "年代覆盖",
+      "year": "己亥",
+      "month": "己巳",
+      "day": "壬戌",
+      "time": "辛丑",
+      "baZi": "己亥己巳壬戌辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 7,
+      "date": "1955-09-04 03:23",
+      "type": "年代覆盖",
+      "year": "乙未",
+      "month": "甲申",
+      "day": "戊辰",
+      "time": "甲寅",
+      "baZi": "乙未甲申戊辰甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 8,
+      "date": "1959-05-06 03:50",
+      "type": "年代覆盖",
+      "year": "己亥",
+      "month": "戊辰",
+      "day": "戊子",
+      "time": "甲寅",
+      "baZi": "己亥戊辰戊子甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 9,
+      "date": "1958-03-28 01:10",
+      "type": "年代覆盖",
+      "year": "戊戌",
+      "month": "甲寅",
+      "day": "甲辰",
+      "time": "乙丑",
+      "baZi": "戊戌甲寅甲辰乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 10,
+      "date": "1959-05-13 08:22",
+      "type": "年代覆盖",
+      "year": "己亥",
+      "month": "戊辰",
+      "day": "乙未",
+      "time": "庚辰",
+      "baZi": "己亥戊辰乙未庚辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 11,
+      "date": "1964-02-03 11:18",
+      "type": "年代覆盖",
+      "year": "甲辰",
+      "month": "丁丑",
+      "day": "壬午",
+      "time": "丙午",
+      "baZi": "甲辰丁丑壬午丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 12,
+      "date": "1968-03-04 07:10",
+      "type": "年代覆盖",
+      "year": "戊申",
+      "month": "甲寅",
+      "day": "癸酉",
+      "time": "丙辰",
+      "baZi": "戊申甲寅癸酉丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 13,
+      "date": "1966-12-17 19:36",
+      "type": "年代覆盖",
+      "year": "丙午",
+      "month": "己亥",
+      "day": "庚戌",
+      "time": "丙戌",
+      "baZi": "丙午己亥庚戌丙戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 14,
+      "date": "1964-12-28 01:21",
+      "type": "年代覆盖",
+      "year": "甲辰",
+      "month": "乙亥",
+      "day": "辛亥",
+      "time": "己丑",
+      "baZi": "甲辰乙亥辛亥己丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 15,
+      "date": "1960-01-28 00:59",
+      "type": "年代覆盖",
+      "year": "己亥",
+      "month": "丙子",
+      "day": "乙卯",
+      "time": "丙子",
+      "baZi": "己亥丙子乙卯丙子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 16,
+      "date": "1968-01-23 10:14",
+      "type": "年代覆盖",
+      "year": "戊申",
+      "month": "甲子",
+      "day": "壬辰",
+      "time": "乙巳",
+      "baZi": "戊申甲子壬辰乙巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 17,
+      "date": "1962-03-07 10:27",
+      "type": "年代覆盖",
+      "year": "壬寅",
+      "month": "壬寅",
+      "day": "甲辰",
+      "time": "己巳",
+      "baZi": "壬寅壬寅甲辰己巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 18,
+      "date": "1968-09-04 01:21",
+      "type": "年代覆盖",
+      "year": "戊申",
+      "month": "庚申",
+      "day": "丁丑",
+      "time": "辛丑",
+      "baZi": "戊申庚申丁丑辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 19,
+      "date": "1964-12-08 19:00",
+      "type": "年代覆盖",
+      "year": "甲辰",
+      "month": "乙亥",
+      "day": "辛卯",
+      "time": "戊戌",
+      "baZi": "甲辰乙亥辛卯戊戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 20,
+      "date": "1968-03-06 21:59",
+      "type": "年代覆盖",
+      "year": "戊申",
+      "month": "甲寅",
+      "day": "乙亥",
+      "time": "丁亥",
+      "baZi": "戊申甲寅乙亥丁亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 21,
+      "date": "1976-04-17 03:57",
+      "type": "年代覆盖",
+      "year": "丙辰",
+      "month": "辛卯",
+      "day": "己亥",
+      "time": "丙寅",
+      "baZi": "丙辰辛卯己亥丙寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 22,
+      "date": "1971-05-16 12:09",
+      "type": "年代覆盖",
+      "year": "辛亥",
+      "month": "庚寅",
+      "day": "辛丑",
+      "time": "甲午",
+      "baZi": "辛亥庚寅辛丑甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 23,
+      "date": "1976-05-01 02:23",
+      "type": "年代覆盖",
+      "year": "丙辰",
+      "month": "壬辰",
+      "day": "癸丑",
+      "time": "癸丑",
+      "baZi": "丙辰壬辰癸丑癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 24,
+      "date": "1971-11-20 13:49",
+      "type": "年代覆盖",
+      "year": "辛亥",
+      "month": "庚寅",
+      "day": "己酉",
+      "time": "辛未",
+      "baZi": "辛亥庚寅己酉辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 25,
+      "date": "1971-03-31 13:55",
+      "type": "年代覆盖",
+      "year": "辛亥",
+      "month": "庚寅",
+      "day": "乙卯",
+      "time": "癸未",
+      "baZi": "辛亥庚寅乙卯癸未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 26,
+      "date": "1979-04-08 00:54",
+      "type": "年代覆盖",
+      "year": "己未",
+      "month": "丁卯",
+      "day": "乙巳",
+      "time": "丙子",
+      "baZi": "己未丁卯乙巳丙子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 27,
+      "date": "1973-10-17 21:32",
+      "type": "年代覆盖",
+      "year": "癸丑",
+      "month": "辛酉",
+      "day": "丙戌",
+      "time": "己亥",
+      "baZi": "癸丑辛酉丙戌己亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 28,
+      "date": "1979-07-10 06:14",
+      "type": "年代覆盖",
+      "year": "己未",
+      "month": "庚午",
+      "day": "戊寅",
+      "time": "乙卯",
+      "baZi": "己未庚午戊寅乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 29,
+      "date": "1977-03-13 10:07",
+      "type": "年代覆盖",
+      "year": "丁巳",
+      "month": "壬寅",
+      "day": "己巳",
+      "time": "己巳",
+      "baZi": "丁巳壬寅己巳己巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 30,
+      "date": "1979-07-22 18:30",
+      "type": "年代覆盖",
+      "year": "己未",
+      "month": "庚午",
+      "day": "庚寅",
+      "time": "乙酉",
+      "baZi": "己未庚午庚寅乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 31,
+      "date": "1984-09-15 01:46",
+      "type": "年代覆盖",
+      "year": "甲子",
+      "month": "丁卯",
+      "day": "壬子",
+      "time": "辛丑",
+      "baZi": "甲子丁卯壬子辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 32,
+      "date": "1981-10-14 04:02",
+      "type": "年代覆盖",
+      "year": "辛酉",
+      "month": "庚寅",
+      "day": "乙丑",
+      "time": "戊寅",
+      "baZi": "辛酉庚寅乙丑戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 33,
+      "date": "1989-03-09 18:21",
+      "type": "年代覆盖",
+      "year": "己巳",
+      "month": "丙寅",
+      "day": "戊辰",
+      "time": "辛酉",
+      "baZi": "己巳丙寅戊辰辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 34,
+      "date": "1985-12-07 07:33",
+      "type": "年代覆盖",
+      "year": "乙丑",
+      "month": "戊寅",
+      "day": "庚辰",
+      "time": "庚辰",
+      "baZi": "乙丑戊寅庚辰庚辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 35,
+      "date": "1988-04-23 00:38",
+      "type": "年代覆盖",
+      "year": "戊辰",
+      "month": "乙卯",
+      "day": "戊申",
+      "time": "壬子",
+      "baZi": "戊辰乙卯戊申壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 36,
+      "date": "1988-04-05 12:19",
+      "type": "年代覆盖",
+      "year": "戊辰",
+      "month": "乙卯",
+      "day": "庚寅",
+      "time": "壬午",
+      "baZi": "戊辰乙卯庚寅壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 37,
+      "date": "1986-08-24 10:09",
+      "type": "年代覆盖",
+      "year": "丙寅",
+      "month": "乙未",
+      "day": "庚子",
+      "time": "辛巳",
+      "baZi": "丙寅乙未庚子辛巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 38,
+      "date": "1985-12-21 08:34",
+      "type": "年代覆盖",
+      "year": "乙丑",
+      "month": "戊寅",
+      "day": "甲午",
+      "time": "戊辰",
+      "baZi": "乙丑戊寅甲午戊辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 39,
+      "date": "1980-10-11 08:59",
+      "type": "年代覆盖",
+      "year": "庚申",
+      "month": "己卯",
+      "day": "丁巳",
+      "time": "甲辰",
+      "baZi": "庚申己卯丁巳甲辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 40,
+      "date": "1986-11-20 11:37",
+      "type": "年代覆盖",
+      "year": "丙寅",
+      "month": "戊戌",
+      "day": "戊辰",
+      "time": "戊午",
+      "baZi": "丙寅戊戌戊辰戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 41,
+      "date": "1990-03-10 10:40",
+      "type": "年代覆盖",
+      "year": "庚午",
+      "month": "己卯",
+      "day": "甲戌",
+      "time": "己巳",
+      "baZi": "庚午己卯甲戌己巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 42,
+      "date": "1995-06-06 03:17",
+      "type": "年代覆盖",
+      "year": "乙亥",
+      "month": "辛巳",
+      "day": "戊辰",
+      "time": "甲寅",
+      "baZi": "乙亥辛巳戊辰甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 43,
+      "date": "1999-07-05 07:20",
+      "type": "年代覆盖",
+      "year": "己卯",
+      "month": "庚午",
+      "day": "戊午",
+      "time": "丙辰",
+      "baZi": "己卯庚午戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 44,
+      "date": "1996-09-13 07:48",
+      "type": "年代覆盖",
+      "year": "丙子",
+      "month": "丙申",
+      "day": "癸丑",
+      "time": "丙辰",
+      "baZi": "丙子丙申癸丑丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 45,
+      "date": "1995-01-15 16:30",
+      "type": "年代覆盖",
+      "year": "乙亥",
+      "month": "戊子",
+      "day": "丙午",
+      "time": "丙申",
+      "baZi": "乙亥戊子丙午丙申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 46,
+      "date": "1997-08-05 08:58",
+      "type": "年代覆盖",
+      "year": "丁丑",
+      "month": "丁未",
+      "day": "己卯",
+      "time": "戊辰",
+      "baZi": "丁丑丁未己卯戊辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 47,
+      "date": "1996-07-17 04:28",
+      "type": "年代覆盖",
+      "year": "丙子",
+      "month": "甲午",
+      "day": "乙卯",
+      "time": "戊寅",
+      "baZi": "丙子甲午乙卯戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 48,
+      "date": "1994-09-06 13:09",
+      "type": "年代覆盖",
+      "year": "甲戌",
+      "month": "壬申",
+      "day": "乙未",
+      "time": "癸未",
+      "baZi": "甲戌壬申乙未癸未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 49,
+      "date": "1998-02-16 02:42",
+      "type": "年代覆盖",
+      "year": "戊寅",
+      "month": "乙丑",
+      "day": "甲午",
+      "time": "乙丑",
+      "baZi": "戊寅乙丑甲午乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 50,
+      "date": "1999-11-27 23:21",
+      "type": "年代覆盖",
+      "year": "己卯",
+      "month": "甲戌",
+      "day": "甲申",
+      "time": "甲子",
+      "baZi": "己卯甲戌甲申甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 51,
+      "date": "2004-07-08 10:35",
+      "type": "年代覆盖",
+      "year": "甲申",
+      "month": "庚午",
+      "day": "戊子",
+      "time": "丁巳",
+      "baZi": "甲申庚午戊子丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 52,
+      "date": "2001-05-23 16:44",
+      "type": "年代覆盖",
+      "year": "辛巳",
+      "month": "庚寅",
+      "day": "丙戌",
+      "time": "丙申",
+      "baZi": "辛巳庚寅丙戌丙申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 53,
+      "date": "2002-01-27 15:54",
+      "type": "年代覆盖",
+      "year": "壬午",
+      "month": "壬子",
+      "day": "乙未",
+      "time": "甲申",
+      "baZi": "壬午壬子乙未甲申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 54,
+      "date": "2000-07-21 03:17",
+      "type": "年代覆盖",
+      "year": "庚辰",
+      "month": "己卯",
+      "day": "庚辰",
+      "time": "戊寅",
+      "baZi": "庚辰己卯庚辰戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 55,
+      "date": "2001-04-18 18:06",
+      "type": "年代覆盖",
+      "year": "辛巳",
+      "month": "庚寅",
+      "day": "辛亥",
+      "time": "丁酉",
+      "baZi": "辛巳庚寅辛亥丁酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 56,
+      "date": "2001-07-20 21:29",
+      "type": "年代覆盖",
+      "year": "辛巳",
+      "month": "庚寅",
+      "day": "甲申",
+      "time": "乙亥",
+      "baZi": "辛巳庚寅甲申乙亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 57,
+      "date": "2006-07-16 22:42",
+      "type": "年代覆盖",
+      "year": "丙戌",
+      "month": "甲午",
+      "day": "丙午",
+      "time": "己亥",
+      "baZi": "丙戌甲午丙午己亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 58,
+      "date": "2005-06-11 19:23",
+      "type": "年代覆盖",
+      "year": "乙酉",
+      "month": "辛巳",
+      "day": "丙寅",
+      "time": "戊戌",
+      "baZi": "乙酉辛巳丙寅戊戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 59,
+      "date": "2000-04-06 10:47",
+      "type": "年代覆盖",
+      "year": "庚辰",
+      "month": "己卯",
+      "day": "甲午",
+      "time": "己巳",
+      "baZi": "庚辰己卯甲午己巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 60,
+      "date": "2004-12-22 04:15",
+      "type": "年代覆盖",
+      "year": "甲申",
+      "month": "乙亥",
+      "day": "乙亥",
+      "time": "戊寅",
+      "baZi": "甲申乙亥乙亥戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 61,
+      "date": "2017-06-07 20:20",
+      "type": "年代覆盖",
+      "year": "丁酉",
+      "month": "乙巳",
+      "day": "乙丑",
+      "time": "丙戌",
+      "baZi": "丁酉乙巳乙丑丙戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 62,
+      "date": "2016-12-20 09:31",
+      "type": "年代覆盖",
+      "year": "丙申",
+      "month": "己亥",
+      "day": "丙子",
+      "time": "癸巳",
+      "baZi": "丙申己亥丙子癸巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 63,
+      "date": "2015-10-19 15:02",
+      "type": "年代覆盖",
+      "year": "乙未",
+      "month": "乙酉",
+      "day": "戊辰",
+      "time": "庚申",
+      "baZi": "乙未乙酉戊辰庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 64,
+      "date": "2015-01-27 22:30",
+      "type": "年代覆盖",
+      "year": "乙未",
+      "month": "戊子",
+      "day": "癸卯",
+      "time": "癸亥",
+      "baZi": "乙未戊子癸卯癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 65,
+      "date": "2013-09-03 02:06",
+      "type": "年代覆盖",
+      "year": "癸巳",
+      "month": "庚申",
+      "day": "壬申",
+      "time": "辛丑",
+      "baZi": "癸巳庚申壬申辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 66,
+      "date": "2015-03-08 23:04",
+      "type": "年代覆盖",
+      "year": "乙未",
+      "month": "戊寅",
+      "day": "甲申",
+      "time": "甲子",
+      "baZi": "乙未戊寅甲申甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 67,
+      "date": "2016-09-14 02:10",
+      "type": "年代覆盖",
+      "year": "丙申",
+      "month": "丙申",
+      "day": "己亥",
+      "time": "乙丑",
+      "baZi": "丙申丙申己亥乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 68,
+      "date": "2019-03-16 09:08",
+      "type": "年代覆盖",
+      "year": "己亥",
+      "month": "丙寅",
+      "day": "壬子",
+      "time": "乙巳",
+      "baZi": "己亥丙寅壬子乙巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 69,
+      "date": "2017-02-26 02:51",
+      "type": "年代覆盖",
+      "year": "丁酉",
+      "month": "癸丑",
+      "day": "甲申",
+      "time": "乙丑",
+      "baZi": "丁酉癸丑甲申乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 70,
+      "date": "2012-10-26 09:01",
+      "type": "年代覆盖",
+      "year": "壬辰",
+      "month": "己酉",
+      "day": "庚申",
+      "time": "辛巳",
+      "baZi": "壬辰己酉庚申辛巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 71,
+      "date": "2023-09-17 11:03",
+      "type": "年代覆盖",
+      "year": "癸卯",
+      "month": "庚申",
+      "day": "戊寅",
+      "time": "戊午",
+      "baZi": "癸卯庚申戊寅戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 72,
+      "date": "2020-06-23 11:28",
+      "type": "年代覆盖",
+      "year": "庚子",
+      "month": "己卯",
+      "day": "丁酉",
+      "time": "丙午",
+      "baZi": "庚子己卯丁酉丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 73,
+      "date": "2029-11-05 19:57",
+      "type": "年代覆盖",
+      "year": "己酉",
+      "month": "甲戌",
+      "day": "己亥",
+      "time": "甲戌",
+      "baZi": "己酉甲戌己亥甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 74,
+      "date": "2027-06-15 20:28",
+      "type": "年代覆盖",
+      "year": "丁未",
+      "month": "乙巳",
+      "day": "乙丑",
+      "time": "丙戌",
+      "baZi": "丁未乙巳乙丑丙戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 75,
+      "date": "2023-05-07 14:53",
+      "type": "年代覆盖",
+      "year": "癸卯",
+      "month": "丙辰",
+      "day": "乙丑",
+      "time": "癸未",
+      "baZi": "癸卯丙辰乙丑癸未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 76,
+      "date": "2023-06-03 00:02",
+      "type": "年代覆盖",
+      "year": "癸卯",
+      "month": "丁巳",
+      "day": "壬辰",
+      "time": "庚子",
+      "baZi": "癸卯丁巳壬辰庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 77,
+      "date": "2021-06-01 02:17",
+      "type": "年代覆盖",
+      "year": "辛丑",
+      "month": "庚寅",
+      "day": "庚辰",
+      "time": "丁丑",
+      "baZi": "辛丑庚寅庚辰丁丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 78,
+      "date": "2028-07-20 05:21",
+      "type": "年代覆盖",
+      "year": "戊申",
+      "month": "戊午",
+      "day": "丙午",
+      "time": "辛卯",
+      "baZi": "戊申戊午丙午辛卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 79,
+      "date": "2025-03-25 22:02",
+      "type": "年代覆盖",
+      "year": "乙巳",
+      "month": "戊寅",
+      "day": "癸巳",
+      "time": "癸亥",
+      "baZi": "乙巳戊寅癸巳癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 80,
+      "date": "2021-01-15 21:42",
+      "type": "年代覆盖",
+      "year": "辛丑",
+      "month": "庚寅",
+      "day": "癸亥",
+      "time": "癸亥",
+      "baZi": "辛丑庚寅癸亥癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 81,
+      "date": "2037-03-20 02:38",
+      "type": "年代覆盖",
+      "year": "丁巳",
+      "month": "壬寅",
+      "day": "辛卯",
+      "time": "己丑",
+      "baZi": "丁巳壬寅辛卯己丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 82,
+      "date": "2034-06-11 05:19",
+      "type": "年代覆盖",
+      "year": "甲寅",
+      "month": "己巳",
+      "day": "戊戌",
+      "time": "乙卯",
+      "baZi": "甲寅己巳戊戌乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 83,
+      "date": "2037-11-09 14:01",
+      "type": "年代覆盖",
+      "year": "丁巳",
+      "month": "庚戌",
+      "day": "乙酉",
+      "time": "癸未",
+      "baZi": "丁巳庚戌乙酉癸未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 84,
+      "date": "2031-01-30 17:20",
+      "type": "年代覆盖",
+      "year": "辛亥",
+      "month": "庚寅",
+      "day": "庚午",
+      "time": "乙酉",
+      "baZi": "辛亥庚寅庚午乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 85,
+      "date": "2039-09-10 19:34",
+      "type": "年代覆盖",
+      "year": "己未",
+      "month": "壬申",
+      "day": "乙未",
+      "time": "丙戌",
+      "baZi": "己未壬申乙未丙戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 86,
+      "date": "2032-06-04 16:22",
+      "type": "年代覆盖",
+      "year": "壬子",
+      "month": "乙巳",
+      "day": "辛巳",
+      "time": "丙申",
+      "baZi": "壬子乙巳辛巳丙申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 87,
+      "date": "2039-02-18 06:13",
+      "type": "年代覆盖",
+      "year": "己未",
+      "month": "丁丑",
+      "day": "辛未",
+      "time": "辛卯",
+      "baZi": "己未丁丑辛未辛卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 88,
+      "date": "2032-09-30 12:57",
+      "type": "年代覆盖",
+      "year": "壬子",
+      "month": "戊申",
+      "day": "己卯",
+      "time": "庚午",
+      "baZi": "壬子戊申己卯庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 89,
+      "date": "2031-12-31 13:11",
+      "type": "年代覆盖",
+      "year": "辛亥",
+      "month": "庚寅",
+      "day": "乙巳",
+      "time": "癸未",
+      "baZi": "辛亥庚寅乙巳癸未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 90,
+      "date": "2038-06-12 17:53",
+      "type": "年代覆盖",
+      "year": "戊午",
+      "month": "丁巳",
+      "day": "庚申",
+      "time": "乙酉",
+      "baZi": "戊午丁巳庚申乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 91,
+      "date": "2046-05-30 21:00",
+      "type": "年代覆盖",
+      "year": "丙寅",
+      "month": "壬辰",
+      "day": "己丑",
+      "time": "乙亥",
+      "baZi": "丙寅壬辰己丑乙亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 92,
+      "date": "2046-10-16 14:36",
+      "type": "年代覆盖",
+      "year": "丙寅",
+      "month": "丁酉",
+      "day": "戊申",
+      "time": "己未",
+      "baZi": "丙寅丁酉戊申己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 93,
+      "date": "2046-06-20 05:41",
+      "type": "年代覆盖",
+      "year": "丙寅",
+      "month": "癸巳",
+      "day": "庚戌",
+      "time": "己卯",
+      "baZi": "丙寅癸巳庚戌己卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 94,
+      "date": "2040-07-26 02:34",
+      "type": "年代覆盖",
+      "year": "庚申",
+      "month": "己卯",
+      "day": "乙卯",
+      "time": "丁丑",
+      "baZi": "庚申己卯乙卯丁丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 95,
+      "date": "2045-10-07 16:51",
+      "type": "年代覆盖",
+      "year": "乙丑",
+      "month": "乙酉",
+      "day": "甲午",
+      "time": "壬申",
+      "baZi": "乙丑乙酉甲午壬申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 96,
+      "date": "2046-03-01 16:46",
+      "type": "年代覆盖",
+      "year": "丙寅",
+      "month": "庚寅",
+      "day": "己未",
+      "time": "壬申",
+      "baZi": "丙寅庚寅己未壬申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 97,
+      "date": "2040-12-28 17:38",
+      "type": "年代覆盖",
+      "year": "庚申",
+      "month": "己卯",
+      "day": "庚寅",
+      "time": "乙酉",
+      "baZi": "庚申己卯庚寅乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 98,
+      "date": "2047-02-10 21:41",
+      "type": "年代覆盖",
+      "year": "丁卯",
+      "month": "癸丑",
+      "day": "乙巳",
+      "time": "丁亥",
+      "baZi": "丁卯癸丑乙巳丁亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 99,
+      "date": "2049-02-27 10:32",
+      "type": "年代覆盖",
+      "year": "己巳",
+      "month": "丁丑",
+      "day": "癸酉",
+      "time": "丁巳",
+      "baZi": "己巳丁丑癸酉丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 100,
+      "date": "2042-12-28 11:47",
+      "type": "年代覆盖",
+      "year": "壬戌",
+      "month": "辛亥",
+      "day": "庚子",
+      "time": "壬午",
+      "baZi": "壬戌辛亥庚子壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 101,
+      "date": "2052-10-20 12:13",
+      "type": "年代覆盖",
+      "year": "壬申",
+      "month": "己酉",
+      "day": "甲申",
+      "time": "庚午",
+      "baZi": "壬申己酉甲申庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 102,
+      "date": "2057-01-28 00:15",
+      "type": "年代覆盖",
+      "year": "丁丑",
+      "month": "壬子",
+      "day": "乙酉",
+      "time": "丙子",
+      "baZi": "丁丑壬子乙酉丙子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 103,
+      "date": "2057-05-08 12:57",
+      "type": "年代覆盖",
+      "year": "丁丑",
+      "month": "甲辰",
+      "day": "乙丑",
+      "time": "壬午",
+      "baZi": "丁丑甲辰乙丑壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 104,
+      "date": "2051-05-23 03:03",
+      "type": "年代覆盖",
+      "year": "辛未",
+      "month": "庚寅",
+      "day": "戊申",
+      "time": "甲寅",
+      "baZi": "辛未庚寅戊申甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 105,
+      "date": "2057-09-04 03:11",
+      "type": "年代覆盖",
+      "year": "丁丑",
+      "month": "戊申",
+      "day": "甲子",
+      "time": "丙寅",
+      "baZi": "丁丑戊申甲子丙寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 106,
+      "date": "2054-03-14 12:41",
+      "type": "年代覆盖",
+      "year": "甲戌",
+      "month": "丙寅",
+      "day": "甲寅",
+      "time": "庚午",
+      "baZi": "甲戌丙寅甲寅庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 107,
+      "date": "2054-06-07 11:18",
+      "type": "年代覆盖",
+      "year": "甲戌",
+      "month": "己巳",
+      "day": "己卯",
+      "time": "庚午",
+      "baZi": "甲戌己巳己卯庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 108,
+      "date": "2058-09-26 09:51",
+      "type": "年代覆盖",
+      "year": "戊寅",
+      "month": "庚申",
+      "day": "辛卯",
+      "time": "癸巳",
+      "baZi": "戊寅庚申辛卯癸巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 109,
+      "date": "2056-08-15 11:26",
+      "type": "年代覆盖",
+      "year": "丙子",
+      "month": "乙未",
+      "day": "己亥",
+      "time": "庚午",
+      "baZi": "丙子乙未己亥庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 110,
+      "date": "2056-10-09 18:04",
+      "type": "年代覆盖",
+      "year": "丙子",
+      "month": "丁酉",
+      "day": "甲午",
+      "time": "癸酉",
+      "baZi": "丙子丁酉甲午癸酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 111,
+      "date": "2000-02-29 12:00",
+      "type": "特殊日期",
+      "year": "庚辰",
+      "month": "己卯",
+      "day": "丁巳",
+      "time": "丙午",
+      "baZi": "庚辰己卯丁巳丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 112,
+      "date": "2004-02-29 12:00",
+      "type": "特殊日期",
+      "year": "甲申",
+      "month": "丁丑",
+      "day": "戊寅",
+      "time": "戊午",
+      "baZi": "甲申丁丑戊寅戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 113,
+      "date": "2008-02-29 12:00",
+      "type": "特殊日期",
+      "year": "戊子",
+      "month": "乙丑",
+      "day": "己亥",
+      "time": "庚午",
+      "baZi": "戊子乙丑己亥庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 114,
+      "date": "2012-02-29 12:00",
+      "type": "特殊日期",
+      "year": "壬辰",
+      "month": "癸丑",
+      "day": "庚申",
+      "time": "壬午",
+      "baZi": "壬辰癸丑庚申壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 115,
+      "date": "2016-02-29 12:00",
+      "type": "特殊日期",
+      "year": "丙申",
+      "month": "辛丑",
+      "day": "辛巳",
+      "time": "甲午",
+      "baZi": "丙申辛丑辛巳甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 116,
+      "date": "2020-02-29 12:00",
+      "type": "特殊日期",
+      "year": "庚子",
+      "month": "己卯",
+      "day": "丁丑",
+      "time": "丙午",
+      "baZi": "庚子己卯丁丑丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 117,
+      "date": "2024-02-29 12:00",
+      "type": "特殊日期",
+      "year": "甲辰",
+      "month": "丁丑",
+      "day": "癸亥",
+      "time": "戊午",
+      "baZi": "甲辰丁丑癸亥戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 118,
+      "date": "2028-02-29 12:00",
+      "type": "特殊日期",
+      "year": "戊申",
+      "month": "乙丑",
+      "day": "甲申",
+      "time": "庚午",
+      "baZi": "戊申乙丑甲申庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 119,
+      "date": "2032-02-29 12:00",
+      "type": "特殊日期",
+      "year": "壬子",
+      "month": "癸丑",
+      "day": "乙巳",
+      "time": "壬午",
+      "baZi": "壬子癸丑乙巳壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 120,
+      "date": "2036-02-29 12:00",
+      "type": "特殊日期",
+      "year": "丙辰",
+      "month": "辛丑",
+      "day": "丙寅",
+      "time": "甲午",
+      "baZi": "丙辰辛丑丙寅甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 121,
+      "date": "2040-02-29 12:00",
+      "type": "特殊日期",
+      "year": "庚申",
+      "month": "己卯",
+      "day": "丁亥",
+      "time": "丙午",
+      "baZi": "庚申己卯丁亥丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 122,
+      "date": "2044-02-29 12:00",
+      "type": "特殊日期",
+      "year": "甲子",
+      "month": "丁丑",
+      "day": "戊申",
+      "time": "戊午",
+      "baZi": "甲子丁丑戊申戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 123,
+      "date": "2048-02-29 12:00",
+      "type": "特殊日期",
+      "year": "戊辰",
+      "month": "乙丑",
+      "day": "己巳",
+      "time": "庚午",
+      "baZi": "戊辰乙丑己巳庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 124,
+      "date": "1950-12-31 23:59",
+      "type": "特殊日期",
+      "year": "辛卯",
+      "month": "庚子",
+      "day": "辛丑",
+      "time": "戊子",
+      "baZi": "辛卯庚子辛丑戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 125,
+      "date": "1951-01-01 00:00",
+      "type": "特殊日期",
+      "year": "辛卯",
+      "month": "庚子",
+      "day": "辛丑",
+      "time": "戊子",
+      "baZi": "辛卯庚子辛丑戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 126,
+      "date": "1999-12-31 23:59",
+      "type": "特殊日期",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬子",
+      "baZi": "己卯丙子戊午壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 127,
+      "date": "2000-01-01 00:00",
+      "type": "特殊日期",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬子",
+      "baZi": "己卯丙子戊午壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 128,
+      "date": "2049-12-31 23:59",
+      "type": "特殊日期",
+      "year": "己巳",
+      "month": "丙子",
+      "day": "辛巳",
+      "time": "戊子",
+      "baZi": "己巳丙子辛巳戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 129,
+      "date": "2050-01-01 00:00",
+      "type": "特殊日期",
+      "year": "己巳",
+      "month": "丙子",
+      "day": "辛巳",
+      "time": "戊子",
+      "baZi": "己巳丙子辛巳戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 130,
+      "date": "1950-02-03 12:00",
+      "type": "特殊日期",
+      "year": "己丑",
+      "month": "丁丑",
+      "day": "己巳",
+      "time": "庚午",
+      "baZi": "己丑丁丑己巳庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 131,
+      "date": "1950-02-04 12:00",
+      "type": "特殊日期",
+      "year": "己丑",
+      "month": "丁丑",
+      "day": "庚午",
+      "time": "壬午",
+      "baZi": "己丑丁丑庚午壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 132,
+      "date": "1950-02-05 12:00",
+      "type": "特殊日期",
+      "year": "庚寅",
+      "month": "己卯",
+      "day": "辛未",
+      "time": "甲午",
+      "baZi": "庚寅己卯辛未甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 133,
+      "date": "2000-02-03 12:00",
+      "type": "特殊日期",
+      "year": "己卯",
+      "month": "丁丑",
+      "day": "辛卯",
+      "time": "甲午",
+      "baZi": "己卯丁丑辛卯甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 134,
+      "date": "2000-02-04 12:00",
+      "type": "特殊日期",
+      "year": "己卯",
+      "month": "丁丑",
+      "day": "壬辰",
+      "time": "丙午",
+      "baZi": "己卯丁丑壬辰丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 135,
+      "date": "2000-02-05 12:00",
+      "type": "特殊日期",
+      "year": "庚辰",
+      "month": "己卯",
+      "day": "癸巳",
+      "time": "戊午",
+      "baZi": "庚辰己卯癸巳戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 136,
+      "date": "2050-02-03 12:00",
+      "type": "特殊日期",
+      "year": "己巳",
+      "month": "丁丑",
+      "day": "甲寅",
+      "time": "庚午",
+      "baZi": "己巳丁丑甲寅庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 137,
+      "date": "2050-02-04 12:00",
+      "type": "特殊日期",
+      "year": "庚午",
+      "month": "己卯",
+      "day": "乙卯",
+      "time": "壬午",
+      "baZi": "庚午己卯乙卯壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 138,
+      "date": "2050-02-05 12:00",
+      "type": "特殊日期",
+      "year": "庚午",
+      "month": "己卯",
+      "day": "丙辰",
+      "time": "甲午",
+      "baZi": "庚午己卯丙辰甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 139,
+      "date": "2000-01-01 23:00",
+      "type": "时辰边界 - 子时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "己未",
+      "time": "甲子",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 140,
+      "date": "2000-01-01 23:59",
+      "type": "时辰边界 - 子时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "己未",
+      "time": "甲子",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 141,
+      "date": "2000-01-01 00:00",
+      "type": "时辰边界 - 子时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬子",
+      "baZi": "己卯丙子戊午壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 142,
+      "date": "2000-01-01 00:59",
+      "type": "时辰边界 - 子时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬子",
+      "baZi": "己卯丙子戊午壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 143,
+      "date": "2000-01-01 01:00",
+      "type": "时辰边界 - 丑时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸丑",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 144,
+      "date": "2000-01-01 02:59",
+      "type": "时辰边界 - 丑时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸丑",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 145,
+      "date": "2000-01-01 03:00",
+      "type": "时辰边界 - 寅时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "甲寅",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 146,
+      "date": "2000-01-01 04:59",
+      "type": "时辰边界 - 寅时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "甲寅",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 147,
+      "date": "2000-01-01 05:00",
+      "type": "时辰边界 - 卯时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "乙卯",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 148,
+      "date": "2000-01-01 06:59",
+      "type": "时辰边界 - 卯时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "乙卯",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 149,
+      "date": "2000-01-01 07:00",
+      "type": "时辰边界 - 辰时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丙辰",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 150,
+      "date": "2000-01-01 08:59",
+      "type": "时辰边界 - 辰时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丙辰",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 151,
+      "date": "2000-01-01 09:00",
+      "type": "时辰边界 - 巳时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丁巳",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 152,
+      "date": "2000-01-01 10:59",
+      "type": "时辰边界 - 巳时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丁巳",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 153,
+      "date": "2000-01-01 11:00",
+      "type": "时辰边界 - 午时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "戊午",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 154,
+      "date": "2000-01-01 12:59",
+      "type": "时辰边界 - 午时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "戊午",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 155,
+      "date": "2000-01-01 13:00",
+      "type": "时辰边界 - 未时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "己未",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 156,
+      "date": "2000-01-01 14:59",
+      "type": "时辰边界 - 未时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "己未",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 157,
+      "date": "2000-01-01 15:00",
+      "type": "时辰边界 - 申时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "庚申",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 158,
+      "date": "2000-01-01 16:59",
+      "type": "时辰边界 - 申时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "庚申",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 159,
+      "date": "2000-01-01 17:00",
+      "type": "时辰边界 - 酉时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "辛酉",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 160,
+      "date": "2000-01-01 18:59",
+      "type": "时辰边界 - 酉时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "辛酉",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 161,
+      "date": "2000-01-01 19:00",
+      "type": "时辰边界 - 戌时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬戌",
+      "baZi": "己卯丙子戊午壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 162,
+      "date": "2000-01-01 20:59",
+      "type": "时辰边界 - 戌时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬戌",
+      "baZi": "己卯丙子戊午壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 163,
+      "date": "2000-01-01 21:00",
+      "type": "时辰边界 - 亥时开始",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸亥",
+      "baZi": "己卯丙子戊午癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 164,
+      "date": "2000-01-01 22:59",
+      "type": "时辰边界 - 亥时结束",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸亥",
+      "baZi": "己卯丙子戊午癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 165,
+      "date": "2000-01-01 23:00",
+      "type": "五鼠遁规则 - 甲日子时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "己未",
+      "time": "甲子",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 166,
+      "date": "2000-01-01 02:00",
+      "type": "五鼠遁规则 - 甲日丑时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸丑",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 167,
+      "date": "2000-01-01 04:00",
+      "type": "五鼠遁规则 - 甲日寅时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "甲寅",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 168,
+      "date": "2000-01-01 06:00",
+      "type": "五鼠遁规则 - 甲日卯时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "乙卯",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 169,
+      "date": "2000-01-01 08:00",
+      "type": "五鼠遁规则 - 甲日辰时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丙辰",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 170,
+      "date": "2000-01-01 10:00",
+      "type": "五鼠遁规则 - 甲日巳时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丁巳",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 171,
+      "date": "2000-01-01 12:00",
+      "type": "五鼠遁规则 - 甲日午时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "戊午",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 172,
+      "date": "2000-01-01 14:00",
+      "type": "五鼠遁规则 - 甲日未时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "己未",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 173,
+      "date": "2000-01-01 16:00",
+      "type": "五鼠遁规则 - 甲日申时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "庚申",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 174,
+      "date": "2000-01-01 18:00",
+      "type": "五鼠遁规则 - 甲日酉时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "辛酉",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 175,
+      "date": "2000-01-01 20:00",
+      "type": "五鼠遁规则 - 甲日戌时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬戌",
+      "baZi": "己卯丙子戊午壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 176,
+      "date": "2000-01-01 22:00",
+      "type": "五鼠遁规则 - 甲日亥时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸亥",
+      "baZi": "己卯丙子戊午癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 177,
+      "date": "2000-01-01 23:00",
+      "type": "五鼠遁规则 - 乙日子时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "己未",
+      "time": "甲子",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 178,
+      "date": "2000-01-01 02:00",
+      "type": "五鼠遁规则 - 乙日丑时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸丑",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 179,
+      "date": "2000-01-01 04:00",
+      "type": "五鼠遁规则 - 乙日寅时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "甲寅",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 180,
+      "date": "2000-01-01 06:00",
+      "type": "五鼠遁规则 - 乙日卯时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "乙卯",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 181,
+      "date": "2000-01-01 08:00",
+      "type": "五鼠遁规则 - 乙日辰时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丙辰",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 182,
+      "date": "2000-01-01 10:00",
+      "type": "五鼠遁规则 - 乙日巳时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丁巳",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 183,
+      "date": "2000-01-01 12:00",
+      "type": "五鼠遁规则 - 乙日午时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "戊午",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 184,
+      "date": "2000-01-01 14:00",
+      "type": "五鼠遁规则 - 乙日未时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "己未",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 185,
+      "date": "2000-01-01 16:00",
+      "type": "五鼠遁规则 - 乙日申时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "庚申",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 186,
+      "date": "2000-01-01 18:00",
+      "type": "五鼠遁规则 - 乙日酉时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "辛酉",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 187,
+      "date": "2000-01-01 20:00",
+      "type": "五鼠遁规则 - 乙日戌时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬戌",
+      "baZi": "己卯丙子戊午壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 188,
+      "date": "2000-01-01 22:00",
+      "type": "五鼠遁规则 - 乙日亥时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸亥",
+      "baZi": "己卯丙子戊午癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 189,
+      "date": "2000-01-01 23:00",
+      "type": "五鼠遁规则 - 丙日子时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "己未",
+      "time": "甲子",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 190,
+      "date": "2000-01-01 02:00",
+      "type": "五鼠遁规则 - 丙日丑时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸丑",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 191,
+      "date": "2000-01-01 04:00",
+      "type": "五鼠遁规则 - 丙日寅时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "甲寅",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 192,
+      "date": "2000-01-01 06:00",
+      "type": "五鼠遁规则 - 丙日卯时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "乙卯",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 193,
+      "date": "2000-01-01 08:00",
+      "type": "五鼠遁规则 - 丙日辰时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丙辰",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 194,
+      "date": "2000-01-01 10:00",
+      "type": "五鼠遁规则 - 丙日巳时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "丁巳",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 195,
+      "date": "2000-01-01 12:00",
+      "type": "五鼠遁规则 - 丙日午时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "戊午",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 196,
+      "date": "2000-01-01 14:00",
+      "type": "五鼠遁规则 - 丙日未时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "己未",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 197,
+      "date": "2000-01-01 16:00",
+      "type": "五鼠遁规则 - 丙日申时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "庚申",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 198,
+      "date": "2000-01-01 18:00",
+      "type": "五鼠遁规则 - 丙日酉时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "辛酉",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 199,
+      "date": "2000-01-01 20:00",
+      "type": "五鼠遁规则 - 丙日戌时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬戌",
+      "baZi": "己卯丙子戊午壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 200,
+      "date": "2000-01-01 22:00",
+      "type": "五鼠遁规则 - 丙日亥时",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "癸亥",
+      "baZi": "己卯丙子戊午癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "testCases": [
+    {
+      "year": 1958,
+      "month": 8,
+      "day": 4,
+      "hour": 14,
+      "minute": 14,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1955,
+      "month": 11,
+      "day": 27,
+      "hour": 2,
+      "minute": 50,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1952,
+      "month": 10,
+      "day": 3,
+      "hour": 23,
+      "minute": 57,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1957,
+      "month": 0,
+      "day": 18,
+      "hour": 17,
+      "minute": 59,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1957,
+      "month": 3,
+      "day": 7,
+      "hour": 22,
+      "minute": 52,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1959,
+      "month": 5,
+      "day": 9,
+      "hour": 2,
+      "minute": 39,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1955,
+      "month": 8,
+      "day": 4,
+      "hour": 3,
+      "minute": 23,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1959,
+      "month": 4,
+      "day": 6,
+      "hour": 3,
+      "minute": 50,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1958,
+      "month": 2,
+      "day": 28,
+      "hour": 1,
+      "minute": 10,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1959,
+      "month": 4,
+      "day": 13,
+      "hour": 8,
+      "minute": 22,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1964,
+      "month": 1,
+      "day": 3,
+      "hour": 11,
+      "minute": 18,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1968,
+      "month": 2,
+      "day": 4,
+      "hour": 7,
+      "minute": 10,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1966,
+      "month": 11,
+      "day": 17,
+      "hour": 19,
+      "minute": 36,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1964,
+      "month": 11,
+      "day": 28,
+      "hour": 1,
+      "minute": 21,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1960,
+      "month": 0,
+      "day": 28,
+      "hour": 0,
+      "minute": 59,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1968,
+      "month": 0,
+      "day": 23,
+      "hour": 10,
+      "minute": 14,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1962,
+      "month": 2,
+      "day": 7,
+      "hour": 10,
+      "minute": 27,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1968,
+      "month": 8,
+      "day": 4,
+      "hour": 1,
+      "minute": 21,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1964,
+      "month": 11,
+      "day": 8,
+      "hour": 19,
+      "minute": 0,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1968,
+      "month": 2,
+      "day": 6,
+      "hour": 21,
+      "minute": 59,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1976,
+      "month": 3,
+      "day": 17,
+      "hour": 3,
+      "minute": 57,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1971,
+      "month": 4,
+      "day": 16,
+      "hour": 12,
+      "minute": 9,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1976,
+      "month": 4,
+      "day": 1,
+      "hour": 2,
+      "minute": 23,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1971,
+      "month": 10,
+      "day": 20,
+      "hour": 13,
+      "minute": 49,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1971,
+      "month": 2,
+      "day": 31,
+      "hour": 13,
+      "minute": 55,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1979,
+      "month": 3,
+      "day": 8,
+      "hour": 0,
+      "minute": 54,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1973,
+      "month": 9,
+      "day": 17,
+      "hour": 21,
+      "minute": 32,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1979,
+      "month": 6,
+      "day": 10,
+      "hour": 6,
+      "minute": 14,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1977,
+      "month": 2,
+      "day": 13,
+      "hour": 10,
+      "minute": 7,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1979,
+      "month": 6,
+      "day": 22,
+      "hour": 18,
+      "minute": 30,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1984,
+      "month": 8,
+      "day": 15,
+      "hour": 1,
+      "minute": 46,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1981,
+      "month": 9,
+      "day": 14,
+      "hour": 4,
+      "minute": 2,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1989,
+      "month": 2,
+      "day": 9,
+      "hour": 18,
+      "minute": 21,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1985,
+      "month": 11,
+      "day": 7,
+      "hour": 7,
+      "minute": 33,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1988,
+      "month": 3,
+      "day": 23,
+      "hour": 0,
+      "minute": 38,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1988,
+      "month": 3,
+      "day": 5,
+      "hour": 12,
+      "minute": 19,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1986,
+      "month": 7,
+      "day": 24,
+      "hour": 10,
+      "minute": 9,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1985,
+      "month": 11,
+      "day": 21,
+      "hour": 8,
+      "minute": 34,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1980,
+      "month": 9,
+      "day": 11,
+      "hour": 8,
+      "minute": 59,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1986,
+      "month": 10,
+      "day": 20,
+      "hour": 11,
+      "minute": 37,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1990,
+      "month": 2,
+      "day": 10,
+      "hour": 10,
+      "minute": 40,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1995,
+      "month": 5,
+      "day": 6,
+      "hour": 3,
+      "minute": 17,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1999,
+      "month": 6,
+      "day": 5,
+      "hour": 7,
+      "minute": 20,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1996,
+      "month": 8,
+      "day": 13,
+      "hour": 7,
+      "minute": 48,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1995,
+      "month": 0,
+      "day": 15,
+      "hour": 16,
+      "minute": 30,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1997,
+      "month": 7,
+      "day": 5,
+      "hour": 8,
+      "minute": 58,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1996,
+      "month": 6,
+      "day": 17,
+      "hour": 4,
+      "minute": 28,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1994,
+      "month": 8,
+      "day": 6,
+      "hour": 13,
+      "minute": 9,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1998,
+      "month": 1,
+      "day": 16,
+      "hour": 2,
+      "minute": 42,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 1999,
+      "month": 10,
+      "day": 27,
+      "hour": 23,
+      "minute": 21,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2004,
+      "month": 6,
+      "day": 8,
+      "hour": 10,
+      "minute": 35,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2001,
+      "month": 4,
+      "day": 23,
+      "hour": 16,
+      "minute": 44,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2002,
+      "month": 0,
+      "day": 27,
+      "hour": 15,
+      "minute": 54,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2000,
+      "month": 6,
+      "day": 21,
+      "hour": 3,
+      "minute": 17,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2001,
+      "month": 3,
+      "day": 18,
+      "hour": 18,
+      "minute": 6,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2001,
+      "month": 6,
+      "day": 20,
+      "hour": 21,
+      "minute": 29,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2006,
+      "month": 6,
+      "day": 16,
+      "hour": 22,
+      "minute": 42,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2005,
+      "month": 5,
+      "day": 11,
+      "hour": 19,
+      "minute": 23,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2000,
+      "month": 3,
+      "day": 6,
+      "hour": 10,
+      "minute": 47,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2004,
+      "month": 11,
+      "day": 22,
+      "hour": 4,
+      "minute": 15,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2017,
+      "month": 5,
+      "day": 7,
+      "hour": 20,
+      "minute": 20,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2016,
+      "month": 11,
+      "day": 20,
+      "hour": 9,
+      "minute": 31,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2015,
+      "month": 9,
+      "day": 19,
+      "hour": 15,
+      "minute": 2,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2015,
+      "month": 0,
+      "day": 27,
+      "hour": 22,
+      "minute": 30,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2013,
+      "month": 8,
+      "day": 3,
+      "hour": 2,
+      "minute": 6,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2015,
+      "month": 2,
+      "day": 8,
+      "hour": 23,
+      "minute": 4,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2016,
+      "month": 8,
+      "day": 14,
+      "hour": 2,
+      "minute": 10,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2019,
+      "month": 2,
+      "day": 16,
+      "hour": 9,
+      "minute": 8,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2017,
+      "month": 1,
+      "day": 26,
+      "hour": 2,
+      "minute": 51,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2012,
+      "month": 9,
+      "day": 26,
+      "hour": 9,
+      "minute": 1,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2023,
+      "month": 8,
+      "day": 17,
+      "hour": 11,
+      "minute": 3,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2020,
+      "month": 5,
+      "day": 23,
+      "hour": 11,
+      "minute": 28,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2029,
+      "month": 10,
+      "day": 5,
+      "hour": 19,
+      "minute": 57,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2027,
+      "month": 5,
+      "day": 15,
+      "hour": 20,
+      "minute": 28,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2023,
+      "month": 4,
+      "day": 7,
+      "hour": 14,
+      "minute": 53,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2023,
+      "month": 5,
+      "day": 3,
+      "hour": 0,
+      "minute": 2,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2021,
+      "month": 5,
+      "day": 1,
+      "hour": 2,
+      "minute": 17,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2028,
+      "month": 6,
+      "day": 20,
+      "hour": 5,
+      "minute": 21,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "day": 25,
+      "hour": 22,
+      "minute": 2,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2021,
+      "month": 0,
+      "day": 15,
+      "hour": 21,
+      "minute": 42,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2037,
+      "month": 2,
+      "day": 20,
+      "hour": 2,
+      "minute": 38,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2034,
+      "month": 5,
+      "day": 11,
+      "hour": 5,
+      "minute": 19,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2037,
+      "month": 10,
+      "day": 9,
+      "hour": 14,
+      "minute": 1,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2031,
+      "month": 0,
+      "day": 30,
+      "hour": 17,
+      "minute": 20,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2039,
+      "month": 8,
+      "day": 10,
+      "hour": 19,
+      "minute": 34,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2032,
+      "month": 5,
+      "day": 4,
+      "hour": 16,
+      "minute": 22,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2039,
+      "month": 1,
+      "day": 18,
+      "hour": 6,
+      "minute": 13,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2032,
+      "month": 8,
+      "day": 30,
+      "hour": 12,
+      "minute": 57,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2031,
+      "month": 11,
+      "day": 31,
+      "hour": 13,
+      "minute": 11,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2038,
+      "month": 5,
+      "day": 12,
+      "hour": 17,
+      "minute": 53,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2046,
+      "month": 4,
+      "day": 30,
+      "hour": 21,
+      "minute": 0,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2046,
+      "month": 9,
+      "day": 16,
+      "hour": 14,
+      "minute": 36,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2046,
+      "month": 5,
+      "day": 20,
+      "hour": 5,
+      "minute": 41,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2040,
+      "month": 6,
+      "day": 26,
+      "hour": 2,
+      "minute": 34,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2045,
+      "month": 9,
+      "day": 7,
+      "hour": 16,
+      "minute": 51,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2046,
+      "month": 2,
+      "day": 1,
+      "hour": 16,
+      "minute": 46,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2040,
+      "month": 11,
+      "day": 28,
+      "hour": 17,
+      "minute": 38,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2047,
+      "month": 1,
+      "day": 10,
+      "hour": 21,
+      "minute": 41,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2049,
+      "month": 1,
+      "day": 27,
+      "hour": 10,
+      "minute": 32,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2042,
+      "month": 11,
+      "day": 28,
+      "hour": 11,
+      "minute": 47,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2052,
+      "month": 9,
+      "day": 20,
+      "hour": 12,
+      "minute": 13,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2057,
+      "month": 0,
+      "day": 28,
+      "hour": 0,
+      "minute": 15,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2057,
+      "month": 4,
+      "day": 8,
+      "hour": 12,
+      "minute": 57,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2051,
+      "month": 4,
+      "day": 23,
+      "hour": 3,
+      "minute": 3,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2057,
+      "month": 8,
+      "day": 4,
+      "hour": 3,
+      "minute": 11,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2054,
+      "month": 2,
+      "day": 14,
+      "hour": 12,
+      "minute": 41,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2054,
+      "month": 5,
+      "day": 7,
+      "hour": 11,
+      "minute": 18,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2058,
+      "month": 8,
+      "day": 26,
+      "hour": 9,
+      "minute": 51,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2056,
+      "month": 7,
+      "day": 15,
+      "hour": 11,
+      "minute": 26,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2056,
+      "month": 9,
+      "day": 9,
+      "hour": 18,
+      "minute": 4,
+      "type": "年代覆盖"
+    },
+    {
+      "year": 2000,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2004,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2008,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2012,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2016,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2020,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2028,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2032,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2036,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2040,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2044,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2048,
+      "month": 1,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 1950,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "type": "特殊日期"
+    },
+    {
+      "year": 1951,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 1999,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2049,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2050,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 1950,
+      "month": 1,
+      "day": 3,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 1950,
+      "month": 1,
+      "day": 4,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 1950,
+      "month": 1,
+      "day": 5,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2000,
+      "month": 1,
+      "day": 3,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2000,
+      "month": 1,
+      "day": 4,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2000,
+      "month": 1,
+      "day": 5,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2050,
+      "month": 1,
+      "day": 3,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2050,
+      "month": 1,
+      "day": 4,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2050,
+      "month": 1,
+      "day": 5,
+      "hour": 12,
+      "minute": 0,
+      "type": "特殊日期"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 0,
+      "type": "时辰边界 - 子时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 59,
+      "type": "时辰边界 - 子时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "type": "时辰边界 - 子时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 59,
+      "type": "时辰边界 - 子时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 1,
+      "minute": 0,
+      "type": "时辰边界 - 丑时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 59,
+      "type": "时辰边界 - 丑时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 3,
+      "minute": 0,
+      "type": "时辰边界 - 寅时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 59,
+      "type": "时辰边界 - 寅时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 5,
+      "minute": 0,
+      "type": "时辰边界 - 卯时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 59,
+      "type": "时辰边界 - 卯时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 7,
+      "minute": 0,
+      "type": "时辰边界 - 辰时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 59,
+      "type": "时辰边界 - 辰时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 9,
+      "minute": 0,
+      "type": "时辰边界 - 巳时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 59,
+      "type": "时辰边界 - 巳时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 11,
+      "minute": 0,
+      "type": "时辰边界 - 午时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 59,
+      "type": "时辰边界 - 午时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 13,
+      "minute": 0,
+      "type": "时辰边界 - 未时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 59,
+      "type": "时辰边界 - 未时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 15,
+      "minute": 0,
+      "type": "时辰边界 - 申时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 16,
+      "minute": 59,
+      "type": "时辰边界 - 申时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 17,
+      "minute": 0,
+      "type": "时辰边界 - 酉时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 18,
+      "minute": 59,
+      "type": "时辰边界 - 酉时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 19,
+      "minute": 0,
+      "type": "时辰边界 - 戌时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 20,
+      "minute": 59,
+      "type": "时辰边界 - 戌时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 21,
+      "minute": 0,
+      "type": "时辰边界 - 亥时开始"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 22,
+      "minute": 59,
+      "type": "时辰边界 - 亥时结束"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日子时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日丑时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日寅时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日卯时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日辰时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日巳时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日午时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日未时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 16,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日申时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 18,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日酉时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 20,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日戌时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 22,
+      "minute": 0,
+      "type": "五鼠遁规则 - 甲日亥时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日子时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日丑时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日寅时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日卯时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日辰时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日巳时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日午时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日未时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 16,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日申时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 18,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日酉时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 20,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日戌时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 22,
+      "minute": 0,
+      "type": "五鼠遁规则 - 乙日亥时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日子时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日丑时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日寅时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日卯时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日辰时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日巳时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日午时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日未时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 16,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日申时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 18,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日酉时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 20,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日戌时"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 22,
+      "minute": 0,
+      "type": "五鼠遁规则 - 丙日亥时"
+    }
+  ]
+}

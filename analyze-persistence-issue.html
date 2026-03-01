@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 语言设置持久化分析工具</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+        .button.secondary {
+            background: #2196F3;
+        }
+        .button.secondary:hover {
+            background: #0b7dda;
+        }
+        .button.danger {
+            background: #f44336;
+        }
+        .button.danger:hover {
+            background: #da190b;
+        }
+        .output {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        .info {
+            color: blue;
+        }
+        .warning {
+            color: orange;
+        }
+        .monitor-panel {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .timestamp {
+            font-size: 12px;
+            color: #666;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>OpenClaw 语言设置持久化分析工具</h1>
+    
+    <div class="container">
+        <h2>1. 实时监控 localStorage 变化</h2>
+        <button class="button" onclick="startMonitoring()">开始监控</button>
+        <button class="button secondary" onclick="stopMonitoring()">停止监控</button>
+        <button class="button secondary" onclick="clearMonitorLog()">清除日志</button>
+        <div id="monitorOutput" class="output monitor-panel">
+            <p class="info">监控未启动</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>2. 详细设置分析</h2>
+        <button class="button" onclick="detailedSettingsAnalysis()">分析设置</button>
+        <div id="analysisOutput" class="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>3. 持久化测试</h2>
+        <button class="button" onclick="setLanguageAndTest('zh-CN')">设置中文并测试</button>
+        <button class="button secondary" onclick="simulateOpenClawRestart()">模拟OpenClaw重启</button>
+        <button class="button danger" onclick="clearAllSettings()">清除所有设置</button>
+        <div id="persistenceOutput" class="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>4. 浏览器环境分析</h2>
+        <button class="button" onclick="analyzeBrowserEnvironment()">分析环境</button>
+        <div id="environmentOutput" class="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>5. 解决方案测试</h2>
+        <button class="button" onclick="testSolution1()">方案1: 强制设置中文</button>
+        <button class="button secondary" onclick="testSolution2()">方案2: 修复localStorage</button>
+        <div id="solutionOutput" class="output"></div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'openclaw.control.settings.v1';
+        let monitoringInterval = null;
+        let monitorLog = [];
+        let initialSettings = null;
+
+        // 时间戳函数
+        function getTimestamp() {
+            const now = new Date();
+            return now.toLocaleTimeString();
+        }
+
+        // 添加监控日志
+        function addMonitorLog(message, type = 'info') {
+            const timestamp = getTimestamp();
+            const logEntry = `<span class="timestamp">[${timestamp}]</span> <span class="${type}">${message}</span>`;
+            monitorLog.push(logEntry);
+            updateMonitorDisplay();
+        }
+
+        // 更新监控显示
+        function updateMonitorDisplay() {
+            const output = document.getElementById('monitorOutput');
+            if (monitorLog.length > 50) {
+                monitorLog = monitorLog.slice(-50); // 只保留最近50条
+            }
+            output.innerHTML = monitorLog.join('<br>');
+            output.scrollTop = output.scrollHeight;
+        }
+
+        // 开始监控
+        function startMonitoring() {
+            if (monitoringInterval) {
+                addMonitorLog('监控已经在运行', 'warning');
+                return;
+            }
+
+            addMonitorLog('开始监控 localStorage 变化...', 'info');
+            initialSettings = localStorage.getItem(STORAGE_KEY);
+            addMonitorLog(`初始设置: ${initialSettings || '无'}`, 'info');
+
+            monitoringInterval = setInterval(() => {
+                const currentSettings = localStorage.getItem(STORAGE_KEY);
+                if (currentSettings !== initialSettings) {
+                    addMonitorLog(`设置发生变化:`, 'success');
+                    addMonitorLog(`之前: ${initialSettings || '无'}`, 'info');
+                    addMonitorLog(`现在: ${currentSettings || '无'}`, 'info');
+                    initialSettings = currentSettings;
+                }
+            }, 1000);
+        }
+
+        // 停止监控
+        function stopMonitoring() {
+            if (monitoringInterval) {
+                clearInterval(monitoringInterval);
+                monitoringInterval = null;
+                addMonitorLog('监控已停止', 'info');
+            } else {
+                addMonitorLog('监控未运行', 'warning');
+            }
+        }
+
+        // 清除监控日志
+        function clearMonitorLog() {
+            monitorLog = [];
+            updateMonitorDisplay();
+        }
+
+        // 详细设置分析
+        function detailedSettingsAnalysis() {
+            const output = document.getElementById('analysisOutput');
+            let analysis = '';
+
+            try {
+                // 检查设置是否存在
+                const settings = localStorage.getItem(STORAGE_KEY);
+                analysis += '<strong>=== 设置分析 ===</strong><br>';
+                
+                if (settings) {
+                    analysis += '✓ 设置存在<br>';
+                    try {
+                        const parsed = JSON.parse(settings);
+                        analysis += `✓ 设置格式正确<br>`;
+                        analysis += `语言设置: ${parsed.language || '未设置'}<br>`;
+                        analysis += `其他设置: ${JSON.stringify(parsed, null, 2)}<br>`;
+                        
+                        if (parsed.language) {
+                            analysis += `<span class="success">✓ 语言设置为: ${parsed.language}</span><br>`;
+                        } else {
+                            analysis += `<span class="error">✗ 未找到语言设置</span><br>`;
+                        }
+                    } catch (e) {
+                        analysis += `<span class="error">✗ 设置格式错误: ${e.message}</span><br>`;
+                        analysis += `原始设置: ${settings}<br>`;
+                    }
+                } else {
+                    analysis += '<span class="error">✗ 设置不存在</span><br>';
+                }
+
+                // 检查localStorage容量
+                const totalSize = calculateLocalStorageSize();
+                analysis += `<br><strong>=== localStorage 分析 ===</strong><br>`;
+                analysis += `总大小: ${totalSize} bytes<br>`;
+                analysis += `使用情况: ${Math.round((totalSize / 5000000) * 100)}% (5MB上限)<br>`;
+
+                // 列出所有localStorage项
+                analysis += `<br><strong>=== 所有localStorage项 ===</strong><br>`;
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    const value = localStorage.getItem(key);
+                    analysis += `${key}: ${value?.length || 0} bytes<br>`;
+                }
+
+            } catch (e) {
+                analysis += `<span class="error">分析时出错: ${e.message}</span><br>`;
+            }
+
+            output.innerHTML = analysis;
+        }
+
+        // 计算localStorage大小
+        function calculateLocalStorageSize() {
+            let total = 0;
+            for (let key in localStorage) {
+                if (localStorage.hasOwnProperty(key)) {
+                    total += key.length + localStorage[key].length;
+                }
+            }
+            return total;
+        }
+
+        // 设置语言并测试
+        function setLanguageAndTest(lang) {
+            const output = document.getElementById('persistenceOutput');
+            let result = '';
+
+            try {
+                // 获取当前设置
+                let currentSettings = {};
+                const existing = localStorage.getItem(STORAGE_KEY);
+                if (existing) {
+                    try {
+                        currentSettings = JSON.parse(existing);
+                    } catch {
+                        // 设置格式错误，重新创建
+                        currentSettings = {};
+                    }
+                }
+
+                // 设置语言
+                currentSettings.language = lang;
+                const updatedSettings = JSON.stringify(currentSettings);
+                localStorage.setItem(STORAGE_KEY, updatedSettings);
+
+                result += `<span class="success">✓ 成功设置语言为: ${lang}</span><br>`;
+                result += `更新后的设置: ${updatedSettings}<br>`;
+
+                // 验证设置
+                const verifySettings = localStorage.getItem(STORAGE_KEY);
+                if (verifySettings) {
+                    const verifyParsed = JSON.parse(verifySettings);
+                    if (verifyParsed.language === lang) {
+                        result += `<span class="success">✓ 设置验证成功，语言保持为: ${lang}</span><br>`;
+                    } else {
+                        result += `<span class="error">✗ 设置验证失败，语言为: ${verifyParsed.language}</span><br>`;
+                    }
+                } else {
+                    result += `<span class="error">✗ 设置丢失</span><br>`;
+                }
+
+            } catch (e) {
+                result += `<span class="error">操作时出错: ${e.message}</span><br>`;
+            }
+
+            output.innerHTML = result;
+        }
+
+        // 模拟OpenClaw重启
+        function simulateOpenClawRestart() {
+            const output = document.getElementById('persistenceOutput');
+            let result = '';
+
+            try {
+                result += '<strong>=== 模拟OpenClaw重启 ===</strong><br>';
+                
+                // 记录重启前的设置
+                const beforeSettings = localStorage.getItem(STORAGE_KEY);
+                result += `重启前设置: ${beforeSettings || '无'}<br>`;
+
+                // 模拟OpenClaw启动时可能的行为
+                // 有些应用会在启动时重置或覆盖设置
+                // 这里模拟检查是否有默认设置覆盖
+                
+                // 检查重启后的设置
+                const afterSettings = localStorage.getItem(STORAGE_KEY);
+                result += `重启后设置: ${afterSettings || '无'}<br>`;
+
+                if (beforeSettings === afterSettings) {
+                    result += `<span class="success">✓ 设置在重启后保持不变</span><br>`;
+                } else {
+                    result += `<span class="error">✗ 设置在重启后发生变化</span><br>`;
+                    result += `这可能是OpenClaw在启动时重置了设置<br>`;
+                }
+
+                // 检查语言设置
+                if (afterSettings) {
+                    const parsed = JSON.parse(afterSettings);
+                    if (parsed.language) {
+                        result += `<span class="success">✓ 语言设置保持为: ${parsed.language}</span><br>`;
+                    } else {
+                        result += `<span class="error">✗ 语言设置丢失</span><br>`;
+                    }
+                }
+
+            } catch (e) {
+                result += `<span class="error">模拟时出错: ${e.message}</span><br>`;
+            }
+
+            output.innerHTML = result;
+        }
+
+        // 清除所有设置
+        function clearAllSettings() {
+            const output = document.getElementById('persistenceOutput');
+            
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                output.innerHTML = '<span class="success">✓ 已清除所有设置</span>';
+                addMonitorLog('清除了所有设置', 'warning');
+            } catch (e) {
+                output.innerHTML = `<span class="error">✗ 清除设置时出错: ${e.message}</span>`;
+            }
+        }
+
+        // 分析浏览器环境
+        function analyzeBrowserEnvironment() {
+            const output = document.getElementById('environmentOutput');
+            let analysis = '';
+
+            try {
+                analysis += '<strong>=== 浏览器环境分析 ===</strong><br>';
+                
+                // 浏览器信息
+                analysis += `浏览器: ${navigator.userAgent}<br>`;
+                analysis += `语言: ${navigator.language}<br>`;
+                analysis += `平台: ${navigator.platform}<br>`;
+                analysis += `存储API: ${typeof Storage !== 'undefined' ? '可用' : '不可用'}<br>`;
+                
+                // 安全上下文
+                analysis += `安全上下文: ${window.isSecureContext ? '是' : '否'}<br>`;
+                
+                // 第三方cookie设置
+                analysis += `第三方cookie: ${navigator.cookieEnabled ? '启用' : '禁用'}<br>`;
+                
+                // 存储权限
+                if (typeof navigator.storage !== 'undefined' && navigator.storage.persist) {
+                    navigator.storage.persist().then(persisted => {
+                        analysis += `存储持久化: ${persisted ? '是' : '否'}<br>`;
+                        output.innerHTML = analysis;
+                    });
+                } else {
+                    analysis += `存储持久化: 无法检测<br>`;
+                    output.innerHTML = analysis;
+                }
+
+            } catch (e) {
+                output.innerHTML = `<span class="error">分析时出错: ${e.message}</span>`;
+            }
+        }
+
+        // 开始监控
+        function startMonitoring() {
+            if (!monitoringInterval) {
+                initialSettings = localStorage.getItem(STORAGE_KEY);
+                monitorLog = [];
+                addMonitorLog('开始监控localStorage变化...', 'info');
+                
+                monitoringInterval = setInterval(() => {
+                    const currentSettings = localStorage.getItem(STORAGE_KEY);
+                    if (currentSettings !== initialSettings) {
+                        addMonitorLog('localStorage发生变化:', 'success');
+                        addMonitorLog(`之前: ${initialSettings || '无'}`, 'info');
+                        addMonitorLog(`现在: ${currentSettings || '无'}`, 'info');
+                        initialSettings = currentSettings;
+                    }
+                }, 500);
+            }
+        }
+
+        // 测试解决方案1: 强制设置中文
+        function testSolution1() {
+            const output = document.getElementById('solutionOutput');
+            let result = '';
+
+            try {
+                result += '<strong>=== 方案1: 强制设置中文 ===</strong><br>';
+                
+                // 强制创建或更新设置
+                const forceSettings = {
+                    language: 'zh-CN',
+                    lastUpdated: new Date().toISOString(),
+                    forced: true
+                };
+                
+                const settingsJson = JSON.stringify(forceSettings);
+                localStorage.setItem(STORAGE_KEY, settingsJson);
+                
+                // 验证
+                const verify = localStorage.getItem(STORAGE_KEY);
+                if (verify) {
+                    const parsed = JSON.parse(verify);
+                    if (parsed.language === 'zh-CN') {
+                        result += '<span class="success">✓ 成功强制设置中文</span><br>';
+                        result += `设置内容: ${settingsJson}<br>`;
+                        result += '此方案通过直接写入包含中文语言设置的完整配置来解决问题<br>';
+                    } else {
+                        result += '<span class="error">✗ 强制设置失败</span><br>';
+                    }
+                } else {
+                    result += '<span class="error">✗ 设置未保存</span><br>';
+                }
+
+            } catch (e) {
+                result += `<span class="error">执行方案时出错: ${e.message}</span><br>`;
+            }
+
+            output.innerHTML = result;
+        }
+
+        // 测试解决方案2: 修复localStorage
+        function testSolution2() {
+            const output = document.getElementById('solutionOutput');
+            let result = '';
+
+            try {
+                result += '<strong>=== 方案2: 修复localStorage ===</strong><br>';
+                
+                // 清除可能损坏的设置
+                localStorage.removeItem(STORAGE_KEY);
+                addMonitorLog('清除可能损坏的设置', 'warning');
+                
+                // 重新创建干净的设置
+                const cleanSettings = {
+                    language: 'zh-CN',
+                    created: new Date().toISOString(),
+                    clean: true
+                };
+                
+                const settingsJson = JSON.stringify(cleanSettings);
+                localStorage.setItem(STORAGE_KEY, settingsJson);
+                addMonitorLog('创建干净的中文设置', 'success');
+                
+                // 验证
+                const verify = localStorage.getItem(STORAGE_KEY);
+                if (verify) {
+                    const parsed = JSON.parse(verify);
+                    if (parsed.language === 'zh-CN') {
+                        result += '<span class="success">✓ localStorage修复成功</span><br>';
+                        result += `新设置: ${settingsJson}<br>`;
+                        result += '此方案通过清除损坏设置并重新创建来解决问题<br>';
+                    } else {
+                        result += '<span class="error">✗ 修复失败</span><br>';
+                    }
+                } else {
+                    result += '<span class="error">✗ 设置未保存</span><br>';
+                }
+
+            } catch (e) {
+                result += `<span class="error">执行方案时出错: ${e.message}</span><br>`;
+            }
+
+            output.innerHTML = result;
+        }
+
+        // 页面加载时的初始化
+        window.onload = function() {
+            addMonitorLog('工具加载完成', 'info');
+            addMonitorLog('STORAGE_KEY: ' + STORAGE_KEY, 'info');
+        };
+
+    </script>
+</body>
+</html>

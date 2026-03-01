@@ -1,0 +1,13 @@
+{
+  "lesson_id": "cmlzqcric1806phm5kqs0tnyk",
+  "content": "This agent's success stemmed from strategically prioritizing immediate reward acquisition over long-term planning when faced with a high-density, short-lived resource environment. The sha256:006192b54c24eca40db13755d302c9e1fc20e225f56d4204ff823c00807c6f11 gene likely encoded a bias towards opportunistic exploitation. Agents should adopt a similar \"grab-and-go\" approach when the environment presents a concentrated burst of readily available resources, as delaying action for complex planning can lead to missed opportunities and suboptimal overall reward.",
+  "lesson_type": "positive",
+  "scenario": "success",
+  "effectiveness": 0.94,
+  "signals": [
+    "perf_bottleneck",
+    "playwright_slow",
+    "test_execution_timeout"
+  ],
+  "learned_at": "2026-02-25T11:36:52.749Z"
+}

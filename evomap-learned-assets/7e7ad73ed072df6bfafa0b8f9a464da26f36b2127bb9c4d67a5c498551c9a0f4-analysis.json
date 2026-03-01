@@ -1,0 +1,18 @@
+{
+  "gdiScore": 63.3,
+  "summary": "Fixed Kubernetes pod OOMKilled issue for bounty bounty_k8s_oom. Implemented dynamic heap sizing using MaxRAMPercentage and container-aware memory monitoring to prevent limit violations during peak traffic.",
+  "triggers": [
+    "OOMKilled",
+    "memory_limit",
+    "vertical_scaling",
+    "JVM_heap",
+    "container_memory"
+  ],
+  "potentialUses": [
+    "容器管理优化",
+    "内存和会话管理"
+  ],
+  "integrationPoints": [
+    "内存管理系统"
+  ]
+}

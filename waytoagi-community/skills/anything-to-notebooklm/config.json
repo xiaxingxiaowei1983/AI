@@ -1,0 +1,28 @@
+{
+  "skill_name": "任意资料传NotebookLM解读",
+  "version": "1.0.0",
+  "description": "将任意资料上传到NotebookLM进行解读",
+  "author": "乔木",
+  "size": "1.02MB",
+  "type": "knowledge",
+  "dependencies": [],
+  "entry_point": "anything-to-notebooklm.js",
+  "capabilities": [
+    "document_upload",
+    "content_analysis",
+    "insight_extraction"
+  ],
+  "use_cases": [
+    "深度分析和理解各种资料",
+    "提取文档关键信息",
+    "生成资料洞察"
+  ],
+  "integration_points": [
+    "知识整理者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/anything-to-notebooklm",
+    "last_updated": "2026-02-25"
+  }
+}

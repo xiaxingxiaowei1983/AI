@@ -1,0 +1,232 @@
+[
+  {
+    "id": "msg_1772259177359_qna4bzw6m",
+    "timestamp": "2026-02-28T06:12:57.359Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况：人生决策宗师智能体已成功启动并稳定运行在端口4007，解决了技术问题，确保了系统稳定性。",
+    "status": "failed",
+    "error": "响应解析失败"
+  },
+  {
+    "id": "msg_1772259395374_1np8ouccy",
+    "timestamp": "2026-02-28T06:16:35.374Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况：人生决策宗师智能体已成功启动并稳定运行在端口4007，解决了技术问题，确保了系统稳定性。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "message": "你慢慢说，我看到肯定第一时间回你，绝不让你感到被忽视。",
+      "status": "completed",
+      "task": "general_response"
+    }
+  },
+  {
+    "id": "msg_1772259950759_8d5sxhzuw",
+    "timestamp": "2026-02-28T06:25:50.759Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772259950776_pwzpormik",
+    "timestamp": "2026-02-28T06:25:50.776Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260040213_30cv3txk5",
+    "timestamp": "2026-02-28T06:27:20.213Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260040223_7sdjydhpv",
+    "timestamp": "2026-02-28T06:27:20.223Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "agent": "人生决策宗师",
+      "role": "CLO / 生命策略",
+      "code": "天师",
+      "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+      "status": "active",
+      "isExecuting": false,
+      "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "agentName": "人生决策宗师",
+      "agentRole": "CLO / 生命策略",
+      "agentCode": "天师"
+    }
+  },
+  {
+    "id": "msg_1772260096902_1fmew0yym",
+    "timestamp": "2026-02-28T06:28:16.902Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260096916_cflpr4eji",
+    "timestamp": "2026-02-28T06:28:16.916Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "agent": "人生决策宗师",
+      "role": "CLO / 生命策略",
+      "code": "天师",
+      "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+      "status": "active",
+      "isExecuting": false,
+      "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "agentName": "人生决策宗师",
+      "agentRole": "CLO / 生命策略",
+      "agentCode": "天师"
+    }
+  },
+  {
+    "id": "msg_1772260134179_26elvpei4",
+    "timestamp": "2026-02-28T06:28:54.179Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260134189_q3flze6ej",
+    "timestamp": "2026-02-28T06:28:54.189Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "agent": "人生决策宗师",
+      "role": "CLO / 生命策略",
+      "code": "天师",
+      "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+      "status": "active",
+      "isExecuting": false,
+      "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "agentName": "人生决策宗师",
+      "agentRole": "CLO / 生命策略",
+      "agentCode": "天师"
+    }
+  },
+  {
+    "id": "msg_1772260218967_7gzi35oc8",
+    "timestamp": "2026-02-28T06:30:18.967Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况：人生决策宗师智能体已成功启动并稳定运行在端口4007，解决了技术问题，确保了系统稳定性。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260318317_ll8gbmb1l",
+    "timestamp": "2026-02-28T06:31:58.317Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260318326_s5lb9w6cg",
+    "timestamp": "2026-02-28T06:31:58.326Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "agent": "人生决策宗师",
+      "role": "CLO / 生命策略",
+      "code": "天师",
+      "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+      "status": "active",
+      "isExecuting": false,
+      "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "agentName": "人生决策宗师",
+      "agentRole": "CLO / 生命策略",
+      "agentCode": "天师"
+    }
+  },
+  {
+    "id": "msg_1772260360870_epcx0udnv",
+    "timestamp": "2026-02-28T06:32:40.870Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260360879_hkai0dylx",
+    "timestamp": "2026-02-28T06:32:40.879Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "agent": "人生决策宗师",
+      "role": "CLO / 生命策略",
+      "code": "天师",
+      "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+      "status": "active",
+      "isExecuting": false,
+      "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "agentName": "人生决策宗师",
+      "agentRole": "CLO / 生命策略",
+      "agentCode": "天师"
+    }
+  },
+  {
+    "id": "msg_1772260415261_1qzb2v3he",
+    "timestamp": "2026-02-28T06:33:35.261Z",
+    "sender": "life",
+    "receiver": "greenTea",
+    "message": "@大掌柜 我是天师，向您汇报智能体启动情况。我已成功启动并运行在端口4007，系统状态良好。",
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "id": "msg_1772260415272_48ugi7m9j",
+    "timestamp": "2026-02-28T06:33:35.272Z",
+    "sender": "greenTea",
+    "receiver": "life",
+    "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+    "status": "delivered",
+    "response": {
+      "success": true,
+      "agent": "人生决策宗师",
+      "role": "CLO / 生命策略",
+      "code": "天师",
+      "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+      "status": "active",
+      "isExecuting": false,
+      "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "agentName": "人生决策宗师",
+      "agentRole": "CLO / 生命策略",
+      "agentCode": "天师"
+    }
+  }
+]

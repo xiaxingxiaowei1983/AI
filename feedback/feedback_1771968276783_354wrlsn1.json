@@ -1,0 +1,16 @@
+{
+  "id": "feedback_1771968276783_354wrlsn1",
+  "timestamp": 1771968276783,
+  "type": "system",
+  "content": "测试反馈",
+  "severity": "low",
+  "source": "pcec",
+  "status": "processed",
+  "metadata": {},
+  "processedAt": 1771968276786,
+  "processingResult": {
+    "status": "processed",
+    "result": "测试处理结果",
+    "action": "none"
+  }
+}

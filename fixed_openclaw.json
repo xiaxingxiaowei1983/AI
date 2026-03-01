@@ -1,0 +1,76 @@
+{
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "auth": {
+      "mode": "token",
+      "token": "2e47ede431dbd73de7ae4a2556ba69260427d1269e8878da"
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "custom-doubao": {
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+        "apiKey": "c13b2982-0aab-4c75-9404-0deb12a219ec",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "ep-20260225031720-mp6fh",
+            "name": "Doubao-Seed-Code"
+          },
+          {
+            "id": "ep-20260225031321-nvprc",
+            "name": "Doubao-Seed-Code"
+          },
+          {
+            "id": "ep-20260228195036-gczhx",
+            "name": "Doubao-Non-Programming"
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "list": [
+      {
+        "id": "main",
+        "name": "大宗师",
+        "workspace": "C:/Users/10919/Desktop/AI/agents/master"
+      }
+    ],
+    "defaults": {
+      "model": "custom-doubao/ep-20260225031720-mp6fh",
+      "fallbackModel": "custom-doubao/ep-20260228195036-gczhx"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "groupPolicy": "open",
+      "groupAllowFrom": ["*"],
+      "mode": "websocket",
+      "accounts": {
+        "main": {
+          "appId": "cli_a91012cd0ab89bc9",
+          "appSecret": "W2dl8mRwy7ArghhqZSp9heG8i3I2FVP5"
+        },
+        "coo": {
+          "appId": "cli_a9107e4a38f8dbb3",
+          "appSecret": "H3RyukUiKIKxhcBiMeNvYckqjyzmOTy5"
+        },
+        "default": {
+          "dmPolicy": "open",
+          "allowFrom": ["*"]
+        }
+      }
+    }
+  }
+}

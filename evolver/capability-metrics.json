@@ -1,0 +1,5483 @@
+{
+  "internalized_1772282579612_380": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1778.6034200740328,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.620Z",
+        "metrics": {
+          "executionTime": 1778.6034200740328,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 56.964802060760945,
+            "cpu": 16.11818132326817
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579613_105": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2406.2211919141487,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.624Z",
+        "metrics": {
+          "executionTime": 2406.2211919141487,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 12.513583882104658,
+            "cpu": 15.252880997294987
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579614_104": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2878.813900504093,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.626Z",
+        "metrics": {
+          "executionTime": 2878.813900504093,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 53.97751375124021,
+            "cpu": 11.853765545817437
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772282579615_661": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2467.4451523931725,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.627Z",
+        "metrics": {
+          "executionTime": 2467.4451523931725,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.97595381593067,
+            "cpu": 9.310601306277977
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579616_415": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1764.2706295017433,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.629Z",
+        "metrics": {
+          "executionTime": 1764.2706295017433,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 43.69222007397472,
+            "cpu": 32.26529563419333
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579616_900": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1689.0090971062086,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.631Z",
+        "metrics": {
+          "executionTime": 1689.0090971062086,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 20.90589961051631,
+            "cpu": 20.02057568956225
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579617_908": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2354.652675789803,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.632Z",
+        "metrics": {
+          "executionTime": 2354.652675789803,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 50.639621218355174,
+            "cpu": 8.267025917150802
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579618_256": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3916.5297016355885,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.633Z",
+        "metrics": {
+          "executionTime": 3916.5297016355885,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 53.40183898712864,
+            "cpu": 16.353297268703926
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772282579618_627": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5858.574040774949,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T12:42:59.634Z",
+        "metrics": {
+          "executionTime": 5858.574040774949,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 40.373982405194354,
+            "cpu": 22.4038702180902
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772283951373_121": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4654.647625609377,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.385Z",
+        "metrics": {
+          "executionTime": 4654.647625609377,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 12.992759264761835,
+            "cpu": 34.583584981751244
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772283951374_794": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5325.33592018874,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.387Z",
+        "metrics": {
+          "executionTime": 5325.33592018874,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 16.797662652905707,
+            "cpu": 24.83321605510207
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772283951375_455": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5930.345116348904,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.389Z",
+        "metrics": {
+          "executionTime": 5930.345116348904,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 26.785483874800168,
+            "cpu": 10.589862763379806
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772283951376_205": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5805.567805623229,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.391Z",
+        "metrics": {
+          "executionTime": 5805.567805623229,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.5218375869703,
+            "cpu": 23.210180944569867
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772283951377_508": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 1985.6676933322883,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.393Z",
+        "metrics": {
+          "executionTime": 1985.6676933322883,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 12.256541799738088,
+            "cpu": 34.81147741796328
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772283951378_363": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3414.481172177861,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.395Z",
+        "metrics": {
+          "executionTime": 3414.481172177861,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 19.93770748453096,
+            "cpu": 27.007894024980157
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772283951379_271": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3116.6077455490267,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.396Z",
+        "metrics": {
+          "executionTime": 3116.6077455490267,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 56.409297541074395,
+            "cpu": 34.106183804282885
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772283951380_347": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5237.795302334407,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.398Z",
+        "metrics": {
+          "executionTime": 5237.795302334407,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 40.868189171334116,
+            "cpu": 26.664442786192073
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772283951381_628": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5571.0066896054,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:05:51.400Z",
+        "metrics": {
+          "executionTime": 5571.0066896054,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 26.070947257287994,
+            "cpu": 25.320861350047135
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772284412736_946": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4632.116578368518,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.743Z",
+        "metrics": {
+          "executionTime": 4632.116578368518,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 35.71836533493702,
+            "cpu": 33.285925860861155
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284412737_226": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5604.262541756888,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.745Z",
+        "metrics": {
+          "executionTime": 5604.262541756888,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 27.00954504634722,
+            "cpu": 28.815572185752508
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772284412738_959": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1473.5480760168252,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.747Z",
+        "metrics": {
+          "executionTime": 1473.5480760168252,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 26.055827689653125,
+            "cpu": 9.508475126962601
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284412739_366": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3733.656180668362,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.749Z",
+        "metrics": {
+          "executionTime": 3733.656180668362,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 28.1823166596513,
+            "cpu": 23.618269927046068
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284412739_674": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3683.426034667033,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.751Z",
+        "metrics": {
+          "executionTime": 3683.426034667033,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.92210431458457,
+            "cpu": 27.82842039453512
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284412740_912": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4874.2647158673935,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.752Z",
+        "metrics": {
+          "executionTime": 4874.2647158673935,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 44.73585403472426,
+            "cpu": 11.588821688830716
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284412740_835": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2200.72478727796,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.754Z",
+        "metrics": {
+          "executionTime": 2200.72478727796,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.831257677723457,
+            "cpu": 23.90211171246232
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284412741_554": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3296.8819235693295,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.755Z",
+        "metrics": {
+          "executionTime": 3296.8819235693295,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.00625531099913,
+            "cpu": 14.482929513816202
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772284412742_358": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1532.9073868522273,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:13:32.756Z",
+        "metrics": {
+          "executionTime": 1532.9073868522273,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 28.48129339914475,
+            "cpu": 21.19070925899196
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823709_203": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3491.0890706587115,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.720Z",
+        "metrics": {
+          "executionTime": 3491.0890706587115,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 45.785512605551354,
+            "cpu": 7.274896709975023
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823710_460": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4966.124025002812,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.722Z",
+        "metrics": {
+          "executionTime": 4966.124025002812,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 19.05867582354157,
+            "cpu": 16.562839270794328
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823711_631": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 4318.975898750573,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.723Z",
+        "metrics": {
+          "executionTime": 4318.975898750573,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.86763181135879,
+            "cpu": 16.434634828825075
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772284823713_846": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3249.6982801023855,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.726Z",
+        "metrics": {
+          "executionTime": 3249.6982801023855,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 35.41438677517996,
+            "cpu": 21.956644910918683
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823713_813": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4235.5166701962735,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.728Z",
+        "metrics": {
+          "executionTime": 4235.5166701962735,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 21.653218956912298,
+            "cpu": 22.72473370095252
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823714_112": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1480.282904726002,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.730Z",
+        "metrics": {
+          "executionTime": 1480.282904726002,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 46.572944464442195,
+            "cpu": 11.478073700266933
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823715_6": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3531.069974651015,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.731Z",
+        "metrics": {
+          "executionTime": 3531.069974651015,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 45.85638037245958,
+            "cpu": 25.04706192776452
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284823716_177": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5882.61783364572,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.733Z",
+        "metrics": {
+          "executionTime": 5882.61783364572,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 50.30153715676712,
+            "cpu": 9.3039022870339
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772284823716_633": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2211.376159043419,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:20:23.735Z",
+        "metrics": {
+          "executionTime": 2211.376159043419,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 21.30263771247762,
+            "cpu": 23.89996212592508
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878346_472": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2470.998533204882,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.374Z",
+        "metrics": {
+          "executionTime": 2470.998533204882,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 31.78920362752467,
+            "cpu": 8.034241163583289
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878351_643": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5110.503997309364,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.380Z",
+        "metrics": {
+          "executionTime": 5110.503997309364,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 35.329811625351226,
+            "cpu": 28.939265089343163
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772284878354_5": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2990.070034207596,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.385Z",
+        "metrics": {
+          "executionTime": 2990.070034207596,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 57.44895850162677,
+            "cpu": 25.54318112552009
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878357_932": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4048.061983727647,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.391Z",
+        "metrics": {
+          "executionTime": 4048.061983727647,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 28.123996504476725,
+            "cpu": 6.1046578212740314
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878358_217": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 3063.1384831870896,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.396Z",
+        "metrics": {
+          "executionTime": 3063.1384831870896,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 14.04899415619609,
+            "cpu": 19.573881368809733
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772284878361_717": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4986.598121417839,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.401Z",
+        "metrics": {
+          "executionTime": 4986.598121417839,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 46.95283439340248,
+            "cpu": 24.587479446494047
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878363_49": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1572.2236568338385,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.406Z",
+        "metrics": {
+          "executionTime": 1572.2236568338385,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 36.437361259693446,
+            "cpu": 13.132762436414597
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878365_319": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2593.7740917546644,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.411Z",
+        "metrics": {
+          "executionTime": 2593.7740917546644,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 41.17815953464338,
+            "cpu": 22.42207354749739
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772284878368_100": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5128.43675026529,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:21:18.416Z",
+        "metrics": {
+          "executionTime": 5128.43675026529,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 24.123033002918472,
+            "cpu": 7.174037285037694
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772285381956_620": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2146.208386143052,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.974Z",
+        "metrics": {
+          "executionTime": 2146.208386143052,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 49.48221055829495,
+            "cpu": 29.93651054548967
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772285381958_995": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5010.211623770319,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.977Z",
+        "metrics": {
+          "executionTime": 5010.211623770319,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 48.02047879585061,
+            "cpu": 8.340283032046091
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772285381959_56": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4442.732116435152,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.980Z",
+        "metrics": {
+          "executionTime": 4442.732116435152,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 38.83025144947348,
+            "cpu": 20.48876150269407
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772285381961_690": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4112.515048300169,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.984Z",
+        "metrics": {
+          "executionTime": 4112.515048300169,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 20.421388637176765,
+            "cpu": 23.0199165027068
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772285381964_962": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2773.7119658553356,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.987Z",
+        "metrics": {
+          "executionTime": 2773.7119658553356,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 56.92338941680554,
+            "cpu": 20.29156271167802
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772285381965_991": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3650.623403789155,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.991Z",
+        "metrics": {
+          "executionTime": 3650.623403789155,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 35.50519236475716,
+            "cpu": 20.614253303630086
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772285381967_456": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2106.0458500829595,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.993Z",
+        "metrics": {
+          "executionTime": 2106.0458500829595,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.554043165543018,
+            "cpu": 20.75691191822166
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772285381969_557": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3130.616764114768,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.996Z",
+        "metrics": {
+          "executionTime": 3130.616764114768,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 37.12743274961417,
+            "cpu": 23.247341540262934
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772285381970_145": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5898.235567167461,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T13:29:41.999Z",
+        "metrics": {
+          "executionTime": 5898.235567167461,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 43.53243994344462,
+            "cpu": 10.267635160305174
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772287320449_556": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2140.3095432880264,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.461Z",
+        "metrics": {
+          "executionTime": 2140.3095432880264,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 13.829322111864292,
+            "cpu": 20.3896317692028
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320450_61": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3357.2793559291354,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.464Z",
+        "metrics": {
+          "executionTime": 3357.2793559291354,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 38.072060629611826,
+            "cpu": 28.26871654228959
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320451_341": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3971.197385064125,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.468Z",
+        "metrics": {
+          "executionTime": 3971.197385064125,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 31.092073437350855,
+            "cpu": 30.187364383826136
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320453_334": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2240.632360095006,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.470Z",
+        "metrics": {
+          "executionTime": 2240.632360095006,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 40.442312902090066,
+            "cpu": 29.427003562806444
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320454_849": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5350.587696573263,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.474Z",
+        "metrics": {
+          "executionTime": 5350.587696573263,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 33.771054035419425,
+            "cpu": 10.442115997099659
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772287320454_860": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2793.933710495231,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.476Z",
+        "metrics": {
+          "executionTime": 2793.933710495231,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 12.823450308642638,
+            "cpu": 5.804709664633433
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320455_780": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2278.0265412342715,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.478Z",
+        "metrics": {
+          "executionTime": 2278.0265412342715,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.33848209913048,
+            "cpu": 9.381008590853835
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320456_278": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2321.0380403246245,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.481Z",
+        "metrics": {
+          "executionTime": 2321.0380403246245,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 11.780078190239804,
+            "cpu": 31.938443563524725
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287320457_557": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5329.316315005859,
+    "averageEfficiency": 0.7,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.74,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:02:00.483Z",
+        "metrics": {
+          "executionTime": 5329.316315005859,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 44.57763693979477,
+            "cpu": 18.791712408485715
+          },
+          "efficiency": 0.7,
+          "reliability": 0.8,
+          "overallPerformance": 0.74
+        }
+      }
+    ]
+  },
+  "internalized_1772287397010_191": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 1738.5317562223977,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.020Z",
+        "metrics": {
+          "executionTime": 1738.5317562223977,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 13.006598673732652,
+            "cpu": 7.754306641636796
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772287397011_742": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3042.727892274448,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.023Z",
+        "metrics": {
+          "executionTime": 3042.727892274448,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 50.46191366010355,
+            "cpu": 32.87394487576323
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287397012_195": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5408.110051734017,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.026Z",
+        "metrics": {
+          "executionTime": 5408.110051734017,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 27.46120156990691,
+            "cpu": 29.03478327415722
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772287397014_228": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5941.209884807484,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.029Z",
+        "metrics": {
+          "executionTime": 5941.209884807484,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 14.162324771608839,
+            "cpu": 16.51474474928275
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772287397014_508": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5063.212211870997,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.031Z",
+        "metrics": {
+          "executionTime": 5063.212211870997,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 33.76351336814018,
+            "cpu": 16.774499707412197
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772287397015_94": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5072.176769087019,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.034Z",
+        "metrics": {
+          "executionTime": 5072.176769087019,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 57.606887721953825,
+            "cpu": 33.82051853256105
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772287397016_372": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1611.83506436371,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.036Z",
+        "metrics": {
+          "executionTime": 1611.83506436371,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 45.01374117648966,
+            "cpu": 33.98198220011794
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287397016_164": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1606.34421088708,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.039Z",
+        "metrics": {
+          "executionTime": 1606.34421088708,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 55.389755322976825,
+            "cpu": 25.251858920559464
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772287397017_632": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2033.7736039930905,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T14:03:17.043Z",
+        "metrics": {
+          "executionTime": 2033.7736039930905,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 49.90736443944161,
+            "cpu": 26.46858781716256
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772291260013_516": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3855.131835442979,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.023Z",
+        "metrics": {
+          "executionTime": 3855.131835442979,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 45.191900130279905,
+            "cpu": 21.218651407576022
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772291260015_493": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 2364.4890416157605,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.026Z",
+        "metrics": {
+          "executionTime": 2364.4890416157605,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 33.28168771530606,
+            "cpu": 22.967919779044152
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772291260016_556": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4678.891129595062,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.028Z",
+        "metrics": {
+          "executionTime": 4678.891129595062,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.77052984346447,
+            "cpu": 34.546766093430406
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772291260017_321": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5760.2685229467315,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.030Z",
+        "metrics": {
+          "executionTime": 5760.2685229467315,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 37.57221664567521,
+            "cpu": 31.016206929293404
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772291260018_577": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5770.689439235111,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.033Z",
+        "metrics": {
+          "executionTime": 5770.689439235111,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 34.931247083132746,
+            "cpu": 6.002203513340772
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772291260019_802": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4687.675126206512,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.037Z",
+        "metrics": {
+          "executionTime": 4687.675126206512,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 21.755171156511544,
+            "cpu": 30.405223305296527
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772291260019_642": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4755.056514895655,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.038Z",
+        "metrics": {
+          "executionTime": 4755.056514895655,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 52.2414805441995,
+            "cpu": 17.811372225465085
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772291260020_907": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1387.4079265529078,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.040Z",
+        "metrics": {
+          "executionTime": 1387.4079265529078,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 22.350202707331107,
+            "cpu": 32.362973325149824
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772291260021_138": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4805.654480986494,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T15:07:40.042Z",
+        "metrics": {
+          "executionTime": 4805.654480986494,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 17.125838867405793,
+            "cpu": 25.66218163546554
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860077_770": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3700.8730651763217,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.095Z",
+        "metrics": {
+          "executionTime": 3700.8730651763217,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 21.28985139955296,
+            "cpu": 31.525856455686327
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860079_551": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2585.7852349579925,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.101Z",
+        "metrics": {
+          "executionTime": 2585.7852349579925,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.01048263441538,
+            "cpu": 6.0364643696523865
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860081_109": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5972.2975866014785,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.107Z",
+        "metrics": {
+          "executionTime": 5972.2975866014785,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 41.44886785982247,
+            "cpu": 14.102521473234164
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772294860083_8": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3467.634297878267,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.113Z",
+        "metrics": {
+          "executionTime": 3467.634297878267,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 13.247104245073452,
+            "cpu": 7.493837604637328
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860084_661": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2722.4194537978815,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.119Z",
+        "metrics": {
+          "executionTime": 2722.4194537978815,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 19.651118416291084,
+            "cpu": 10.20707084185931
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860086_990": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2165.6448056222935,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.126Z",
+        "metrics": {
+          "executionTime": 2165.6448056222935,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 51.96073201317447,
+            "cpu": 9.8273265983707
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860088_332": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5232.502350659652,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.132Z",
+        "metrics": {
+          "executionTime": 5232.502350659652,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 27.19396136966127,
+            "cpu": 6.785780054267786
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772294860090_888": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2499.724643889388,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.138Z",
+        "metrics": {
+          "executionTime": 2499.724643889388,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 36.981813900391295,
+            "cpu": 11.015102396381321
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772294860092_489": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5696.104050157513,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T16:07:40.143Z",
+        "metrics": {
+          "executionTime": 5696.104050157513,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 11.945602242405792,
+            "cpu": 30.962672660423305
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772298460082_714": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5709.819463549594,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.098Z",
+        "metrics": {
+          "executionTime": 5709.819463549594,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.63841435006671,
+            "cpu": 15.168070965537115
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772298460084_645": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2479.305217279667,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.106Z",
+        "metrics": {
+          "executionTime": 2479.305217279667,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 45.43824441130654,
+            "cpu": 15.316193892031697
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772298460085_91": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5727.489122130309,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.112Z",
+        "metrics": {
+          "executionTime": 5727.489122130309,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 22.688304545849572,
+            "cpu": 16.091240787195943
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772298460087_613": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 3060.1656053874035,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.118Z",
+        "metrics": {
+          "executionTime": 3060.1656053874035,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 38.82597154136603,
+            "cpu": 14.41942603962957
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772298460089_622": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1205.640763370068,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.123Z",
+        "metrics": {
+          "executionTime": 1205.640763370068,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 17.297524496866874,
+            "cpu": 14.08056782381587
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772298460090_928": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5853.148144594216,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.129Z",
+        "metrics": {
+          "executionTime": 5853.148144594216,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 48.49047257444643,
+            "cpu": 32.671821659411364
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772298460092_514": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2635.4885291180135,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.135Z",
+        "metrics": {
+          "executionTime": 2635.4885291180135,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 44.3030840504154,
+            "cpu": 7.814642250631944
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772298460094_913": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3244.646257802912,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.140Z",
+        "metrics": {
+          "executionTime": 3244.646257802912,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 55.15274461116071,
+            "cpu": 21.13997266217048
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772298460096_140": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3718.484790324104,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T17:07:40.146Z",
+        "metrics": {
+          "executionTime": 3718.484790324104,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 59.33539080416167,
+            "cpu": 31.58043430586313
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772302060090_382": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3697.2667372566957,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.107Z",
+        "metrics": {
+          "executionTime": 3697.2667372566957,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 23.138350509184594,
+            "cpu": 15.284964667628584
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772302060092_54": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3993.5614432676853,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.114Z",
+        "metrics": {
+          "executionTime": 3993.5614432676853,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 34.823630685940486,
+            "cpu": 26.004916747646252
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772302060094_384": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1112.0236029648424,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.120Z",
+        "metrics": {
+          "executionTime": 1112.0236029648424,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 27.381103048987256,
+            "cpu": 20.930852166247814
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772302060096_707": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5253.389623937985,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.126Z",
+        "metrics": {
+          "executionTime": 5253.389623937985,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 34.5933083267844,
+            "cpu": 34.437877662460664
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772302060098_727": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4998.0449490148985,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.131Z",
+        "metrics": {
+          "executionTime": 4998.0449490148985,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 11.326651895765258,
+            "cpu": 18.911542907884893
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772302060099_266": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5768.519573199857,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.138Z",
+        "metrics": {
+          "executionTime": 5768.519573199857,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 59.39853554078588,
+            "cpu": 31.43980215159827
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772302060102_266": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4289.896723156506,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.143Z",
+        "metrics": {
+          "executionTime": 4289.896723156506,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 28.06586387654876,
+            "cpu": 18.63691192161113
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772302060103_183": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2998.393199474345,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.147Z",
+        "metrics": {
+          "executionTime": 2998.393199474345,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 55.146288924496545,
+            "cpu": 11.439065427382435
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772302060105_60": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4754.76656792076,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T18:07:40.151Z",
+        "metrics": {
+          "executionTime": 4754.76656792076,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 30.999460798263943,
+            "cpu": 24.923631343755467
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772305660092_591": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4358.781159712435,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.110Z",
+        "metrics": {
+          "executionTime": 4358.781159712435,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 50.07295113749258,
+            "cpu": 18.300070648779517
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772305660094_162": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1668.605206889364,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.117Z",
+        "metrics": {
+          "executionTime": 1668.605206889364,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 49.26885493236459,
+            "cpu": 21.78027562929423
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772305660096_461": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5463.157462150115,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.122Z",
+        "metrics": {
+          "executionTime": 5463.157462150115,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 27.59519926214005,
+            "cpu": 7.1081976867468635
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772305660099_14": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1122.2761200552025,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.128Z",
+        "metrics": {
+          "executionTime": 1122.2761200552025,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 12.930729755564915,
+            "cpu": 21.106289598777845
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772305660101_277": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 5779.9983791290315,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.133Z",
+        "metrics": {
+          "executionTime": 5779.9983791290315,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 54.21062226077914,
+            "cpu": 14.87438639232607
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772305660103_720": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4070.5288909060264,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.139Z",
+        "metrics": {
+          "executionTime": 4070.5288909060264,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.690495224002106,
+            "cpu": 33.742884644754795
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772305660104_991": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5126.859405402564,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.145Z",
+        "metrics": {
+          "executionTime": 5126.859405402564,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 37.77278526236532,
+            "cpu": 22.184780363836534
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772305660106_386": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1227.9779588266251,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.149Z",
+        "metrics": {
+          "executionTime": 1227.9779588266251,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 45.52877799601578,
+            "cpu": 29.38683086078875
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772305660108_478": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3065.731717400875,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T19:07:40.153Z",
+        "metrics": {
+          "executionTime": 3065.731717400875,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 24.56992421457689,
+            "cpu": 5.78084624544363
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772309260103_748": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1926.3780356836614,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.120Z",
+        "metrics": {
+          "executionTime": 1926.3780356836614,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 37.57075470746633,
+            "cpu": 29.83929799877419
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772309260104_217": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4566.20747002416,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.126Z",
+        "metrics": {
+          "executionTime": 4566.20747002416,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 46.20413871519321,
+            "cpu": 24.547309272764437
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772309260106_169": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2937.8574078912507,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.132Z",
+        "metrics": {
+          "executionTime": 2937.8574078912507,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 36.02083673390979,
+            "cpu": 30.97506745682062
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772309260108_671": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2422.3114293671133,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.138Z",
+        "metrics": {
+          "executionTime": 2422.3114293671133,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 40.626982923593694,
+            "cpu": 9.622938043581971
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772309260110_471": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2724.113049200105,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.145Z",
+        "metrics": {
+          "executionTime": 2724.113049200105,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 20.016183611411368,
+            "cpu": 5.383461700587397
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772309260111_775": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1855.4488739287199,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.151Z",
+        "metrics": {
+          "executionTime": 1855.4488739287199,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 30.569417749453333,
+            "cpu": 15.71296835972875
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772309260113_9": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3573.3500715291043,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.157Z",
+        "metrics": {
+          "executionTime": 3573.3500715291043,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 41.906473219754815,
+            "cpu": 6.4397270214462035
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772309260115_47": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 1708.446889381722,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.163Z",
+        "metrics": {
+          "executionTime": 1708.446889381722,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 49.81081247742127,
+            "cpu": 9.252889456088784
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772309260118_327": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5080.717302389003,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T20:07:40.168Z",
+        "metrics": {
+          "executionTime": 5080.717302389003,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 44.59259237369742,
+            "cpu": 13.519724847650616
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772312860119_591": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5491.244158640211,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.137Z",
+        "metrics": {
+          "executionTime": 5491.244158640211,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 40.51185416348934,
+            "cpu": 7.132713183459067
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772312860122_585": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5184.435564037543,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.144Z",
+        "metrics": {
+          "executionTime": 5184.435564037543,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 13.23085244345288,
+            "cpu": 14.326012420740854
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772312860124_176": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 1561.6769473713957,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.151Z",
+        "metrics": {
+          "executionTime": 1561.6769473713957,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 58.44447119344555,
+            "cpu": 5.599535633318853
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772312860126_1": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 5656.223905005494,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.158Z",
+        "metrics": {
+          "executionTime": 5656.223905005494,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 53.886662558185265,
+            "cpu": 32.45240789576277
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772312860128_295": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5597.120736515175,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.164Z",
+        "metrics": {
+          "executionTime": 5597.120736515175,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 23.340756549891523,
+            "cpu": 24.861214319484613
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772312860129_634": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2307.5242072019955,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.171Z",
+        "metrics": {
+          "executionTime": 2307.5242072019955,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 56.76747053397258,
+            "cpu": 23.21865563912629
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772312860131_93": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2498.8049261191545,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.177Z",
+        "metrics": {
+          "executionTime": 2498.8049261191545,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 54.271622511307136,
+            "cpu": 28.500005648626082
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772312860133_460": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2290.394999712982,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.182Z",
+        "metrics": {
+          "executionTime": 2290.394999712982,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 19.143794898255848,
+            "cpu": 15.902100553851565
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772312860135_773": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4945.790961584327,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T21:07:40.187Z",
+        "metrics": {
+          "executionTime": 4945.790961584327,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 29.329828775535873,
+            "cpu": 26.055201944049283
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772316460124_316": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1217.2336074835462,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.139Z",
+        "metrics": {
+          "executionTime": 1217.2336074835462,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 23.50893289668339,
+            "cpu": 14.999368836911165
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772316460126_427": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4277.211082771506,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.146Z",
+        "metrics": {
+          "executionTime": 4277.211082771506,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 49.23744772905733,
+            "cpu": 11.280335966721857
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772316460127_299": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5234.675911393477,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.153Z",
+        "metrics": {
+          "executionTime": 5234.675911393477,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 28.559082476621857,
+            "cpu": 12.92223898859324
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772316460129_610": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2279.0741425361734,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.160Z",
+        "metrics": {
+          "executionTime": 2279.0741425361734,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 10.404778187131093,
+            "cpu": 34.76452549781452
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772316460130_242": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4489.342240456328,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.167Z",
+        "metrics": {
+          "executionTime": 4489.342240456328,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.2868826822595,
+            "cpu": 7.309425278124126
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772316460132_1": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4403.023111882819,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.175Z",
+        "metrics": {
+          "executionTime": 4403.023111882819,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 31.471854840305728,
+            "cpu": 21.528282286735664
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772316460134_156": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5454.266854225504,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.182Z",
+        "metrics": {
+          "executionTime": 5454.266854225504,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 54.1387745362401,
+            "cpu": 17.155582347448544
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772316460135_924": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5291.077453228365,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.187Z",
+        "metrics": {
+          "executionTime": 5291.077453228365,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 31.107419898236856,
+            "cpu": 19.5125302801193
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772316460137_392": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 5151.666701060365,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T22:07:40.193Z",
+        "metrics": {
+          "executionTime": 5151.666701060365,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 25.00568508675471,
+            "cpu": 15.750574656216141
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772320060128_25": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2869.432319483463,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.145Z",
+        "metrics": {
+          "executionTime": 2869.432319483463,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 17.49063111025515,
+            "cpu": 16.9724446172891
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772320060130_107": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2696.629319506611,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.153Z",
+        "metrics": {
+          "executionTime": 2696.629319506611,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 52.37601529138246,
+            "cpu": 23.13368319705286
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772320060131_713": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 3696.658403230981,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.161Z",
+        "metrics": {
+          "executionTime": 3696.658403230981,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 41.62854855654035,
+            "cpu": 6.793423766544344
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772320060133_313": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5678.476090048,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.168Z",
+        "metrics": {
+          "executionTime": 5678.476090048,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.839399402168457,
+            "cpu": 24.415436577382298
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772320060135_988": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 4439.2412916982,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.176Z",
+        "metrics": {
+          "executionTime": 4439.2412916982,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 52.602350023944936,
+            "cpu": 18.701994732405787
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772320060138_315": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4843.528191852562,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.184Z",
+        "metrics": {
+          "executionTime": 4843.528191852562,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 29.37561967851171,
+            "cpu": 6.034009020036174
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772320060140_444": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5374.597775623083,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.194Z",
+        "metrics": {
+          "executionTime": 5374.597775623083,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 45.783781432321696,
+            "cpu": 21.99279484648569
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772320060141_963": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3977.4386211149886,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.199Z",
+        "metrics": {
+          "executionTime": 3977.4386211149886,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 27.3062327515574,
+            "cpu": 10.144090356193104
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772320060143_321": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5052.369119476912,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-02-28T23:07:40.204Z",
+        "metrics": {
+          "executionTime": 5052.369119476912,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 11.667139278959207,
+            "cpu": 12.319461026588748
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772323660120_699": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1370.8347726036686,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.136Z",
+        "metrics": {
+          "executionTime": 1370.8347726036686,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 34.19662199000898,
+            "cpu": 8.623220028602631
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772323660122_333": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3674.0740585010562,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.145Z",
+        "metrics": {
+          "executionTime": 3674.0740585010562,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 10.249704792171796,
+            "cpu": 34.281278154876475
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772323660123_57": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2683.7576717787288,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.154Z",
+        "metrics": {
+          "executionTime": 2683.7576717787288,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 33.82009378440953,
+            "cpu": 16.966236572169613
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772323660125_634": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4624.149497144896,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.164Z",
+        "metrics": {
+          "executionTime": 4624.149497144896,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 33.76969148853356,
+            "cpu": 25.28214162024274
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772323660127_956": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3891.254325269186,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.173Z",
+        "metrics": {
+          "executionTime": 3891.254325269186,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 49.46604296832458,
+            "cpu": 30.40535232449566
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772323660129_587": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5818.009162290937,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.183Z",
+        "metrics": {
+          "executionTime": 5818.009162290937,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 10.77852769290907,
+            "cpu": 5.284234805511357
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772323660131_15": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5843.477159361751,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.191Z",
+        "metrics": {
+          "executionTime": 5843.477159361751,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 49.977195031276274,
+            "cpu": 20.133977931938663
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772323660133_335": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1864.920254560901,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.199Z",
+        "metrics": {
+          "executionTime": 1864.920254560901,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 10.562300641843466,
+            "cpu": 21.5955679452037
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772323660134_770": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1083.4636978809606,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T00:07:40.208Z",
+        "metrics": {
+          "executionTime": 1083.4636978809606,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 32.22526364964124,
+            "cpu": 18.20794685505401
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772327992846_443": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1184.5581893171554,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.856Z",
+        "metrics": {
+          "executionTime": 1184.5581893171554,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 36.92961760425346,
+            "cpu": 34.11234921485556
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772327992847_509": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 2458.813202185529,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.859Z",
+        "metrics": {
+          "executionTime": 2458.813202185529,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 32.05785041461955,
+            "cpu": 5.4700824050593475
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772327992848_410": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2481.9273793457187,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.864Z",
+        "metrics": {
+          "executionTime": 2481.9273793457187,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 14.789251664086457,
+            "cpu": 18.082417851877416
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772327992849_679": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2044.932413868685,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.870Z",
+        "metrics": {
+          "executionTime": 2044.932413868685,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 40.80204802086644,
+            "cpu": 23.48771640418356
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772327992850_56": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 2774.5192214033395,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.877Z",
+        "metrics": {
+          "executionTime": 2774.5192214033395,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 10.394704019212867,
+            "cpu": 19.776369583116484
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772327992851_537": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5481.290299537325,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.882Z",
+        "metrics": {
+          "executionTime": 5481.290299537325,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 32.28636211029646,
+            "cpu": 10.979160959092075
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772327992852_165": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3198.764929813783,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.886Z",
+        "metrics": {
+          "executionTime": 3198.764929813783,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 12.408244380532848,
+            "cpu": 26.168018278375612
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772327992854_139": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5476.319677239266,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.891Z",
+        "metrics": {
+          "executionTime": 5476.319677239266,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 48.88149166106608,
+            "cpu": 17.974167684139918
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772327992855_406": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3428.309341086144,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T01:19:52.895Z",
+        "metrics": {
+          "executionTime": 3428.309341086144,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 53.38150383295867,
+            "cpu": 20.130436782943427
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772331592869_157": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1427.4094876671497,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.886Z",
+        "metrics": {
+          "executionTime": 1427.4094876671497,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 10.117644484891837,
+            "cpu": 5.489903964245041
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772331592871_948": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4558.59071205189,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.895Z",
+        "metrics": {
+          "executionTime": 4558.59071205189,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 24.621798959857117,
+            "cpu": 16.06129554677483
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772331592873_802": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3857.1712235074815,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.904Z",
+        "metrics": {
+          "executionTime": 3857.1712235074815,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 30.989405628140045,
+            "cpu": 22.54710680833714
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772331592875_843": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5869.278260960876,
+    "averageEfficiency": 0.7,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.74,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.912Z",
+        "metrics": {
+          "executionTime": 5869.278260960876,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 13.328171425170567,
+            "cpu": 11.0011221402182
+          },
+          "efficiency": 0.7,
+          "reliability": 0.8,
+          "overallPerformance": 0.74
+        }
+      }
+    ]
+  },
+  "internalized_1772331592876_390": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3830.2754263352026,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.921Z",
+        "metrics": {
+          "executionTime": 3830.2754263352026,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 33.768217706160314,
+            "cpu": 20.2980473840347
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772331592877_499": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5393.872111546543,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.929Z",
+        "metrics": {
+          "executionTime": 5393.872111546543,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 23.240811922528458,
+            "cpu": 23.9365112880317
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772331592879_390": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 4320.886165727958,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.936Z",
+        "metrics": {
+          "executionTime": 4320.886165727958,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 31.989433202124353,
+            "cpu": 13.344399640068206
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772331592881_406": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1769.7387690656549,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.947Z",
+        "metrics": {
+          "executionTime": 1769.7387690656549,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 57.60426426154284,
+            "cpu": 18.073474685378784
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772331592883_362": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5958.049299049835,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T02:19:52.955Z",
+        "metrics": {
+          "executionTime": 5958.049299049835,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 22.962670309975877,
+            "cpu": 5.734315142337828
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772335192932_112": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5898.228187926812,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:52.960Z",
+        "metrics": {
+          "executionTime": 5898.228187926812,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 18.512809147162997,
+            "cpu": 15.732591051731488
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772335192938_699": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5942.982330933469,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:52.979Z",
+        "metrics": {
+          "executionTime": 5942.982330933469,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 58.620857049048894,
+            "cpu": 22.33436984320486
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  },
+  "internalized_1772335192941_494": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 4039.2923902241564,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:52.987Z",
+        "metrics": {
+          "executionTime": 4039.2923902241564,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 40.42870392455504,
+            "cpu": 8.522126345388862
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772335192943_623": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1137.131500873724,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:52.995Z",
+        "metrics": {
+          "executionTime": 1137.131500873724,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 48.175497730778226,
+            "cpu": 6.9076856616986015
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772335192945_989": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3708.4057675699296,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:53.011Z",
+        "metrics": {
+          "executionTime": 3708.4057675699296,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 24.79349172646997,
+            "cpu": 16.815172380335042
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772335192948_721": {
+    "totalUsages": 1,
+    "totalSuccesses": 0,
+    "totalFailures": 1,
+    "averageExecutionTime": 3938.1679364100705,
+    "averageEfficiency": 0,
+    "averageReliability": 0,
+    "averagePerformance": 0,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:53.047Z",
+        "metrics": {
+          "executionTime": 3938.1679364100705,
+          "success": false,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 43.06368303155562,
+            "cpu": 16.45306792305599
+          },
+          "efficiency": 0,
+          "reliability": 0,
+          "overallPerformance": 0
+        }
+      }
+    ]
+  },
+  "internalized_1772335192950_370": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 3748.1321658703105,
+    "averageEfficiency": 1,
+    "averageReliability": 1,
+    "averagePerformance": 1,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:53.059Z",
+        "metrics": {
+          "executionTime": 3748.1321658703105,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 56.138354957570655,
+            "cpu": 9.705577380661413
+          },
+          "efficiency": 1,
+          "reliability": 1,
+          "overallPerformance": 1
+        }
+      }
+    ]
+  },
+  "internalized_1772335192952_997": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 1121.827836206584,
+    "averageEfficiency": 1,
+    "averageReliability": 0.8,
+    "averagePerformance": 0.92,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:53.071Z",
+        "metrics": {
+          "executionTime": 1121.827836206584,
+          "success": true,
+          "errorCount": 1,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 0,
+          "resourceUsage": {
+            "memory": 31.851509334371507,
+            "cpu": 10.161844170687667
+          },
+          "efficiency": 1,
+          "reliability": 0.8,
+          "overallPerformance": 0.92
+        }
+      }
+    ]
+  },
+  "internalized_1772335192954_242": {
+    "totalUsages": 1,
+    "totalSuccesses": 1,
+    "totalFailures": 0,
+    "averageExecutionTime": 5223.303695522904,
+    "averageEfficiency": 0.7,
+    "averageReliability": 1,
+    "averagePerformance": 0.8200000000000001,
+    "usageHistory": [
+      {
+        "timestamp": "2026-03-01T03:19:53.080Z",
+        "metrics": {
+          "executionTime": 5223.303695522904,
+          "success": true,
+          "errorCount": 0,
+          "inputCount": 0,
+          "outputCount": 0,
+          "retryCount": 1,
+          "resourceUsage": {
+            "memory": 48.703701703862045,
+            "cpu": 33.26133371515766
+          },
+          "efficiency": 0.7,
+          "reliability": 1,
+          "overallPerformance": 0.8200000000000001
+        }
+      }
+    ]
+  }
+}

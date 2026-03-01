@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-02-24T19:31:38.991Z",
+  "capabilities": {
+    "economic_analysis": {
+      "level": 3.5,
+      "sub_capabilities": [
+        "industry_analysis",
+        "market_trend",
+        "consumer_behavior"
+      ],
+      "tasks": [
+        "task_001"
+      ]
+    },
+    "cultural_industry_analysis": {
+      "level": 2.5,
+      "sub_capabilities": [
+        "cultural_trend",
+        "service_culture",
+        "traditional_industry"
+      ],
+      "tasks": [
+        "task_001"
+      ]
+    },
+    "sustainability_analysis": {
+      "level": 2.5,
+      "sub_capabilities": [
+        "industry_ecology",
+        "long_term_development",
+        "resource_allocation"
+      ],
+      "tasks": [
+        "task_001"
+      ]
+    }
+  }
+}

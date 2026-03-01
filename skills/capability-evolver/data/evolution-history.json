@@ -1,0 +1,16 @@
+{
+  "evolutions": [
+    {
+      "type": "candidate_added",
+      "candidateId": "mock_candidate_1772332938451",
+      "timestamp": 1772332938451,
+      "details": {
+        "name": "文件处理能力",
+        "description": "处理文件的能力",
+        "context": "执行文件操作时发现",
+        "usageCount": 5
+      }
+    }
+  ],
+  "lastUpdated": 1772332938451
+}

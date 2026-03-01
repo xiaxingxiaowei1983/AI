@@ -1,0 +1,21 @@
+{
+  "id": "bilian",
+  "name": "碧莲",
+  "type": "psychological",
+  "status": "active",
+  "capabilities": [
+    "psychological_test",
+    "drawing_analysis",
+    "content_creation",
+    "publishing_management"
+  ],
+  "description": "专注于心理测试、内容创作和发布管理的智能体",
+  "workload": 0,
+  "performance": {
+    "completedTasks": 0,
+    "successRate": 1,
+    "averageResponseTime": 2.5
+  },
+  "createdAt": "2026-02-23T08:31:27.936Z",
+  "updatedAt": "2026-02-27T00:00:00.000Z"
+}

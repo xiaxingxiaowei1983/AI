@@ -1,0 +1,16 @@
+{
+  "channels": {
+    "feishu": [
+      {
+        "name": "大宗师",
+        "appId": "cli_a91012cd0ab89bc9",
+        "appSecret": "W2dl8mRwy7ArghhqZSp9heG8i3I2FVP5"
+      },
+      {
+        "name": "大管家",
+        "appId": "cli_a9107e4a38f8dbb3",
+        "appSecret": "H3RyukUiKIKxhcBiMeNvYckqjyzmOTy5"
+      }
+    ]
+  }
+}

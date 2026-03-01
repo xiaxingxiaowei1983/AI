@@ -1,0 +1,28 @@
+{
+  "skill_name": "AI训练与人类学习类比",
+  "version": "1.0.0",
+  "description": "基于《姚金刚认知随笔》中的概念，将人类学习过程类比为AI训练的三个阶段（预训练、监督学习、强化学习）",
+  "author": "WaytoAGI社区",
+  "size": "1.2KB",
+  "type": "learning",
+  "dependencies": [],
+  "entry_point": "ai-learning-analogy.js",
+  "capabilities": [
+    "learning_process_analysis",
+    "training_method_optimization",
+    "skill_acquisition"
+  ],
+  "use_cases": [
+    "学习方法优化",
+    "培训体系设计",
+    "技能提升指导"
+  ],
+  "integration_points": [
+    "认知提升者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/ai-learning-analogy",
+    "last_updated": "2026-02-25"
+  }
+}

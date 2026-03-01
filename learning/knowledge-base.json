@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-02-28T09:11:01.808Z",
+  "knowledge": [
+    {
+      "content": "学习了新的课程内容",
+      "source": "learning",
+      "timestamp": "2026-02-28T06:57:32.214Z",
+      "applicationCount": 1
+    },
+    {
+      "content": "获得了新的知识和技能",
+      "source": "learning",
+      "timestamp": "2026-02-28T06:57:32.214Z",
+      "applicationCount": 0
+    },
+    {
+      "content": "提高了资源分析和评估能力",
+      "source": "learning",
+      "timestamp": "2026-02-28T06:57:32.214Z",
+      "applicationCount": 0
+    },
+    {
+      "content": "增强了自动学习和进化能力",
+      "source": "learning",
+      "timestamp": "2026-02-28T06:57:32.214Z",
+      "applicationCount": 1
+    },
+    {
+      "content": "增强知识获取和整合能力",
+      "source": "evolution",
+      "timestamp": "2026-02-28T06:57:38.255Z",
+      "applicationCount": 0
+    },
+    {
+      "content": "提高资源发现和筛选效率",
+      "source": "evolution",
+      "timestamp": "2026-02-28T06:57:38.255Z",
+      "applicationCount": 1
+    },
+    {
+      "content": "增强学习内容的应用能力",
+      "source": "evolution",
+      "timestamp": "2026-02-28T06:57:38.255Z",
+      "applicationCount": 1
+    }
+  ],
+  "applications": [
+    {
+      "taskId": "task_2",
+      "taskTitle": "增强知识获取能力",
+      "knowledgeContent": "学习了新的课程内容",
+      "timestamp": "2026-02-28T09:11:01.795Z",
+      "result": "applied"
+    },
+    {
+      "taskId": "task_2",
+      "taskTitle": "增强知识获取能力",
+      "knowledgeContent": "增强了自动学习和进化能力",
+      "timestamp": "2026-02-28T09:11:01.795Z",
+      "result": "applied"
+    },
+    {
+      "taskId": "task_2",
+      "taskTitle": "增强知识获取能力",
+      "knowledgeContent": "增强学习内容的应用能力",
+      "timestamp": "2026-02-28T09:11:01.795Z",
+      "result": "applied"
+    },
+    {
+      "taskId": "task_4",
+      "taskTitle": "提升学习效率",
+      "knowledgeContent": "提高资源发现和筛选效率",
+      "timestamp": "2026-02-28T09:11:01.808Z",
+      "result": "applied"
+    }
+  ]
+}

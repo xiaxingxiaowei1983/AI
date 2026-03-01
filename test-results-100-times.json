@@ -1,0 +1,2515 @@
+{
+  "summary": {
+    "totalTests": 100,
+    "passed": 100,
+    "failed": 0,
+    "errors": 0,
+    "successRate": "100.00%",
+    "testDate": "2026-02-25T14:57:51.393Z",
+    "testType": "时柱测试"
+  },
+  "details": [
+    {
+      "testIndex": 1,
+      "date": "1974-04-01 21:35",
+      "dayGan": "庚",
+      "shiChen": "亥时",
+      "expectedShiChenZhi": "亥",
+      "calculatedTime": "辛亥",
+      "calculatedShiChen": "亥时",
+      "baZi": "甲寅丁卯壬申辛亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 2,
+      "date": "1950-09-17 06:05",
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "己卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "庚寅己卯乙卯己卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 3,
+      "date": "1997-04-20 12:27",
+      "dayGan": "丁",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "丙午",
+      "calculatedShiChen": "午时",
+      "baZi": "丁丑癸卯壬辰丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 4,
+      "date": "2040-06-24 16:25",
+      "dayGan": "己",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "庚申",
+      "calculatedShiChen": "申时",
+      "baZi": "庚申己卯癸未庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 5,
+      "date": "2003-01-11 08:01",
+      "dayGan": "庚",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "戊辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "癸未甲子甲申戊辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 6,
+      "date": "1997-04-05 09:13",
+      "dayGan": "戊",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "乙巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "丁丑癸卯丁丑乙巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 7,
+      "date": "1958-06-26 23:56",
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "丙子",
+      "calculatedShiChen": "子时",
+      "baZi": "戊戌丁巳乙亥丙子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 8,
+      "date": "2025-11-26 02:59",
+      "dayGan": "丁",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "乙丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "乙巳丙戌己亥乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 9,
+      "date": "2032-06-20 05:53",
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "癸卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "壬子乙巳丁酉癸卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 10,
+      "date": "1996-12-08 22:25",
+      "dayGan": "乙",
+      "shiChen": "亥时",
+      "expectedShiChenZhi": "亥",
+      "calculatedTime": "乙亥",
+      "calculatedShiChen": "亥时",
+      "baZi": "丙子己亥己卯乙亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 11,
+      "date": "2001-09-25 23:48",
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "庚子",
+      "calculatedShiChen": "子时",
+      "baZi": "辛巳庚寅壬辰庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 12,
+      "date": "1999-01-26 04:38",
+      "dayGan": "辛",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "甲寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "己卯丙子戊寅甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 13,
+      "date": "2037-01-13 03:22",
+      "dayGan": "癸",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "戊寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "丁巳壬子乙酉戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 14,
+      "date": "1953-12-20 17:13",
+      "dayGan": "癸",
+      "shiChen": "酉时",
+      "expectedShiChenZhi": "酉",
+      "calculatedTime": "乙酉",
+      "calculatedShiChen": "酉时",
+      "baZi": "癸巳癸亥乙巳乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 15,
+      "date": "1982-11-26 13:47",
+      "dayGan": "戊",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "己未",
+      "calculatedShiChen": "未时",
+      "baZi": "壬戌庚戌癸丑己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 16,
+      "date": "1957-05-27 19:59",
+      "dayGan": "戊",
+      "shiChen": "戌时",
+      "expectedShiChenZhi": "戌",
+      "calculatedTime": "甲戌",
+      "calculatedShiChen": "戌时",
+      "baZi": "丁酉甲辰己亥甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 17,
+      "date": "1950-04-03 02:42",
+      "dayGan": "癸",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "癸丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "庚寅己卯戊辰癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 18,
+      "date": "1950-10-06 12:31",
+      "dayGan": "丙",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "庚午",
+      "calculatedShiChen": "午时",
+      "baZi": "庚寅己卯甲戌庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 19,
+      "date": "1960-04-26 15:47",
+      "dayGan": "庚",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "壬申",
+      "calculatedShiChen": "申时",
+      "baZi": "庚子己卯甲申壬申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 20,
+      "date": "1982-11-01 18:28",
+      "dayGan": "丁",
+      "shiChen": "酉时",
+      "expectedShiChenZhi": "酉",
+      "calculatedTime": "辛酉",
+      "calculatedShiChen": "酉时",
+      "baZi": "壬戌庚戌戊子辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 21,
+      "date": "2009-05-03 09:45",
+      "dayGan": "壬",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "丁巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "己丑丁卯戊申丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 22,
+      "date": "2043-06-23 05:02",
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "癸卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "癸亥丁巳丁酉癸卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 23,
+      "date": "2044-07-30 02:09",
+      "dayGan": "丁",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "丁丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "甲子庚午庚辰丁丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 24,
+      "date": "2007-11-05 10:55",
+      "dayGan": "己",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "丁巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "丁亥庚戌癸卯丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 25,
+      "date": "1975-05-31 02:22",
+      "dayGan": "辛",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "辛丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "乙卯庚辰丁丑辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 26,
+      "date": "2015-08-17 20:07",
+      "dayGan": "甲",
+      "shiChen": "戌时",
+      "expectedShiChenZhi": "戌",
+      "calculatedTime": "丙戌",
+      "calculatedShiChen": "戌时",
+      "baZi": "乙未癸未乙丑丙戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 27,
+      "date": "1961-07-12 03:04",
+      "dayGan": "辛",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "庚寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "辛丑庚寅丙午庚寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 28,
+      "date": "2045-11-02 11:36",
+      "dayGan": "乙",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "壬午",
+      "calculatedShiChen": "午时",
+      "baZi": "乙丑丙戌庚申壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 29,
+      "date": "2050-05-30 11:08",
+      "dayGan": "戊",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "壬午",
+      "calculatedShiChen": "午时",
+      "baZi": "庚午己卯庚戌壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 30,
+      "date": "1959-04-16 04:59",
+      "dayGan": "壬",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "甲寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "己亥丁卯戊辰甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 31,
+      "date": "1988-10-21 13:50",
+      "dayGan": "乙",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "辛未",
+      "calculatedShiChen": "未时",
+      "baZi": "戊辰辛酉己酉辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 32,
+      "date": "2035-10-20 14:34",
+      "dayGan": "己",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "辛未",
+      "calculatedShiChen": "未时",
+      "baZi": "乙卯乙酉甲寅辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 33,
+      "date": "1961-06-15 03:25",
+      "dayGan": "乙",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "丙寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "辛丑庚寅己卯丙寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 34,
+      "date": "2005-12-06 13:49",
+      "dayGan": "癸",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "辛未",
+      "calculatedShiChen": "未时",
+      "baZi": "乙酉丁亥甲子辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 35,
+      "date": "1951-09-13 10:52",
+      "dayGan": "癸",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "癸巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "辛卯庚寅丙辰癸巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 36,
+      "date": "1981-11-25 11:26",
+      "dayGan": "辛",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "丙午",
+      "calculatedShiChen": "午时",
+      "baZi": "辛酉庚寅丁未丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 37,
+      "date": "1962-12-06 23:05",
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "甲子",
+      "calculatedShiChen": "子时",
+      "baZi": "壬寅辛亥己卯甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 38,
+      "date": "1978-07-31 08:35",
+      "dayGan": "辛",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "戊辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "戊午戊午甲午戊辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 39,
+      "date": "1979-06-21 06:47",
+      "dayGan": "辛",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "丁卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "己未己巳己未丁卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 40,
+      "date": "2008-05-08 15:31",
+      "dayGan": "庚",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "庚申",
+      "calculatedShiChen": "申时",
+      "baZi": "戊子丙辰戊申庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 41,
+      "date": "1996-08-19 23:15",
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "甲子",
+      "calculatedShiChen": "子时",
+      "baZi": "丙子乙未己丑甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 42,
+      "date": "1983-05-19 09:58",
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "乙巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "癸亥丙辰丁未乙巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 43,
+      "date": "2000-08-06 23:18",
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "庚子",
+      "calculatedShiChen": "子时",
+      "baZi": "庚辰己卯丁酉庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 44,
+      "date": "1987-07-14 20:20",
+      "dayGan": "癸",
+      "shiChen": "戌时",
+      "expectedShiChenZhi": "戌",
+      "calculatedTime": "甲戌",
+      "calculatedShiChen": "戌时",
+      "baZi": "丁卯丙午甲子甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 45,
+      "date": "2046-11-10 22:21",
+      "dayGan": "乙",
+      "shiChen": "亥时",
+      "expectedShiChenZhi": "亥",
+      "calculatedTime": "癸亥",
+      "calculatedShiChen": "亥时",
+      "baZi": "丙寅戊戌癸酉癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 46,
+      "date": "2045-12-18 05:26",
+      "dayGan": "壬",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "辛卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "乙丑丁亥丙午辛卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 47,
+      "date": "2024-01-20 20:25",
+      "dayGan": "辛",
+      "shiChen": "戌时",
+      "expectedShiChenZhi": "戌",
+      "calculatedTime": "壬戌",
+      "calculatedShiChen": "戌时",
+      "baZi": "甲辰丙子癸未壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 48,
+      "date": "2043-11-10 11:49",
+      "dayGan": "庚",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "丙午",
+      "calculatedShiChen": "午时",
+      "baZi": "癸亥壬戌丁巳丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 49,
+      "date": "2005-06-30 23:54",
+      "dayGan": "戊",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "戊子",
+      "calculatedShiChen": "子时",
+      "baZi": "乙酉壬午丙戌戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 50,
+      "date": "2022-10-28 04:56",
+      "dayGan": "丙",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "丙寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "壬寅己酉甲寅丙寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 51,
+      "date": "1982-05-03 08:37",
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "壬辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "壬戌甲辰丙戌壬辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 52,
+      "date": "1966-05-17 05:54",
+      "dayGan": "丁",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "辛卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "丙午壬辰丙子辛卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 53,
+      "date": "1974-06-06 13:27",
+      "dayGan": "庚",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "己未",
+      "calculatedShiChen": "未时",
+      "baZi": "甲寅己巳戊寅己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 54,
+      "date": "1983-04-10 17:21",
+      "dayGan": "丁",
+      "shiChen": "酉时",
+      "expectedShiChenZhi": "酉",
+      "calculatedTime": "辛酉",
+      "calculatedShiChen": "酉时",
+      "baZi": "癸亥乙卯戊辰辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 55,
+      "date": "2016-06-19 16:54",
+      "dayGan": "丁",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "戊申",
+      "calculatedShiChen": "申时",
+      "baZi": "丙申癸巳壬申戊申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 56,
+      "date": "1984-12-28 16:52",
+      "dayGan": "庚",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "丙申",
+      "calculatedShiChen": "申时",
+      "baZi": "甲子丁卯丙申丙申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 57,
+      "date": "2027-06-10 03:45",
+      "dayGan": "乙",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "戊寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "丁未乙巳庚申戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 58,
+      "date": "1987-09-15 04:38",
+      "dayGan": "戊",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "壬寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "丁卯戊申丁卯壬寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 59,
+      "date": "1997-10-30 12:54",
+      "dayGan": "乙",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "壬午",
+      "calculatedShiChen": "午时",
+      "baZi": "丁丑己酉乙巳壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 60,
+      "date": "1955-02-22 20:13",
+      "dayGan": "戊",
+      "shiChen": "戌时",
+      "expectedShiChenZhi": "戌",
+      "calculatedTime": "甲戌",
+      "calculatedShiChen": "戌时",
+      "baZi": "乙未己丑甲寅甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 61,
+      "date": "2000-01-01 23:00",
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "甲子",
+      "calculatedShiChen": "子时",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 62,
+      "date": "2000-01-01 23:59",
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "甲子",
+      "calculatedShiChen": "子时",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 63,
+      "date": "2000-01-01 01:00",
+      "dayGan": "甲",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "癸丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 64,
+      "date": "2000-01-01 02:59",
+      "dayGan": "甲",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "癸丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 65,
+      "date": "2000-01-01 03:00",
+      "dayGan": "甲",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "甲寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 66,
+      "date": "2000-01-01 04:59",
+      "dayGan": "甲",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "甲寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 67,
+      "date": "2000-01-01 05:00",
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "乙卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 68,
+      "date": "2000-01-01 06:59",
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "乙卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 69,
+      "date": "2000-01-01 07:00",
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "丙辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 70,
+      "date": "2000-01-01 08:59",
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "丙辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 71,
+      "date": "2000-01-01 09:00",
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "丁巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 72,
+      "date": "2000-01-01 10:59",
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "丁巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 73,
+      "date": "2000-01-01 11:00",
+      "dayGan": "甲",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "戊午",
+      "calculatedShiChen": "午时",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 74,
+      "date": "2000-01-01 12:59",
+      "dayGan": "甲",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "戊午",
+      "calculatedShiChen": "午时",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 75,
+      "date": "2000-01-01 13:00",
+      "dayGan": "甲",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "己未",
+      "calculatedShiChen": "未时",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 76,
+      "date": "2000-01-01 14:59",
+      "dayGan": "甲",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "己未",
+      "calculatedShiChen": "未时",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 77,
+      "date": "2000-01-01 15:00",
+      "dayGan": "甲",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "庚申",
+      "calculatedShiChen": "申时",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 78,
+      "date": "2000-01-01 16:59",
+      "dayGan": "甲",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "庚申",
+      "calculatedShiChen": "申时",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 79,
+      "date": "2000-01-01 17:00",
+      "dayGan": "甲",
+      "shiChen": "酉时",
+      "expectedShiChenZhi": "酉",
+      "calculatedTime": "辛酉",
+      "calculatedShiChen": "酉时",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 80,
+      "date": "2000-01-01 18:59",
+      "dayGan": "甲",
+      "shiChen": "酉时",
+      "expectedShiChenZhi": "酉",
+      "calculatedTime": "辛酉",
+      "calculatedShiChen": "酉时",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 81,
+      "date": "2000-01-01 23:30",
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "甲子",
+      "calculatedShiChen": "子时",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 82,
+      "date": "2000-01-01 02:00",
+      "dayGan": "甲",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "癸丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 83,
+      "date": "2000-01-01 04:00",
+      "dayGan": "甲",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "甲寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 84,
+      "date": "2000-01-01 06:00",
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "乙卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 85,
+      "date": "2000-01-01 08:00",
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "丙辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 86,
+      "date": "2000-01-01 10:00",
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "丁巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 87,
+      "date": "2000-01-01 12:00",
+      "dayGan": "甲",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "戊午",
+      "calculatedShiChen": "午时",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 88,
+      "date": "2000-01-01 14:00",
+      "dayGan": "甲",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "己未",
+      "calculatedShiChen": "未时",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 89,
+      "date": "2000-01-01 16:00",
+      "dayGan": "甲",
+      "shiChen": "申时",
+      "expectedShiChenZhi": "申",
+      "calculatedTime": "庚申",
+      "calculatedShiChen": "申时",
+      "baZi": "己卯丙子戊午庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 90,
+      "date": "2000-01-01 18:00",
+      "dayGan": "甲",
+      "shiChen": "酉时",
+      "expectedShiChenZhi": "酉",
+      "calculatedTime": "辛酉",
+      "calculatedShiChen": "酉时",
+      "baZi": "己卯丙子戊午辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 91,
+      "date": "2000-01-01 20:00",
+      "dayGan": "甲",
+      "shiChen": "戌时",
+      "expectedShiChenZhi": "戌",
+      "calculatedTime": "壬戌",
+      "calculatedShiChen": "戌时",
+      "baZi": "己卯丙子戊午壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 92,
+      "date": "2000-01-01 22:00",
+      "dayGan": "甲",
+      "shiChen": "亥时",
+      "expectedShiChenZhi": "亥",
+      "calculatedTime": "癸亥",
+      "calculatedShiChen": "亥时",
+      "baZi": "己卯丙子戊午癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 93,
+      "date": "2000-01-01 23:30",
+      "dayGan": "乙",
+      "shiChen": "子时",
+      "expectedShiChenZhi": "子",
+      "calculatedTime": "甲子",
+      "calculatedShiChen": "子时",
+      "baZi": "己卯丙子己未甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 94,
+      "date": "2000-01-01 02:00",
+      "dayGan": "乙",
+      "shiChen": "丑时",
+      "expectedShiChenZhi": "丑",
+      "calculatedTime": "癸丑",
+      "calculatedShiChen": "丑时",
+      "baZi": "己卯丙子戊午癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 95,
+      "date": "2000-01-01 04:00",
+      "dayGan": "乙",
+      "shiChen": "寅时",
+      "expectedShiChenZhi": "寅",
+      "calculatedTime": "甲寅",
+      "calculatedShiChen": "寅时",
+      "baZi": "己卯丙子戊午甲寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 96,
+      "date": "2000-01-01 06:00",
+      "dayGan": "乙",
+      "shiChen": "卯时",
+      "expectedShiChenZhi": "卯",
+      "calculatedTime": "乙卯",
+      "calculatedShiChen": "卯时",
+      "baZi": "己卯丙子戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 97,
+      "date": "2000-01-01 08:00",
+      "dayGan": "乙",
+      "shiChen": "辰时",
+      "expectedShiChenZhi": "辰",
+      "calculatedTime": "丙辰",
+      "calculatedShiChen": "辰时",
+      "baZi": "己卯丙子戊午丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 98,
+      "date": "2000-01-01 10:00",
+      "dayGan": "乙",
+      "shiChen": "巳时",
+      "expectedShiChenZhi": "巳",
+      "calculatedTime": "丁巳",
+      "calculatedShiChen": "巳时",
+      "baZi": "己卯丙子戊午丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 99,
+      "date": "2000-01-01 12:00",
+      "dayGan": "乙",
+      "shiChen": "午时",
+      "expectedShiChenZhi": "午",
+      "calculatedTime": "戊午",
+      "calculatedShiChen": "午时",
+      "baZi": "己卯丙子戊午戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 100,
+      "date": "2000-01-01 14:00",
+      "dayGan": "乙",
+      "shiChen": "未时",
+      "expectedShiChenZhi": "未",
+      "calculatedTime": "己未",
+      "calculatedShiChen": "未时",
+      "baZi": "己卯丙子戊午己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "testCases": [
+    {
+      "year": 1974,
+      "month": 3,
+      "day": 1,
+      "hour": 21,
+      "minute": 35,
+      "dayGan": "庚",
+      "shiChen": "亥时",
+      "shiChenZhi": "亥"
+    },
+    {
+      "year": 1950,
+      "month": 8,
+      "day": 17,
+      "hour": 6,
+      "minute": 5,
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 1997,
+      "month": 3,
+      "day": 20,
+      "hour": 12,
+      "minute": 27,
+      "dayGan": "丁",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2040,
+      "month": 5,
+      "day": 24,
+      "hour": 16,
+      "minute": 25,
+      "dayGan": "己",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 2003,
+      "month": 0,
+      "day": 11,
+      "hour": 8,
+      "minute": 1,
+      "dayGan": "庚",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 1997,
+      "month": 3,
+      "day": 5,
+      "hour": 9,
+      "minute": 13,
+      "dayGan": "戊",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 1958,
+      "month": 5,
+      "day": 26,
+      "hour": 23,
+      "minute": 56,
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "day": 26,
+      "hour": 2,
+      "minute": 59,
+      "dayGan": "丁",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2032,
+      "month": 5,
+      "day": 20,
+      "hour": 5,
+      "minute": 53,
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 1996,
+      "month": 11,
+      "day": 8,
+      "hour": 22,
+      "minute": 25,
+      "dayGan": "乙",
+      "shiChen": "亥时",
+      "shiChenZhi": "亥"
+    },
+    {
+      "year": 2001,
+      "month": 8,
+      "day": 25,
+      "hour": 23,
+      "minute": 48,
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 1999,
+      "month": 0,
+      "day": 26,
+      "hour": 4,
+      "minute": 38,
+      "dayGan": "辛",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2037,
+      "month": 0,
+      "day": 13,
+      "hour": 3,
+      "minute": 22,
+      "dayGan": "癸",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 1953,
+      "month": 11,
+      "day": 20,
+      "hour": 17,
+      "minute": 13,
+      "dayGan": "癸",
+      "shiChen": "酉时",
+      "shiChenZhi": "酉"
+    },
+    {
+      "year": 1982,
+      "month": 10,
+      "day": 26,
+      "hour": 13,
+      "minute": 47,
+      "dayGan": "戊",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 1957,
+      "month": 4,
+      "day": 27,
+      "hour": 19,
+      "minute": 59,
+      "dayGan": "戊",
+      "shiChen": "戌时",
+      "shiChenZhi": "戌"
+    },
+    {
+      "year": 1950,
+      "month": 3,
+      "day": 3,
+      "hour": 2,
+      "minute": 42,
+      "dayGan": "癸",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 1950,
+      "month": 9,
+      "day": 6,
+      "hour": 12,
+      "minute": 31,
+      "dayGan": "丙",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 1960,
+      "month": 3,
+      "day": 26,
+      "hour": 15,
+      "minute": 47,
+      "dayGan": "庚",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 1982,
+      "month": 10,
+      "day": 1,
+      "hour": 18,
+      "minute": 28,
+      "dayGan": "丁",
+      "shiChen": "酉时",
+      "shiChenZhi": "酉"
+    },
+    {
+      "year": 2009,
+      "month": 4,
+      "day": 3,
+      "hour": 9,
+      "minute": 45,
+      "dayGan": "壬",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 2043,
+      "month": 5,
+      "day": 23,
+      "hour": 5,
+      "minute": 2,
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2044,
+      "month": 6,
+      "day": 30,
+      "hour": 2,
+      "minute": 9,
+      "dayGan": "丁",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2007,
+      "month": 10,
+      "day": 5,
+      "hour": 10,
+      "minute": 55,
+      "dayGan": "己",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 1975,
+      "month": 4,
+      "day": 31,
+      "hour": 2,
+      "minute": 22,
+      "dayGan": "辛",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2015,
+      "month": 7,
+      "day": 17,
+      "hour": 20,
+      "minute": 7,
+      "dayGan": "甲",
+      "shiChen": "戌时",
+      "shiChenZhi": "戌"
+    },
+    {
+      "year": 1961,
+      "month": 6,
+      "day": 12,
+      "hour": 3,
+      "minute": 4,
+      "dayGan": "辛",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2045,
+      "month": 10,
+      "day": 2,
+      "hour": 11,
+      "minute": 36,
+      "dayGan": "乙",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2050,
+      "month": 4,
+      "day": 30,
+      "hour": 11,
+      "minute": 8,
+      "dayGan": "戊",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 1959,
+      "month": 3,
+      "day": 16,
+      "hour": 4,
+      "minute": 59,
+      "dayGan": "壬",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 1988,
+      "month": 9,
+      "day": 21,
+      "hour": 13,
+      "minute": 50,
+      "dayGan": "乙",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 2035,
+      "month": 9,
+      "day": 20,
+      "hour": 14,
+      "minute": 34,
+      "dayGan": "己",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 1961,
+      "month": 5,
+      "day": 15,
+      "hour": 3,
+      "minute": 25,
+      "dayGan": "乙",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2005,
+      "month": 11,
+      "day": 6,
+      "hour": 13,
+      "minute": 49,
+      "dayGan": "癸",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 1951,
+      "month": 8,
+      "day": 13,
+      "hour": 10,
+      "minute": 52,
+      "dayGan": "癸",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 1981,
+      "month": 10,
+      "day": 25,
+      "hour": 11,
+      "minute": 26,
+      "dayGan": "辛",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 1962,
+      "month": 11,
+      "day": 6,
+      "hour": 23,
+      "minute": 5,
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 1978,
+      "month": 6,
+      "day": 31,
+      "hour": 8,
+      "minute": 35,
+      "dayGan": "辛",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 1979,
+      "month": 5,
+      "day": 21,
+      "hour": 6,
+      "minute": 47,
+      "dayGan": "辛",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2008,
+      "month": 4,
+      "day": 8,
+      "hour": 15,
+      "minute": 31,
+      "dayGan": "庚",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 1996,
+      "month": 7,
+      "day": 19,
+      "hour": 23,
+      "minute": 15,
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 1983,
+      "month": 4,
+      "day": 19,
+      "hour": 9,
+      "minute": 58,
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 2000,
+      "month": 7,
+      "day": 6,
+      "hour": 23,
+      "minute": 18,
+      "dayGan": "庚",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 1987,
+      "month": 6,
+      "day": 14,
+      "hour": 20,
+      "minute": 20,
+      "dayGan": "癸",
+      "shiChen": "戌时",
+      "shiChenZhi": "戌"
+    },
+    {
+      "year": 2046,
+      "month": 10,
+      "day": 10,
+      "hour": 22,
+      "minute": 21,
+      "dayGan": "乙",
+      "shiChen": "亥时",
+      "shiChenZhi": "亥"
+    },
+    {
+      "year": 2045,
+      "month": 11,
+      "day": 18,
+      "hour": 5,
+      "minute": 26,
+      "dayGan": "壬",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2024,
+      "month": 0,
+      "day": 20,
+      "hour": 20,
+      "minute": 25,
+      "dayGan": "辛",
+      "shiChen": "戌时",
+      "shiChenZhi": "戌"
+    },
+    {
+      "year": 2043,
+      "month": 10,
+      "day": 10,
+      "hour": 11,
+      "minute": 49,
+      "dayGan": "庚",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2005,
+      "month": 5,
+      "day": 30,
+      "hour": 23,
+      "minute": 54,
+      "dayGan": "戊",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 2022,
+      "month": 9,
+      "day": 28,
+      "hour": 4,
+      "minute": 56,
+      "dayGan": "丙",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 1982,
+      "month": 4,
+      "day": 3,
+      "hour": 8,
+      "minute": 37,
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 1966,
+      "month": 4,
+      "day": 17,
+      "hour": 5,
+      "minute": 54,
+      "dayGan": "丁",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 1974,
+      "month": 5,
+      "day": 6,
+      "hour": 13,
+      "minute": 27,
+      "dayGan": "庚",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 1983,
+      "month": 3,
+      "day": 10,
+      "hour": 17,
+      "minute": 21,
+      "dayGan": "丁",
+      "shiChen": "酉时",
+      "shiChenZhi": "酉"
+    },
+    {
+      "year": 2016,
+      "month": 5,
+      "day": 19,
+      "hour": 16,
+      "minute": 54,
+      "dayGan": "丁",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 1984,
+      "month": 11,
+      "day": 28,
+      "hour": 16,
+      "minute": 52,
+      "dayGan": "庚",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 2027,
+      "month": 5,
+      "day": 10,
+      "hour": 3,
+      "minute": 45,
+      "dayGan": "乙",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 1987,
+      "month": 8,
+      "day": 15,
+      "hour": 4,
+      "minute": 38,
+      "dayGan": "戊",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 1997,
+      "month": 9,
+      "day": 30,
+      "hour": 12,
+      "minute": 54,
+      "dayGan": "乙",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 1955,
+      "month": 1,
+      "day": 22,
+      "hour": 20,
+      "minute": 13,
+      "dayGan": "戊",
+      "shiChen": "戌时",
+      "shiChenZhi": "戌"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 1,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 3,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 5,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 7,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 9,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 11,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 13,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 15,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 16,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 17,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "酉时",
+      "shiChenZhi": "酉"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 18,
+      "minute": 59,
+      "dayGan": "甲",
+      "shiChen": "酉时",
+      "shiChenZhi": "酉"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 30,
+      "dayGan": "甲",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 16,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "申时",
+      "shiChenZhi": "申"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 18,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "酉时",
+      "shiChenZhi": "酉"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 20,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "戌时",
+      "shiChenZhi": "戌"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 22,
+      "minute": 0,
+      "dayGan": "甲",
+      "shiChen": "亥时",
+      "shiChenZhi": "亥"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 23,
+      "minute": 30,
+      "dayGan": "乙",
+      "shiChen": "子时",
+      "shiChenZhi": "子"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 2,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "丑时",
+      "shiChenZhi": "丑"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 4,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "寅时",
+      "shiChenZhi": "寅"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 6,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "卯时",
+      "shiChenZhi": "卯"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "辰时",
+      "shiChenZhi": "辰"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 10,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "巳时",
+      "shiChenZhi": "巳"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "午时",
+      "shiChenZhi": "午"
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 14,
+      "minute": 0,
+      "dayGan": "乙",
+      "shiChen": "未时",
+      "shiChenZhi": "未"
+    }
+  ]
+}

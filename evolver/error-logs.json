@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2026-02-28T15:33:18.849Z",
+    "message": "ECONNREFUSED connection failed",
+    "stack": "Error: ECONNREFUSED connection failed\n    at C:\\Users\\10919\\Desktop\\AI\\evolver\\integration-test.js:283:21\n    at runTest (C:\\Users\\10919\\Desktop\\AI\\evolver\\integration-test.js:21:20)\n    at Object.<anonymous> (C:\\Users\\10919\\Desktop\\AI\\evolver\\integration-test.js:274:1)\n    at Module._compile (node:internal/modules/cjs/loader:1761:14)\n    at Object..js (node:internal/modules/cjs/loader:1893:10)\n    at Module.load (node:internal/modules/cjs/loader:1481:32)\n    at Module._load (node:internal/modules/cjs/loader:1300:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)",
+    "code": null,
+    "category": "NETWORK",
+    "subcategory": "CONNECTION_FAILED",
+    "severity": "critical",
+    "recoverable": true,
+    "autoRecover": true,
+    "patterns": [
+      "ECONNREFUSED",
+      "connection"
+    ]
+  }
+]

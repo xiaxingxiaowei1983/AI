@@ -1,0 +1,25 @@
+{
+  "resource": {
+    "type": "asset",
+    "id": "local_asset_3",
+    "title": "本地资源：知识迁移技术",
+    "assetType": "lesson",
+    "gdiScore": 90,
+    "triggers": [
+      "knowledge",
+      "application"
+    ],
+    "relevance": 0.8,
+    "timestamp": "2026-02-28T09:25:44.361Z",
+    "valueScore": 3.62
+  },
+  "learnedAt": "2026-02-28T09:25:50.382Z",
+  "status": "completed",
+  "insights": [
+    "了解了新的资产类型和用途",
+    "学习了资产的GDI评分机制",
+    "掌握了触发条件: knowledge, application",
+    "提高了资源分析和评估能力",
+    "增强了自动学习和进化能力"
+  ]
+}

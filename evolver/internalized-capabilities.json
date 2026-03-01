@@ -1,0 +1,569 @@
+[
+  {
+    "id": "internalized_1772282579612_380",
+    "name": "Step Pattern: data_processing: parse_json",
+    "type": "behavioral_pattern",
+    "sourceShape": "shape_1772282579608_941",
+    "internalization": {
+      "activationPattern": {
+        "triggers": [
+          {
+            "type": "input_available",
+            "inputName": "filePath",
+            "condition": "present"
+          }
+        ],
+        "contextRequirements": [
+          {
+            "type": "step_type",
+            "value": "data_processing",
+            "required": true
+          },
+          {
+            "type": "operation",
+            "value": "parse_json",
+            "required": true
+          }
+        ]
+      },
+      "executionFlow": {
+        "steps": [
+          {
+            "name": "validate_inputs",
+            "description": "Validate all required inputs",
+            "inputs": [
+              "filePath"
+            ],
+            "outputs": [
+              "validation_result"
+            ]
+          },
+          {
+            "name": "execute_core_logic",
+            "description": "Execute the core capability logic",
+            "inputs": [
+              "filePath"
+            ],
+            "outputs": [
+              "result"
+            ]
+          },
+          {
+            "name": "validate_outputs",
+            "description": "Validate the generated outputs",
+            "inputs": [
+              "result"
+            ],
+            "outputs": [
+              "final_result"
+            ]
+          }
+        ],
+        "dependencies": []
+      },
+      "defaultParameters": {
+        "filePath": "data.json"
+      },
+      "successCriteria": {
+        "requiredOutputs": [
+          "result"
+        ],
+        "qualityMetrics": [
+          {
+            "name": "completeness",
+            "description": "All required outputs are generated",
+            "threshold": 1
+          },
+          {
+            "name": "accuracy",
+            "description": "Outputs match expected format and content",
+            "threshold": 0.8
+          }
+        ]
+      }
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.612Z",
+    "metadata": {
+      "internalizationStrategy": "behavioral_pattern",
+      "originalType": "step_pattern"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.932Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579613_105",
+    "name": "Step Pattern: data_processing: parse_json",
+    "type": "high_level_operation",
+    "sourceShape": "shape_1772282579608_941",
+    "internalization": {
+      "operationName": "step_Pattern_data_processing_parse_json",
+      "parameters": [
+        {
+          "name": "filePath",
+          "type": "string",
+          "required": true,
+          "description": "Input parameter for parse_json"
+        }
+      ],
+      "returnType": "object",
+      "errorHandling": {
+        "errorTypes": [
+          {
+            "type": "sequence_dependency",
+            "message": "Later steps depend on successful completion of earlier steps",
+            "recoveryStrategy": "rollback"
+          }
+        ],
+        "fallbackStrategy": "graceful_degradation"
+      }
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.613Z",
+    "metadata": {
+      "internalizationStrategy": "high_level_operation",
+      "originalType": "step_pattern"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.939Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579614_104",
+    "name": "Step Pattern: data_processing: parse_json",
+    "type": "priority_solution",
+    "sourceShape": "shape_1772282579608_941",
+    "internalization": {
+      "applicabilityConditions": {
+        "requiredInputs": [
+          "filePath"
+        ],
+        "invariantConditions": [
+          {
+            "type": "step_type",
+            "value": "data_processing",
+            "operator": "equals"
+          },
+          {
+            "type": "operation",
+            "value": "parse_json",
+            "operator": "equals"
+          }
+        ],
+        "contextualConditions": []
+      },
+      "priorityLevel": "high",
+      "executionSteps": [
+        {
+          "id": "prepare_inputs",
+          "name": "Prepare Inputs",
+          "description": "Gather and validate all required inputs",
+          "required": true
+        },
+        {
+          "id": "execute_capability",
+          "name": "Execute Capability",
+          "description": "Run the core capability logic",
+          "required": true
+        },
+        {
+          "id": "process_outputs",
+          "name": "Process Outputs",
+          "description": "Validate and format the generated outputs",
+          "required": true
+        }
+      ],
+      "alternativeSolutions": [
+        {
+          "name": "Simplified Step Pattern",
+          "description": "Reduce number of steps for faster execution",
+          "tradeoff": "May reduce accuracy"
+        }
+      ]
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.614Z",
+    "metadata": {
+      "internalizationStrategy": "priority_solution",
+      "originalType": "step_pattern"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.941Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579615_661",
+    "name": "Tool Sequence: read_file -> validate_json",
+    "type": "behavioral_pattern",
+    "sourceShape": "shape_1772282579610_996",
+    "internalization": {
+      "activationPattern": {
+        "triggers": [
+          {
+            "type": "input_available",
+            "inputName": "path",
+            "condition": "present"
+          },
+          {
+            "type": "input_available",
+            "inputName": "content",
+            "condition": "present"
+          }
+        ],
+        "contextRequirements": [
+          {
+            "type": "tool_sequence",
+            "value": "read_file -> validate_json",
+            "required": true
+          },
+          {
+            "type": "unique_tools",
+            "value": true,
+            "required": true
+          }
+        ]
+      },
+      "executionFlow": {
+        "steps": [
+          {
+            "name": "validate_inputs",
+            "description": "Validate all required inputs",
+            "inputs": [
+              "path",
+              "content"
+            ],
+            "outputs": [
+              "validation_result"
+            ]
+          },
+          {
+            "name": "execute_core_logic",
+            "description": "Execute the core capability logic",
+            "inputs": [
+              "path",
+              "content"
+            ],
+            "outputs": [
+              "read_file_result",
+              "validate_json_result"
+            ]
+          },
+          {
+            "name": "validate_outputs",
+            "description": "Validate the generated outputs",
+            "inputs": [
+              "read_file_result",
+              "validate_json_result"
+            ],
+            "outputs": [
+              "final_result"
+            ]
+          }
+        ],
+        "dependencies": []
+      },
+      "defaultParameters": {
+        "path": "data.json",
+        "content": "file content"
+      },
+      "successCriteria": {
+        "requiredOutputs": [
+          "read_file_result",
+          "validate_json_result"
+        ],
+        "qualityMetrics": [
+          {
+            "name": "completeness",
+            "description": "All required outputs are generated",
+            "threshold": 1
+          },
+          {
+            "name": "accuracy",
+            "description": "Outputs match expected format and content",
+            "threshold": 0.8
+          }
+        ]
+      }
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.615Z",
+    "metadata": {
+      "internalizationStrategy": "behavioral_pattern",
+      "originalType": "tool_sequence"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.943Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579616_415",
+    "name": "Tool Sequence: read_file -> validate_json",
+    "type": "high_level_operation",
+    "sourceShape": "shape_1772282579610_996",
+    "internalization": {
+      "operationName": "tool_Sequence_read_file__validate_json",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "required": true,
+          "description": "Input parameter for tool read_file"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "description": "Input parameter for tool validate_json"
+        }
+      ],
+      "returnType": "object",
+      "errorHandling": {
+        "errorTypes": [
+          {
+            "type": "tool_dependency",
+            "message": "Later tools may depend on results from earlier tools",
+            "recoveryStrategy": "rollback"
+          }
+        ],
+        "fallbackStrategy": "graceful_degradation"
+      }
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.616Z",
+    "metadata": {
+      "internalizationStrategy": "high_level_operation",
+      "originalType": "tool_sequence"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.945Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579616_900",
+    "name": "Tool Sequence: read_file -> validate_json",
+    "type": "priority_solution",
+    "sourceShape": "shape_1772282579610_996",
+    "internalization": {
+      "applicabilityConditions": {
+        "requiredInputs": [
+          "path",
+          "content"
+        ],
+        "invariantConditions": [
+          {
+            "type": "tool_sequence",
+            "value": "read_file -> validate_json",
+            "operator": "equals"
+          },
+          {
+            "type": "unique_tools",
+            "value": true,
+            "operator": "equals"
+          }
+        ],
+        "contextualConditions": []
+      },
+      "priorityLevel": "high",
+      "executionSteps": [
+        {
+          "id": "prepare_inputs",
+          "name": "Prepare Inputs",
+          "description": "Gather and validate all required inputs",
+          "required": true
+        },
+        {
+          "id": "execute_capability",
+          "name": "Execute Capability",
+          "description": "Run the core capability logic",
+          "required": true
+        },
+        {
+          "id": "process_outputs",
+          "name": "Process Outputs",
+          "description": "Validate and format the generated outputs",
+          "required": true
+        }
+      ],
+      "alternativeSolutions": [
+        {
+          "name": "Parallel Tool Execution",
+          "description": "Execute independent tools in parallel",
+          "tradeoff": "Requires more resources"
+        }
+      ]
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.616Z",
+    "metadata": {
+      "internalizationStrategy": "priority_solution",
+      "originalType": "tool_sequence"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.948Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579617_908",
+    "name": "Solution: JSON Processing",
+    "type": "behavioral_pattern",
+    "sourceShape": "shape_1772282579611_244",
+    "internalization": {
+      "activationPattern": {
+        "triggers": [
+          {
+            "type": "input_available",
+            "condition": "present"
+          }
+        ],
+        "contextRequirements": []
+      },
+      "executionFlow": {
+        "steps": [
+          {
+            "name": "validate_inputs",
+            "description": "Validate all required inputs",
+            "inputs": [
+              null
+            ],
+            "outputs": [
+              "validation_result"
+            ]
+          },
+          {
+            "name": "execute_core_logic",
+            "description": "Execute the core capability logic",
+            "inputs": [
+              null
+            ],
+            "outputs": [
+              null
+            ]
+          },
+          {
+            "name": "validate_outputs",
+            "description": "Validate the generated outputs",
+            "inputs": [
+              null
+            ],
+            "outputs": [
+              "final_result"
+            ]
+          }
+        ],
+        "dependencies": []
+      },
+      "defaultParameters": {},
+      "successCriteria": {
+        "requiredOutputs": [
+          null
+        ],
+        "qualityMetrics": [
+          {
+            "name": "completeness",
+            "description": "All required outputs are generated",
+            "threshold": 1
+          },
+          {
+            "name": "accuracy",
+            "description": "Outputs match expected format and content",
+            "threshold": 0.8
+          }
+        ]
+      }
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.617Z",
+    "metadata": {
+      "internalizationStrategy": "behavioral_pattern",
+      "originalType": "reusable_solution"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.950Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579618_256",
+    "name": "Solution: JSON Processing",
+    "type": "high_level_operation",
+    "sourceShape": "shape_1772282579611_244",
+    "internalization": {
+      "operationName": "solution_jSON_Processing",
+      "parameters": [
+        {
+          "type": "string",
+          "required": true,
+          "description": "Input parameter undefined"
+        }
+      ],
+      "returnType": "object",
+      "errorHandling": {
+        "errorTypes": [
+          {
+            "type": "solution_risk",
+            "message": "file_not_found",
+            "recoveryStrategy": "alternative"
+          },
+          {
+            "type": "solution_risk",
+            "message": "invalid_json",
+            "recoveryStrategy": "alternative"
+          }
+        ],
+        "fallbackStrategy": "graceful_degradation"
+      }
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.618Z",
+    "metadata": {
+      "internalizationStrategy": "high_level_operation",
+      "originalType": "reusable_solution"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.952Z",
+    "usageCount": 0
+  },
+  {
+    "id": "internalized_1772282579618_627",
+    "name": "Solution: JSON Processing",
+    "type": "priority_solution",
+    "sourceShape": "shape_1772282579611_244",
+    "internalization": {
+      "applicabilityConditions": {
+        "requiredInputs": [
+          null
+        ],
+        "invariantConditions": [],
+        "contextualConditions": []
+      },
+      "priorityLevel": "high",
+      "executionSteps": [
+        {
+          "id": "prepare_inputs",
+          "name": "Prepare Inputs",
+          "description": "Gather and validate all required inputs",
+          "required": true
+        },
+        {
+          "id": "execute_capability",
+          "name": "Execute Capability",
+          "description": "Run the core capability logic",
+          "required": true
+        },
+        {
+          "id": "process_outputs",
+          "name": "Process Outputs",
+          "description": "Validate and format the generated outputs",
+          "required": true
+        }
+      ],
+      "alternativeSolutions": [
+        {
+          "name": "Custom Solution",
+          "description": "Tailor solution to specific context",
+          "tradeoff": "Less reusable"
+        }
+      ]
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.618Z",
+    "metadata": {
+      "internalizationStrategy": "priority_solution",
+      "originalType": "reusable_solution"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.955Z",
+    "usageCount": 0
+  }
+]

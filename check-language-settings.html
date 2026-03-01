@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 语言设置检查工具</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+        .output {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>OpenClaw 语言设置检查工具</h1>
+    
+    <div class="container">
+        <h2>1. 检查当前语言设置</h2>
+        <button class="button" onclick="checkCurrentSettings()">检查设置</button>
+        <div id="settingsOutput" class="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>2. 设置语言为中文</h2>
+        <button class="button" onclick="setLanguage('zh-CN')">设置为简体中文</button>
+        <button class="button" onclick="setLanguage('zh-TW')">设置为繁体中文</button>
+        <div id="setOutput" class="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>3. 清除设置（测试用）</h2>
+        <button class="button" onclick="clearSettings()">清除设置</button>
+        <div id="clearOutput" class="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>4. 重启测试</h2>
+        <p>点击下面的按钮模拟重启，然后检查设置是否保持：</p>
+        <button class="button" onclick="simulateRestart()">模拟重启</button>
+        <div id="restartOutput" class="output"></div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'openclaw.control.settings.v1';
+
+        function checkCurrentSettings() {
+            const output = document.getElementById('settingsOutput');
+            try {
+                const settings = localStorage.getItem(STORAGE_KEY);
+                if (settings) {
+                    const parsedSettings = JSON.parse(settings);
+                    output.innerHTML = `
+                        <strong>当前设置存在：</strong>
+                        <br>原始设置：${settings}
+                        <br><br><strong>解析后：</strong>
+                        <br>语言设置：${parsedSettings.language || '未设置'}
+                        <br>其他设置：${JSON.stringify(parsedSettings, null, 2)}
+                    `;
+                } else {
+                    output.innerHTML = '<span class="error">未找到设置，localStorage中不存在 ' + STORAGE_KEY + '</span>';
+                }
+            } catch (error) {
+                output.innerHTML = '<span class="error">读取设置时出错：' + error.message + '</span>';
+            }
+        }
+
+        function setLanguage(lang) {
+            const output = document.getElementById('setOutput');
+            try {
+                let currentSettings = {};
+                const existing = localStorage.getItem(STORAGE_KEY);
+                if (existing) {
+                    currentSettings = JSON.parse(existing);
+                }
+                
+                currentSettings.language = lang;
+                const updatedSettings = JSON.stringify(currentSettings);
+                localStorage.setItem(STORAGE_KEY, updatedSettings);
+                
+                output.innerHTML = `<span class="success">成功设置语言为：${lang}</span>
+                    <br>更新后的设置：${updatedSettings}`;
+            } catch (error) {
+                output.innerHTML = '<span class="error">设置语言时出错：' + error.message + '</span>';
+            }
+        }
+
+        function clearSettings() {
+            const output = document.getElementById('clearOutput');
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                output.innerHTML = '<span class="success">已清除设置</span>';
+            } catch (error) {
+                output.innerHTML = '<span class="error">清除设置时出错：' + error.message + '</span>';
+            }
+        }
+
+        function simulateRestart() {
+            const output = document.getElementById('restartOutput');
+            try {
+                // 模拟重启后重新读取设置
+                const settings = localStorage.getItem(STORAGE_KEY);
+                if (settings) {
+                    const parsedSettings = JSON.parse(settings);
+                    output.innerHTML = `<strong>重启后设置：</strong>
+                        <br>语言设置：${parsedSettings.language || '未设置'}
+                        <br>设置是否保持：${parsedSettings.language ? '是' : '否'}`;
+                } else {
+                    output.innerHTML = '<span class="error">重启后未找到设置</span>';
+                }
+            } catch (error) {
+                output.innerHTML = '<span class="error">测试时出错：' + error.message + '</span>';
+            }
+        }
+
+        // 页面加载时自动检查设置
+        window.onload = function() {
+            checkCurrentSettings();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "jobs": [
+    {
+      "id": "security-audit-quick",
+      "name": "快速安全审计",
+      "schedule": "*/15 * * * *",
+      "auditLevel": "quick",
+      "enabled": true
+    },
+    {
+      "id": "security-audit-deep",
+      "name": "深度安全审计",
+      "schedule": "0 * * * *",
+      "auditLevel": "deep",
+      "enabled": true
+    },
+    {
+      "id": "security-audit-meta",
+      "name": "元安全审计",
+      "schedule": "0 3 * * *",
+      "auditLevel": "meta",
+      "enabled": true
+    }
+  ],
+  "alertChannels": {
+    "console": { "enabled": true },
+    "file": { "enabled": true, "path": "./security/alerts.log" }
+  }
+}

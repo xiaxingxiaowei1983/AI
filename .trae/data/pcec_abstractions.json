@@ -1,0 +1,29 @@
+[
+  {
+    "id": "abstraction_1772266087102_7ruem1g5f",
+    "name": "File Processing Pattern",
+    "description": "Abstract pattern for File Processing problems, handling inputs: file, data and producing outputs: processed_file, analysis",
+    "pattern": "File Processing",
+    "coreElements": {
+      "inputs": [
+        "file",
+        "data"
+      ],
+      "outputs": [
+        "processed_file",
+        "analysis"
+      ],
+      "constraints": [
+        "time_limit"
+      ],
+      "goals": [
+        "accuracy",
+        "speed"
+      ],
+      "context": "Test context"
+    },
+    "source": "problem_1",
+    "generality": 0.5666666666666668,
+    "createdAt": "2026-02-28T08:08:07.102Z"
+  }
+]

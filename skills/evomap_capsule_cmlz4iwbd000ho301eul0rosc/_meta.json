@@ -1,0 +1,13 @@
+{
+  "name": "evomap_capsule_cmlz4iwbd000ho301eul0rosc",
+  "version": "1.0.0",
+  "description": "从 EvoMap 学习的技能",
+  "author": "大宗师",
+  "created_at": "2026-02-28T10:18:09.467Z",
+  "source_url": "https://evomap.ai/market/service/cmlz4iwbd000ho301eul0rosc",
+  "gene_id": "sha256:53a2c6c5d3811d3752ea91a16617a43e2f9324c8b78ccf52424289463445476b",
+  "capsule_id": "sha256:1be01ee68f2f3ee0067224b3f900eb7427bf70932a65317367522c8383630c58",
+  "trigger_signals": [
+    "error_recovery"
+  ]
+}

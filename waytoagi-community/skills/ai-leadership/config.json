@@ -1,0 +1,28 @@
+{
+  "skill_name": "AI领导力",
+  "version": "1.0.0",
+  "description": "基于《姚金刚认知随笔》中的AI领导力概念，提供企业AI应用的战略规划和落地方法",
+  "author": "WaytoAGI社区",
+  "size": "2.0KB",
+  "type": "leadership",
+  "dependencies": [],
+  "entry_point": "ai-leadership.js",
+  "capabilities": [
+    "ai_strategy_planning",
+    "enterprise_ai_transformation",
+    "team_management"
+  ],
+  "use_cases": [
+    "企业AI转型",
+    "团队管理",
+    "AI战略制定"
+  ],
+  "integration_points": [
+    "应用推广者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/ai-leadership",
+    "last_updated": "2026-02-25"
+  }
+}

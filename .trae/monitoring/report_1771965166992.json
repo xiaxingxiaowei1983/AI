@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-02-24T20:32:46.992Z",
+  "metrics": {
+    "tokenUsage": {
+      "total": 0,
+      "byAgent": {},
+      "trends": [],
+      "lastUpdated": null
+    },
+    "responseTime": {
+      "average": 0,
+      "maximum": 0,
+      "minimum": null,
+      "byAgent": {},
+      "trends": [],
+      "lastUpdated": null
+    },
+    "taskCompletion": {
+      "total": 0,
+      "successful": 0,
+      "failed": 0,
+      "byAgent": {},
+      "trends": [],
+      "lastUpdated": null
+    },
+    "userSatisfaction": {
+      "score": 0,
+      "feedbackCount": 0,
+      "trends": [],
+      "lastUpdated": null
+    },
+    "errorRate": {
+      "totalErrors": 0,
+      "rate": 0,
+      "byType": {},
+      "trends": [],
+      "lastUpdated": null
+    }
+  },
+  "healthChecks": {
+    "agents": {
+      "builder": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.953Z"
+      },
+      "business": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.958Z"
+      },
+      "common": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.960Z"
+      },
+      "company-brain-agent": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.964Z"
+      },
+      "content": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.965Z"
+      },
+      "coo": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.967Z"
+      },
+      "cto": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.969Z"
+      },
+      "evomap-evolution": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.970Z"
+      },
+      "green-tea": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.973Z"
+      },
+      "life": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.975Z"
+      },
+      "life-coach": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.977Z"
+      },
+      "master": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.980Z"
+      },
+      "patrol": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.982Z"
+      },
+      "production": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.984Z"
+      },
+      "utils": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T20:32:46.986Z"
+      }
+    },
+    "services": {
+      "git": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.946Z"
+      },
+      "evomap": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.947Z"
+      },
+      "knowledgeBase": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.948Z"
+      },
+      "capabilityTree": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T20:32:46.950Z"
+      }
+    },
+    "system": {
+      "memory": {
+        "usage": 82.37059598767132,
+        "total": 17022324736,
+        "free": 3000934400,
+        "lastCheck": "2026-02-24T20:32:43.399Z"
+      },
+      "cpu": {
+        "usage": 20.948675588079926,
+        "count": 12,
+        "lastCheck": "2026-02-24T20:32:43.409Z"
+      },
+      "disk": {
+        "usage": 0,
+        "lastCheck": "2026-02-24T20:32:43.410Z"
+      }
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert_1771965166953_hieg09z5j",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "builder智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T20:32:46.954Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771965166987_n7uyaxet9",
+      "level": "WARNING",
+      "title": "Memory Usage",
+      "message": "内存使用率过高: 82.37%",
+      "source": "system",
+      "timestamp": "2026-02-24T20:32:46.987Z",
+      "status": "ACTIVE"
+    }
+  ],
+  "summary": {
+    "overallStatus": "CRITICAL",
+    "errorRate": 0,
+    "taskSuccessRate": 0,
+    "averageResponseTime": 0,
+    "tokenUsage": 0
+  }
+}

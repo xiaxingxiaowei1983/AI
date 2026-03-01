@@ -1,0 +1,28 @@
+{
+  "skill_name": "网页UI美化",
+  "version": "1.0.0",
+  "description": "美化网页界面",
+  "author": "乔木",
+  "size": "2.42KB",
+  "type": "design",
+  "dependencies": [],
+  "entry_point": "ui-skills.js",
+  "capabilities": [
+    "interface_optimization",
+    "visual_enhancement",
+    "user_experience_improvement"
+  ],
+  "use_cases": [
+    "提升产品界面的用户体验",
+    "优化网页视觉效果",
+    "增强用户交互体验"
+  ],
+  "integration_points": [
+    "应用推广者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/ui-skills",
+    "last_updated": "2026-02-25"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "skill_name": "Z-image生图Skill",
+  "version": "1.0.0",
+  "description": "生成图像内容",
+  "author": "乔木",
+  "size": "5.03KB",
+  "type": "creative",
+  "dependencies": [],
+  "entry_point": "z-image-generator.js",
+  "capabilities": [
+    "image_generation",
+    "style_customization",
+    "content_adaptation"
+  ],
+  "use_cases": [
+    "创建视觉内容",
+    "数据可视化",
+    "生成创意图像"
+  ],
+  "integration_points": [
+    "应用推广者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/z-image-generator",
+    "last_updated": "2026-02-25"
+  }
+}

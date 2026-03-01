@@ -1,0 +1,2270 @@
+[
+  {
+    "id": "constraint_check_1772282579636_530",
+    "capabilityId": "shape_1772282579608_941",
+    "timestamp": "2026-02-28T12:42:59.636Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772282579638_327",
+    "capabilityId": "shape_1772282579610_996",
+    "timestamp": "2026-02-28T12:42:59.638Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772282579639_81",
+    "capabilityId": "shape_1772282579611_244",
+    "timestamp": "2026-02-28T12:42:59.639Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772283951403_936",
+    "capabilityId": "shape_1772283951368_524",
+    "timestamp": "2026-02-28T13:05:51.403Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772283951406_802",
+    "capabilityId": "shape_1772283951371_137",
+    "timestamp": "2026-02-28T13:05:51.406Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772283951407_997",
+    "capabilityId": "shape_1772283951372_465",
+    "timestamp": "2026-02-28T13:05:51.407Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772284412759_454",
+    "capabilityId": "shape_1772284412732_335",
+    "timestamp": "2026-02-28T13:13:32.759Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772284412760_948",
+    "capabilityId": "shape_1772284412734_940",
+    "timestamp": "2026-02-28T13:13:32.760Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772284412761_834",
+    "capabilityId": "shape_1772284412735_706",
+    "timestamp": "2026-02-28T13:13:32.761Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772284823737_975",
+    "capabilityId": "shape_1772284823706_498",
+    "timestamp": "2026-02-28T13:20:23.737Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772284823739_803",
+    "capabilityId": "shape_1772284823707_414",
+    "timestamp": "2026-02-28T13:20:23.739Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772284823740_133",
+    "capabilityId": "shape_1772284823708_854",
+    "timestamp": "2026-02-28T13:20:23.740Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772284878421_51",
+    "capabilityId": "shape_1772284878335_67",
+    "timestamp": "2026-02-28T13:21:18.421Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772284878424_327",
+    "capabilityId": "shape_1772284878341_748",
+    "timestamp": "2026-02-28T13:21:18.424Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772284878427_743",
+    "capabilityId": "shape_1772284878343_119",
+    "timestamp": "2026-02-28T13:21:18.427Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772285382002_359",
+    "capabilityId": "shape_1772285381951_567",
+    "timestamp": "2026-02-28T13:29:42.002Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772285382004_576",
+    "capabilityId": "shape_1772285381953_239",
+    "timestamp": "2026-02-28T13:29:42.004Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772285382006_55",
+    "capabilityId": "shape_1772285381955_85",
+    "timestamp": "2026-02-28T13:29:42.006Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772287320486_493",
+    "capabilityId": "shape_1772287320442_110",
+    "timestamp": "2026-02-28T14:02:00.486Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772287320488_553",
+    "capabilityId": "shape_1772287320444_532",
+    "timestamp": "2026-02-28T14:02:00.488Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772287320491_29",
+    "capabilityId": "shape_1772287320446_234",
+    "timestamp": "2026-02-28T14:02:00.491Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772287397047_796",
+    "capabilityId": "shape_1772287397005_572",
+    "timestamp": "2026-02-28T14:03:17.047Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772287397049_897",
+    "capabilityId": "shape_1772287397007_236",
+    "timestamp": "2026-02-28T14:03:17.049Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772287397051_316",
+    "capabilityId": "shape_1772287397008_220",
+    "timestamp": "2026-02-28T14:03:17.051Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772291260044_345",
+    "capabilityId": "shape_1772291260008_897",
+    "timestamp": "2026-02-28T15:07:40.044Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772291260045_131",
+    "capabilityId": "shape_1772291260010_506",
+    "timestamp": "2026-02-28T15:07:40.045Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772291260046_996",
+    "capabilityId": "shape_1772291260011_289",
+    "timestamp": "2026-02-28T15:07:40.046Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772294860148_30",
+    "capabilityId": "shape_1772294860070_833",
+    "timestamp": "2026-02-28T16:07:40.148Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772294860151_26",
+    "capabilityId": "shape_1772294860072_997",
+    "timestamp": "2026-02-28T16:07:40.151Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772294860154_577",
+    "capabilityId": "shape_1772294860074_182",
+    "timestamp": "2026-02-28T16:07:40.154Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772298460152_739",
+    "capabilityId": "shape_1772298460074_270",
+    "timestamp": "2026-02-28T17:07:40.152Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772298460154_976",
+    "capabilityId": "shape_1772298460077_476",
+    "timestamp": "2026-02-28T17:07:40.154Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772298460157_181",
+    "capabilityId": "shape_1772298460079_9",
+    "timestamp": "2026-02-28T17:07:40.157Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772302060154_757",
+    "capabilityId": "shape_1772302060085_89",
+    "timestamp": "2026-02-28T18:07:40.154Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772302060159_533",
+    "capabilityId": "shape_1772302060087_271",
+    "timestamp": "2026-02-28T18:07:40.159Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772302060161_405",
+    "capabilityId": "shape_1772302060088_715",
+    "timestamp": "2026-02-28T18:07:40.161Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772305660156_835",
+    "capabilityId": "shape_1772305660087_204",
+    "timestamp": "2026-02-28T19:07:40.156Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772305660158_266",
+    "capabilityId": "shape_1772305660089_239",
+    "timestamp": "2026-02-28T19:07:40.158Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772305660160_235",
+    "capabilityId": "shape_1772305660091_488",
+    "timestamp": "2026-02-28T19:07:40.160Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772309260173_540",
+    "capabilityId": "shape_1772309260096_45",
+    "timestamp": "2026-02-28T20:07:40.173Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772309260175_519",
+    "capabilityId": "shape_1772309260098_298",
+    "timestamp": "2026-02-28T20:07:40.175Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772309260176_762",
+    "capabilityId": "shape_1772309260100_545",
+    "timestamp": "2026-02-28T20:07:40.176Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772312860192_55",
+    "capabilityId": "shape_1772312860113_829",
+    "timestamp": "2026-02-28T21:07:40.192Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772312860195_183",
+    "capabilityId": "shape_1772312860115_1",
+    "timestamp": "2026-02-28T21:07:40.195Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772312860198_257",
+    "capabilityId": "shape_1772312860116_178",
+    "timestamp": "2026-02-28T21:07:40.198Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772316460199_330",
+    "capabilityId": "shape_1772316460119_973",
+    "timestamp": "2026-02-28T22:07:40.199Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772316460201_236",
+    "capabilityId": "shape_1772316460121_942",
+    "timestamp": "2026-02-28T22:07:40.201Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772316460204_218",
+    "capabilityId": "shape_1772316460122_834",
+    "timestamp": "2026-02-28T22:07:40.204Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772320060208_907",
+    "capabilityId": "shape_1772320060122_527",
+    "timestamp": "2026-02-28T23:07:40.208Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772320060210_668",
+    "capabilityId": "shape_1772320060124_409",
+    "timestamp": "2026-02-28T23:07:40.210Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772320060212_434",
+    "capabilityId": "shape_1772320060126_999",
+    "timestamp": "2026-02-28T23:07:40.212Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772323660216_155",
+    "capabilityId": "shape_1772323660114_583",
+    "timestamp": "2026-03-01T00:07:40.216Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772323660220_370",
+    "capabilityId": "shape_1772323660115_624",
+    "timestamp": "2026-03-01T00:07:40.220Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772323660223_466",
+    "capabilityId": "shape_1772323660117_913",
+    "timestamp": "2026-03-01T00:07:40.223Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772327992900_786",
+    "capabilityId": "shape_1772327992844_454",
+    "timestamp": "2026-03-01T01:19:52.900Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772327992901_670",
+    "capabilityId": "shape_1772327992845_506",
+    "timestamp": "2026-03-01T01:19:52.901Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772327992903_34",
+    "capabilityId": "shape_1772327992846_884",
+    "timestamp": "2026-03-01T01:19:52.903Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772331592963_994",
+    "capabilityId": "shape_1772331592864_169",
+    "timestamp": "2026-03-01T02:19:52.963Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772331592967_852",
+    "capabilityId": "shape_1772331592866_744",
+    "timestamp": "2026-03-01T02:19:52.967Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772331592970_218",
+    "capabilityId": "shape_1772331592868_33",
+    "timestamp": "2026-03-01T02:19:52.970Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  },
+  {
+    "id": "constraint_check_1772335193087_158",
+    "capabilityId": "shape_1772335192919_43",
+    "timestamp": "2026-03-01T03:19:53.087Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (17.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772335193091_470",
+    "capabilityId": "shape_1772335192925_199",
+    "timestamp": "2026-03-01T03:19:53.091Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (27.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": true,
+        "reason": "Stability (80.00%) meets minimum requirement (80%)",
+        "severity": "low"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (79.60%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [],
+    "compliance": true
+  },
+  {
+    "id": "constraint_check_1772335193094_370",
+    "capabilityId": "shape_1772335192927_282",
+    "timestamp": "2026-03-01T03:19:53.094Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false
+  }
+]

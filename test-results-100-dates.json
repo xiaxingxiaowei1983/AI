@@ -1,0 +1,2115 @@
+{
+  "summary": {
+    "totalTests": 100,
+    "passed": 100,
+    "failed": 0,
+    "errors": 0,
+    "successRate": "100.00%",
+    "testDate": "2026-02-25T14:57:38.516Z",
+    "timeRange": "1950-2050"
+  },
+  "details": [
+    {
+      "testIndex": 1,
+      "date": "2035-05-22 11:43",
+      "year": "乙卯",
+      "month": "庚辰",
+      "day": "癸未",
+      "time": "戊午",
+      "baZi": "乙卯庚辰癸未戊午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 2,
+      "date": "2008-03-09 17:01",
+      "year": "戊子",
+      "month": "甲寅",
+      "day": "戊申",
+      "time": "辛酉",
+      "baZi": "戊子甲寅戊申辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 3,
+      "date": "1980-08-22 20:14",
+      "year": "庚申",
+      "month": "己卯",
+      "day": "丁卯",
+      "time": "庚戌",
+      "baZi": "庚申己卯丁卯庚戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 4,
+      "date": "2024-06-27 01:30",
+      "year": "甲辰",
+      "month": "己巳",
+      "day": "壬戌",
+      "time": "辛丑",
+      "baZi": "甲辰己巳壬戌辛丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 5,
+      "date": "2027-01-20 19:25",
+      "year": "丁未",
+      "month": "壬子",
+      "day": "己亥",
+      "time": "甲戌",
+      "baZi": "丁未壬子己亥甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 6,
+      "date": "1961-08-04 19:36",
+      "year": "辛丑",
+      "month": "庚寅",
+      "day": "己巳",
+      "time": "甲戌",
+      "baZi": "辛丑庚寅己巳甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 7,
+      "date": "2029-08-25 06:03",
+      "year": "己酉",
+      "month": "辛未",
+      "day": "丁亥",
+      "time": "癸卯",
+      "baZi": "己酉辛未丁亥癸卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 8,
+      "date": "1983-04-13 14:35",
+      "year": "癸亥",
+      "month": "乙卯",
+      "day": "辛未",
+      "time": "乙未",
+      "baZi": "癸亥乙卯辛未乙未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 9,
+      "date": "2038-09-03 07:21",
+      "year": "戊午",
+      "month": "庚申",
+      "day": "癸未",
+      "time": "丙辰",
+      "baZi": "戊午庚申癸未丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 10,
+      "date": "2003-04-24 13:20",
+      "year": "癸未",
+      "month": "乙卯",
+      "day": "丁卯",
+      "time": "丁未",
+      "baZi": "癸未乙卯丁卯丁未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 11,
+      "date": "1998-01-31 18:29",
+      "year": "戊寅",
+      "month": "甲子",
+      "day": "戊寅",
+      "time": "辛酉",
+      "baZi": "戊寅甲子戊寅辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 12,
+      "date": "2038-01-09 13:00",
+      "year": "戊午",
+      "month": "甲子",
+      "day": "丙戌",
+      "time": "乙未",
+      "baZi": "戊午甲子丙戌乙未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 13,
+      "date": "1991-09-01 01:07",
+      "year": "辛未",
+      "month": "庚寅",
+      "day": "甲戌",
+      "time": "乙丑",
+      "baZi": "辛未庚寅甲戌乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 14,
+      "date": "1999-09-23 13:30",
+      "year": "己卯",
+      "month": "壬申",
+      "day": "戊寅",
+      "time": "己未",
+      "baZi": "己卯壬申戊寅己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 15,
+      "date": "2023-03-31 17:57",
+      "year": "癸卯",
+      "month": "甲寅",
+      "day": "戊子",
+      "time": "辛酉",
+      "baZi": "癸卯甲寅戊子辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 16,
+      "date": "2014-01-24 22:21",
+      "year": "甲午",
+      "month": "丙子",
+      "day": "乙未",
+      "time": "丁亥",
+      "baZi": "甲午丙子乙未丁亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 17,
+      "date": "2045-06-09 13:00",
+      "year": "乙丑",
+      "month": "辛巳",
+      "day": "甲午",
+      "time": "辛未",
+      "baZi": "乙丑辛巳甲午辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 18,
+      "date": "1957-01-23 02:00",
+      "year": "丁酉",
+      "month": "壬子",
+      "day": "乙未",
+      "time": "丁丑",
+      "baZi": "丁酉壬子乙未丁丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 19,
+      "date": "2020-03-29 06:49",
+      "year": "庚子",
+      "month": "己卯",
+      "day": "辛未",
+      "time": "辛卯",
+      "baZi": "庚子己卯辛未辛卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 20,
+      "date": "1997-12-13 02:05",
+      "year": "丁丑",
+      "month": "辛亥",
+      "day": "己丑",
+      "time": "乙丑",
+      "baZi": "丁丑辛亥己丑乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 21,
+      "date": "1966-10-10 11:34",
+      "year": "丙午",
+      "month": "丁酉",
+      "day": "壬寅",
+      "time": "丙午",
+      "baZi": "丙午丁酉壬寅丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 22,
+      "date": "2028-10-25 10:07",
+      "year": "戊申",
+      "month": "辛酉",
+      "day": "癸未",
+      "time": "丁巳",
+      "baZi": "戊申辛酉癸未丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 23,
+      "date": "2037-04-28 17:50",
+      "year": "丁巳",
+      "month": "癸卯",
+      "day": "庚午",
+      "time": "乙酉",
+      "baZi": "丁巳癸卯庚午乙酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 24,
+      "date": "2030-09-28 11:04",
+      "year": "庚戌",
+      "month": "己卯",
+      "day": "丙寅",
+      "time": "甲午",
+      "baZi": "庚戌己卯丙寅甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 25,
+      "date": "2026-09-16 16:59",
+      "year": "丙午",
+      "month": "丙申",
+      "day": "癸巳",
+      "time": "庚申",
+      "baZi": "丙午丙申癸巳庚申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 26,
+      "date": "1977-11-07 17:20",
+      "year": "丁巳",
+      "month": "庚戌",
+      "day": "戊辰",
+      "time": "辛酉",
+      "baZi": "丁巳庚戌戊辰辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 27,
+      "date": "1996-08-24 18:32",
+      "year": "丙子",
+      "month": "乙未",
+      "day": "癸巳",
+      "time": "辛酉",
+      "baZi": "丙子乙未癸巳辛酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 28,
+      "date": "2030-07-07 10:34",
+      "year": "庚戌",
+      "month": "己卯",
+      "day": "癸卯",
+      "time": "丁巳",
+      "baZi": "庚戌己卯癸卯丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 29,
+      "date": "1960-07-12 00:55",
+      "year": "庚子",
+      "month": "己卯",
+      "day": "辛丑",
+      "time": "戊子",
+      "baZi": "庚子己卯辛丑戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 30,
+      "date": "1953-11-09 15:33",
+      "year": "癸巳",
+      "month": "壬戌",
+      "day": "甲子",
+      "time": "壬申",
+      "baZi": "癸巳壬戌甲子壬申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 31,
+      "date": "1950-01-30 15:55",
+      "year": "己丑",
+      "month": "丙子",
+      "day": "乙丑",
+      "time": "甲申",
+      "baZi": "己丑丙子乙丑甲申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 32,
+      "date": "1963-12-29 11:04",
+      "year": "癸卯",
+      "month": "癸亥",
+      "day": "丙午",
+      "time": "甲午",
+      "baZi": "癸卯癸亥丙午甲午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 33,
+      "date": "2033-02-10 13:32",
+      "year": "癸丑",
+      "month": "乙丑",
+      "day": "壬辰",
+      "time": "丁未",
+      "baZi": "癸丑乙丑壬辰丁未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 34,
+      "date": "2027-05-18 14:36",
+      "year": "丁未",
+      "month": "甲辰",
+      "day": "丁酉",
+      "time": "丁未",
+      "baZi": "丁未甲辰丁酉丁未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 35,
+      "date": "1962-07-25 23:12",
+      "year": "壬寅",
+      "month": "丙午",
+      "day": "乙丑",
+      "time": "丙子",
+      "baZi": "壬寅丙午乙丑丙子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 36,
+      "date": "2023-07-12 15:35",
+      "year": "癸卯",
+      "month": "戊午",
+      "day": "辛未",
+      "time": "丙申",
+      "baZi": "癸卯戊午辛未丙申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 37,
+      "date": "2043-05-16 02:45",
+      "year": "癸亥",
+      "month": "丙辰",
+      "day": "己未",
+      "time": "乙丑",
+      "baZi": "癸亥丙辰己未乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 38,
+      "date": "1959-02-26 03:09",
+      "year": "己亥",
+      "month": "丁丑",
+      "day": "己卯",
+      "time": "丙寅",
+      "baZi": "己亥丁丑己卯丙寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 39,
+      "date": "2006-05-24 08:44",
+      "year": "丙戌",
+      "month": "壬辰",
+      "day": "癸丑",
+      "time": "丙辰",
+      "baZi": "丙戌壬辰癸丑丙辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 40,
+      "date": "2022-10-06 18:19",
+      "year": "壬寅",
+      "month": "己酉",
+      "day": "壬辰",
+      "time": "己酉",
+      "baZi": "壬寅己酉壬辰己酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 41,
+      "date": "1968-03-12 23:16",
+      "year": "戊申",
+      "month": "甲寅",
+      "day": "壬午",
+      "time": "庚子",
+      "baZi": "戊申甲寅壬午庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 42,
+      "date": "2035-02-13 08:39",
+      "year": "乙卯",
+      "month": "己丑",
+      "day": "乙巳",
+      "time": "庚辰",
+      "baZi": "乙卯己丑乙巳庚辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 43,
+      "date": "2039-01-12 02:21",
+      "year": "己未",
+      "month": "丙子",
+      "day": "甲午",
+      "time": "乙丑",
+      "baZi": "己未丙子甲午乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 44,
+      "date": "2034-01-20 01:50",
+      "year": "甲寅",
+      "month": "丙子",
+      "day": "丙子",
+      "time": "己丑",
+      "baZi": "甲寅丙子丙子己丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 45,
+      "date": "1987-09-15 15:00",
+      "year": "丁卯",
+      "month": "戊申",
+      "day": "丁卯",
+      "time": "戊申",
+      "baZi": "丁卯戊申丁卯戊申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 46,
+      "date": "2035-01-13 02:01",
+      "year": "乙卯",
+      "month": "戊子",
+      "day": "甲戌",
+      "time": "乙丑",
+      "baZi": "乙卯戊子甲戌乙丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 47,
+      "date": "2032-01-23 23:05",
+      "year": "壬子",
+      "month": "壬子",
+      "day": "己巳",
+      "time": "甲子",
+      "baZi": "壬子壬子己巳甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 48,
+      "date": "1979-11-17 14:32",
+      "year": "己未",
+      "month": "甲戌",
+      "day": "戊子",
+      "time": "己未",
+      "baZi": "己未甲戌戊子己未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 49,
+      "date": "1956-01-02 05:35",
+      "year": "丙申",
+      "month": "庚子",
+      "day": "戊辰",
+      "time": "乙卯",
+      "baZi": "丙申庚子戊辰乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 50,
+      "date": "1988-04-25 12:30",
+      "year": "戊辰",
+      "month": "乙卯",
+      "day": "庚戌",
+      "time": "壬午",
+      "baZi": "戊辰乙卯庚戌壬午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 51,
+      "date": "2031-09-26 07:17",
+      "year": "辛亥",
+      "month": "庚寅",
+      "day": "己巳",
+      "time": "戊辰",
+      "baZi": "辛亥庚寅己巳戊辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 52,
+      "date": "1965-12-09 19:06",
+      "year": "乙巳",
+      "month": "丁亥",
+      "day": "丁酉",
+      "time": "庚戌",
+      "baZi": "乙巳丁亥丁酉庚戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 53,
+      "date": "2015-08-22 22:34",
+      "year": "乙未",
+      "month": "癸未",
+      "day": "庚午",
+      "time": "丁亥",
+      "baZi": "乙未癸未庚午丁亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 54,
+      "date": "1955-02-26 06:07",
+      "year": "乙未",
+      "month": "己丑",
+      "day": "戊午",
+      "time": "乙卯",
+      "baZi": "乙未己丑戊午乙卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 55,
+      "date": "1987-03-07 03:28",
+      "year": "丁卯",
+      "month": "壬寅",
+      "day": "乙卯",
+      "time": "戊寅",
+      "baZi": "丁卯壬寅乙卯戊寅",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 56,
+      "date": "1963-11-04 18:34",
+      "year": "癸卯",
+      "month": "壬戌",
+      "day": "辛亥",
+      "time": "丁酉",
+      "baZi": "癸卯壬戌辛亥丁酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 57,
+      "date": "2046-03-29 16:28",
+      "year": "丙寅",
+      "month": "庚寅",
+      "day": "丁亥",
+      "time": "戊申",
+      "baZi": "丙寅庚寅丁亥戊申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 58,
+      "date": "1958-09-16 06:55",
+      "year": "戊戌",
+      "month": "庚申",
+      "day": "丙申",
+      "time": "辛卯",
+      "baZi": "戊戌庚申丙申辛卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 59,
+      "date": "1958-03-16 14:52",
+      "year": "戊戌",
+      "month": "甲寅",
+      "day": "壬辰",
+      "time": "丁未",
+      "baZi": "戊戌甲寅壬辰丁未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 60,
+      "date": "1969-08-30 07:58",
+      "year": "己酉",
+      "month": "辛未",
+      "day": "丁丑",
+      "time": "甲辰",
+      "baZi": "己酉辛未丁丑甲辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 61,
+      "date": "1950-12-31 23:59",
+      "year": "辛卯",
+      "month": "庚子",
+      "day": "辛丑",
+      "time": "戊子",
+      "baZi": "辛卯庚子辛丑戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 62,
+      "date": "1951-01-01 00:00",
+      "year": "辛卯",
+      "month": "庚子",
+      "day": "辛丑",
+      "time": "戊子",
+      "baZi": "辛卯庚子辛丑戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 63,
+      "date": "1951-12-31 23:59",
+      "year": "壬辰",
+      "month": "壬子",
+      "day": "丙午",
+      "time": "戊子",
+      "baZi": "壬辰壬子丙午戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 64,
+      "date": "1952-01-01 00:00",
+      "year": "壬辰",
+      "month": "壬子",
+      "day": "丙午",
+      "time": "戊子",
+      "baZi": "壬辰壬子丙午戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 65,
+      "date": "1952-12-31 23:59",
+      "year": "癸巳",
+      "month": "甲子",
+      "day": "壬子",
+      "time": "庚子",
+      "baZi": "癸巳甲子壬子庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 66,
+      "date": "1953-01-01 00:00",
+      "year": "癸巳",
+      "month": "甲子",
+      "day": "壬子",
+      "time": "庚子",
+      "baZi": "癸巳甲子壬子庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 67,
+      "date": "1953-12-31 23:59",
+      "year": "甲午",
+      "month": "丙子",
+      "day": "丁巳",
+      "time": "庚子",
+      "baZi": "甲午丙子丁巳庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 68,
+      "date": "1954-01-01 00:00",
+      "year": "甲午",
+      "month": "丙子",
+      "day": "丁巳",
+      "time": "庚子",
+      "baZi": "甲午丙子丁巳庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 69,
+      "date": "1954-12-31 23:59",
+      "year": "乙未",
+      "month": "戊子",
+      "day": "壬戌",
+      "time": "庚子",
+      "baZi": "乙未戊子壬戌庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 70,
+      "date": "1955-01-01 00:00",
+      "year": "乙未",
+      "month": "戊子",
+      "day": "壬戌",
+      "time": "庚子",
+      "baZi": "乙未戊子壬戌庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 71,
+      "date": "1950-01-01 00:00",
+      "year": "己丑",
+      "month": "丙子",
+      "day": "丙申",
+      "time": "戊子",
+      "baZi": "己丑丙子丙申戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 72,
+      "date": "2050-12-31 23:59",
+      "year": "辛未",
+      "month": "庚子",
+      "day": "丙戌",
+      "time": "戊子",
+      "baZi": "辛未庚子丙戌戊子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 73,
+      "date": "1999-12-31 23:59",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬子",
+      "baZi": "己卯丙子戊午壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 74,
+      "date": "2000-01-01 00:00",
+      "year": "己卯",
+      "month": "丙子",
+      "day": "戊午",
+      "time": "壬子",
+      "baZi": "己卯丙子戊午壬子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 75,
+      "date": "1976-10-09 00:00",
+      "year": "丙辰",
+      "month": "丁酉",
+      "day": "甲午",
+      "time": "甲子",
+      "baZi": "丙辰丁酉甲午甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 76,
+      "date": "2008-08-08 08:08",
+      "year": "戊子",
+      "month": "己未",
+      "day": "庚辰",
+      "time": "庚辰",
+      "baZi": "戊子己未庚辰庚辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 77,
+      "date": "2020-02-23 10:00",
+      "year": "庚子",
+      "month": "己卯",
+      "day": "丙申",
+      "time": "癸巳",
+      "baZi": "庚子己卯丙申癸巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 78,
+      "date": "2022-03-04 20:00",
+      "year": "壬寅",
+      "month": "壬寅",
+      "day": "丙辰",
+      "time": "戊戌",
+      "baZi": "壬寅壬寅丙辰戊戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 79,
+      "date": "2030-07-01 00:00",
+      "year": "庚戌",
+      "month": "己卯",
+      "day": "丁酉",
+      "time": "庚子",
+      "baZi": "庚戌己卯丁酉庚子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 80,
+      "date": "2049-10-30 23:59",
+      "year": "己巳",
+      "month": "癸酉",
+      "day": "己卯",
+      "time": "甲子",
+      "baZi": "己巳癸酉己卯甲子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 81,
+      "date": "1963-06-09 02:26",
+      "year": "癸卯",
+      "month": "丁巳",
+      "day": "癸未",
+      "time": "癸丑",
+      "baZi": "癸卯丁巳癸未癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 82,
+      "date": "1975-06-12 18:47",
+      "year": "乙卯",
+      "month": "辛巳",
+      "day": "己丑",
+      "time": "癸酉",
+      "baZi": "乙卯辛巳己丑癸酉",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 83,
+      "date": "2028-03-30 11:51",
+      "year": "戊申",
+      "month": "甲寅",
+      "day": "甲寅",
+      "time": "庚午",
+      "baZi": "戊申甲寅甲寅庚午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 84,
+      "date": "2023-07-18 15:59",
+      "year": "癸卯",
+      "month": "戊午",
+      "day": "丁丑",
+      "time": "戊申",
+      "baZi": "癸卯戊午丁丑戊申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 85,
+      "date": "2041-01-14 12:48",
+      "year": "辛酉",
+      "month": "庚寅",
+      "day": "丁未",
+      "time": "丙午",
+      "baZi": "辛酉庚寅丁未丙午",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 86,
+      "date": "2006-08-23 10:12",
+      "year": "丙戌",
+      "month": "乙未",
+      "day": "甲申",
+      "time": "己巳",
+      "baZi": "丙戌乙未甲申己巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 87,
+      "date": "2020-05-10 20:37",
+      "year": "庚子",
+      "month": "己卯",
+      "day": "癸丑",
+      "time": "壬戌",
+      "baZi": "庚子己卯癸丑壬戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 88,
+      "date": "1965-08-22 02:34",
+      "year": "乙巳",
+      "month": "癸未",
+      "day": "戊申",
+      "time": "癸丑",
+      "baZi": "乙巳癸未戊申癸丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 89,
+      "date": "2033-05-23 20:55",
+      "year": "癸丑",
+      "month": "丙辰",
+      "day": "甲戌",
+      "time": "甲戌",
+      "baZi": "癸丑丙辰甲戌甲戌",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 90,
+      "date": "1977-02-03 07:05",
+      "year": "丁巳",
+      "month": "癸丑",
+      "day": "辛卯",
+      "time": "壬辰",
+      "baZi": "丁巳癸丑辛卯壬辰",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 91,
+      "date": "2048-11-19 10:12",
+      "year": "戊辰",
+      "month": "壬戌",
+      "day": "癸巳",
+      "time": "丁巳",
+      "baZi": "戊辰壬戌癸巳丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 92,
+      "date": "1997-12-24 01:16",
+      "year": "丁丑",
+      "month": "辛亥",
+      "day": "庚子",
+      "time": "丁丑",
+      "baZi": "丁丑辛亥庚子丁丑",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 93,
+      "date": "1962-02-04 10:43",
+      "year": "壬寅",
+      "month": "癸丑",
+      "day": "癸酉",
+      "time": "丁巳",
+      "baZi": "壬寅癸丑癸酉丁巳",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 94,
+      "date": "2003-04-07 22:57",
+      "year": "癸未",
+      "month": "乙卯",
+      "day": "庚戌",
+      "time": "丁亥",
+      "baZi": "癸未乙卯庚戌丁亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 95,
+      "date": "2025-01-20 13:10",
+      "year": "乙巳",
+      "month": "戊子",
+      "day": "己丑",
+      "time": "辛未",
+      "baZi": "乙巳戊子己丑辛未",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 96,
+      "date": "2050-09-11 23:14",
+      "year": "庚午",
+      "month": "己卯",
+      "day": "乙未",
+      "time": "丙子",
+      "baZi": "庚午己卯乙未丙子",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 97,
+      "date": "2008-03-11 21:46",
+      "year": "戊子",
+      "month": "甲寅",
+      "day": "庚戌",
+      "time": "丁亥",
+      "baZi": "戊子甲寅庚戌丁亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 98,
+      "date": "2045-07-08 21:55",
+      "year": "乙丑",
+      "month": "壬午",
+      "day": "癸亥",
+      "time": "癸亥",
+      "baZi": "乙丑壬午癸亥癸亥",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 99,
+      "date": "1985-04-26 16:28",
+      "year": "乙丑",
+      "month": "戊寅",
+      "day": "乙未",
+      "time": "甲申",
+      "baZi": "乙丑戊寅乙未甲申",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "testIndex": 100,
+      "date": "1973-10-06 06:34",
+      "year": "癸丑",
+      "month": "辛酉",
+      "day": "乙亥",
+      "time": "己卯",
+      "baZi": "癸丑辛酉乙亥己卯",
+      "validation": {
+        "isValid": true
+      },
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "testCases": [
+    {
+      "year": 2035,
+      "month": 4,
+      "day": 22,
+      "hour": 11,
+      "minute": 43
+    },
+    {
+      "year": 2008,
+      "month": 2,
+      "day": 9,
+      "hour": 17,
+      "minute": 1
+    },
+    {
+      "year": 1980,
+      "month": 7,
+      "day": 22,
+      "hour": 20,
+      "minute": 14
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "day": 27,
+      "hour": 1,
+      "minute": 30
+    },
+    {
+      "year": 2027,
+      "month": 0,
+      "day": 20,
+      "hour": 19,
+      "minute": 25
+    },
+    {
+      "year": 1961,
+      "month": 7,
+      "day": 4,
+      "hour": 19,
+      "minute": 36
+    },
+    {
+      "year": 2029,
+      "month": 7,
+      "day": 25,
+      "hour": 6,
+      "minute": 3
+    },
+    {
+      "year": 1983,
+      "month": 3,
+      "day": 13,
+      "hour": 14,
+      "minute": 35
+    },
+    {
+      "year": 2038,
+      "month": 8,
+      "day": 3,
+      "hour": 7,
+      "minute": 21
+    },
+    {
+      "year": 2003,
+      "month": 3,
+      "day": 24,
+      "hour": 13,
+      "minute": 20
+    },
+    {
+      "year": 1998,
+      "month": 0,
+      "day": 31,
+      "hour": 18,
+      "minute": 29
+    },
+    {
+      "year": 2038,
+      "month": 0,
+      "day": 9,
+      "hour": 13,
+      "minute": 0
+    },
+    {
+      "year": 1991,
+      "month": 8,
+      "day": 1,
+      "hour": 1,
+      "minute": 7
+    },
+    {
+      "year": 1999,
+      "month": 8,
+      "day": 23,
+      "hour": 13,
+      "minute": 30
+    },
+    {
+      "year": 2023,
+      "month": 2,
+      "day": 31,
+      "hour": 17,
+      "minute": 57
+    },
+    {
+      "year": 2014,
+      "month": 0,
+      "day": 24,
+      "hour": 22,
+      "minute": 21
+    },
+    {
+      "year": 2045,
+      "month": 5,
+      "day": 9,
+      "hour": 13,
+      "minute": 0
+    },
+    {
+      "year": 1957,
+      "month": 0,
+      "day": 23,
+      "hour": 2,
+      "minute": 0
+    },
+    {
+      "year": 2020,
+      "month": 2,
+      "day": 29,
+      "hour": 6,
+      "minute": 49
+    },
+    {
+      "year": 1997,
+      "month": 11,
+      "day": 13,
+      "hour": 2,
+      "minute": 5
+    },
+    {
+      "year": 1966,
+      "month": 9,
+      "day": 10,
+      "hour": 11,
+      "minute": 34
+    },
+    {
+      "year": 2028,
+      "month": 9,
+      "day": 25,
+      "hour": 10,
+      "minute": 7
+    },
+    {
+      "year": 2037,
+      "month": 3,
+      "day": 28,
+      "hour": 17,
+      "minute": 50
+    },
+    {
+      "year": 2030,
+      "month": 8,
+      "day": 28,
+      "hour": 11,
+      "minute": 4
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "day": 16,
+      "hour": 16,
+      "minute": 59
+    },
+    {
+      "year": 1977,
+      "month": 10,
+      "day": 7,
+      "hour": 17,
+      "minute": 20
+    },
+    {
+      "year": 1996,
+      "month": 7,
+      "day": 24,
+      "hour": 18,
+      "minute": 32
+    },
+    {
+      "year": 2030,
+      "month": 6,
+      "day": 7,
+      "hour": 10,
+      "minute": 34
+    },
+    {
+      "year": 1960,
+      "month": 6,
+      "day": 12,
+      "hour": 0,
+      "minute": 55
+    },
+    {
+      "year": 1953,
+      "month": 10,
+      "day": 9,
+      "hour": 15,
+      "minute": 33
+    },
+    {
+      "year": 1950,
+      "month": 0,
+      "day": 30,
+      "hour": 15,
+      "minute": 55
+    },
+    {
+      "year": 1963,
+      "month": 11,
+      "day": 29,
+      "hour": 11,
+      "minute": 4
+    },
+    {
+      "year": 2033,
+      "month": 1,
+      "day": 10,
+      "hour": 13,
+      "minute": 32
+    },
+    {
+      "year": 2027,
+      "month": 4,
+      "day": 18,
+      "hour": 14,
+      "minute": 36
+    },
+    {
+      "year": 1962,
+      "month": 6,
+      "day": 25,
+      "hour": 23,
+      "minute": 12
+    },
+    {
+      "year": 2023,
+      "month": 6,
+      "day": 12,
+      "hour": 15,
+      "minute": 35
+    },
+    {
+      "year": 2043,
+      "month": 4,
+      "day": 16,
+      "hour": 2,
+      "minute": 45
+    },
+    {
+      "year": 1959,
+      "month": 1,
+      "day": 26,
+      "hour": 3,
+      "minute": 9
+    },
+    {
+      "year": 2006,
+      "month": 4,
+      "day": 24,
+      "hour": 8,
+      "minute": 44
+    },
+    {
+      "year": 2022,
+      "month": 9,
+      "day": 6,
+      "hour": 18,
+      "minute": 19
+    },
+    {
+      "year": 1968,
+      "month": 2,
+      "day": 12,
+      "hour": 23,
+      "minute": 16
+    },
+    {
+      "year": 2035,
+      "month": 1,
+      "day": 13,
+      "hour": 8,
+      "minute": 39
+    },
+    {
+      "year": 2039,
+      "month": 0,
+      "day": 12,
+      "hour": 2,
+      "minute": 21
+    },
+    {
+      "year": 2034,
+      "month": 0,
+      "day": 20,
+      "hour": 1,
+      "minute": 50
+    },
+    {
+      "year": 1987,
+      "month": 8,
+      "day": 15,
+      "hour": 15,
+      "minute": 0
+    },
+    {
+      "year": 2035,
+      "month": 0,
+      "day": 13,
+      "hour": 2,
+      "minute": 1
+    },
+    {
+      "year": 2032,
+      "month": 0,
+      "day": 23,
+      "hour": 23,
+      "minute": 5
+    },
+    {
+      "year": 1979,
+      "month": 10,
+      "day": 17,
+      "hour": 14,
+      "minute": 32
+    },
+    {
+      "year": 1956,
+      "month": 0,
+      "day": 2,
+      "hour": 5,
+      "minute": 35
+    },
+    {
+      "year": 1988,
+      "month": 3,
+      "day": 25,
+      "hour": 12,
+      "minute": 30
+    },
+    {
+      "year": 2031,
+      "month": 8,
+      "day": 26,
+      "hour": 7,
+      "minute": 17
+    },
+    {
+      "year": 1965,
+      "month": 11,
+      "day": 9,
+      "hour": 19,
+      "minute": 6
+    },
+    {
+      "year": 2015,
+      "month": 7,
+      "day": 22,
+      "hour": 22,
+      "minute": 34
+    },
+    {
+      "year": 1955,
+      "month": 1,
+      "day": 26,
+      "hour": 6,
+      "minute": 7
+    },
+    {
+      "year": 1987,
+      "month": 2,
+      "day": 7,
+      "hour": 3,
+      "minute": 28
+    },
+    {
+      "year": 1963,
+      "month": 10,
+      "day": 4,
+      "hour": 18,
+      "minute": 34
+    },
+    {
+      "year": 2046,
+      "month": 2,
+      "day": 29,
+      "hour": 16,
+      "minute": 28
+    },
+    {
+      "year": 1958,
+      "month": 8,
+      "day": 16,
+      "hour": 6,
+      "minute": 55
+    },
+    {
+      "year": 1958,
+      "month": 2,
+      "day": 16,
+      "hour": 14,
+      "minute": 52
+    },
+    {
+      "year": 1969,
+      "month": 7,
+      "day": 30,
+      "hour": 7,
+      "minute": 58
+    },
+    {
+      "year": 1950,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1951,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 1951,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1952,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 1952,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1953,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 1953,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1954,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 1954,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1955,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 1950,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 2050,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1999,
+      "month": 11,
+      "day": 31,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 2000,
+      "month": 0,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 1976,
+      "month": 9,
+      "day": 9,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 2008,
+      "month": 7,
+      "day": 8,
+      "hour": 8,
+      "minute": 8
+    },
+    {
+      "year": 2020,
+      "month": 1,
+      "day": 23,
+      "hour": 10,
+      "minute": 0
+    },
+    {
+      "year": 2022,
+      "month": 2,
+      "day": 4,
+      "hour": 20,
+      "minute": 0
+    },
+    {
+      "year": 2030,
+      "month": 6,
+      "day": 1,
+      "hour": 0,
+      "minute": 0
+    },
+    {
+      "year": 2049,
+      "month": 9,
+      "day": 30,
+      "hour": 23,
+      "minute": 59
+    },
+    {
+      "year": 1963,
+      "month": 5,
+      "day": 9,
+      "hour": 2,
+      "minute": 26
+    },
+    {
+      "year": 1975,
+      "month": 5,
+      "day": 12,
+      "hour": 18,
+      "minute": 47
+    },
+    {
+      "year": 2028,
+      "month": 2,
+      "day": 30,
+      "hour": 11,
+      "minute": 51
+    },
+    {
+      "year": 2023,
+      "month": 6,
+      "day": 18,
+      "hour": 15,
+      "minute": 59
+    },
+    {
+      "year": 2041,
+      "month": 0,
+      "day": 14,
+      "hour": 12,
+      "minute": 48
+    },
+    {
+      "year": 2006,
+      "month": 7,
+      "day": 23,
+      "hour": 10,
+      "minute": 12
+    },
+    {
+      "year": 2020,
+      "month": 4,
+      "day": 10,
+      "hour": 20,
+      "minute": 37
+    },
+    {
+      "year": 1965,
+      "month": 7,
+      "day": 22,
+      "hour": 2,
+      "minute": 34
+    },
+    {
+      "year": 2033,
+      "month": 4,
+      "day": 23,
+      "hour": 20,
+      "minute": 55
+    },
+    {
+      "year": 1977,
+      "month": 1,
+      "day": 3,
+      "hour": 7,
+      "minute": 5
+    },
+    {
+      "year": 2048,
+      "month": 10,
+      "day": 19,
+      "hour": 10,
+      "minute": 12
+    },
+    {
+      "year": 1997,
+      "month": 11,
+      "day": 24,
+      "hour": 1,
+      "minute": 16
+    },
+    {
+      "year": 1962,
+      "month": 1,
+      "day": 4,
+      "hour": 10,
+      "minute": 43
+    },
+    {
+      "year": 2003,
+      "month": 3,
+      "day": 7,
+      "hour": 22,
+      "minute": 57
+    },
+    {
+      "year": 2025,
+      "month": 0,
+      "day": 20,
+      "hour": 13,
+      "minute": 10
+    },
+    {
+      "year": 2050,
+      "month": 8,
+      "day": 11,
+      "hour": 23,
+      "minute": 14
+    },
+    {
+      "year": 2008,
+      "month": 2,
+      "day": 11,
+      "hour": 21,
+      "minute": 46
+    },
+    {
+      "year": 2045,
+      "month": 6,
+      "day": 8,
+      "hour": 21,
+      "minute": 55
+    },
+    {
+      "year": 1985,
+      "month": 3,
+      "day": 26,
+      "hour": 16,
+      "minute": 28
+    },
+    {
+      "year": 1973,
+      "month": 9,
+      "day": 6,
+      "hour": 6,
+      "minute": 34
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-02-28T09:17:25.243Z",
+  "overallMetrics": {
+    "averageLearningScore": 84,
+    "averageApplicationScore": 2.6666666666666665,
+    "totalLearningHours": 0,
+    "knowledgeRetentionRate": 3.1746031746031744
+  },
+  "recentEvaluations": [
+    {
+      "timestamp": "2026-02-28T09:17:25.241Z",
+      "metrics": {
+        "totalLearnings": 15,
+        "totalEvolutions": 5,
+        "totalInsights": 126,
+        "totalImprovements": 16,
+        "totalApplications": 4,
+        "learningScore": 84,
+        "applicationScore": 2.6666666666666665,
+        "knowledgeRetentionRate": 3.1746031746031744
+      },
+      "summary": [
+        "共学习了 15 个资源，完成了 5 次进化",
+        "获得了 126 个学习洞察和 16 项改进建议",
+        "应用了 4 次知识到实际任务",
+        "学习评分: 84.00/10",
+        "应用评分: 2.67/10",
+        "知识保留率: 3.2%"
+      ],
+      "recommendations": [
+        "建议增加知识应用的频率和广度",
+        "建议加强知识巩固和复习机制",
+        "建议定期评估学习效果，持续优化学习策略",
+        "建议建立学习目标和评估标准，提高学习针对性"
+      ],
+      "improvements": [
+        "提高知识应用的比例",
+        "改进知识应用机制"
+      ]
+    }
+  ],
+  "trends": {
+    "message": "数据不足，无法分析趋势"
+  },
+  "recommendations": [
+    "学习效果优秀，建议保持并创新",
+    "知识应用效果有待提高，建议加强应用机制",
+    "知识保留率较低，建议加强知识巩固",
+    "建议定期更新学习目标和评估标准",
+    "建议与其他智能体交流学习经验，共同进步"
+  ]
+}

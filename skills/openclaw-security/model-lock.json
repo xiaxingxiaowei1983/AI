@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "lockPolicy": {
+    "allowedModels": [
+      "kimi-coding/k2p5",
+      "kimi-coding/k2",
+      "kimi-latest"
+    ],
+    "minimumCapability": "high",
+    "lockReason": "Security: prevent model downgrade attacks"
+  },
+  "unlockPolicy": {
+    "unlockRequires": ["admin_approval", "mfa_verification"],
+    "adminUsers": [
+      "ou_7d7fb1b2b895ac7d24ecac722da7d38d",
+      "ou_b94e681abce93de66ecdb757e610b553"
+    ]
+  },
+  "restrictions": {
+    "blockDowngrade": true,
+    "blockUnknownModels": true,
+    "requireExplicitApproval": true
+  }
+}

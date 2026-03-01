@@ -1,0 +1,112 @@
+OpenClaw 8小时进化计划执行日志
+开始时间: 03/01/2026 10:57:26
+
+[2026-03-01 10:57:26] [INFO] ===================================
+[2026-03-01 10:57:27] [INFO] 开始准备阶段 (0.5小时)
+[2026-03-01 10:57:27] [INFO] ===================================
+[2026-03-01 10:57:27] [INFO] 1.1 环境准备
+[2026-03-01 10:57:27] [INFO] 检查Node.js版本
+[2026-03-01 10:57:27] [INFO] 开始执行: 检查Node.js版本
+[2026-03-01 10:57:27] [INFO] 命令: node --version
+[2026-03-01 10:57:27] [INFO] 执行结果: 成功
+[2026-03-01 10:57:27] [INFO] 输出: v24.13.0
+[2026-03-01 10:57:27] [INFO] 检查OpenClaw版本
+[2026-03-01 10:57:27] [INFO] 开始执行: 检查OpenClaw版本
+[2026-03-01 10:57:27] [INFO] 命令: openclaw --version
+[2026-03-01 10:57:35] [INFO] 执行结果: 成功
+[2026-03-01 10:57:35] [INFO] 输出: 2026.2.26
+[2026-03-01 10:57:35] [INFO] 检查系统资源
+[2026-03-01 10:57:35] [INFO] 开始执行: 检查可用内存
+[2026-03-01 10:57:35] [INFO] 命令: Get-WmiObject -Class Win32_OperatingSystem | Select-Object FreePhysicalMemory
+[2026-03-01 10:57:40] [INFO] 执行结果: 成功
+[2026-03-01 10:57:40] [INFO] 输出: @{FreePhysicalMemory=865376}
+[2026-03-01 10:57:40] [INFO] 1.2 备份配置
+[2026-03-01 10:57:40] [INFO] 备份openclaw.json配置文件
+[2026-03-01 10:57:40] [INFO] 开始执行: 备份openclaw.json
+[2026-03-01 10:57:40] [INFO] 命令: Copy-Item 'C:\Users\10919\.openclaw\openclaw.json' 'C:\Users\10919\Desktop\AI\backups\20260301_105740\openclaw.json'
+[2026-03-01 10:57:40] [INFO] 执行结果: 成功
+[2026-03-01 10:57:40] [INFO] 备份插件配置
+[2026-03-01 10:57:40] [INFO] 开始执行: 备份插件配置
+[2026-03-01 10:57:40] [INFO] 命令: Copy-Item 'C:\Users\10919\.openclaw\plugins' 'C:\Users\10919\Desktop\AI\backups\20260301_105740\plugins' -Recurse -Force
+[2026-03-01 11:11:44] [INFO] 执行结果: 成功
+[2026-03-01 11:11:44] [INFO] 备份重要数据和会话
+[2026-03-01 11:11:45] [INFO] 开始执行: 备份agents数据
+[2026-03-01 11:11:45] [INFO] 命令: Copy-Item 'C:\Users\10919\.openclaw\agents' 'C:\Users\10919\Desktop\AI\backups\20260301_105740\agents' -Recurse -Force
+[2026-03-01 11:11:46] [INFO] 执行结果: 成功
+[2026-03-01 11:11:46] [INFO] 准备阶段完成
+[2026-03-01 11:11:46] [INFO] 
+[2026-03-01 11:11:46] [INFO] ===================================
+[2026-03-01 11:11:46] [INFO] 开始核心改进阶段 (3小时)
+[2026-03-01 11:11:46] [INFO] ===================================
+[2026-03-01 11:11:46] [INFO] 2.1 插件安装与配置
+[2026-03-01 11:11:46] [INFO] 创建插件目录: C:\Users\10919\.openclaw\extensions
+[2026-03-01 11:11:46] [INFO] 复制kimi-claw插件
+[2026-03-01 11:11:46] [WARNING] kimi-claw插件目录不存在，跳过复制
+[2026-03-01 11:11:46] [INFO] 复制kimi-search插件
+[2026-03-01 11:11:46] [WARNING] kimi-search插件目录不存在，跳过复制
+[2026-03-01 11:11:46] [INFO] 复制discord插件
+[2026-03-01 11:11:46] [WARNING] discord插件目录不存在，跳过复制
+[2026-03-01 11:11:46] [INFO] 2.2 安全加固
+[2026-03-01 11:11:46] [INFO] 需要进行的安全配置:
+[2026-03-01 11:11:46] [INFO] 1. 配置更严格的groupPolicy
+[2026-03-01 11:11:46] [INFO] 2. 加强认证机制
+[2026-03-01 11:11:46] [INFO] 3. 修复安全警告
+[2026-03-01 11:11:46] [INFO] 2.3 配置优化
+[2026-03-01 11:11:46] [INFO] 移除不存在的插件配置
+[2026-03-01 11:11:46] [INFO] 需要进行的配置优化:
+[2026-03-01 11:11:46] [INFO] 1. 移除不存在的插件配置
+[2026-03-01 11:11:46] [INFO] 2. 优化模型配置
+[2026-03-01 11:11:46] [INFO] 3. 调整系统参数
+[2026-03-01 11:11:46] [INFO] 核心改进阶段完成
+[2026-03-01 11:11:46] [INFO] 
+[2026-03-01 11:11:46] [INFO] ===================================
+[2026-03-01 11:11:46] [INFO] 开始功能增强阶段 (3小时)
+[2026-03-01 11:11:46] [INFO] ===================================
+[2026-03-01 11:11:46] [INFO] 3.1 性能优化
+[2026-03-01 11:11:46] [INFO] 需要进行的性能优化:
+[2026-03-01 11:11:46] [INFO] 1. 优化模型选择策略
+[2026-03-01 11:11:46] [INFO] 2. 调整缓存配置
+[2026-03-01 11:11:46] [INFO] 3. 优化资源分配
+[2026-03-01 11:11:46] [INFO] 3.2 功能扩展
+[2026-03-01 11:11:46] [INFO] 需要进行的功能扩展:
+[2026-03-01 11:11:46] [INFO] 1. 开发新的工具和技能
+[2026-03-01 11:11:46] [INFO] 2. 整合插件功能
+[2026-03-01 11:11:46] [INFO] 3. 改进用户交互体验
+[2026-03-01 11:11:46] [INFO] 3.3 稳定性提升
+[2026-03-01 11:11:46] [INFO] 需要进行的稳定性提升:
+[2026-03-01 11:11:46] [INFO] 1. 优化错误处理机制
+[2026-03-01 11:11:46] [INFO] 2. 增强系统容错能力
+[2026-03-01 11:11:46] [INFO] 3. 测试系统稳定性
+[2026-03-01 11:11:46] [INFO] 功能增强阶段完成
+[2026-03-01 11:11:46] [INFO] 
+[2026-03-01 11:11:46] [INFO] ===================================
+[2026-03-01 11:11:46] [INFO] 开始验证阶段 (1.5小时)
+[2026-03-01 11:11:46] [INFO] ===================================
+[2026-03-01 11:11:46] [INFO] 4.1 功能测试
+[2026-03-01 11:11:46] [INFO] 重启OpenClaw网关
+[2026-03-01 11:11:46] [INFO] 开始执行: 重启OpenClaw网关
+[2026-03-01 11:11:46] [INFO] 命令: openclaw gateway restart
+[2026-03-01 11:12:20] [INFO] 执行结果: 成功
+[2026-03-01 11:12:20] [INFO] 输出: Restarted Scheduled Task: OpenClaw Gateway Found stale gateway process(es): 39384. Stopping stale process(es) and retrying restart... Restarted Scheduled Task: OpenClaw Gateway Timed out after 60s waiting for gateway port 18789 to become healthy. Service runtime: status=unknown Port 18789 is already in use. - pid 28084: "C:\Program Files\nodejs\node.exe"  C:\Users\10919\AppData\Roaming\npm\node_modules\@qingchencloud\openclaw-zh\dist\index.js gateway --port 18789 (127.0.0.1:18789) - Gateway already running locally. Stop it (openclaw gateway stop) or use a different port.
+[2026-03-01 11:12:20] [INFO] 检查系统状态
+[2026-03-01 11:12:20] [INFO] 开始执行: 检查系统状态
+[2026-03-01 11:12:20] [INFO] 命令: openclaw status
+[2026-03-01 11:12:37] [INFO] 执行结果: 成功
+[2026-03-01 11:12:37] [INFO] 输出: [35m[plugins][39m [36mfeishu_doc: Registered feishu_doc, feishu_app_scopes[39m [35m[plugins][39m [36mfeishu_wiki: Registered feishu_wiki tool[39m [35m[plugins][39m [36mfeishu_drive: Registered feishu_drive tool[39m [35m[plugins][39m [36mfeishu_bitable: Registered bitable tools[39m OpenClaw 鐘舵€? 姒傝 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Item            鈹?Value                                                                                             鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Dashboard       鈹?http://127.0.0.1:18789/                                                                           鈹?鈹?OS              鈹?windows 10.0.26200 (x64) 路 node 24.13.0                                                           鈹?鈹?Tailscale       鈹?off                                                                                               鈹?鈹?Channel         鈹?stable (default)                                                                                  鈹?鈹?Update          鈹?pnpm 路 npm latest 2026.2.26                                                                       鈹?鈹?Gateway         鈹?local 路 ws://127.0.0.1:18789 (local loopback) 路 reachable 36ms 路 auth token 路 LAYPC (192.168.10.  鈹?鈹?                鈹?249) app 2026.2.26 windows 10.0.26200                                                             鈹?鈹?Gateway service 鈹?Scheduled Task installed 路 registered 路 unknown                                                   鈹?鈹?Node service    鈹?Scheduled Task not installed                                                                      鈹?鈹?Agents          鈹?1 路 no bootstrap files 路 sessions 63 路 default main active 12m ago                                鈹?鈹?Memory          鈹?0 files 路 0 chunks 路 sources memory 路 plugin memory-core 路 vector unknown 路 fts ready 路 cache on  鈹?鈹?                鈹?(0)                                                                                               鈹?鈹?Probes          鈹?skipped (use --deep)                                                                              鈹?鈹?Events          鈹?none                                                                                              鈹?鈹?Heartbeat       鈹?30m (main)                                                                                        鈹?鈹?Sessions        鈹?63 active 路 default qwen3.5-plus (1000k ctx) 路 ~\.openclaw\agents\main\sessions\sessions.json     鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 瀹夊叏瀹¤ Summary: 4 critical 路 2 warn 路 1 info   CRITICAL Open groupPolicy with elevated tools enabled     Found groupPolicy="open" at: - channels.feishu.groupPolicy With tools.elevated enabled, a prompt injection in those rooms can become a high-impact incident.     Fix: Set groupPolicy="allowlist" and keep elevated allowlists extremely tight.   CRITICAL Open groupPolicy with runtime/filesystem tools exposed     Found groupPolicy="open" at: - channels.feishu.groupPolicy Risky tool exposure contexts: - agents.defaults (sandbox=off; runtime=[exec, process]; fs=[read, wri鈥?    Fix: For open groups, prefer tools.profile="messaging" (or deny group:runtime/group:fs), set tools.fs.workspaceOnly=true, and use agents.defaults.sandbox.mode="all" for exposed agents.   CRITICAL 椋炰功 security warning     Feishu[coo] groups: groupPolicy="open" allows any member to trigger (mention-gated). Set channels.feishu.groupPolicy="allowlist" + channels.feishu.groupAllowFr鈥?  CRITICAL 椋炰功 security warning     Feishu[main] groups: groupPolicy="open" allows any member to trigger (mention-gated). Set channels.feishu.groupPolicy="allowlist" + channels.feishu.groupAllowF鈥?  WARN Reverse proxy headers are not trusted     gateway.bind is loopback and gateway.trustedProxies is empty. If you expose the Control UI through a reverse proxy, configure trusted proxies so local-client c鈥?    Fix: Set gateway.trustedProxies to your proxy IPs or keep the Control UI local-only.   WARN Potential multi-user setup detected (personal-assistant model warning)     Heuristic signals indicate this gateway may be reachable by multiple users: - channels.feishu.groupPolicy="open" - channels.feishu.groupAllowFrom includes "*" 鈥?    Fix: If users may be mutually untrusted, split trust boundaries (separate gateways + credentials, ideally separate OS users/hosts). If you intentionally run shared-user access, set agents.defaults.sandbox.mode="all", keep tools.fs.workspaceOnly=true, deny runtime/fs/web tools unless required, and keep personal/private identities + credentials off that runtime. Full report: openclaw security audit Deep probe: openclaw security audit --deep  閫氶亾 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Channel  鈹?Enabled 鈹?State  鈹?Detail                                                                                鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?椋炰功       鈹?ON      鈹?OK     鈹?configured 路 accounts 2/3                                                             鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 浼氳瘽 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Key                                                   鈹?Kind   鈹?Age     鈹?Model                   鈹?Tokens         鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?agent:main:main                                       鈹?direct 鈹?12m ago 鈹?qwen3.5-plus            鈹?37k/1000k (4%) 鈹?鈹?agent:main:cron:470e1681-c6c1-4鈥?                     鈹?direct 鈹?25m ago 鈹?ep-20260228195036-gczhx 鈹?29k/200k (14%) 鈹?鈹?agent:main:cron:470e1681-c6c1-4鈥?                     鈹?direct 鈹?25m ago 鈹?ep-20260228195036-gczhx 鈹?29k/200k (14%) 鈹?鈹?agent:main:cron:f4ec5088-744e-4鈥?                     鈹?direct 鈹?31m ago 鈹?qwen3.5-plus            鈹?45k/1000k (4%) 鈹?鈹?agent:main:cron:f4ec5088-744e-4鈥?                     鈹?direct 鈹?31m ago 鈹?qwen3.5-plus            鈹?45k/1000k (4%) 鈹?鈹?agent:main:cron:45cd5b43-a2a6-4鈥?                     鈹?direct 鈹?53m ago 鈹?qwen3.5-plus            鈹?25k/200k (12%) 鈹?鈹?agent:main:cron:45cd5b43-a2a6-4鈥?                     鈹?direct 鈹?53m ago 鈹?qwen3.5-plus            鈹?25k/200k (12%) 鈹?鈹?agent:main:cron:96d7d445-48fb-4鈥?                     鈹?direct 鈹?53m ago 鈹?qwen3.5-plus            鈹?46k/200k (23%) 鈹?鈹?agent:main:cron:96d7d445-48fb-4鈥?                     鈹?direct 鈹?53m ago 鈹?qwen3.5-plus            鈹?46k/200k (23%) 鈹?鈹?agent:main:cron:470e1681-c6c1-4鈥?                     鈹?direct 鈹?1h ago  鈹?ep-20260228195036-gczhx 鈹?29k/200k (14%) 鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? FAQ: https://docs.openclaw.ai/faq Troubleshooting: https://docs.openclaw.ai/troubleshooting  Next steps:   Need to share?      openclaw status --all   Need to debug live? openclaw logs --follow   Need to test channels? openclaw status --deep
+[2026-03-01 11:12:37] [INFO] 4.2 问题调试
+[2026-03-01 11:12:37] [INFO] 检查网关状态
+[2026-03-01 11:12:37] [INFO] 开始执行: 检查网关状态
+[2026-03-01 11:12:37] [INFO] 命令: openclaw gateway probe
+[2026-03-01 11:12:44] [INFO] 执行结果: 成功
+[2026-03-01 11:12:44] [INFO] 输出: Gateway Status Reachable: yes Probe budget: 3000ms  Discovery (this machine) Found 0 gateways via Bonjour (local.) Tip: if the gateway is remote, mDNS won鈥檛 cross networks; use Wide-Area Bonjour (split DNS) or SSH tunnels.  Targets Local loopback ws://127.0.0.1:18789   Connect: ok (53ms) 路 RPC: ok   Gateway: LAYPC (192.168.10.249) 路 windows 10.0.26200 路 app 2026.2.26   Wide-area discovery: unknown 
+[2026-03-01 11:12:44] [INFO] 4.3 文档更新
+[2026-03-01 11:12:44] [INFO] 更新系统文档
+[2026-03-01 11:12:44] [INFO] 验证阶段完成
+[2026-03-01 11:12:44] [INFO] 
+[2026-03-01 11:12:44] [INFO] ===================================
+[2026-03-01 11:12:44] [INFO] 进化计划执行完成
+[2026-03-01 11:12:44] [INFO] ===================================
+[2026-03-01 11:12:44] [INFO] 结束时间: 03/01/2026 11:12:44
+[2026-03-01 11:12:44] [INFO] 日志文件: C:\Users\10919\Desktop\AI\evolution_plan_log.txt
+[2026-03-01 11:12:44] [INFO] 
+[2026-03-01 11:12:44] [INFO] 请查看日志文件了解详细执行情况。

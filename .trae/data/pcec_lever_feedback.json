@@ -1,0 +1,13 @@
+[
+  {
+    "id": "feedback_1772266087107_m6tmfx9ae",
+    "leverId": "lever_1772266087105_8z000hhr9",
+    "actualImpact": {
+      "toolCallsReduced": 0,
+      "efficiencyGain": 0.29902665522373056
+    },
+    "effectiveness": 0.9967555174124353,
+    "timestamp": "2026-02-28T08:08:07.107Z",
+    "notes": "Lever Optimize Test Process Tool Calls applied with 29.9% efficiency gain"
+  }
+]

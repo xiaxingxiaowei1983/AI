@@ -1,0 +1,151 @@
+七、常见问题
+- 本地离线 TTS
+四、使用方式
+- 发送飞书原生语音条
+feishu-tts 飞书语音技能
+# 正确 ✅
+requests.post(url, 
+    files={"file": f},
+    data={"file_type": "opus", "duration": str(duration_ms)})
+3. ffprobe 获取时长(毫秒)
+1. sherpa-onnx 生成 WAV
+三、飞书凭证
+一、环境要求
+3. 修改脚本中的 APP_ID 和 APP_SECRET
+五、关键：duration 参数
+4. 上传文件(带duration)
+pip3 install sherpa-onnx onnxruntime==1.23.2 requests huggingface_hub numpy
+功能特点
+2. ffmpeg 转 opus (16kHz, 24kbps)
+必须在上传文件时传递 duration！
+Q: 时长显示0? A: 确保上传时传duration
+Q: 杂音? A: 检查float转int16转换
+dnf install ffmpeg  # CentOS
+apt install ffmpeg  # Ubuntu
+export LD_LIBRARY_PATH=/usr/local/lib64/python3.11/site-packages/onnxruntime/capi
+python3 feishu_tts.py "要发送的文字"
+1. 打开飞书开放平台创建应用
+2. 获取 App ID 和 App Secret
+5. 发送 audio 消息
+- 正确显示语音时长
+mkdir -p ~/.openclaw/tts-models
+cd ~/.openclaw/tts-models
+
+python3 << 'EOF'
+from huggingface_hub import hf_hub_download
+
+for f in ['vits-zh-hf-fanchen-C.onnx', 'tokens.txt', 'lexicon.txt']:
+    try:
+        hf_hub_download(repo_id='csukuangfj/vits-zh-hf-fanchen-C', 
+                       filename=f, local_dir='/root/.openclaw/tts-models')
+    except: pass
+EOF
+六、完整流程
+二、下载 TTS 模型
+1.1 系统依赖
+1.2 Python 依赖
+APP_ID
+完整脚本文件
+飞书应用密钥
+#!/bin/bash
+set -e
+
+echo "=== feishu-tts 安装脚本 ==="
+
+# 1. 安装 ffmpeg
+echo "[1/4] 安装 ffmpeg..."
+dnf install -y ffmpeg  # 或 apt install ffmpeg
+
+# 2. 安装 Python 依赖
+echo "[2/4] 安装 Python 依赖..."
+pip3 install sherpa-onnx onnxruntime==1.23.2 requests huggingface_hub numpy
+
+# 3. 下载模型
+echo "[3/4] 下载 TTS 模型..."
+mkdir -p ~/.openclaw/tts-models
+
+python3 << 'EOF'
+from huggingface_hub import hf_hub_download
+for f in ['vits-zh-hf-fanchen-C.onnx', 'tokens.txt', 'lexicon.txt']:
+    try:
+        hf_hub_download(repo_id='csukuangfj/vits-zh-hf-fanchen-C', 
+                       filename=f, local_dir='/root/.openclaw/tts-models')
+    except: pass
+EOF
+
+# 4. 创建脚本目录
+mkdir -p ~/.openclaw/workspace/scripts
+echo "[4/4] 完成！"
+关键：duration 必须在上传时传递
+SPEAKER_ID
+scripts/feishu_tts.py
+# 配置区
+APP_ID = "your_app_id"        # 飞书 App ID
+APP_SECRET = "your_secret"   # 飞书 App Secret
+SPEAKER_ID = 0               # 音色：0=1号
+SPEED = 1.4                  # 语速：1.4倍
+MODEL_PATH = "vits-zh-hf-fanchen-C.onnx"
+0
+APP_SECRET
+说明
+完整脚本较长，主要配置项：
+参数
+-
+scripts/install.sh
+-
+飞书应用ID
+# 上传时带 duration ✅
+requests.post(url, 
+    files={"file": f},
+    data={"file_type": "opus", "duration": str(duration_ms)})
+1.4
+配置参数
+语速倍数
+音色(0-186)
+SPEED
+默认值
+AI 调用说明
+步骤1：安装（如环境未就绪）
+dnf install -y ffmpeg
+pip3 install sherpa-onnx onnxruntime==1.23.2 requests huggingface_hub numpy
+
+# 下载模型
+python3 << 'EOF'
+from huggingface_hub import hf_hub_download
+for f in ['vits-zh-hf-fanchen-C.onnx', 'tokens.txt', 'lexicon.txt']:
+    try:
+        hf_hub_download(repo_id='csukuangfj/vits-zh-hf-fanchen-C', 
+                       filename=f, local_dir='/root/.openclaw/tts-models')
+    except: pass
+EOF
+步骤2：直接调用
+- duration 必须在上传文件时传递，不是发送消息时
+export LD_LIBRARY_PATH=/usr/local/lib64/python3.11/site-packages/onnxruntime/capi:$LD_LIBRARY_PATH
+python3 /root/.openclaw/workspace/scripts/feishu_tts.py "要发送的文字"
+关键点
+- 必须设置 LD_LIBRARY_PATH 否则找不到 onnxruntime
+必须设置
+oc_xxx
+调用方式
+模型目录
+TTS_SPEED
+说明
+默认群ID
+音色 (0-186)
+0
+变量
+环境变量配置
+TTS_SPEAKER_ID
+TTS_MODEL_DIR
+默认值
+export LD_LIBRARY_PATH=/usr/local/lib64/python3.11/site-packages/onnxruntime/capi:$LD_LIBRARY_PATH
+export FEISHU_APP_ID="xxx"
+export FEISHU_APP_SECRET="xxx"
+python3 /root/.openclaw/workspace/scripts/feishu_tts.py "要发送的文字"
+FEISHU_DEFAULT_CHAT_ID
+可选配置
+语速
+/root/.openclaw/tts-models
+export FEISHU_APP_ID="your_app_id"
+export FEISHU_APP_SECRET="your_app_secret"
+1.4

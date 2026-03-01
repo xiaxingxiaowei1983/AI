@@ -1,0 +1,29 @@
+{
+  "skill_name": "Seed2 多模态Skill",
+  "version": "1.0.0",
+  "description": "支持多模态内容处理，包括文本、图像、音频等多种数据类型",
+  "author": "乔木",
+  "size": "13.78KB",
+  "type": "multimodal",
+  "dependencies": [],
+  "entry_point": "seed-multimodal.js",
+  "capabilities": [
+    "text_processing",
+    "image_processing",
+    "audio_processing"
+  ],
+  "use_cases": [
+    "处理多模态内容",
+    "生成多模态输出",
+    "跨模态转换"
+  ],
+  "integration_points": [
+    "知识采集者",
+    "技能开发者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/seed-multimodal",
+    "last_updated": "2026-02-25"
+  }
+}

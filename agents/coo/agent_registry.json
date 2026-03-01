@@ -1,0 +1,175 @@
+{
+  "registry": {
+    "agents": [
+      {
+        "id": "master",
+        "name": "大宗师",
+        "type": "strategic",
+        "role": "公司大脑智能体",
+        "capabilities": [
+          "战略决策",
+          "智能体管理",
+          "能力进化",
+          "性能监控",
+          "EvoMap集成"
+        ],
+        "status": "active",
+        "performance": {
+          "response_time": "fast",
+          "success_rate": "high",
+          "token_usage": "medium"
+        },
+        "last_active": "2026-02-26T12:00:00Z"
+      },
+      {
+        "id": "coo",
+        "name": "大掌柜",
+        "type": "operational",
+        "role": "运营大管家与协议网关",
+        "capabilities": [
+          "流程控制",
+          "任务拆解",
+          "资源协调",
+          "信息同步",
+          "执行监控",
+          "能力树管理",
+          "价值评估",
+          "多智能体协调"
+        ],
+        "status": "active",
+        "performance": {
+          "response_time": "fast",
+          "success_rate": "high",
+          "token_usage": "low"
+        },
+        "last_active": "2026-02-26T12:00:00Z"
+      },
+      {
+        "id": "production",
+        "name": "赛博天工",
+        "type": "technical",
+        "role": "技术总监 (CTO)",
+        "capabilities": [
+          "代码编写",
+          "技术实现",
+          "系统架构",
+          "技术优化"
+        ],
+        "status": "active",
+        "performance": {
+          "response_time": "medium",
+          "success_rate": "high",
+          "token_usage": "high"
+        },
+        "last_active": "2026-02-26T11:50:00Z"
+      },
+      {
+        "id": "business",
+        "name": "谛听",
+        "type": "marketing",
+        "role": "市场总监 (CCO)",
+        "capabilities": [
+          "市场监控",
+          "合规审计",
+          "市场分析",
+          "策略制定"
+        ],
+        "status": "active",
+        "performance": {
+          "response_time": "medium",
+          "success_rate": "medium",
+          "token_usage": "medium"
+        },
+        "last_active": "2026-02-26T11:45:00Z"
+      },
+      {
+        "id": "life",
+        "name": "人生决策宗师",
+        "type": "personal",
+        "role": "生活顾问 (CLO)",
+        "capabilities": [
+          "个人能量复盘",
+          "决策校准",
+          "生活规划",
+          "情绪管理"
+        ],
+        "status": "active",
+        "performance": {
+          "response_time": "medium",
+          "success_rate": "medium",
+          "token_usage": "low"
+        },
+        "last_active": "2026-02-26T11:40:00Z"
+      },
+      {
+        "id": "company-brain-agent",
+        "name": "公司大脑",
+        "type": "unknown",
+        "role": "未知角色",
+        "capabilities": [],
+        "status": "active",
+        "performance": {
+          "response_time": "medium",
+          "success_rate": "medium",
+          "token_usage": "medium"
+        },
+        "last_active": "2026-02-26T10:56:32.998Z"
+      },
+      {
+        "id": "cto",
+        "name": "技术总监",
+        "type": "unknown",
+        "role": "未知角色",
+        "capabilities": [],
+        "status": "active",
+        "performance": {
+          "response_time": "medium",
+          "success_rate": "medium",
+          "token_usage": "medium"
+        },
+        "last_active": "2026-02-26T10:56:32.998Z"
+      },
+      {
+        "id": "green-tea",
+        "name": "绿茶",
+        "type": "unknown",
+        "role": "未知角色",
+        "capabilities": [],
+        "status": "active",
+        "performance": {
+          "response_time": "medium",
+          "success_rate": "medium",
+          "token_usage": "medium"
+        },
+        "last_active": "2026-02-26T10:56:32.999Z"
+      }
+    ],
+    "version": "1.0.0",
+    "last_updated": "2026-02-26T10:56:33.000Z",
+    "total_agents": 8
+  },
+  "task_allocation": {
+    "strategy": "value_based",
+    "prioritization": [
+      "value_score",
+      "agent_capability_match",
+      "current_load",
+      "response_time"
+    ],
+    "load_balancing": true,
+    "failover": true
+  },
+  "performance_metrics": {
+    "metrics": [
+      "response_time",
+      "success_rate",
+      "token_usage",
+      "user_satisfaction",
+      "error_rate"
+    ],
+    "reporting": {
+      "frequency": "daily",
+      "format": "json"
+    }
+  }
+}

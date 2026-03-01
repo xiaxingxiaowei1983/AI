@@ -1,0 +1,51 @@
+[
+  {
+    "id": "report-1772287302750",
+    "cycle": 1,
+    "timestamp": "2026-02-28T14:01:42.750Z",
+    "results": [
+      {
+        "type": "new-feature",
+        "name": "智能任务拆解",
+        "description": "自动将复杂任务拆解为可执行子任务",
+        "priority": "high",
+        "status": "completed",
+        "details": "进化任务已完成"
+      },
+      {
+        "type": "new-abstraction",
+        "name": "问题分类框架",
+        "description": "将问题自动分类为不同类型",
+        "priority": "medium",
+        "status": "completed",
+        "details": "进化任务已完成"
+      },
+      {
+        "type": "new-leverage",
+        "name": "工具调用优化",
+        "description": "减少工具调用次数，提高执行效率",
+        "priority": "high",
+        "status": "completed",
+        "details": "进化任务已完成"
+      }
+    ],
+    "mindExplosion": {
+      "question": "如果我彻底推翻当前默认做法，会发生什么？",
+      "insights": [
+        "发现了更高效的任务处理流程",
+        "识别了系统瓶颈并提出解决方案",
+        "设计了更通用的能力抽象"
+      ]
+    },
+    "products": [
+      "capability-1772287302750",
+      "strategy-1772287302750",
+      "rule-1772287302750"
+    ],
+    "nextSteps": [
+      "优化现有能力",
+      "扩展到更多场景",
+      "增强系统稳定性"
+    ]
+  }
+]

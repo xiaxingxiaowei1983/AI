@@ -1,0 +1,602 @@
+{
+  "rootId": "node_1772285381938_816",
+  "nodes": {
+    "node_1772285381938_816": {
+      "id": "node_1772285381938_816",
+      "name": "Root",
+      "level": "high",
+      "inputs": [],
+      "outputs": [],
+      "successPrerequisites": [],
+      "failureBoundaries": [],
+      "parentId": "root",
+      "children": [
+        "node_1772285382040_481",
+        "node_1772287320576_451",
+        "node_1772287397088_666",
+        "node_1772291260079_810",
+        "node_1772294860196_227",
+        "node_1772298460206_286",
+        "node_1772302060202_302",
+        "node_1772305660199_525",
+        "node_1772309260233_116",
+        "node_1772312860284_705",
+        "node_1772316460258_738",
+        "node_1772320060266_47",
+        "node_1772323660341_763",
+        "node_1772327992996_718",
+        "node_1772331593114_65",
+        "node_1772335193231_853"
+      ],
+      "lastTriggered": "2026-02-28T13:29:41.938Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "active"
+    },
+    "node_1772285382040_481": {
+      "id": "node_1772285382040_481",
+      "name": "安全默认能力 1772285382037",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T13:29:42.040Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772287320576_451": {
+      "id": "node_1772287320576_451",
+      "name": "安全默认能力 1772287320552",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T14:02:00.576Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772287397088_666": {
+      "id": "node_1772287397088_666",
+      "name": "安全默认能力 1772287397086",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T14:03:17.088Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772291260079_810": {
+      "id": "node_1772291260079_810",
+      "name": "安全默认能力 1772291260077",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T15:07:40.079Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772294860196_227": {
+      "id": "node_1772294860196_227",
+      "name": "安全默认能力 1772294860196",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T16:07:40.196Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772298460206_286": {
+      "id": "node_1772298460206_286",
+      "name": "安全默认能力 1772298460205",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T17:07:40.206Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772302060202_302": {
+      "id": "node_1772302060202_302",
+      "name": "安全默认能力 1772302060201",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T18:07:40.202Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772305660199_525": {
+      "id": "node_1772305660199_525",
+      "name": "安全默认能力 1772305660198",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T19:07:40.199Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772309260233_116": {
+      "id": "node_1772309260233_116",
+      "name": "安全默认能力 1772309260231",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T20:07:40.233Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772312860284_705": {
+      "id": "node_1772312860284_705",
+      "name": "安全默认能力 1772312860283",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T21:07:40.284Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772316460258_738": {
+      "id": "node_1772316460258_738",
+      "name": "安全默认能力 1772316460257",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T22:07:40.258Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772320060266_47": {
+      "id": "node_1772320060266_47",
+      "name": "安全默认能力 1772320060265",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-02-28T23:07:40.266Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772323660341_763": {
+      "id": "node_1772323660341_763",
+      "name": "安全默认能力 1772323660340",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-03-01T00:07:40.341Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772327992996_718": {
+      "id": "node_1772327992996_718",
+      "name": "安全默认能力 1772327992995",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-03-01T01:19:52.996Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772331593114_65": {
+      "id": "node_1772331593114_65",
+      "name": "安全默认能力 1772331593113",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-03-01T02:19:53.114Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    },
+    "node_1772335193231_853": {
+      "id": "node_1772335193231_853",
+      "name": "安全默认能力 1772335193228",
+      "level": "low",
+      "inputs": [
+        {
+          "name": "input_data",
+          "type": "object",
+          "description": "能力输入数据"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "能力执行结果"
+        }
+      ],
+      "successPrerequisites": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "failureBoundaries": [
+        "输入错误",
+        "处理失败",
+        "输出异常"
+      ],
+      "parentId": "node_1772285381938_816",
+      "children": [],
+      "lastTriggered": "2026-03-01T03:19:53.231Z",
+      "usageCount": 0,
+      "effectiveness": 0.8,
+      "status": "candidate_for_pruning"
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2026-03-01T03:19:53.233Z",
+    "nodeCount": 17
+  }
+}

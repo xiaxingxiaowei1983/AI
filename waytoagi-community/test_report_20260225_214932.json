@@ -1,0 +1,95 @@
+{
+  "test_time": "2026-02-25T21:49:32.197500",
+  "agents": {
+    "knowledge_collector": {
+      "performance": {
+        "tasks_completed": 7,
+        "errors": 0,
+        "execution_time": 13.7622971534729
+      },
+      "schedule": {
+        "start_time": "00:00",
+        "duration": "90",
+        "priority": "high"
+      },
+      "actual_start": "2026-02-25T21:47:48.930219",
+      "actual_duration": "90"
+    },
+    "knowledge_organizer": {
+      "performance": {
+        "tasks_completed": 10,
+        "errors": 1,
+        "execution_time": 23.633992910385132
+      },
+      "schedule": {
+        "start_time": "01:30",
+        "duration": "90",
+        "priority": "high"
+      },
+      "actual_start": "2026-02-25T21:48:12.564799",
+      "actual_duration": "90"
+    },
+    "skill_developer": {
+      "performance": {
+        "tasks_completed": 13,
+        "errors": 2,
+        "execution_time": 24.369173765182495
+      },
+      "schedule": {
+        "start_time": "03:00",
+        "duration": "90",
+        "priority": "high"
+      },
+      "actual_start": "2026-02-25T21:48:36.934429",
+      "actual_duration": "90"
+    },
+    "cognitive_enhancer": {
+      "performance": {
+        "tasks_completed": 10,
+        "errors": 0,
+        "execution_time": 19.231659173965454
+      },
+      "schedule": {
+        "start_time": "04:30",
+        "duration": "60",
+        "priority": "medium"
+      },
+      "actual_start": "2026-02-25T21:48:56.166388",
+      "actual_duration": "60"
+    },
+    "application_promoter": {
+      "performance": {
+        "tasks_completed": 5,
+        "errors": 0,
+        "execution_time": 10.558159112930298
+      },
+      "schedule": {
+        "start_time": "05:30",
+        "duration": "60",
+        "priority": "medium"
+      },
+      "actual_start": "2026-02-25T21:49:06.724841",
+      "actual_duration": "60"
+    },
+    "system_coordinator": {
+      "performance": {
+        "tasks_completed": 11,
+        "errors": 0,
+        "execution_time": 25.471992015838623
+      },
+      "schedule": {
+        "start_time": "06:30",
+        "duration": "90",
+        "priority": "high"
+      },
+      "actual_start": "2026-02-25T21:49:32.197276",
+      "actual_duration": "90"
+    }
+  },
+  "summary": {
+    "total_tasks_completed": 56,
+    "total_errors": 3,
+    "total_execution_time": 117.0272741317749,
+    "success_rate": "94.92%"
+  }
+}

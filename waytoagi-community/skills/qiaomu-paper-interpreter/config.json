@@ -1,0 +1,29 @@
+{
+  "skill_name": "乔木论文解读",
+  "version": "1.0.0",
+  "description": "自动解读AI领域的学术论文",
+  "author": "乔木",
+  "size": "179.77KB",
+  "type": "academic",
+  "dependencies": [],
+  "entry_point": "qiaomu-paper-interpreter.js",
+  "capabilities": [
+    "paper_analysis",
+    "key_points_extraction",
+    "summary_generation"
+  ],
+  "use_cases": [
+    "快速理解复杂的学术内容",
+    "提取论文核心观点",
+    "跟踪AI研究前沿"
+  ],
+  "integration_points": [
+    "知识整理者",
+    "技能开发者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/qiaomu-paper-interpreter",
+    "last_updated": "2026-02-25"
+  }
+}

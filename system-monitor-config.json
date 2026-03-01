@@ -1,0 +1,10 @@
+{
+  "monitoringInterval": 30000,
+  "alertThresholds": {
+    "cpu": 80,
+    "memory": 90,
+    "disk": 95,
+    "responseTime": 5000,
+    "errorRate": 10
+  }
+}

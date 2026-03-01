@@ -1,0 +1,1218 @@
+OpenClaw安装技术落地方案（完整版V4）
+
+输出模式：严格可执行
+
+创建时间：2026-02-26
+
+适用对象：新电脑从零安装OpenClaw
+
+
+---
+
+📋 文档说明
+
+本文档是OpenClaw安装技术落地方案的完整版（V4），基于V3版的实践经验，补充了：
+1. 新电脑从零安装的完整流程
+2. V3版实践过程中的踩坑复盘
+3. 每个坑点的解决方案和预防措施
+  
+
+---
+
+第一部分：新电脑从零安装指南
+
+1.1 系统要求
+
+项目
+最低要求
+推荐版本
+说明
+操作系统
+Windows 10
+Windows 10/11
+64位系统
+Node.js
+v18.0.0
+v22.0.0+
+OpenClaw要求Node 22+
+npm
+v8.0.0
+v10.0.0+
+随Node.js安装
+内存
+4GB
+8GB+
+运行Gateway和模型调用
+磁盘空间
+1GB
+2GB+
+OpenClaw及依赖
+
+1.2 安装顺序（重要！）
+
+```Plain Text
+步骤1：安装Node.js → 步骤2：验证环境 → 步骤3：安装OpenClaw → 步骤4：配置模型 → 步骤5：启动Gateway → 步骤6：测试```
+
+1.3 详细安装步骤
+
+
+---
+
+步骤1：安装Node.js
+
+1.1 下载Node.js
+
+访问官网下载LTS版本：
+- 官网地址：https://nodejs.org/
+- 推荐版本：v22.x LTS（长期支持版）
+  
+1.2 安装Node.js
+
+1. 双击下载的安装包
+2. 勾选 "Automatically install the necessary tools"（自动安装必要工具）
+3. 点击 "Next" 完成安装
+  
+1.3 验证安装
+
+打开PowerShell，执行：
+```PowerShell
+node --version
+npm --version```
+
+验收标准：
+- Node.js版本 ≥ 22.0.0
+- npm版本 ≥ 10.0.0
+  
+
+---
+
+步骤2：安装OpenClaw
+
+2.1 执行安装命令
+
+```PowerShell
+npm install -g openclaw@latest --ignore-scripts```
+
+⚠️ 重要：Windows系统必须添加 --ignore-scripts 参数，否则会因为原生依赖编译失败而报错。
+
+2.2 验证安装
+
+```PowerShell
+openclaw --version```
+
+验收标准：
+- 显示版本号（如：2026.2.22-2）
+- 无报错信息
+  
+
+---
+
+步骤3：配置模型
+
+3.1 获取API Key
+
+火山引擎/豆包API Key获取步骤：
+1. 访问火山引擎控制台：https://console.volcengine.com/
+2. 登录/注册账号
+3. 进入"方舟"（ARK）服务
+4. 创建推理接入点，获取：
+  - API Key（以9330开头），我的是豆包1.8模型， 所以是这个开头，现在豆包已经更新到2.0版，所以开头不一定是9330
+  - Endpoint ID（以ep-开头）
+    
+3.2 配置模型
+
+```PowerShell
+# 设置模型provider
+openclaw config set models.providers.volcano.baseUrl "https://ark.cn-beijing.volces.com/api/v3"
+
+# 设置API Key（替换为你的Key）
+openclaw config set models.providers.volcano.apiKey "你的API_KEY"
+
+# 设置模型ID（替换为你的Endpoint ID）
+openclaw config set models.providers.volcano.models "[{\"id\":\"你的ENDPOINT_ID\",\"name\":\"Doubao Pro\"}]"
+
+# 设置默认模型
+openclaw config set agents.defaults.model.primary "volcano/你的ENDPOINT_ID"```
+
+3.3 验证配置
+
+```PowerShell
+openclaw models list```
+
+验收标准：
+- 显示 volcano/ep-xxx 模型
+- 无 "missing" 标签
+  
+
+---
+
+步骤4：启动Gateway
+
+4.1 启动服务
+
+```PowerShell
+openclaw gateway```
+
+4.2 验证启动
+
+看到以下日志表示启动成功：
+```Plain Text
+[gateway] listening on ws://127.0.0.1:18789```
+
+
+---
+
+步骤5：测试对话
+
+5.1 发送测试消息
+
+```PowerShell
+openclaw agent --message "你好，请用一句话介绍你自己"```
+
+验收标准：
+- 收到AI的回复
+- 无 "Unknown model" 错误
+  
+
+---
+
+第二部分：V3版踩坑复盘
+
+2.1 踩坑总览
+
+序号
+坑点
+触发阶段
+严重程度
+状态
+1
+Windows原生依赖编译失败
+安装OpenClaw
+高
+✅ 已解决
+2
+默认模型漂移（Unknown model）
+模型配置
+高
+✅ 已解决
+3
+错误的provider配置
+模型配置
+中
+✅ 已解决
+4
+Dashboard "Not Found"
+Gateway启动
+低
+⚠️ 已知问题
+5
+Canvas "Missing file"
+Gateway启动
+低
+⚠️ 已知问题
+6
+沙箱文件访问限制
+运行时
+中
+⚠️ 环境限制
+
+2.2 详细复盘
+
+
+---
+
+坑点1：Windows原生依赖编译失败
+
+问题描述：
+```Plain Text
+gyp ERR! find Python
+gyp ERR! configure error
+gyp ERR! stack Error: Can't find Python executable "python"```
+
+根因分析：
+- OpenClaw包含原生Node模块
+- Windows缺少编译工具（Python、Visual Studio Build Tools）
+- npm默认会尝试编译原生模块
+  
+解决方案：
+```PowerShell
+npm install -g openclaw@latest --ignore-scripts```
+
+预防措施：
+- 安装时必须添加 --ignore-scripts 参数
+- 或预先安装 Windows Build Tools
+  
+
+---
+
+坑点2：默认模型漂移（Unknown model）
+
+问题描述：
+```Plain Text
+Unknown model: anthropic/ep-20260108213536-xkxvw
+Unknown model: volcengine-plan/ark-code-latest```
+
+根因分析：
+- 配置文件中残留了Anthropic provider
+- 默认模型没有指定provider前缀
+- 存在错误的volcengine-plan provider
+  
+解决方案：
+```PowerShell
+# 1. 查看当前配置
+openclaw config get
+
+# 2. 删除错误的provider
+openclaw config unset models.providers.anthropic
+openclaw config unset models.providers.volcengine
+openclaw config unset models.providers.volcengine-plan
+
+# 3. 设置正确的默认模型（必须带provider前缀）
+openclaw config set agents.defaults.model.primary "volcano/你的ENDPOINT_ID"```
+
+预防措施：
+- 默认模型必须包含provider前缀（如 volcano/ep-xxx）
+- 安装后立即检查配置文件
+- 删除不需要的provider
+  
+
+---
+
+坑点3：错误的provider配置
+
+问题描述：
+```JSON
+{
+  "volcengine": {
+    "apiKey": "VOLCANO_ENGINE_API_KEY"  // 占位符，不是真实Key
+  }
+}```
+
+根因分析：
+- 某些provider配置使用了占位符
+- 实际使用的是 volcano provider，但配置了 volcengine
+  
+解决方案：
+删除使用占位符的provider配置。
+
+预防措施：
+- 只保留有真实API Key的provider
+- 检查配置文件中的apiKey字段
+  
+
+---
+
+坑点4：Dashboard "Not Found"
+
+问题描述：
+访问 http://127.0.0.1:18789/ 或 /chat 返回 "Not Found"
+
+根因分析：
+- 可能是UI资源未正确部署
+- 或沙箱环境限制
+  
+解决方案：
+使用CLI命令替代Dashboard测试：
+```PowerShell
+openclaw agent --message "你好"```
+
+预防措施：
+- 不依赖Dashboard进行测试
+- Dashboard问题不影响核心功能
+  
+
+---
+
+坑点5：Canvas "Missing file"
+
+问题描述：
+访问Canvas页面显示：
+```Plain Text
+Missing file. Create C:\Users\用户名\.openclaw\canvas/index.html```
+
+根因分析：
+- Canvas目录或文件不存在
+  
+解决方案：
+```PowerShell
+# 创建canvas目录
+New-Item -ItemType Directory -Path "$env:USERPROFILE\.openclaw\canvas" -Force
+
+# 创建index.html文件
+Set-Content -Path "$env:USERPROFILE\.openclaw\canvas\index.html" -Value "<html><body><h1>Canvas</h1></body></html>"```
+
+预防措施：
+- Canvas功能非核心，可忽略
+- 或手动创建文件
+  
+
+---
+
+坑点6：沙箱文件访问限制
+
+问题描述：
+```Plain Text
+TRAE Sandbox Error: hit restricted
+Not allow operate files: "C:\\Users\\L\\.openclaw\\agents\\main\\agent\\auth.json.lock"
+EPERM: operation not permitted```
+
+根因分析：
+- Trae IDE的沙箱环境限制了部分文件访问
+- 某些操作需要管理员权限
+  
+解决方案：
+- 在Trae IDE外部运行PowerShell
+- 或以管理员身份运行
+  
+预防措施：
+- 重要操作在独立终端执行
+- 避免在沙箱环境中执行需要文件锁的操作
+  
+
+---
+
+第三部分：完整安装流程（V4版）
+
+3.1 目标与边界
+
+- 目标一句话：在新电脑上从零安装OpenClaw，能够通过CLI与AI对话
+  
+- 本轮做（3-5）：
+  1. 安装Node.js环境
+  2. 安装OpenClaw
+  3. 配置火山引擎模型
+  4. 启动Gateway并测试
+    
+- 本轮不做（3-5）：
+  1. 不配置多模型架构
+  2. 不修复Dashboard问题（使用CLI替代）
+  3. 不配置飞书通道（后续扩展）
+  4. 不部署到云服务器
+    
+- 约束与假设：
+  1. 操作系统：Windows 10/11
+  2. 已有火山引擎API Key
+  3. 网络连接正常
+  4. 有管理员权限
+    
+
+---
+
+3.2 分步清单
+
+
+---
+
+Phase 1：环境准备
+
+
+---
+
+Step 1.1｜检查系统环境
+
+- 动作：检查操作系统和现有软件
+- 产出：系统环境报告
+- 验收标准：
+  - 通过：确认Windows 10/11系统
+  - 失败：系统不兼容
+- 验证方法：
+```PowerShell
+# 检查Windows版本
+winver
+
+# 检查是否已有Node.js
+node --version 2>$null; if ($LASTEXITCODE -ne 0) { Write-Host "Node.js未安装" }```
+- 回滚方式：无需回滚
+- 风险标记：低
+  
+
+---
+
+Step 1.2｜下载Node.js
+
+- 动作：下载Node.js LTS版本
+- 产出：Node.js安装包
+- 验收标准：
+  - 通过：下载完成
+  - 失败：下载失败
+- 验证方法：
+  - 访问 https://nodejs.org/
+  - 下载 v22.x LTS版本
+- 回滚方式：删除安装包
+- 风险标记：低
+  
+
+---
+
+Step 1.3｜安装Node.js
+
+- 动作：安装Node.js
+- 产出：Node.js和npm可用
+- 验收标准：
+  - 通过：node --version 显示 v22.x
+  - 失败：安装失败或版本不对
+- 验证方法：
+```PowerShell
+node --version
+npm --version```
+- 回滚方式：卸载Node.js
+- 风险标记：低
+  
+
+---
+
+Phase 2：安装OpenClaw
+
+
+---
+
+Step 2.1｜安装OpenClaw（关键！）
+
+- 动作：使用npm安装OpenClaw
+- 产出：OpenClaw CLI可用
+- 验收标准：
+  - 通过：openclaw --version 显示版本号
+  - 失败：命令不存在或报错
+- 验证方法：
+```PowerShell
+# 安装（必须加 --ignore-scripts）
+npm install -g openclaw@latest --ignore-scripts
+
+# 验证
+openclaw --version```
+- 回滚方式：npm uninstall -g openclaw
+- 风险标记：高
+- Plan B：
+  - 失败信号：node-gyp编译错误
+  - 兜底方案：确保添加 --ignore-scripts 参数
+- ⚠️ 踩坑提醒：Windows系统必须添加 --ignore-scripts，否则会因原生依赖编译失败！
+  
+
+---
+
+Step 2.2｜验证安装
+
+- 动作：验证OpenClaw安装成功
+- 产出：安装验证报告
+- 验收标准：
+  - 通过：版本号显示正常
+  - 失败：命令报错
+- 验证方法：
+```PowerShell
+openclaw --version
+openclaw --help```
+- 回滚方式：重新安装
+- 风险标记：低
+  
+
+---
+
+Phase 3：配置模型
+
+
+---
+
+Step 3.1｜获取API Key
+
+- 动作：在火山引擎控制台获取API Key和Endpoint ID
+- 产出：API Key和Endpoint ID
+- 验收标准：
+  - 通过：获得API Key（9330开头）和Endpoint ID（ep-开头）
+  - 失败：获取失败
+- 验证方法：
+  1. 访问 https://console.volcengine.com/
+  2. 进入"方舟"服务
+  3. 创建推理接入点
+  4. 复制API Key和Endpoint ID
+- 回滚方式：无需回滚
+- 风险标记：低
+  
+
+---
+
+Step 3.2｜配置火山引擎provider
+
+- 动作：配置火山引擎API
+- 产出：模型配置完成
+- 验收标准：
+  - 通过：配置写入成功
+  - 失败：配置失败
+- 验证方法：
+```PowerShell
+# 设置baseUrl
+openclaw config set models.providers.volcano.baseUrl "https://ark.cn-beijing.volces.com/api/v3"
+
+# 设置API Key（替换YOUR_API_KEY）
+openclaw config set models.providers.volcano.apiKey "YOUR_API_KEY"
+
+# 设置模型（替换YOUR_ENDPOINT_ID）
+openclaw config set models.providers.volcano.models "[{\"id\":\"YOUR_ENDPOINT_ID\",\"name\":\"Doubao Pro\"}]"```
+- 回滚方式：openclaw config unset models.providers.volcano
+- 风险标记：中
+  
+
+---
+
+Step 3.3｜设置默认模型（关键！）
+
+- 动作：设置默认模型，必须包含provider前缀
+- 产出：默认模型配置正确
+- 验收标准：
+  - 通过：默认模型显示 volcano/ep-xxx
+  - 失败：显示错误的model ID
+- 验证方法：
+```PowerShell
+# 设置默认模型（替换YOUR_ENDPOINT_ID）
+openclaw config set agents.defaults.model.primary "volcano/YOUR_ENDPOINT_ID"
+
+# 验证
+openclaw config get agents.defaults.model.primary```
+- 回滚方式：openclaw config unset agents.defaults.model.primary
+- 风险标记：高
+- Plan B：
+  - 失败信号：显示 ep-xxx 而非 volcano/ep-xxx
+  - 兜底方案：手动编辑配置文件，添加provider前缀
+- ⚠️ 踩坑提醒：默认模型必须包含provider前缀（如 volcano/），否则会出现 "Unknown model" 错误！
+  
+
+---
+
+Step 3.4｜验证模型配置
+
+- 动作：验证模型列表
+- 产出：模型列表正确
+- 验收标准：
+  - 通过：显示 volcano/ep-xxx 且无 "missing" 标签
+  - 失败：显示 "missing" 或列表为空
+- 验证方法：
+```PowerShell
+openclaw models list```
+- 回滚方式：重新配置
+- 风险标记：中
+  
+
+---
+
+Step 3.5｜清理错误配置
+
+- 动作：删除不需要的provider配置
+- 产出：配置文件干净
+- 验收标准：
+  - 通过：只有 volcano provider
+  - 失败：仍有其他provider
+- 验证方法：
+```PowerShell
+# 查看所有provider
+openclaw config get models.providers
+
+# 如果有anthropic，删除
+openclaw config unset models.providers.anthropic
+
+# 如果有volcengine/volcengine-plan，删除
+openclaw config unset models.providers.volcengine
+openclaw config unset models.providers.volcengine-plan```
+- 回滚方式：恢复备份
+- 风险标记：中
+- ⚠️ 踩坑提醒：删除使用占位符API Key的provider，避免配置漂移！
+  
+
+---
+
+Phase 4：启动与测试
+
+
+---
+
+Step 4.1｜启动Gateway
+
+- 动作：启动OpenClaw Gateway
+- 产出：Gateway服务运行
+- 验收标准：
+  - 通过：日志显示 listening on ws://127.0.0.1:18789
+  - 失败：启动报错
+- 验证方法：
+```PowerShell
+openclaw gateway```
+- 回滚方式：openclaw gateway stop
+- 风险标记：中
+  
+
+---
+
+Step 4.2｜发送测试消息
+
+- 动作：发送测试消息验证模型调用
+- 产出：AI回复
+- 验收标准：
+  - 通过：收到AI的合理回复
+  - 失败：无回复或报错
+- 验证方法：
+```PowerShell
+# 新开一个终端
+openclaw agent --message "你好，请用一句话介绍你自己"```
+- 回滚方式：无需回滚
+- 风险标记：中
+- Plan B：
+  - 失败信号：Unknown model 错误
+  - 兜底方案：检查日志，确认默认模型配置正确
+- ⚠️ 踩坑提醒：如果出现 "Unknown model"，说明默认模型配置不正确，返回Step 3.3修复！
+  
+
+---
+
+Step 4.3｜验证日志
+
+- 动作：检查日志确认无错误
+- 产出：日志确认
+- 验收标准：
+  - 通过：日志无 Unknown model 错误
+  - 失败：日志有错误
+- 验证方法：
+```PowerShell
+openclaw logs --follow```
+- 回滚方式：无需回滚
+- 风险标记：低
+  
+
+---
+
+3.3 高风险清单
+
+风险项
+触发条件
+应对措施
+预防措施
+Windows原生依赖编译失败
+不加 --ignore-scripts
+添加参数重装
+安装时必须添加参数
+Unknown model错误
+默认模型无provider前缀
+修改配置添加前缀
+配置时必须包含前缀
+配置漂移
+残留错误provider
+删除错误配置
+安装后立即检查配置
+Dashboard不可用
+UI资源缺失
+使用CLI替代
+不依赖Dashboard
+沙箱文件限制
+EPERM错误
+使用独立终端
+重要操作在终端执行
+
+
+---
+
+3.4 最终验收（DoD）
+
+用户可见体验
+1. ✅ openclaw --version 显示版本号
+2. ✅ openclaw models list 显示正确模型
+3. ✅ openclaw agent --message "你好" 收到AI回复
+  
+系统可观测性
+1. Gateway日志无错误
+2. 模型调用成功（无 Unknown model 错误）
+3. 配置文件干净（只有需要的provider）
+  
+稳定性
+1. 服务连续运行 > 5分钟无崩溃
+2. 连续发送3条消息均能收到回复
+  
+回归清单
+1. Gateway能正常启动和停止
+2. 模型配置正确，列表显示正常
+3. CLI命令能正常执行
+4. 无 Unknown model 错误
+5. 配置文件无残留错误配置
+  
+
+---
+
+第四部分：常见问题FAQ
+
+Q1：安装时出现node-gyp错误怎么办？
+
+A：Windows系统必须添加 --ignore-scripts 参数：
+```PowerShell
+npm install -g openclaw@latest --ignore-scripts```
+
+
+---
+
+Q2：出现 "Unknown model" 错误怎么办？
+
+A：检查默认模型配置，确保包含provider前缀：
+```PowerShell
+# 查看当前配置
+openclaw config get agents.defaults.model.primary
+
+# 应该显示：volcano/ep-xxx
+# 如果只显示 ep-xxx，需要修复：
+openclaw config set agents.defaults.model.primary "volcano/YOUR_ENDPOINT_ID"```
+
+
+---
+
+Q3：Dashboard显示 "Not Found" 怎么办？
+
+A：这是已知问题，不影响核心功能。使用CLI命令测试：
+```PowerShell
+openclaw agent --message "你好"```
+
+
+---
+
+Q4：如何查看配置文件？
+
+A：配置文件位置：
+```Plain Text
+Windows: C:\Users\用户名\.openclaw\openclaw.json
+macOS/Linux: ~/.openclaw/openclaw.json```
+
+查看命令：
+```PowerShell
+openclaw config get```
+
+
+---
+
+Q5：如何重置配置？
+
+A：删除配置文件后重新配置：
+```PowerShell
+# 备份
+Copy-Item "$env:USERPROFILE\.openclaw\openclaw.json" "$env:USERPROFILE\.openclaw\openclaw.json.backup"
+
+# 删除
+Remove-Item "$env:USERPROFILE\.openclaw\openclaw.json"
+
+# 重新运行配置向导
+openclaw configure```
+
+
+---
+
+第五部分：附录
+
+5.1 配置文件示例
+
+```JSON
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.22-2",
+    "lastTouchedAt": "2026-02-26T00:00:00.000Z"
+  },
+  "models": {
+    "providers": {
+      "volcano": {
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+        "apiKey": "你的API_KEY",
+        "models": [
+          {
+            "id": "你的ENDPOINT_ID",
+            "name": "Doubao Pro"
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "volcano/你的ENDPOINT_ID"
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local"
+  }
+}```
+
+5.2 常用命令速查
+
+命令
+说明
+openclaw --version
+查看版本
+openclaw --help
+查看帮助
+openclaw config get
+查看配置
+openclaw config set <key> <value>
+设置配置
+openclaw models list
+查看模型列表
+openclaw gateway
+启动Gateway
+openclaw gateway stop
+停止Gateway
+openclaw health
+检查健康状态
+openclaw logs --follow
+查看日志
+openclaw agent --message "xxx"
+发送消息
+
+5.3 版本历史
+
+版本
+日期
+主要变更
+V1
+2026-02-22
+初始版本
+V2
+2026-02-23
+增加模型Gate
+V3
+2026-02-23
+完善分步清单
+V4
+2026-02-26
+增加新电脑安装指南、踩坑复盘
+
+
+---
+
+文档结束
+
+最后更新：2026-02-26
+
+适用版本：OpenClaw 2026.2.22-2
+
+维护者：小龙虾木木
+
+---
+🌋 火山、方舟、豆包、API、AK、SK 关系科普（通俗安全版）
+这一套你可以直接当作你未来讲课、做短视频、或者写公众号的内容。
+
+---
+🌈 一、先一句话总结（先抓住核心）
+👉 火山是云平台
+👉 方舟是大模型服务
+👉 豆包是具体模型
+👉 API 和各种 Key 是身份和调用凭证
+
+---
+🌿 二、用一个最简单的比喻（秒懂版）
+把整个体系想象成一所大型医院：
+暂时无法在飞书文档外展示此内容
+
+---
+🌈 三、三者的真实关系（很多人搞不清）
+1️⃣ 火山引擎（Volcengine）
+👉 字节跳动的云平台
+就像：
+- 阿里云
+- 腾讯云
+- AWS
+它包含：
+- 服务器
+- 存储
+- 网络
+- AI 服务
+所以：
+👉 火山是最大的基础设施
+
+---
+2️⃣ 方舟（Ark）
+👉 火山里面专门做大模型的服务平台
+可以理解为：
+👉 火山的 AI 部门
+它负责：
+- 管理模型
+- 提供 API
+- 创建模型接入点
+
+---
+3️⃣ 豆包（Doubao）
+👉 真正的大模型
+例如：
+- Doubao Seed
+- Doubao Pro
+也就是说：
+👉 你和 AI 对话，本质是和豆包在交流
+
+---
+🌿 四、调用 AI 的真实流程（你必须理解）
+你的应用（OpenClaw / 自己产品）
+⬇
+调用方舟 API
+⬇
+方舟调用豆包模型
+⬇
+豆包生成结果
+⬇
+返回给你
+
+---
+🌈 五、最核心的四类 Key（通俗解释）
+这部分是重点。
+
+---
+✅ 1. API Key（最常用）
+👉 这是调用 AI 的通行证
+格式类似：
+```Plain Text
+9330bd41-xxxx-xxxx-xxxx```
+作用：
+- 让你的程序可以访问豆包
+- 最常用
+- 最重要
+未来你做：
+- OpenClaw
+- AI 产品
+- SaaS
+都会用这个。
+
+---
+✅ 2. Endpoint（模型编号）
+👉 告诉系统你要用哪个模型
+格式类似：
+```Plain Text
+ep-2026xxxx-xxxx```
+你可以理解为：
+👉 API Key 是身份证
+👉 Endpoint 是医生号
+没有 Endpoint：
+系统不知道你要调用哪个模型。
+
+---
+✅ 3. Base URL（API 地址）
+通常固定，例如：
+```Plain Text
+https://ark.xxx.volces.com/api/xx```
+一般不用改。
+
+---
+⚠️ 4. Access Key（AK）+ Secret Key（SK）
+格式类似：
+```Plain Text
+AKLTxxxxxx
+Wxxxxxx==```
+这是：
+👉 火山云平台的全局身份
+用于：
+- 服务器
+- 云存储
+- 网络
+- 云资源管理
+但：
+👉 和日常 AI 调用关系不大
+大部分 AI 产品开发者不会直接用。
+
+---
+🌿 六、为什么会有这么多 Key？
+因为安全。
+火山不会让一个 Key 拥有所有权限。
+所以：
+暂时无法在飞书文档外展示此内容
+这叫：
+👉 权限隔离（Security Design）
+
+---
+🌈 七、你当前的真实场景（结合你现在在做的）
+你现在做：
+👉 OpenClaw
+👉 Trae
+👉 AI 分身
+👉 AI 产品
+你真正需要的只有：
+✅ API Key
+✅ Endpoint
+✅ Base URL
+而不是：
+❌ AK / SK
+这也是你之前困惑的核心原因。
+
+---
+🌿 八、为什么代码里有 VITE_DOUBAO？
+这是前端工程里的：
+👉 环境变量命名
+例如：
+```Plain Text
+VITE_DOUBAO_MODEL
+VITE_DOUBAO_ENDPOINT```
+它只是：
+👉 变量名
+本质仍然是 Endpoint。
+
+---
+🌈 九、AI 产品安全必修课（你未来必须掌握）
+🔒 1. Key 不要放前端
+用户可以直接看到。
+
+---
+🔒 2. Key 不要上传 GitHub
+否则可能被机器人扫描盗用。
+
+---
+🔒 3. 使用环境变量
+例如：
+```Plain Text
+.env.local
+.env.production```
+
+---
+🔒 4. 定期更换 Key
+避免被长期利用。
+
+---
+🌿 十、一句话终极总结（你可以直接讲给客户）
+👉 火山是云平台
+👉 方舟是 AI 服务
+👉 豆包是模型
+👉 API Key 是通行证
+👉 Endpoint 是模型编号
+所以开发 AI 产品：
+👉 只需要 API Key + Endpoint。
+
+---
+如果你愿意，我可以再给你做几个版本：
+🌟 ① 适合你风格的口播稿（更有感染力）
+🌟 ② 小红书版本
+🌟 ③ 朋友圈版本
+🌟 ④ 一张极简图（可发客户）
+🌟 ⑤ 技术人版本（更专业）
+你想先要哪个？🌿💡
+
+还有一个，就是app_id，这个是什么鬼，和前面那一堆又是什么关系
+这个问题非常好，而且很多人都会在这里卡住。
+ 我给你一次讲透，让你以后看到任何云厂商的 app_id / project_id / tenant_id 都不会再懵 🌿。
+
+---
+🌈 一、先给你一句话答案
+👉 app_id 不是 Key，也不是用来调用模型的。
+ 👉 它是“项目或应用的身份编号”。
+它的作用是：
+ 👉 标识是谁在调用、哪个应用在调用。
+
+---
+🌿 二、用一个最容易懂的比喻
+还是用我们刚刚的医院模型。
+暂时无法在飞书文档外展示此内容
+也就是说：
+👉 API Key 是你的身份证
+ 👉 Endpoint 是医生
+ 👉 app_id 是你的病例号
+
+---
+🌈 三、为什么需要 app_id？
+因为在企业级系统里，很多公司：
+- 一个公司有多个产品
+- 一个产品有多个环境
+- 多个团队共享一个云账号
+所以平台需要知道：
+👉 是谁在用这个 API。
+而不是只看 API Key。
+
+---
+举个真实场景
+比如你未来会有：
+- 木木简历顾问
+- AI 分身
+- 小脑瓜
+- 书瑶实验室
+如果都用同一个火山账号：
+👉 就需要不同 app_id 来区分。
+否则：
+- 账单混乱
+- 权限无法隔离
+- 数据统计困难
+
+---
+🌿 四、它和前面那些 Key 的关系
+这是核心逻辑：
+火山账号
+   ↓
+API Key（身份认证）
+   ↓
+app_id（区分具体应用）
+   ↓
+Endpoint（调用具体模型）
+也就是说：
+👉 app_id 是在 API Key 之上的一层。
+
+---
+🌈 五、为什么有时候你看不到它？
+因为很多工具帮你隐藏了。
+例如：
+- OpenAI
+- Anthropic
+- DeepSeek
+这些平台：
+👉 自动在后台生成。
+但火山更偏企业级：
+👉 有些 SDK 或系统会要求你填。
+
+---
+🌿 六、什么时候需要 app_id？
+通常在以下场景：
+
+---
+✅ 1. 企业级调用
+例如：
+- 日志分析
+- 费用统计
+- 权限管理
+
+---
+✅ 2. 多应用管理
+例如：
+- SaaS
+- AI 产品矩阵
+
+---
+✅ 3. 调用监控
+例如：
+- 哪个产品最耗钱
+- 哪个环境有问题
+
+---
+🌈 七、什么时候你可以忽略？
+对你现在阶段：
+👉 90% 情况可以不用关心。
+尤其是：
+- OpenClaw
+- 自己做 MVP
+- 个人开发
+很多时候 API Key 就够。
+
+---
+🌿 八、它和 AK / SK 的区别
+暂时无法在飞书文档外展示此内容
+这四个层级：
+👉 作用完全不同。
+
+---
+🌈 九、为什么你最近看到这么多概念？
+因为你进入了：
+👉 从使用 AI
+ 进入
+ 👉 构建 AI 系统
+这个阶段。
+这些概念本质属于：
+- 云架构
+- SaaS
+- 企业级系统
+不是普通用户需要懂的。
+
+---
+🌿 十、一句话终极总结
+👉 API Key 是通行证
+ 👉 Endpoint 是模型
+ 👉 app_id 是应用身份
+ 👉 AK / SK 是云账号权限
+
+---
+如果你愿意，我可以给你做一个：
+🌟 AI 云调用全景图（火山 + OpenAI + Anthropic + DeepSeek）统一架构
+让你未来看到任何 Key 都能瞬间理解。
+或者我可以做：
+🌟 你自己的 AI 产品调用架构图（结合你的分身生态）
+这会直接帮助你搭建长期可扩展的系统。
+你想先看哪个？ 🌿💡

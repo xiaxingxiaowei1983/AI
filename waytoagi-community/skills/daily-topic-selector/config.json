@@ -1,0 +1,28 @@
+{
+  "skill_name": "乔木每日AI资讯",
+  "version": "1.0.0",
+  "description": "自动选择和整理每日AI领域的重要资讯",
+  "author": "乔木",
+  "size": "375.04KB",
+  "type": "information",
+  "dependencies": [],
+  "entry_point": "daily-topic-selector.js",
+  "capabilities": [
+    "news_collection",
+    "topic_selection",
+    "content_aggregation"
+  ],
+  "use_cases": [
+    "快速了解AI领域最新动态",
+    "获取每日AI资讯摘要",
+    "跟踪AI技术发展趋势"
+  ],
+  "integration_points": [
+    "知识采集者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/daily-topic-selector",
+    "last_updated": "2026-02-25"
+  }
+}

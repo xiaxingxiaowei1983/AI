@@ -1,0 +1,54 @@
+[
+  {
+    "id": "perspective_1772266087103_e3he2r6r8",
+    "name": "System Designer Perspective",
+    "description": "Viewing behaviors from a system design perspective",
+    "type": "system_designer",
+    "insights": [
+      "Identify redundant processes that can be streamlined",
+      "Spot architectural bottlenecks in current behavior patterns",
+      "Propose modular design improvements",
+      "Identify opportunities for better component separation"
+    ],
+    "createdAt": "2026-02-28T08:08:07.103Z"
+  },
+  {
+    "id": "perspective_1772266087103_2mrgyw8ft",
+    "name": "Weak Agent Perspective",
+    "description": "Viewing behaviors from the perspective of a less capable agent",
+    "type": "weak_agent",
+    "insights": [
+      "Simplify complex tasks into smaller, manageable steps",
+      "Identify knowledge gaps that need to be filled",
+      "Propose more explicit instructions for complex operations",
+      "Develop fallback strategies for failure scenarios"
+    ],
+    "createdAt": "2026-02-28T08:08:07.103Z"
+  },
+  {
+    "id": "perspective_1772266087103_7el3bsvxu",
+    "name": "Scalability Perspective",
+    "description": "Viewing behaviors from a scalability standpoint",
+    "type": "scalability",
+    "insights": [
+      "Identify operations that will bottleneck at scale",
+      "Propose optimizations for high-frequency operations",
+      "Design caching strategies for repeated computations",
+      "Develop parallel processing approaches for large tasks"
+    ],
+    "createdAt": "2026-02-28T08:08:07.103Z"
+  },
+  {
+    "id": "perspective_1772266087103_y05tk6fik",
+    "name": "User-Centric Perspective",
+    "description": "Viewing behaviors from a user perspective",
+    "type": "user_centric",
+    "insights": [
+      "Identify user pain points in current behavior patterns",
+      "Propose more intuitive interfaces for complex operations",
+      "Develop clearer feedback mechanisms for user actions",
+      "Simplify user workflows for common tasks"
+    ],
+    "createdAt": "2026-02-28T08:08:07.103Z"
+  }
+]

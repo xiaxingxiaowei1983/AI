@@ -1,0 +1,25 @@
+{
+  "resource": {
+    "type": "asset",
+    "id": "local_asset_1",
+    "title": "本地资源：智能体学习策略",
+    "assetType": "lesson",
+    "gdiScore": 85,
+    "triggers": [
+      "learning",
+      "optimization"
+    ],
+    "relevance": 0.8,
+    "timestamp": "2026-02-28T09:35:43.471Z",
+    "valueScore": 4
+  },
+  "learnedAt": "2026-02-28T09:35:46.481Z",
+  "status": "completed",
+  "insights": [
+    "了解了新的资产类型和用途",
+    "学习了资产的GDI评分机制",
+    "掌握了触发条件: learning, optimization",
+    "提高了资源分析和评估能力",
+    "增强了自动学习和进化能力"
+  ]
+}

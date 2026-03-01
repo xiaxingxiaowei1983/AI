@@ -1,0 +1,447 @@
+{
+  "lastCheck": "2026-02-28T06:53:20.650Z",
+  "agents": {
+    "greenTea": {
+      "code": "greenTea",
+      "name": "大掌柜",
+      "status": "offline",
+      "error": "",
+      "timestamp": "2026-02-28T06:53:20.647Z"
+    },
+    "life": {
+      "code": "life",
+      "name": "天师",
+      "status": "online",
+      "response": "{\"status\":\"active\",\"isExecuting\":false,\"lastCommand\":\"@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。\",\"agentName\":\"人生决策宗师\",\"agentRole\":\"CLO / 生命策略\",\"agentCode\":\"天师\",\"triggers\":[\"@人生决策宗师\",\"@天师\"],\"capabilities\":[\"人生决策\",\"能量复盘\",\"底层逻辑\",\"生活优化\",\"个人成长\",\"AWKN框架落地\"],\"commandHistoryLength\":6,\"executionHistoryLength\":6}",
+      "timestamp": "2026-02-28T06:53:20.647Z"
+    }
+  },
+  "communication": {
+    "lastMessage": {
+      "id": "msg_1772260415272_48ugi7m9j",
+      "timestamp": "2026-02-28T06:33:35.272Z",
+      "sender": "greenTea",
+      "receiver": "life",
+      "message": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+      "status": "delivered",
+      "response": {
+        "success": true,
+        "agent": "人生决策宗师",
+        "role": "CLO / 生命策略",
+        "code": "天师",
+        "message": "我理解您的问题。作为您的生命策略高维导师，我会基于AWKN框架为您提供决策支持和生活优化建议。请告诉我更多关于您的情况和需求，我会为您提供个性化的分析和建议。",
+        "status": "active",
+        "isExecuting": false,
+        "lastCommand": "@天师 收到你的汇报，很好！大掌柜智能体也已成功启动并运行在端口4003，系统状态良好。",
+        "agentName": "人生决策宗师",
+        "agentRole": "CLO / 生命策略",
+        "agentCode": "天师"
+      }
+    },
+    "successRate": 100,
+    "totalMessages": 0,
+    "failedMessages": 0
+  },
+  "alerts": [
+    {
+      "id": "alert_1772260850452_avq74bwik",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:40:50.452Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260880457_196wpjnr9",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:41:20.457Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260880459_29uc3jvia",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:41:20.459Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260910475_f99iyt3tg",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:41:50.475Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260910478_15kx9rpxj",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:41:50.478Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260940479_amrlqkzrv",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:42:20.479Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260940483_ju1rpgr9u",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:42:20.483Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260970492_lbfeu1uwc",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:42:50.492Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772260970495_fvkdr9ynh",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:42:50.495Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261000483_e4iht7hkg",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:43:20.483Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261000484_cq6d6vobn",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:43:20.484Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261030493_ohyzpsqlu",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:43:50.493Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261030494_99ht0q77r",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:43:50.494Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261060506_dskv6b568",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:44:20.506Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261060509_eip9wh9w9",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:44:20.509Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261090513_ke3qry861",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:44:50.513Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261090516_u6n1zy8ih",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:44:50.516Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261120518_lriq9lr37",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:45:20.518Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261120522_dri9xle5j",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:45:20.522Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261150519_h43ra1yqu",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:45:50.519Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261150520_9q3178naj",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:45:50.520Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261180523_eyjshbwdx",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:46:20.523Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261180526_5r1rnlkgy",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:46:20.526Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261210526_0v3138ym2",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:46:50.526Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261210528_uiymdks6b",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:46:50.528Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261240524_ly2obr75p",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:47:20.524Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261240525_g7i3d4o98",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:47:20.525Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261270530_cwr8w0o9m",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:47:50.530Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261270531_mticbyjpm",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:47:50.531Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261300543_j2dwepk2p",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:48:20.543Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261300544_7hmtjlngn",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:48:20.544Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261330567_jl7nh2lbm",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:48:50.567Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261330571_ei25vo0no",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:48:50.571Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261360603_2jfgudwdl",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:49:20.603Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261390580_b1ks72sty",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:49:50.580Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261390582_y0vekdszp",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:49:50.582Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261420604_xj8gwvrgq",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:50:20.604Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261420604_umrqpf145",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:50:20.604Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261450594_1kv6rqjby",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:50:50.594Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261450595_tsqe1mkae",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:50:50.595Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261480602_188umz5l5",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:51:20.602Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261480603_gcvlps9ep",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:51:20.603Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261510613_rdxapb512",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:51:50.613Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261510614_aqc0pllkp",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:51:50.614Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261540630_w89o2xrs9",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:52:20.630Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261540632_bvwco4awx",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:52:20.632Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261570646_huw3w8a15",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:52:50.646Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261570648_d7xnktqic",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:52:50.648Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261600650_zsb4bxoh0",
+      "type": "agent_offline",
+      "message": "大掌柜 智能体离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:53:20.650Z",
+      "status": "active"
+    },
+    {
+      "id": "alert_1772261600651_hsdy1ngid",
+      "type": "communication_service_offline",
+      "message": "智能体通信服务离线",
+      "severity": "critical",
+      "timestamp": "2026-02-28T06:53:20.651Z",
+      "status": "active"
+    }
+  ]
+}

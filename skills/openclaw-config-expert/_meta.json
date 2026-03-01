@@ -1,0 +1,14 @@
+{
+  "name": "OpenClaw 配置专家",
+  "description": "提供 OpenClaw 配置 API 和飞书机器人配置的详细指南和最佳实践",
+  "version": "1.0.0",
+  "author": "OpenClaw 团队",
+  "tags": ["openclaw", "配置", "API", "飞书", "机器人"],
+  "category": "系统工具",
+  "icon": "settings",
+  "compatibility": {
+    "openclaw": "2026.2.24+"
+  },
+  "dependencies": [],
+  "config": {}
+}

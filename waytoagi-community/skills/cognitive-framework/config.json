@@ -1,0 +1,28 @@
+{
+  "skill_name": "认知框架",
+  "version": "1.0.0",
+  "description": "基于《姚金刚认知随笔》中的三条回报曲线（快乐回报曲线、能力回报曲线、商业回报曲线），提供决策制定和目标设定的框架",
+  "author": "WaytoAGI社区",
+  "size": "1.8KB",
+  "type": "cognitive",
+  "dependencies": [],
+  "entry_point": "cognitive-framework.js",
+  "capabilities": [
+    "decision_making",
+    "goal_setting",
+    "progress_tracking"
+  ],
+  "use_cases": [
+    "决策制定",
+    "目标设定",
+    "个人发展规划"
+  ],
+  "integration_points": [
+    "认知提升者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/cognitive-framework",
+    "last_updated": "2026-02-25"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "modelPools": {
+    "highSpeed": {
+      "name": "高速池",
+      "description": "用于简单日常会话、要求回应快，token便宜",
+      "models": [
+        {
+          "id": "gpt-3.5-turbo",
+          "name": "GPT-3.5 Turbo",
+          "type": "primary",
+          "provider": "openai",
+          "cost": "low",
+          "speed": "fast",
+          "capabilities": ["conversation", "basic_reasoning"],
+          "rateLimit": {
+            "tokensPerMinute": 90000,
+            "requestsPerMinute": 3500
+          }
+        },
+        {
+          "id": "claude-3-haiku-20240307",
+          "name": "Claude 3 Haiku",
+          "type": "backup",
+          "provider": "anthropic",
+          "cost": "low",
+          "speed": "very_fast",
+          "capabilities": ["conversation", "basic_reasoning"],
+          "rateLimit": {
+            "tokensPerMinute": 100000,
+            "requestsPerMinute": 4000
+          }
+        }
+      ]
+    },
+    "intelligent": {
+      "name": "智能池",
+      "description": "用于大型复杂任务以及高强度推理，要求模型能力强",
+      "models": [
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o",
+          "type": "primary",
+          "provider": "openai",
+          "cost": "high",
+          "speed": "medium",
+          "capabilities": ["complex_reasoning", "creativity", "problem_solving", "multi_modal"],
+          "rateLimit": {
+            "tokensPerMinute": 40000,
+            "requestsPerMinute": 1000
+          }
+        },
+        {
+          "id": "claude-3-opus-20240229",
+          "name": "Claude 3 Opus",
+          "type": "backup",
+          "provider": "anthropic",
+          "cost": "high",
+          "speed": "medium",
+          "capabilities": ["complex_reasoning", "creativity", "problem_solving"],
+          "rateLimit": {
+            "tokensPerMinute": 50000,
+            "requestsPerMinute": 1200
+          }
+        }
+      ]
+    },
+    "text": {
+      "name": "文本池",
+      "description": "用于处理文本相关任务，要求模型有推理能力和较强上下文处理能力，一定的多模态能力",
+      "models": [
+        {
+          "id": "gpt-4-turbo",
+          "name": "GPT-4 Turbo",
+          "type": "primary",
+          "provider": "openai",
+          "cost": "medium",
+          "speed": "medium",
+          "capabilities": ["text_processing", "reasoning", "context_handling", "multi_modal"],
+          "rateLimit": {
+            "tokensPerMinute": 60000,
+            "requestsPerMinute": 2000
+          }
+        },
+        {
+          "id": "claude-3-sonnet-20240229",
+          "name": "Claude 3 Sonnet",
+          "type": "backup",
+          "provider": "anthropic",
+          "cost": "medium",
+          "speed": "medium",
+          "capabilities": ["text_processing", "reasoning", "context_handling"],
+          "rateLimit": {
+            "tokensPerMinute": 70000,
+            "requestsPerMinute": 2500
+          }
+        }
+      ]
+    }
+  },
+  "healthCheck": {
+    "enabled": true,
+    "interval": 6,
+    "timeout": 30000,
+    "retries": 3,
+    "thresholds": {
+      "responseTime": 10000,
+      "errorRate": 0.1
+    }
+  },
+  "fallback": {
+    "enabled": true,
+    "conditions": [
+      "token_exhausted",
+      "rate_limit_exceeded",
+      "service_unavailable",
+      "timeout"
+    ],
+    "strategy": "round_robin"
+  },
+  "taskAssignment": {
+    "conversation": "highSpeed",
+    "basic_question": "highSpeed",
+    "complex_reasoning": "intelligent",
+    "creative_writing": "intelligent",
+    "text_analysis": "text",
+    "document_processing": "text",
+    "multi_modal": "intelligent"
+  }
+}

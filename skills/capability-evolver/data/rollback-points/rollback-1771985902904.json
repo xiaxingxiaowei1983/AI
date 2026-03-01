@@ -1,0 +1,89 @@
+{
+  "id": "rollback-1771985902904",
+  "timestamp": 1771985902904,
+  "status": "created",
+  "description": "PCEC Cycle 113 - Pre-evolution",
+  "systemState": {
+    "timestamp": 1771985902904,
+    "processInfo": {
+      "pid": 28132,
+      "memoryUsage": {
+        "rss": 47235072,
+        "heapTotal": 7663616,
+        "heapUsed": 5380840,
+        "external": 1719519,
+        "arrayBuffers": 43243
+      },
+      "uptime": 17400.5393453
+    },
+    "environment": {
+      "nodeVersion": "v24.13.0",
+      "platform": "win32",
+      "arch": "x64"
+    }
+  },
+  "capabilityState": {
+    "timestamp": 1771985902904,
+    "capabilities": {
+      "snapshot": "No capabilities file found",
+      "timestamp": 1771940564856
+    },
+    "constraints": {
+      "prohibitedBehaviors": [
+        "为了\"显得更聪明\"而增加复杂度",
+        "引入无法验证、无法复现、无法解释的机制",
+        "使用模糊概念替代可执行策略",
+        "把\"感觉正确\"当作决策依据"
+      ],
+      "stabilityPriority": [
+        "稳定性",
+        "可解释性",
+        "可复用性",
+        "扩展性",
+        "新颖性"
+      ],
+      "antiMetaphysicsPatterns": [
+        "某种程度上",
+        "可能是一种",
+        "从更高维度看",
+        "本质上是"
+      ]
+    }
+  },
+  "configState": {
+    "timestamp": 1771985902905,
+    "config": {
+      "baseDir": "C:\\Users\\10919\\Desktop\\AI\\skills\\capability-evolver\\data",
+      "configPath": "C:\\Users\\10919\\Desktop\\AI\\skills\\capability-evolver\\data\\anti-degeneration-lock.json",
+      "rollbackDir": "C:\\Users\\10919\\Desktop\\AI\\skills\\capability-evolver\\data\\rollback-points",
+      "logFile": "C:\\Users\\10919\\Desktop\\AI\\logs\\anti-degeneration-lock.log",
+      "status": "ACTIVE",
+      "priority": "HIGHEST"
+    },
+    "activeConstraints": {
+      "prohibitedBehaviors": [
+        "为了\"显得更聪明\"而增加复杂度",
+        "引入无法验证、无法复现、无法解释的机制",
+        "使用模糊概念替代可执行策略",
+        "把\"感觉正确\"当作决策依据"
+      ],
+      "stabilityPriority": [
+        "稳定性",
+        "可解释性",
+        "可复用性",
+        "扩展性",
+        "新颖性"
+      ],
+      "antiMetaphysicsPatterns": [
+        "某种程度上",
+        "可能是一种",
+        "从更高维度看",
+        "本质上是"
+      ]
+    }
+  },
+  "evolutionHistory": {
+    "history": "No evolution history file found",
+    "timestamp": 1771985902905
+  }
+}

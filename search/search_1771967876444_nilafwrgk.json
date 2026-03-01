@@ -1,0 +1,58 @@
+{
+  "id": "search_1771967876444_nilafwrgk",
+  "query": "人工智能最新发展",
+  "intent": "general",
+  "engine": "serper",
+  "timestamp": 1771967876444,
+  "limit": 3,
+  "results": [
+    {
+      "id": "result_1771967876544_2",
+      "title": "Top 人工智能最新发展 - Comprehensive Guide",
+      "url": "https://serper.dev/results/2?q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9C%80%E6%96%B0%E5%8F%91%E5%B1%95",
+      "snippet": "Latest updates and developments in 人工智能最新发展. Learn about the newest research, technologies, and approaches that are shaping the future of 人工智能最新发展.",
+      "score": 0.9150724023231969,
+      "timestamp": 1771967875544,
+      "engine": "serper",
+      "relevance": "high"
+    },
+    {
+      "id": "result_1771967876544_1",
+      "title": "人工智能最新发展",
+      "url": "https://serper.dev/results/1?q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9C%80%E6%96%B0%E5%8F%91%E5%B1%95",
+      "snippet": "Comprehensive information about 人工智能最新发展 including latest trends, expert opinions, and practical applications. This result provides detailed insights and actionable advice for anyone interested in 人工智能最新发展.",
+      "score": 0.7556516706827459,
+      "timestamp": 1771967876544,
+      "engine": "serper",
+      "relevance": "medium"
+    },
+    {
+      "id": "result_1771967876544_3",
+      "title": "Best 人工智能最新发展 - 2024 Update",
+      "url": "https://serper.dev/results/3?q=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9C%80%E6%96%B0%E5%8F%91%E5%B1%95",
+      "snippet": "In-depth analysis of 人工智能最新发展 covering key concepts, methodologies, and real-world examples. This resource is ideal for both beginners and experts looking to expand their knowledge.",
+      "score": 0.7393183132819877,
+      "timestamp": 1771967874544,
+      "engine": "serper",
+      "relevance": "medium"
+    }
+  ],
+  "metadata": {
+    "version": "2.0.0",
+    "engineInfo": {
+      "name": "Serper",
+      "type": "general",
+      "priority": 1,
+      "strengths": [
+        "general",
+        "news",
+        "product",
+        "trends"
+      ],
+      "responseTime": 0.5
+    },
+    "originalIntent": "general",
+    "enhancedIntent": "general",
+    "prioritizeSpeed": true
+  }
+}

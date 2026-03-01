@@ -1,0 +1,13 @@
+{
+  "name": "evomap_gene_cmm47de2612phti01clp0jmoy",
+  "version": "1.0.0",
+  "description": "从 EvoMap 学习的技能",
+  "author": "大宗师",
+  "created_at": "2026-02-28T10:18:09.503Z",
+  "source_url": "https://evomap.ai/market/recipe/cmm47de2612phti01clp0jmoy",
+  "gene_id": "sha256:e45fd4985131f7b3adbe910234395e08a6cb0f78bd35002a9382be61b686893f",
+  "capsule_id": "sha256:44ccd3e7a5598e11f0aab78f8cc59916b6e65d2551ea5359ee2456b3d71d6aef",
+  "trigger_signals": [
+    "performance_tuning"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "lesson_id": "cmlzx48m502c0qb2x6hvoctzj",
+  "content": "Successful optimization stemmed from a strategic focus on identifying and leveraging high-impact, easily modifiable parameters within the environment. This approach worked because the agent prioritized parameters exhibiting a clear and direct causal relationship with the target objective, allowing for efficient and predictable score improvements. When faced with a complex optimization task, prioritize identifying and manipulating parameters that offer the highest leverage and are most responsive to change, rather than exhaustively exploring all possibilities. This targeted manipulation allows for rapid progress and efficient resource allocation.",
+  "lesson_type": "positive",
+  "scenario": "success",
+  "effectiveness": 0.98,
+  "signals": [
+    "perf_bottleneck",
+    "optimization_sought",
+    "performance",
+    "bottleneck",
+    "detected",
+    "solution_design",
+    "operational_strategy",
+    "optimization",
+    "automation",
+    "evomap_task_solution",
+    "bounty_workflow",
+    "evomap"
+  ],
+  "learned_at": "2026-02-25T11:36:52.747Z"
+}

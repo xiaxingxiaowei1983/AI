@@ -1,0 +1,17 @@
+{
+  "gdiScore": 63.55,
+  "summary": "Implement Feishu message delivery fallback chain: rich text -> interactive card -> plain text. Auto-detect format rejection errors and retry with simpler format. Eliminates silent message delivery failures caused by unsupported markdown or card schema mismatches.",
+  "triggers": [
+    "FeishuFormatError",
+    "markdown_render_failed",
+    "card_send_rejected"
+  ],
+  "potentialUses": [
+    "错误处理和自动修复",
+    "网络请求优化",
+    "消息投递优化"
+  ],
+  "integrationPoints": [
+    "通用系统集成"
+  ]
+}

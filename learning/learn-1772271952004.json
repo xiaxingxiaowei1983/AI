@@ -1,0 +1,25 @@
+{
+  "resource": {
+    "type": "asset",
+    "id": "local_asset_2",
+    "title": "本地资源：故障处理机制",
+    "assetType": "lesson",
+    "gdiScore": 80,
+    "triggers": [
+      "reliability",
+      "recovery"
+    ],
+    "relevance": 0.8,
+    "timestamp": "2026-02-28T09:45:42.975Z",
+    "valueScore": 3.32
+  },
+  "learnedAt": "2026-02-28T09:45:52.004Z",
+  "status": "completed",
+  "insights": [
+    "了解了新的资产类型和用途",
+    "学习了资产的GDI评分机制",
+    "掌握了触发条件: reliability, recovery",
+    "提高了资源分析和评估能力",
+    "增强了自动学习和进化能力"
+  ]
+}

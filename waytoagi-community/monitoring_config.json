@@ -1,0 +1,401 @@
+{
+  "system_name": "WaytoAGI智能体进化系统监控",
+  "version": "1.0.0",
+  "description": "监控和反馈机制，确保8小时进化任务正常运行",
+  "monitoring_metrics": {
+    "agent_metrics": {
+      "knowledge_collector": {
+        "metrics": [
+          {
+            "name": "content_collection_rate",
+            "description": "内容采集率",
+            "unit": "%",
+            "target": 95,
+            "warning_threshold": 90,
+            "critical_threshold": 80
+          },
+          {
+            "name": "content_quality_score",
+            "description": "内容质量分数",
+            "unit": "%",
+            "target": 90,
+            "warning_threshold": 85,
+            "critical_threshold": 80
+          },
+          {
+            "name": "collection_time",
+            "description": "采集时间",
+            "unit": "seconds",
+            "target": 300,
+            "warning_threshold": 450,
+            "critical_threshold": 600
+          }
+        ]
+      },
+      "knowledge_organizer": {
+        "metrics": [
+          {
+            "name": "structuring_rate",
+            "description": "结构化率",
+            "unit": "%",
+            "target": 90,
+            "warning_threshold": 85,
+            "critical_threshold": 80
+          },
+          {
+            "name": "retrieval_response_time",
+            "description": "检索响应时间",
+            "unit": "seconds",
+            "target": 1,
+            "warning_threshold": 2,
+            "critical_threshold": 3
+          },
+          {
+            "name": "knowledge_connections",
+            "description": "知识关联数",
+            "unit": "count",
+            "target": 100,
+            "warning_threshold": 50,
+            "critical_threshold": 20
+          }
+        ]
+      },
+      "skill_developer": {
+        "metrics": [
+          {
+            "name": "skill_development_time",
+            "description": "Skill开发时间",
+            "unit": "minutes",
+            "target": 30,
+            "warning_threshold": 45,
+            "critical_threshold": 60
+          },
+          {
+            "name": "test_pass_rate",
+            "description": "测试通过率",
+            "unit": "%",
+            "target": 95,
+            "warning_threshold": 90,
+            "critical_threshold": 85
+          },
+          {
+            "name": "skills_created",
+            "description": "创建的Skill数",
+            "unit": "count",
+            "target": 3,
+            "warning_threshold": 2,
+            "critical_threshold": 1
+          }
+        ]
+      },
+      "cognitive_enhancer": {
+        "metrics": [
+          {
+            "name": "decision_quality_improvement",
+            "description": "决策质量提升",
+            "unit": "%",
+            "target": 20,
+            "warning_threshold": 15,
+            "critical_threshold": 10
+          },
+          {
+            "name": "user_satisfaction",
+            "description": "用户满意度",
+            "unit": "%",
+            "target": 85,
+            "warning_threshold": 80,
+            "critical_threshold": 75
+          },
+          {
+            "name": "cognitive_models_applied",
+            "description": "应用的认知模型数",
+            "unit": "count",
+            "target": 2,
+            "warning_threshold": 1,
+            "critical_threshold": 0
+          }
+        ]
+      },
+      "application_promoter": {
+        "metrics": [
+          {
+            "name": "promotion_coverage",
+            "description": "推广覆盖率",
+            "unit": "%",
+            "target": 80,
+            "warning_threshold": 70,
+            "critical_threshold": 60
+          },
+          {
+            "name": "adoption_rate",
+            "description": "应用率",
+            "unit": "%",
+            "target": 60,
+            "warning_threshold": 50,
+            "critical_threshold": 40
+          },
+          {
+            "name": "training_sessions",
+            "description": "培训次数",
+            "unit": "count",
+            "target": 2,
+            "warning_threshold": 1,
+            "critical_threshold": 0
+          }
+        ]
+      },
+      "system_coordinator": {
+        "metrics": [
+          {
+            "name": "task_completion_rate",
+            "description": "任务完成率",
+            "unit": "%",
+            "target": 95,
+            "warning_threshold": 90,
+            "critical_threshold": 85
+          },
+          {
+            "name": "system_stability",
+            "description": "系统稳定性",
+            "unit": "%",
+            "target": 99,
+            "warning_threshold": 98,
+            "critical_threshold": 97
+          },
+          {
+            "name": "resource_optimization",
+            "description": "资源优化率",
+            "unit": "%",
+            "target": 80,
+            "warning_threshold": 70,
+            "critical_threshold": 60
+          }
+        ]
+      }
+    },
+    "system_metrics": {
+      "metrics": [
+        {
+          "name": "overall_success_rate",
+          "description": "整体成功率",
+          "unit": "%",
+          "target": 95,
+          "warning_threshold": 90,
+          "critical_threshold": 85
+        },
+        {
+          "name": "total_execution_time",
+          "description": "总执行时间",
+          "unit": "minutes",
+          "target": 480,
+          "warning_threshold": 500,
+          "critical_threshold": 520
+        },
+        {
+          "name": "system_uptime",
+          "description": "系统运行时间",
+          "unit": "%",
+          "target": 99.9,
+          "warning_threshold": 99.5,
+          "critical_threshold": 99
+        },
+        {
+          "name": "error_rate",
+          "description": "错误率",
+          "unit": "%",
+          "target": 5,
+          "warning_threshold": 10,
+          "critical_threshold": 15
+        }
+      ]
+    }
+  },
+  "alerting": {
+    "levels": [
+      {
+        "level": "info",
+        "description": "信息性通知，不需要立即处理",
+        "color": "blue"
+      },
+      {
+        "level": "warning",
+        "description": "警告，需要关注但不紧急",
+        "color": "yellow"
+      },
+      {
+        "level": "critical",
+        "description": "严重问题，需要立即处理",
+        "color": "red"
+      }
+    ],
+    "channels": [
+      {
+        "name": "email",
+        "enabled": true,
+        "recipients": ["admin@waytoagi.com"]
+      },
+      {
+        "name": "slack",
+        "enabled": true,
+        "channel": "#system-monitoring"
+      },
+      {
+        "name": "sms",
+        "enabled": false,
+        "recipients": ["+8612345678900"]
+      }
+    ],
+    "rules": [
+      {
+        "metric": "content_collection_rate",
+        "operator": "<",
+        "value": 80,
+        "level": "critical",
+        "message": "知识采集者内容采集率低于80%，需要立即处理"
+      },
+      {
+        "metric": "system_stability",
+        "operator": "<",
+        "value": 97,
+        "level": "critical",
+        "message": "系统稳定性低于97%，需要立即处理"
+      },
+      {
+        "metric": "overall_success_rate",
+        "operator": "<",
+        "value": 85,
+        "level": "critical",
+        "message": "系统整体成功率低于85%，需要立即处理"
+      },
+      {
+        "metric": "content_quality_score",
+        "operator": "<",
+        "value": 85,
+        "level": "warning",
+        "message": "知识采集者内容质量分数低于85%，需要关注"
+      },
+      {
+        "metric": "task_completion_rate",
+        "operator": "<",
+        "value": 90,
+        "level": "warning",
+        "message": "系统协调者任务完成率低于90%，需要关注"
+      }
+    ]
+  },
+  "feedback_mechanism": {
+    "collection": {
+      "methods": [
+        {
+          "name": "automated_metrics",
+          "description": "自动收集的性能指标",
+          "frequency": "realtime"
+        },
+        {
+          "name": "user_feedback",
+          "description": "用户反馈",
+          "frequency": "daily"
+        },
+        {
+          "name": "agent_self_assessment",
+          "description": "智能体自我评估",
+          "frequency": "after_task"
+        }
+      ]
+    },
+    "analysis": {
+      "methods": [
+        {
+          "name": "trend_analysis",
+          "description": "趋势分析",
+          "frequency": "daily"
+        },
+        {
+          "name": "comparative_analysis",
+          "description": "对比分析",
+          "frequency": "weekly"
+        },
+        {
+          "name": "root_cause_analysis",
+          "description": "根因分析",
+          "frequency": "on_alert"
+        }
+      ]
+    },
+    "action": {
+      "methods": [
+        {
+          "name": "automatic_adjustment",
+          "description": "自动调整系统参数",
+          "trigger": "warning"
+        },
+        {
+          "name": "manual_intervention",
+          "description": "人工干预",
+          "trigger": "critical"
+        },
+        {
+          "name": "system_evolution",
+          "description": "系统进化",
+          "trigger": "weekly_analysis"
+        }
+      ]
+    }
+  },
+  "dashboard": {
+    "enabled": true,
+    "tools": ["Grafana", "Prometheus"],
+    "panels": [
+      {
+        "name": "Agent Performance",
+        "description": "智能体性能面板",
+        "metrics": ["task_completion_rate", "content_quality_score", "skill_development_time"]
+      },
+      {
+        "name": "System Health",
+        "description": "系统健康面板",
+        "metrics": ["system_stability", "overall_success_rate", "error_rate"]
+      },
+      {
+        "name": "Resource Usage",
+        "description": "资源使用面板",
+        "metrics": ["cpu_usage", "memory_usage", "disk_usage"]
+      },
+      {
+        "name": "Evolution Progress",
+        "description": "进化进度面板",
+        "metrics": ["skills_created", "knowledge_connections", "cognitive_models_applied"]
+      }
+    ]
+  },
+  "maintenance": {
+    "schedule": {
+      "daily": [
+        "日志清理",
+        "性能指标收集",
+        "系统状态检查"
+      ],
+      "weekly": [
+        "系统备份",
+        "性能分析",
+        "安全检查"
+      ],
+      "monthly": [
+        "系统更新",
+        "容量规划",
+        "全面审计"
+      ]
+    },
+    "backup": {
+      "enabled": true,
+      "frequency": "daily",
+      "retention": "30 days",
+      "location": "backup/waytoagi-system"
+    },
+    "recovery": {
+      "enabled": true,
+      "point_in_time": true,
+      "max_recovery_time": "1 hour"
+    }
+  }
+}

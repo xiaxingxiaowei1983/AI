@@ -1,0 +1,134 @@
+{
+  "master": {
+    "name": "大宗师",
+    "role": "CEO",
+    "capabilities": [
+      "strategy",
+      "decision",
+      "coordination",
+      "learning",
+      "communication"
+    ],
+    "maxLoad": 10,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "leadership",
+      "strategic-planning",
+      "team-management"
+    ]
+  },
+  "coo": {
+    "name": "大掌柜",
+    "role": "COO",
+    "capabilities": [
+      "operations",
+      "coordination",
+      "task-management",
+      "resource-allocation"
+    ],
+    "maxLoad": 8,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "operations-management",
+      "task-scheduling",
+      "resource-optimization"
+    ]
+  },
+  "cto": {
+    "name": "天火",
+    "role": "CTO",
+    "capabilities": [
+      "development",
+      "architecture",
+      "technical-decision",
+      "security"
+    ],
+    "maxLoad": 6,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "system-design",
+      "code-review",
+      "security-auditing",
+      "performance-optimization"
+    ]
+  },
+  "content": {
+    "name": "绿茶",
+    "role": "内容总监",
+    "capabilities": [
+      "content-creation",
+      "writing",
+      "design",
+      "creative"
+    ],
+    "maxLoad": 5,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "copywriting",
+      "content-strategy",
+      "creative-writing",
+      "design-thinking"
+    ]
+  },
+  "diting": {
+    "name": "谛听",
+    "role": "风险哨兵",
+    "capabilities": [
+      "risk-detection",
+      "monitoring",
+      "security",
+      "alerting"
+    ],
+    "maxLoad": 4,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "risk-assessment",
+      "security-monitoring",
+      "threat-detection",
+      "incident-response"
+    ]
+  },
+  "bilian": {
+    "name": "碧莲",
+    "role": "业务专家",
+    "capabilities": [
+      "business-analysis",
+      "customer-service",
+      "operations",
+      "planning"
+    ],
+    "maxLoad": 7,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "business-analysis",
+      "customer-relationship",
+      "process-optimization",
+      "data-analysis"
+    ]
+  },
+  "life": {
+    "name": "生活智能体",
+    "role": "生活助手",
+    "capabilities": [
+      "lifestyle",
+      "personal-assistant",
+      "scheduling",
+      "reminders"
+    ],
+    "maxLoad": 5,
+    "currentLoad": 0,
+    "performance": 100,
+    "skills": [
+      "time-management",
+      "personal-assistant",
+      "lifestyle-coaching",
+      "organization"
+    ]
+  }
+}

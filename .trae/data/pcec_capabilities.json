@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Test Capability",
+    "description": "Test capability for feature identification",
+    "type": "test",
+    "inputs": [
+      "input1"
+    ],
+    "outputs": [
+      "output1"
+    ],
+    "id": "capability_1772266087099_1wzcjnliu",
+    "createdAt": "2026-02-28T08:08:07.099Z"
+  }
+]

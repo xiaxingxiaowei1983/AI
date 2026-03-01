@@ -1,0 +1,41 @@
+[
+  {
+    "id": "capability_1772266087112_7lz4pezlw",
+    "name": "Test Feature",
+    "description": "Test feature for product management",
+    "inputs": [
+      "input1",
+      "input2"
+    ],
+    "outputs": [
+      "output1",
+      "output2"
+    ],
+    "invariants": [
+      "Inputs must be valid and complete",
+      "Outputs must be consistent with expected format"
+    ],
+    "parameters": [
+      {
+        "name": "executionTimeout",
+        "description": "Maximum time allowed for execution",
+        "default": 30000,
+        "unit": "ms"
+      },
+      {
+        "name": "retryCount",
+        "description": "Number of retry attempts on failure",
+        "default": 3,
+        "unit": "times"
+      }
+    ],
+    "failurePoints": [
+      "Invalid input format",
+      "Missing required inputs",
+      "Output generation failed",
+      "Output validation failed"
+    ],
+    "createdAt": "2026-02-28T08:08:07.112Z",
+    "source": "new_feature"
+  }
+]

@@ -1,0 +1,213 @@
+{
+  "system_name": "WaytoAGI智能体进化系统",
+  "version": "1.0.0",
+  "description": "集成6个智能体和多个Skill的8小时进化系统",
+  "integration_points": {
+    "knowledge_collector": {
+      "skills": [
+        "daily-topic-selector"
+      ],
+      "outputs": [
+        "knowledge_organizer"
+      ]
+    },
+    "knowledge_organizer": {
+      "skills": [
+        "qiaomu-paper-interpreter",
+        "anything-to-notebooklm"
+      ],
+      "outputs": [
+        "skill_developer",
+        "cognitive_enhancer"
+      ]
+    },
+    "skill_developer": {
+      "skills": [
+        "seed-multimodal"
+      ],
+      "outputs": [
+        "application_promoter",
+        "system_coordinator"
+      ]
+    },
+    "cognitive_enhancer": {
+      "skills": [
+        "return-curve-model",
+        "ai-learning-analogy",
+        "cognitive-framework"
+      ],
+      "outputs": [
+        "application_promoter",
+        "system_coordinator"
+      ]
+    },
+    "application_promoter": {
+      "skills": [
+        "z-image-generator",
+        "ui-skills",
+        "ai-leadership"
+      ],
+      "outputs": [
+        "system_coordinator"
+      ]
+    },
+    "system_coordinator": {
+      "skills": [],
+      "outputs": [
+        "knowledge_collector",
+        "knowledge_organizer",
+        "skill_developer",
+        "cognitive_enhancer",
+        "application_promoter"
+      ]
+    }
+  },
+  "task_schedule": {
+    "knowledge_collector": {
+      "start_time": "00:00",
+      "duration": "90",
+      "priority": "high"
+    },
+    "knowledge_organizer": {
+      "start_time": "01:30",
+      "duration": "90",
+      "priority": "high"
+    },
+    "skill_developer": {
+      "start_time": "03:00",
+      "duration": "90",
+      "priority": "high"
+    },
+    "cognitive_enhancer": {
+      "start_time": "04:30",
+      "duration": "60",
+      "priority": "medium"
+    },
+    "application_promoter": {
+      "start_time": "05:30",
+      "duration": "60",
+      "priority": "medium"
+    },
+    "system_coordinator": {
+      "start_time": "06:30",
+      "duration": "90",
+      "priority": "high"
+    }
+  },
+  "performance_test": {
+    "test_cases": [
+      {
+        "name": "知识采集测试",
+        "description": "测试知识采集者从多个来源采集内容的能力",
+        "input": "多个URL和数据源",
+        "expected_output": "结构化的采集内容",
+        "success_criteria": "采集率 > 95%, 内容质量 > 90%"
+      },
+      {
+        "name": "知识整理测试",
+        "description": "测试知识整理者处理和结构化内容的能力",
+        "input": "采集的原始内容",
+        "expected_output": "结构化的知识库",
+        "success_criteria": "结构化率 > 90%, 检索响应时间 < 1s"
+      },
+      {
+        "name": "技能开发测试",
+        "description": "测试技能开发者创建和管理Skill的能力",
+        "input": "有价值的内容",
+        "expected_output": "功能完整的Skill",
+        "success_criteria": "Skill开发时间 < 30分钟, 测试通过率 > 95%"
+      },
+      {
+        "name": "认知提升测试",
+        "description": "测试认知提升者应用认知模型的能力",
+        "input": "决策场景和问题",
+        "expected_output": "基于认知模型的决策建议",
+        "success_criteria": "决策质量提升 > 20%, 用户满意度 > 85%"
+      },
+      {
+        "name": "应用推广测试",
+        "description": "测试应用推广者推广内容和Skill的能力",
+        "input": "学习内容和Skill",
+        "expected_output": "成功的推广和应用",
+        "success_criteria": "推广覆盖率 > 80%, 应用率 > 60%"
+      },
+      {
+        "name": "系统协调测试",
+        "description": "测试系统协调者管理和协调智能体的能力",
+        "input": "系统负载和任务需求",
+        "expected_output": "优化的任务分配和系统性能",
+        "success_criteria": "任务完成率 > 95%, 系统稳定性 > 99%"
+      }
+    ],
+    "performance_metrics": {
+      "response_time": {
+        "target": "< 1s",
+        "weight": "0.3"
+      },
+      "throughput": {
+        "target": "> 100 tasks/hour",
+        "weight": "0.2"
+      },
+      "resource_usage": {
+        "target": "< 50% CPU, < 60% memory",
+        "weight": "0.2"
+      },
+      "reliability": {
+        "target": "> 99.9% uptime",
+        "weight": "0.3"
+      }
+    }
+  },
+  "integration_test": {
+    "scenarios": [
+      {
+        "name": "完整8小时进化流程",
+        "description": "测试整个系统在8小时内完成进化任务的能力",
+        "steps": [
+          "启动系统协调者",
+          "依次启动各智能体",
+          "执行8小时进化任务",
+          "收集和分析结果"
+        ],
+        "success_criteria": "所有任务完成率 > 95%, 系统无故障运行"
+      },
+      {
+        "name": "智能体协作测试",
+        "description": "测试智能体之间的协作能力",
+        "steps": [
+          "模拟知识采集者向知识整理者传递内容",
+          "测试知识整理者向技能开发者传递结构化知识",
+          "验证技能开发者创建的Skill被应用推广者使用"
+        ],
+        "success_criteria": "协作成功率 > 98%, 信息传递无丢失"
+      },
+      {
+        "name": "故障恢复测试",
+        "description": "测试系统在智能体故障时的恢复能力",
+        "steps": [
+          "模拟知识采集者故障",
+          "测试系统协调者的故障检测和处理",
+          "验证系统恢复正常运行"
+        ],
+        "success_criteria": "故障检测时间 < 1分钟, 恢复时间 < 5分钟"
+      }
+    ]
+  },
+  "deployment": {
+    "environment": "production",
+    "server_config": {
+      "cpu": "8 cores",
+      "memory": "16GB",
+      "storage": "500GB SSD",
+      "network": "1Gbps"
+    },
+    "containerization": {
+      "enabled": true,
+      "orchestration": "Docker Compose"
+    },
+    "monitoring": {
+      "enabled": true,
+      "tools": ["Prometheus", "Grafana"]
+    }
+  }
+}

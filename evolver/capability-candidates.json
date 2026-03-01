@@ -1,0 +1,105 @@
+[
+  {
+    "type": "step_pattern",
+    "name": "Step Pattern: data_processing: parse_json",
+    "pattern": {
+      "description": "data_processing: parse_json",
+      "steps": [
+        {
+          "type": "data_processing",
+          "operation": "parse_json",
+          "parameters": {
+            "filePath": "data.json"
+          },
+          "result": {
+            "success": true,
+            "data": {}
+          }
+        },
+        {
+          "type": "data_processing",
+          "operation": "parse_json",
+          "parameters": {
+            "filePath": "config.json"
+          },
+          "result": {
+            "success": true,
+            "data": {}
+          }
+        }
+      ],
+      "confidence": 1
+    },
+    "source": "execution_steps",
+    "timestamp": "2026-02-28T12:42:59.604Z",
+    "confidence": 1,
+    "id": "candidate_1772282579604_637",
+    "occurrences": 21,
+    "firstSeen": "2026-02-28T12:42:59.604Z",
+    "lastSeen": "2026-03-01T03:19:52.907Z"
+  },
+  {
+    "type": "tool_sequence",
+    "name": "Tool Sequence: read_file -> validate_json",
+    "sequence": {
+      "key": "read_file->validate_json",
+      "tools": [
+        {
+          "name": "read_file",
+          "parameters": {
+            "path": "data.json"
+          },
+          "result": "file content"
+        },
+        {
+          "name": "validate_json",
+          "parameters": {
+            "content": "file content"
+          },
+          "result": {
+            "valid": true
+          }
+        }
+      ],
+      "count": 2,
+      "confidence": 1
+    },
+    "source": "tool_calls",
+    "timestamp": "2026-02-28T12:42:59.604Z",
+    "confidence": 1,
+    "id": "candidate_1772282579606_868",
+    "occurrences": 21,
+    "firstSeen": "2026-02-28T12:42:59.606Z",
+    "lastSeen": "2026-03-01T03:19:52.913Z"
+  },
+  {
+    "type": "reusable_solution",
+    "name": "Solution: JSON Processing",
+    "solution": {
+      "name": "JSON Processing",
+      "description": "Process and validate JSON files",
+      "inputs": [
+        "file_path"
+      ],
+      "outputs": [
+        "processed_data"
+      ],
+      "steps": [
+        "read",
+        "parse",
+        "validate"
+      ],
+      "risks": [
+        "file_not_found",
+        "invalid_json"
+      ]
+    },
+    "source": "solutions",
+    "timestamp": "2026-02-28T12:42:59.604Z",
+    "confidence": 1,
+    "id": "candidate_1772282579607_752",
+    "occurrences": 21,
+    "firstSeen": "2026-02-28T12:42:59.607Z",
+    "lastSeen": "2026-03-01T03:19:52.915Z"
+  }
+]

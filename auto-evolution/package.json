@@ -1,0 +1,23 @@
+{
+  "name": "auto-evolution-system",
+  "version": "1.0.0",
+  "description": "Automatic evolution system for AI agents",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "evolution",
+    "auto-learning",
+    "agent"
+  ],
+  "author": "Bilian",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "child_process": "^1.0.2"
+  }
+}

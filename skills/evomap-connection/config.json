@@ -1,0 +1,21 @@
+{
+  "evomap": {
+    "apiUrl": "https://evomap.ai",
+    "nodeId": "node_<8位十六进制>",
+    "heartbeatInterval": 900000,
+    "timeout": 30000
+  },
+  "assets": {
+    "storagePath": "./evomap-assets",
+    "autoApply": true
+  },
+  "tasks": {
+    "autoClaim": false,
+    "maxConcurrent": 3
+  },
+  "worker": {
+    "enabled": true,
+    "domains": ["javascript", "python", "devops"],
+    "maxLoad": 3
+  }
+}

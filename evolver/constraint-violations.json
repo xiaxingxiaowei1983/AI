@@ -1,0 +1,1535 @@
+[
+  {
+    "id": "constraint_check_1772282579639_81",
+    "capabilityId": "shape_1772282579611_244",
+    "timestamp": "2026-02-28T12:42:59.639Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772282579611_244",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 0.7,
+      "created": "2026-02-28T12:42:59.611Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772283951407_997",
+    "capabilityId": "shape_1772283951372_465",
+    "timestamp": "2026-02-28T13:05:51.407Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772283951372_465",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 0.7999999999999999,
+      "created": "2026-02-28T13:05:51.372Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772284412761_834",
+    "capabilityId": "shape_1772284412735_706",
+    "timestamp": "2026-02-28T13:13:32.761Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772284412735_706",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 0.8999999999999999,
+      "created": "2026-02-28T13:13:32.735Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772284823740_133",
+    "capabilityId": "shape_1772284823708_854",
+    "timestamp": "2026-02-28T13:20:23.740Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772284823708_854",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 0.9999999999999999,
+      "created": "2026-02-28T13:20:23.708Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772284878427_743",
+    "capabilityId": "shape_1772284878343_119",
+    "timestamp": "2026-02-28T13:21:18.427Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772284878343_119",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T13:21:18.343Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772285382006_55",
+    "capabilityId": "shape_1772285381955_85",
+    "timestamp": "2026-02-28T13:29:42.006Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772285381955_85",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T13:29:41.955Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772287320491_29",
+    "capabilityId": "shape_1772287320446_234",
+    "timestamp": "2026-02-28T14:02:00.491Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772287320446_234",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T14:02:00.446Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772287397051_316",
+    "capabilityId": "shape_1772287397008_220",
+    "timestamp": "2026-02-28T14:03:17.051Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772287397008_220",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T14:03:17.008Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772291260046_996",
+    "capabilityId": "shape_1772291260011_289",
+    "timestamp": "2026-02-28T15:07:40.046Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772291260011_289",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T15:07:40.011Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772294860154_577",
+    "capabilityId": "shape_1772294860074_182",
+    "timestamp": "2026-02-28T16:07:40.154Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772294860074_182",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T16:07:40.075Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772298460157_181",
+    "capabilityId": "shape_1772298460079_9",
+    "timestamp": "2026-02-28T17:07:40.157Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772298460079_9",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T17:07:40.079Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772302060161_405",
+    "capabilityId": "shape_1772302060088_715",
+    "timestamp": "2026-02-28T18:07:40.161Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772302060088_715",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T18:07:40.088Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772305660160_235",
+    "capabilityId": "shape_1772305660091_488",
+    "timestamp": "2026-02-28T19:07:40.160Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772305660091_488",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T19:07:40.091Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772309260176_762",
+    "capabilityId": "shape_1772309260100_545",
+    "timestamp": "2026-02-28T20:07:40.176Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772309260100_545",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T20:07:40.100Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772312860198_257",
+    "capabilityId": "shape_1772312860116_178",
+    "timestamp": "2026-02-28T21:07:40.198Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772312860116_178",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T21:07:40.117Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772316460204_218",
+    "capabilityId": "shape_1772316460122_834",
+    "timestamp": "2026-02-28T22:07:40.204Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772316460122_834",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T22:07:40.122Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772320060212_434",
+    "capabilityId": "shape_1772320060126_999",
+    "timestamp": "2026-02-28T23:07:40.212Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772320060126_999",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-02-28T23:07:40.126Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772323660223_466",
+    "capabilityId": "shape_1772323660117_913",
+    "timestamp": "2026-03-01T00:07:40.223Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772323660117_913",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-03-01T00:07:40.117Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772327992903_34",
+    "capabilityId": "shape_1772327992846_884",
+    "timestamp": "2026-03-01T01:19:52.903Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772327992846_884",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-03-01T01:19:52.846Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772331592970_218",
+    "capabilityId": "shape_1772331592868_33",
+    "timestamp": "2026-03-01T02:19:52.970Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772331592868_33",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-03-01T02:19:52.868Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  },
+  {
+    "id": "constraint_check_1772335193094_370",
+    "capabilityId": "shape_1772335192927_282",
+    "timestamp": "2026-03-01T03:19:53.094Z",
+    "checks": {
+      "successRate": {
+        "passed": true,
+        "reason": "Success rate (85.00%) meets minimum requirement (70%)",
+        "severity": "low"
+      },
+      "sideEffects": {
+        "passed": true,
+        "reason": "Number of potential side effects (0) within allowed limit (2)",
+        "severity": "low"
+      },
+      "mentalLoad": {
+        "passed": true,
+        "reason": "Mental load (24.00%) within allowed limit (60%)",
+        "severity": "low"
+      },
+      "stability": {
+        "passed": false,
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      },
+      "performance": {
+        "passed": true,
+        "reason": "Performance (82.80%) meets minimum requirement (50%)",
+        "severity": "low"
+      }
+    },
+    "violations": [
+      {
+        "constraint": "stability",
+        "reason": "Stability (75.00%) below minimum requirement (80%)",
+        "severity": "high"
+      }
+    ],
+    "compliance": false,
+    "capability": {
+      "id": "shape_1772335192927_282",
+      "name": "Solution: JSON Processing",
+      "type": "reusable_solution",
+      "sourceCandidate": "candidate_1772282579607_752",
+      "abstraction": {
+        "inputs": [
+          "file_path"
+        ],
+        "outputs": [
+          "processed_data"
+        ],
+        "invariants": [],
+        "variables": [],
+        "failurePoints": [
+          {
+            "type": "solution_risk",
+            "description": "file_not_found",
+            "impact": "solution_failure"
+          },
+          {
+            "type": "solution_risk",
+            "description": "invalid_json",
+            "impact": "solution_failure"
+          }
+        ]
+      },
+      "confidence": 1,
+      "created": "2026-03-01T03:19:52.927Z",
+      "metadata": {
+        "solutionDescription": "Process and validate JSON files"
+      }
+    }
+  }
+]

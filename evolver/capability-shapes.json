@@ -1,0 +1,168 @@
+[
+  {
+    "id": "shape_1772282579608_941",
+    "name": "Step Pattern: data_processing: parse_json",
+    "type": "step_pattern",
+    "sourceCandidate": "candidate_1772282579604_637",
+    "abstraction": {
+      "inputs": [
+        {
+          "name": "filePath",
+          "type": "string",
+          "description": "Input parameter for parse_json"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "object",
+          "description": "Result from parse_json"
+        }
+      ],
+      "invariants": [
+        {
+          "type": "step_type",
+          "value": "data_processing",
+          "description": "All steps have the same type"
+        },
+        {
+          "type": "operation",
+          "value": "parse_json",
+          "description": "All steps have the same operation"
+        }
+      ],
+      "variables": [
+        {
+          "name": "filePath",
+          "description": "Variable parameter across steps",
+          "examples": [
+            "data.json",
+            "config.json"
+          ]
+        }
+      ],
+      "failurePoints": [
+        {
+          "type": "sequence_dependency",
+          "description": "Later steps depend on successful completion of earlier steps",
+          "impact": "chain_reaction"
+        }
+      ]
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.608Z",
+    "metadata": {
+      "stepCount": 2,
+      "patternDescription": "data_processing: parse_json"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.920Z"
+  },
+  {
+    "id": "shape_1772282579610_996",
+    "name": "Tool Sequence: read_file -> validate_json",
+    "type": "tool_sequence",
+    "sourceCandidate": "candidate_1772282579606_868",
+    "abstraction": {
+      "inputs": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Input parameter for tool read_file"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "Input parameter for tool validate_json"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "read_file_result",
+          "type": "string",
+          "description": "Result from tool read_file"
+        },
+        {
+          "name": "validate_json_result",
+          "type": "object",
+          "description": "Result from tool validate_json"
+        }
+      ],
+      "invariants": [
+        {
+          "type": "tool_sequence",
+          "value": "read_file -> validate_json",
+          "description": "Fixed sequence of tools"
+        },
+        {
+          "type": "unique_tools",
+          "value": true,
+          "description": "All tools in sequence are unique"
+        }
+      ],
+      "variables": [
+        {
+          "name": "path",
+          "description": "Variable parameter across tools",
+          "examples": [
+            "data.json"
+          ]
+        },
+        {
+          "name": "content",
+          "description": "Variable parameter across tools",
+          "examples": [
+            "file content"
+          ]
+        }
+      ],
+      "failurePoints": [
+        {
+          "type": "tool_dependency",
+          "description": "Later tools may depend on results from earlier tools",
+          "impact": "chain_reaction"
+        }
+      ]
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.610Z",
+    "metadata": {
+      "toolCount": 2,
+      "sequenceKey": "read_file->validate_json"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.925Z"
+  },
+  {
+    "id": "shape_1772282579611_244",
+    "name": "Solution: JSON Processing",
+    "type": "reusable_solution",
+    "sourceCandidate": "candidate_1772282579607_752",
+    "abstraction": {
+      "inputs": [
+        "file_path"
+      ],
+      "outputs": [
+        "processed_data"
+      ],
+      "invariants": [],
+      "variables": [],
+      "failurePoints": [
+        {
+          "type": "solution_risk",
+          "description": "file_not_found",
+          "impact": "solution_failure"
+        },
+        {
+          "type": "solution_risk",
+          "description": "invalid_json",
+          "impact": "solution_failure"
+        }
+      ]
+    },
+    "confidence": 1,
+    "created": "2026-02-28T12:42:59.611Z",
+    "metadata": {
+      "solutionDescription": "Process and validate JSON files"
+    },
+    "lastUpdated": "2026-03-01T03:19:52.928Z"
+  }
+]

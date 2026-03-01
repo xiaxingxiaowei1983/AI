@@ -1,0 +1,44 @@
+[
+  {
+    "id": "report_1772266087116_wl2249jq8",
+    "cycle": 1,
+    "timestamp": "2026-02-28T08:08:07.116Z",
+    "evolution": {
+      "direction": {
+        "type": "new_feature"
+      },
+      "result": {
+        "feature": {
+          "name": "Test Feature"
+        }
+      },
+      "isSignificant": true
+    },
+    "mindExplosion": {
+      "question": "Test question",
+      "insights": [
+        "Test insight 1",
+        "Test insight 2"
+      ]
+    },
+    "products": [
+      {
+        "id": "product_1",
+        "name": "Test Product",
+        "type": "capability_shape",
+        "quality": 0.4
+      }
+    ],
+    "summary": "PCEC Cycle #1 completed with significant evolution. Evolution direction: new_feature. Mind explosion generated 2 insights. Generated 1 evolution products.",
+    "nextSteps": [
+      "Implement the new capability in production",
+      "Monitor performance and gather feedback",
+      "Integrate new products into existing workflows",
+      "Document new capabilities for future reference",
+      "Continue monitoring for new evolution opportunities"
+    ],
+    "recipient": "陈婷（剑锋传奇）",
+    "status": "sent",
+    "sentAt": "2026-02-28T08:08:07.117Z"
+  }
+]

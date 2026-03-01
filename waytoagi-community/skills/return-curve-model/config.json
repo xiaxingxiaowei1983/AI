@@ -1,0 +1,28 @@
+{
+  "skill_name": "回报曲线模型",
+  "version": "1.0.0",
+  "description": "基于《姚金刚认知随笔》中的回报曲线模型，解释为什么只有做到顶级水平才能获得超高回报",
+  "author": "WaytoAGI社区",
+  "size": "1.5KB",
+  "type": "cognitive",
+  "dependencies": [],
+  "entry_point": "return-curve-model.js",
+  "capabilities": [
+    "return_curve_analysis",
+    "performance_evaluation",
+    "goal_setting"
+  ],
+  "use_cases": [
+    "个人成长规划",
+    "团队能力建设",
+    "职业发展指导"
+  ],
+  "integration_points": [
+    "认知提升者"
+  ],
+  "deployment": {
+    "status": "deployed",
+    "path": "waytoagi-community/skills/return-curve-model",
+    "last_updated": "2026-02-25"
+  }
+}

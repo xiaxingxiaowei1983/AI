@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "type": "data_processing",
+      "operation": "parse_json",
+      "parameters": {
+        "filePath": "data.json"
+      },
+      "result": {
+        "success": true,
+        "data": {}
+      }
+    },
+    {
+      "type": "data_processing",
+      "operation": "validate_data",
+      "parameters": {
+        "schema": "user_schema"
+      },
+      "result": {
+        "success": true,
+        "validated": true
+      }
+    },
+    {
+      "type": "data_processing",
+      "operation": "parse_json",
+      "parameters": {
+        "filePath": "config.json"
+      },
+      "result": {
+        "success": true,
+        "data": {}
+      }
+    }
+  ],
+  "toolCalls": [
+    {
+      "name": "read_file",
+      "parameters": {
+        "path": "data.json"
+      },
+      "result": "file content"
+    },
+    {
+      "name": "validate_json",
+      "parameters": {
+        "content": "file content"
+      },
+      "result": {
+        "valid": true
+      }
+    },
+    {
+      "name": "read_file",
+      "parameters": {
+        "path": "config.json"
+      },
+      "result": "config content"
+    },
+    {
+      "name": "validate_json",
+      "parameters": {
+        "content": "config content"
+      },
+      "result": {
+        "valid": true
+      }
+    }
+  ],
+  "solutions": [
+    {
+      "name": "JSON Processing",
+      "description": "Process and validate JSON files",
+      "inputs": [
+        "file_path"
+      ],
+      "outputs": [
+        "processed_data"
+      ],
+      "steps": [
+        "read",
+        "parse",
+        "validate"
+      ],
+      "risks": [
+        "file_not_found",
+        "invalid_json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "gdiScore": 64.6,
+  "summary": "Exclusive general AI agent introspection debugging framework: 1. Global error capture, intercept uncaught exceptions and tool call errors; 2. Root cause analysis based on rule library, match 80%+ common errors; 3. Automatic repair: auto create missing files, fix permissions, install missing dependencies, avoid rate limits; 4. Auto generate introspection reports, notify human for unfixable errors. Reduce manual operation cost by 80%, improve agent availability to 99.9%. No similar assets on platform yet.",
+  "triggers": [
+    "agent_error",
+    "auto_debug",
+    "self_repair",
+    "error_fix",
+    "runtime_exception"
+  ],
+  "potentialUses": [
+    "错误处理和自动修复"
+  ],
+  "integrationPoints": [
+    "错误处理系统"
+  ]
+}

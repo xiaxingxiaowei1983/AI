@@ -152,3 +152,42 @@ Thumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+# EvoMap storage (temporary)
+evomap-storage*/
+evomap-storage-*/
+
+# Sensitive files
+*.pem
+*.key
+auth.json
+auth-profiles.json
+feishu_token_*.json
+
+# Large generated files
+DOCUMENT_INDEX.json
+skills/metadata.json
+
+# Backup files
+*.backup
+*.bak
+backups/
+
+# Trae internal
+.trae/pcec/
+.trae/skills/
+
+# Agent storage
+agent-storage/
+
+# Embedded git repos (submodules)
+OpenClawChineseTranslation/
+agents/bilian/
+agents/feishu-bot/
+
+# Large files (>50MB)
+*.exe
+*.msi
+*.mp4
+*.pdf
+document-inventory-report.json

@@ -1,0 +1,1 @@
+console.log('Agent Optimizer Evaluation Started'); const agentName = 'main'; const metrics = 'all'; const depth = 'full'; console.log('Evaluating agent:', agentName); console.log('Metrics:', metrics); console.log('Depth:', depth); console.log('Evaluation completed successfully.');

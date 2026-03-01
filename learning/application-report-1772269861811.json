@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-02-28T09:11:01.811Z",
+  "stats": {
+    "totalKnowledge": 7,
+    "totalApplications": 4,
+    "mostAppliedKnowledge": [
+      {
+        "content": "学习了新的课程内容",
+        "source": "learning",
+        "timestamp": "2026-02-28T06:57:32.214Z",
+        "applicationCount": 1
+      },
+      {
+        "content": "增强了自动学习和进化能力",
+        "source": "learning",
+        "timestamp": "2026-02-28T06:57:32.214Z",
+        "applicationCount": 1
+      },
+      {
+        "content": "提高资源发现和筛选效率",
+        "source": "evolution",
+        "timestamp": "2026-02-28T06:57:38.255Z",
+        "applicationCount": 1
+      },
+      {
+        "content": "增强学习内容的应用能力",
+        "source": "evolution",
+        "timestamp": "2026-02-28T06:57:38.255Z",
+        "applicationCount": 1
+      },
+      {
+        "content": "获得了新的知识和技能",
+        "source": "learning",
+        "timestamp": "2026-02-28T06:57:32.214Z",
+        "applicationCount": 0
+      }
+    ],
+    "applicationByTask": {
+      "增强知识获取能力": 3,
+      "提升学习效率": 1
+    },
+    "knowledgeSourceDistribution": {
+      "learning": 4,
+      "evolution": 3
+    }
+  },
+  "summary": [
+    "知识库共有 7 条知识，已应用 4 次",
+    "最常用的知识是: 学习了新的课程内容",
+    "应用知识最多的任务是: 增强知识获取能力 (3 次)",
+    "知识来源分布: 学习记录 4 条, 进化报告 3 条"
+  ],
+  "recommendations": [
+    "建议增加学习量，丰富知识库",
+    "建议增加知识应用频率",
+    "建议优化知识应用算法，提高应用准确性",
+    "建议定期更新知识库，保持知识的时效性"
+  ]
+}

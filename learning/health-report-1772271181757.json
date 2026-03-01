@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-02-28T09:33:01.757Z",
+  "status": {
+    "evomapApi": "unhealthy",
+    "lastHealthCheck": "2026-02-28T09:33:01.754Z",
+    "recoveryAttempts": 1,
+    "isRecovering": true
+  },
+  "recommendations": [
+    "EvoMap API 状态异常，建议检查网络连接和EvoMap服务状态",
+    "已尝试恢复EvoMap API连接 1 次",
+    "系统正在尝试恢复EvoMap API连接",
+    "建议定期检查系统健康状态，确保服务正常运行",
+    "建议优化网络连接，提高API访问稳定性"
+  ]
+}

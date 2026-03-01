@@ -1,0 +1,30 @@
+{
+  "model": {
+    "provider": "local",
+    "api_key": "none",
+    "require_api_key": false
+  },
+  "evo": {
+    "enable": true,
+    "review": true,
+    "autoImprove": true
+  },
+  "agent": {
+    "name": "人生决策宗师",
+    "trigger": ["@人生决策宗师", "@天师"],
+    "autoRun": true,
+    "continuousMode": true
+  },
+  "workspace": {
+    "autoClean": false,
+    "backup": true
+  },
+  "skills": {
+    "lifeDecision": true,
+    "energyManagement": true,
+    "underlyingLogic": true,
+    "lifeOptimization": true,
+    "personalGrowth": true,
+    "awknFramework": true
+  }
+}

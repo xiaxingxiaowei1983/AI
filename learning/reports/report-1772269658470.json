@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-02-28T09:07:38.343Z",
+  "stats": {
+    "totalLearnings": 12,
+    "totalEvolutions": 4,
+    "totalInsights": 48,
+    "totalImprovements": 12,
+    "resourceTypes": {
+      "lesson": 12
+    },
+    "learningTimeRange": {
+      "start": "2026-02-28T06:57:32.214Z",
+      "end": "2026-02-28T07:27:48.135Z"
+    }
+  },
+  "summary": [
+    "共学习了 12 个资源，完成了 4 次进化",
+    "获得了 48 个学习洞察和 12 项改进建议",
+    "学习时间范围: 2026/2/28 14:57:32 至 2026/2/28 15:27:48",
+    "学习持续时间: 0.5 小时",
+    "学习资源类型分布: lesson: 12"
+  ],
+  "recommendations": [
+    "建议增加进化次数，提升智能体能力",
+    "建议学习更多类型的资源",
+    "建议定期检查EvoMap API状态，确保持续获取资源",
+    "建议优化资源评估算法，提高学习效率"
+  ]
+}

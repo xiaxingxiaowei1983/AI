@@ -1,0 +1,56 @@
+[
+  {
+    "id": "target_1",
+    "name": "能力树优化",
+    "description": "优化能力树结构，提高能力使用效率",
+    "priority": "high",
+    "metrics": {
+      "healthScore": 0.8,
+      "usageEfficiency": 0.7,
+      "balanceScore": 0.6
+    },
+    "weight": 0.3
+  },
+  {
+    "id": "target_2",
+    "name": "系统性能提升",
+    "description": "提升系统性能，减少响应时间",
+    "priority": "high",
+    "metrics": {
+      "responseTime": 1000,
+      "memoryUsage": 512,
+      "cpuUsage": 50
+    },
+    "weight": 0.25
+  },
+  {
+    "id": "target_3",
+    "name": "资产健康度",
+    "description": "提高公司资产的健康度",
+    "priority": "medium",
+    "metrics": {
+      "healthRate": 0.95
+    },
+    "weight": 0.2
+  },
+  {
+    "id": "target_4",
+    "name": "技能获取",
+    "description": "自动从外部源获取新技能",
+    "priority": "medium",
+    "metrics": {
+      "newSkillsPerMonth": 5
+    },
+    "weight": 0.15
+  },
+  {
+    "id": "target_5",
+    "name": "EvoMap任务执行",
+    "description": "自主执行EvoMap任务",
+    "priority": "low",
+    "metrics": {
+      "taskSuccessRate": 0.8
+    },
+    "weight": 0.1
+  }
+]

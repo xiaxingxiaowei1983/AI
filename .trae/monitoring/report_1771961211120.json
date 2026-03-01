@@ -1,0 +1,228 @@
+{
+  "timestamp": "2026-02-24T19:26:51.120Z",
+  "metrics": {
+    "tokenUsage": {
+      "total": 0,
+      "byAgent": {},
+      "trends": [],
+      "lastUpdated": null
+    },
+    "responseTime": {
+      "average": 0,
+      "maximum": 0,
+      "minimum": null,
+      "byAgent": {},
+      "trends": [],
+      "lastUpdated": null
+    },
+    "taskCompletion": {
+      "total": 0,
+      "successful": 0,
+      "failed": 0,
+      "byAgent": {},
+      "trends": [],
+      "lastUpdated": null
+    },
+    "userSatisfaction": {
+      "score": 0,
+      "feedbackCount": 0,
+      "trends": [],
+      "lastUpdated": null
+    },
+    "errorRate": {
+      "totalErrors": 0,
+      "rate": 0,
+      "byType": {},
+      "trends": [],
+      "lastUpdated": null
+    }
+  },
+  "healthChecks": {
+    "agents": {
+      "builder": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.099Z"
+      },
+      "business": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.103Z"
+      },
+      "common": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.104Z"
+      },
+      "company-brain-agent": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.105Z"
+      },
+      "content": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.105Z"
+      },
+      "coo": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.107Z"
+      },
+      "cto": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.108Z"
+      },
+      "evomap-evolution": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.110Z"
+      },
+      "green-tea": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.111Z"
+      },
+      "life": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.111Z"
+      },
+      "life-coach": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.111Z"
+      },
+      "master": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.112Z"
+      },
+      "patrol": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.112Z"
+      },
+      "production": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.114Z"
+      },
+      "utils": {
+        "status": "UNHEALTHY",
+        "error": "智能体提示词文件不存在",
+        "lastCheck": "2026-02-24T19:26:51.115Z"
+      }
+    },
+    "services": {
+      "git": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.097Z"
+      },
+      "evomap": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.098Z"
+      },
+      "knowledgeBase": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.098Z"
+      },
+      "capabilityTree": {
+        "status": "HEALTHY",
+        "lastCheck": "2026-02-24T19:26:51.098Z"
+      }
+    },
+    "system": {
+      "memory": {
+        "usage": 90.607773492778,
+        "total": 17022324736,
+        "free": 1598775296,
+        "lastCheck": "2026-02-24T19:26:49.900Z"
+      },
+      "cpu": {
+        "usage": 20.72590963943185,
+        "count": 12,
+        "lastCheck": "2026-02-24T19:26:49.903Z"
+      },
+      "disk": {
+        "usage": 0,
+        "lastCheck": "2026-02-24T19:26:49.903Z"
+      }
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert_1771961211100_glo4m1lux",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "builder智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.100Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211104_e17r9nfqm",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "common智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.104Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211105_53hhn8kri",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "content智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.105Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211108_ovsmlokt1",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "cto智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.108Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211110_mo7kx4rsd",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "evomap-evolution智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.110Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211111_fj66uv37s",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "life-coach智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.111Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211113_8fxnuzbv9",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "patrol智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.113Z",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "alert_1771961211115_b7tswr783",
+      "level": "WARNING",
+      "title": "Agent Status",
+      "message": "utils智能体不可用",
+      "source": "system",
+      "timestamp": "2026-02-24T19:26:51.115Z",
+      "status": "ACTIVE"
+    }
+  ],
+  "summary": {
+    "overallStatus": "CRITICAL",
+    "errorRate": 0,
+    "taskSuccessRate": 0,
+    "averageResponseTime": 0,
+    "tokenUsage": 0
+  }
+}

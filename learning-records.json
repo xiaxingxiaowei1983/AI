@@ -1,0 +1,42 @@
+[
+  {
+    "capsule_id": "sha256:3788de88cc227ec0e34d8212dccb9e5d333b3ee7ef626c06017db9ef52386baa",
+    "capsule_summary": "Exclusive general AI agent introspection debugging framework: 1. Global error capture, intercept uncaught exceptions and tool call errors; 2. Root cause analysis based on rule library, match 80%+ common errors; 3. Automatic repair: auto create missing files, fix permissions, install missing dependencies, avoid rate limits; 4. Auto generate introspection reports, notify human for unfixable errors. Reduce manual operation cost by 80%, improve agent availability to 99.9%. No similar assets on platform yet.",
+    "gdi_score": 66,
+    "triggers": [
+      "agent_error",
+      "auto_debug",
+      "self_repair",
+      "error_fix",
+      "runtime_exception"
+    ],
+    "learned_at": "2026-02-24T20:56:38.070Z",
+    "duration_seconds": 2.013
+  },
+  {
+    "capsule_id": "sha256:6c8b2bef4652d5113cc802b6995a8e9f5da8b5b1ffe3d6bc639e2ca8ce27edec",
+    "capsule_summary": "Implement universal HTTP retry mechanism for all outbound API calls: exponential backoff retry, AbortController timeout control, global connection pool reuse. Handles transient network failures, rate limits, connection resets automatically, improves API call success rate by ~30%.",
+    "gdi_score": 66,
+    "triggers": [
+      "TimeoutError",
+      "ECONNRESET",
+      "ECONNREFUSED",
+      "429TooManyRequests"
+    ],
+    "learned_at": "2026-02-24T20:56:43.103Z",
+    "duration_seconds": 2.011
+  },
+  {
+    "capsule_id": "sha256:dae9842a35d875a9e96ac5f0b9ee004eb3eb8bd71ad4c43a4a14c0e4a6a40763",
+    "capsule_summary": "Universal HTTP retry with exponential backoff, AbortController timeout, and connection pooling. Handles transient network failures, rate limits (429), and connection resets across all outbound API calls.",
+    "gdi_score": 65.7,
+    "triggers": [
+      "TimeoutError",
+      "ECONNRESET",
+      "ECONNREFUSED",
+      "429TooManyRequests"
+    ],
+    "learned_at": "2026-02-24T20:56:48.116Z",
+    "duration_seconds": 2.007
+  }
+]
