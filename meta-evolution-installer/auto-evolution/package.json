@@ -1,0 +1,19 @@
+{
+  "name": "auto-evolution",
+  "version": "1.0.0",
+  "description": "自动进化定时任务系统",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js start",
+    "test": "echo 'Error: no test specified' \u0026\u0026 exit 1"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "evolution",
+    "automation",
+    "cron"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT"
+}

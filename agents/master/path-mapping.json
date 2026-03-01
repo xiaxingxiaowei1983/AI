@@ -1,0 +1,16 @@
+{
+  "systemPaths": {
+    "evolver": "C:/Users/10919/Desktop/AI/evolver",
+    "trae": "C:/Users/10919/Desktop/AI/.trae",
+    "backups": "C:/Users/10919/Desktop/AI/backups"
+  },
+  "agentBase": "C:/Users/10919/Desktop/AI/agents/master",
+  "subAgents": {
+    "business": "C:/Users/10919/Desktop/AI/agents/business",
+    "cto": "C:/Users/10919/Desktop/AI/agents/cto",
+    "green-tea": "C:/Users/10919/Desktop/AI/agents/green-tea",
+    "coo": "C:/Users/10919/Desktop/AI/agents/coo",
+    "life": "C:/Users/10919/Desktop/AI/agents/life"
+  },
+  "workspace": "C:/Users/10919/Desktop/AI"
+}

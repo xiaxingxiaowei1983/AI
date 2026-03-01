@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2026-03-01T04:05:11.774Z",
+    "type": "hourly",
+    "improvements": [
+      {
+        "type": "efficiency",
+        "value": 0.15,
+        "description": "优化响应时间"
+      },
+      {
+        "type": "quality",
+        "value": 0.1,
+        "description": "提升回答质量"
+      },
+      {
+        "type": "learning",
+        "value": 0.2,
+        "description": "学习新技能"
+      }
+    ],
+    "new_capabilities": [],
+    "metrics": {
+      "response_time": 1.5524673902960355,
+      "success_rate": 0.9251405788532552,
+      "user_satisfaction": 0.8588452276212469
+    },
+    "duration": 110
+  }
+]
