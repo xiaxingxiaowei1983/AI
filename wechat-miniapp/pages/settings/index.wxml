@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="card">
+    <view class="title">语言偏好</view>
+    <picker mode="selector" range="{{languages}}" bindchange="onLanguageChange" value="{{langIndex}}">
+      <view>当前语言：{{languages[langIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <view class="title">实人时空校准</view>
+    <view class="subtitle">如需深度校准，请预约宗师沟通（高级会员按次付费）</view>
+  </view>
+
+  <view class="card">
+    <button class="btn" bindtap="goAdminLogin">后台管理登录入口</button>
+  </view>
+</view>

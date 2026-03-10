@@ -1,0 +1,18 @@
+{
+  "description": "人生决策宗师微信小程序MVP",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.4.0",
+  "appid": "touristappid",
+  "projectname": "life-choice-master",
+  "condition": {}
+}

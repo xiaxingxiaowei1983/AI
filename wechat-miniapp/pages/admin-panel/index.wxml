@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="card">
+    <view class="title">管理员中心</view>
+    <view>当前管理员：{{admin.email}}</view>
+  </view>
+
+  <view class="card">
+    <view class="title">修改密码</view>
+    <input placeholder="旧密码" password="true" data-field="oldPassword" bindinput="onInput" value="{{oldPassword}}" />
+    <input placeholder="新密码（至少8位）" password="true" data-field="newPassword" bindinput="onInput" value="{{newPassword}}" />
+    <button class="btn" bindtap="changePassword">保存新密码</button>
+  </view>
+</view>

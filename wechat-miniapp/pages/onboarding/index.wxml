@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="card">
+    <view class="title">人生决策宗师</view>
+    <view class="subtitle">建立你的时空档案（信息将自动记忆）</view>
+
+    <input placeholder="姓名（可选）" data-field="name" bindinput="onInput" value="{{form.name}}" />
+    <picker mode="selector" range="{{genders}}" bindchange="onGenderChange">
+      <view>性别：{{genders[form.genderIndex]}}</view>
+    </picker>
+    <picker mode="date" bindchange="onDateChange" value="{{form.birthDate}}">
+      <view>生日：{{form.birthDate || '请选择生日'}}</view>
+    </picker>
+    <picker mode="selector" range="{{hours}}" bindchange="onHourChange">
+      <view>出生时间：{{hours[form.hourIndex]}}</view>
+    </picker>
+    <input placeholder="出生地（省市）" data-field="location" bindinput="onInput" value="{{form.location}}" />
+    <input placeholder="邮箱（注册成功送10积分）" data-field="email" bindinput="onInput" value="{{form.email}}" />
+
+    <button class="btn" bindtap="submit">完成建立并进入日常</button>
+  </view>
+</view>
