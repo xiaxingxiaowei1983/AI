@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="card">
+    <view class="title">宗师推演（自由对话）</view>
+    <view class="subtitle">历史会话会被记录，便于持续复盘</view>
+  </view>
+
+  <view class="card chat-box">
+    <block wx:for="{{messages}}" wx:key="idx">
+      <view class="msg {{item.role}}">{{item.content}}</view>
+    </block>
+  </view>
+
+  <view class="card">
+    <textarea placeholder="输入你的问题，例如：是否该换工作？" maxlength="500" bindinput="onInput" value="{{input}}" />
+    <button class="btn" bindtap="send">发送</button>
+    <button bindtap="clearHistory">清空历史</button>
+  </view>
+</view>

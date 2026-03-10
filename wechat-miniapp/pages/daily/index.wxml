@@ -1,0 +1,25 @@
+<view class="container">
+  <view wx:if="{{!user}}" class="card">
+    <view class="title">先建立身份档案</view>
+    <button class="btn" bindtap="goOnboarding">去填写信息</button>
+  </view>
+
+  <view wx:else>
+    <view class="card">
+      <view class="title">你好，{{user.name || '决策者'}}</view>
+      <view>当前积分：{{points}}</view>
+      <view>宗师对您的理解程度：{{understanding}}%</view>
+    </view>
+
+    <view class="card">
+      <view class="title">{{moduleTitle}}</view>
+      <view>{{moduleText}}</view>
+    </view>
+
+    <view wx:if="{{moduleType === 'EVENING_REVIEW'}}" class="card">
+      <view class="title">胜率复盘</view>
+      <textarea placeholder="今晚发生了什么？" maxlength="500" bindinput="onReviewInput" value="{{reviewText}}" />
+      <button class="btn" bindtap="submitReview">提交复盘（+10积分）</button>
+    </view>
+  </view>
+</view>

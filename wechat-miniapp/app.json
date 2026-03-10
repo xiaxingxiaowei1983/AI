@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/onboarding/index",
+    "pages/daily/index",
+    "pages/grandmaster/index",
+    "pages/settings/index",
+    "pages/admin-login/index",
+    "pages/admin-panel/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "人生决策宗师",
+    "navigationBarBackgroundColor": "#111111",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0b0b0b",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8f8f8f",
+    "selectedColor": "#d4af37",
+    "backgroundColor": "#111111",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/daily/index",
+        "text": "日常"
+      },
+      {
+        "pagePath": "pages/grandmaster/index",
+        "text": "宗师"
+      },
+      {
+        "pagePath": "pages/settings/index",
+        "text": "设置"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

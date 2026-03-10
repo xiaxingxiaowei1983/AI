@@ -1,0 +1,22 @@
+.chat-box {
+  max-height: 700rpx;
+}
+.msg {
+  margin-bottom: 14rpx;
+  padding: 12rpx;
+  border-radius: 12rpx;
+}
+.user {
+  background: #24303c;
+}
+.assistant {
+  background: #2d2610;
+  color: #f2d67b;
+}
+textarea {
+  width: 100%;
+  min-height: 140rpx;
+  border: 1rpx solid #333;
+  border-radius: 12rpx;
+  padding: 12rpx;
+}
